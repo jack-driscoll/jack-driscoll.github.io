@@ -1,9 +1,10 @@
 ---
 layout: post
 title: "MOAR FEATURES!"
-# When is the following generated?
 date: YYYY-MM-DD hh:mm:ss -0000
 categories: mindless-content unnecessary-post
+# ignore /YYYY/MM/DD/title.html
+permalink: /FEATURES.html
 tags: fishsticks shite
 ---
 
