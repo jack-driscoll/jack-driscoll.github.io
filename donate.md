@@ -1,6 +1,8 @@
+---
 layout: page
 title: "Donate"
-permalink: /donate/
+# DO I NEED THIS? permalink: /donate.html
+---
 
 # Donate to me, give me free monies!
 ## Bitcoin
