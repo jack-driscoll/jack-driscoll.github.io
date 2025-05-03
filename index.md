@@ -4,6 +4,8 @@
 
 layout: home
 ---
-***FUCKING REALLY?!?***
+***ETHEREAL MODERN TECHNOLOGIES***
 
-I don't really need all these features
+Try [The Fitz Signal](http://jack-driscoll.github.org/fitz_signal.html) as a ChatGPT context for a buddy, not a block.
+
+
