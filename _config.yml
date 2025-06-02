@@ -23,7 +23,7 @@ email: jack.driscoll@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A 'simple' page about me, Jack'D
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://jack-driscoll.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jackd.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  jack-driscoll
 
@@ -31,6 +31,7 @@ github_username:  jack-driscoll
 theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-last-modified-at
 
 # Exclude from processing.
 # The following items will not be processed, by default.
