@@ -6,6 +6,6 @@ layout: home
 ---
 ***ETHEREAL MODERN TECHNOLOGIES***
 
-Try [The Fitz Signal](http://jack-driscoll.github.org/fitz_signal.html) as a ChatGPT context for a buddy, not a block.
+Try [The Fitz Signal](http://jackd.ethertech.org/fitz_signal.html) as a ChatGPT context for a buddy, not a block.
 
 
