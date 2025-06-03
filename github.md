@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "jackd's Getting Started With Github Pages the easy way"
+title: "jackd's Github Pages: easy"
 date: 2025-06-02
 permalink: /github-pages/
 tags: [linux, web, article]
@@ -8,6 +8,10 @@ categories: [public, blog]
 author: jackd
 description: "jackd's easy guide to getting started with github pages"
 ---
+
+# Complete version
+
+Check out the post with [the complete version here](https://jackd.ethertech.org/quick-github-pages.html)
 
 # How do I make a post?
 
