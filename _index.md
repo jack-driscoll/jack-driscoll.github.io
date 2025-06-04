@@ -1,6 +1,6 @@
 ---
-layout: home
-title: Jack'D (Jack Driscoll) IN CYBERSPACE!
+layout: page
+title: Jack'D (Jack Driscoll) on the World Wide Web
 date: 2025-06-04
 ---
 
@@ -40,7 +40,7 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 - 🏗️ [Quick GitHub Pages Starter](https://github.com/jack-driscoll/quick-github-pages): A 9KB portable Jekyll base.
 - 🌄 [The Plateaus](https://theplateaus.neocities.org): A surreal sports mythology built from the woods up.
 - 🌐 [EtherTech.org](https://ethertech.org): Networked infrastructure for creative signal workers.
-- 🖼️ [nanogallery2 Gallery Generator](https://github.com/jack-driscoll/auto-nanogallery2/): A python script that automagically generates thumbnails and gallery.json file!
+- 🖼️ [Gallery Generator](https://jackd.ethertech.org/gallery/): Static, JS-free JSON visual archive.
 
 ---
 
@@ -58,14 +58,55 @@ For a more detailed view, check out [my intro](https://jackd.ethertech.org/intro
 
 © 2025 Jack Driscoll — Hand Coded with marinara sauce.
 
+# Markdown gallery
+
+---------
+
+Here is some text with a footnote reference.[^1]
+
+This is another [1] reference
+
+[Check out image linking](#image-linking)
+
+[Custom heading IDS](#custom-id)
+
+
+### code examples
+
+
+```js {linenos}
+// javascript code
+var x = 10; 
+console.log(x);
+```
+
+    <p>A paragraph in <b>HTML</b> displayed as code</p>
+	
+> HOW ABOUT
+> some block quotes
+
+<p>A paragraph in <b>HTML</b> displayed as text</p>
+
+#### or an image
+
+![Github](https://github.blog/wp-content/uploads/2024/07/github-logo.png)
+
+### My Great Heading {#custom-id}
+
+~~striken from the record~~ ==VERY IMPORTANT== ~sub~script^super^
+
+
+### Image linking
+
+[![alt text](image.jpg)](https://example.com) 
+
+
+
+[^1]:
+    Here is the footnote content explaining the reference.
+
+[1] reference
+
 ---
 
 ## Blog posts
-
-<ul>
-  {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date: "%Y-%m-%d" }}</small>
-    </li>
-  {% endfor %}
-</ul>
