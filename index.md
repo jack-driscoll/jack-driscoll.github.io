@@ -2,6 +2,7 @@
 layout: page
 permalink: /
 date: 2025-06-04
+nav_exclude: true
 ---
 
 # Welcome to Jack'D
@@ -33,6 +34,7 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 [Skills at a Glance](#skills)
 
 [Markdown Gallery](#markdown-gallery)
+
 ---
 
 ## 🛠️ Highlights
@@ -64,8 +66,11 @@ For a more detailed view, check out [my intro](https://jackd.ethertech.org/intro
 
 <ul>
   {% for post in site.posts %}
-    <li>
-      <a href="{{ post.url }}">{{ post.title }}</a> <small>{{ post.date | date: "%Y-%m-%d" }}</small>
-    </li>
+    {% unless post.url == "/" %}
+      <li>
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <small>{{ post.date | date: "%Y-%m-%d" }}</small>
+      </li>
+    {% endunless %}
   {% endfor %}
 </ul>
