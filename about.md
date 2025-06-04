@@ -2,7 +2,7 @@
 layout: page
 title: "About Me"
 date: 2025-06-02
-permalink: /about/
+permalink: /about.html
 categories: [personal, page]
 author: jackd
 description: "An About Me page for Jack Driscoll"

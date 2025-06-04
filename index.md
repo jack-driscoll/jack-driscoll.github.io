@@ -1,6 +1,6 @@
 ---
-layout: home
-title: Jack'D (Jack Driscoll) IN CYBERSPACE!
+layout: page
+permalink: /
 date: 2025-06-04
 ---
 
