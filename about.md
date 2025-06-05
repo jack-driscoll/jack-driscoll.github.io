@@ -145,9 +145,9 @@ theoritical things and the *utterly insane* idea of **infinite growth** on a
 
 ### M1030B1
 
-I have an M1030B1, the USMC version of the Kawasaki KLR650.  I call him Dex.  It's a blast, and *the only blasts I get these days*!  No, it's not a diesel, the diesel is the M1030M1, however, as cool as they are, given their rarity, maintenance would be a huge concern.  They're also really expensive when they do come up for sale.  **I'm looking for other on/off road motorcycle enthusiasts in WI.**  If this is you, [contact me](#contact).
+I have an M1030B1, the USMC version of the Kawasaki KLR650.  I call him Dex.  It's a blast, and *the only blasts I get these days*!  No, it's not a diesel, the diesel is the M1030M1, however, as cool as they are, given their rarity, maintenance would be a huge concern.  They're also really expensive when they do come up for sale.  **I'm looking for other on/off road motorcycle enthusiasts in WI.**  If this is you, [contact me](#contact).  Check out [my post on it here](https://jackd.ethertech.org/2025/06/05/M1030B1.html).
 
-![M1030B1 at the land](/images/the_land.jpg)
+![M1030B1 at the land](/_images/the_land.jpg)
 
 ### Dell T320
 
@@ -169,7 +169,7 @@ I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and
 - I have almost no IRL friends anymore, as they've all "moved on with their lives"
 - I love *Salad Fingers* and *David Firth*
 - I have had every STD except HIV
-- This is supposed to be **reminiscent** of *[Jean Teasdale](https://muckrack.com/jean-teasdale/articles)*
+- This is supposed to be **reminiscent** of *[Jean Teasdale](https://muckrack.com/jean-teasdale/articles)* or apparently a different author who **did** *this*
 
 ## History
 
@@ -187,7 +187,7 @@ In **2017-2018** I lost:
 - My job
 - My sanity
 
-After a bout of severe depression for the following 7 years, including 2 years of crack and heroin use, I went to rehab.
+After a bout of severe depression for the following 7 years, including 2 years of crack and heroin use, I went to rehab.  I never got dependent on heroin or spent all my money on crack and was on the Dean's list during this time.  I've since discovered I have a sleep disorder, which is why I feel like garbage all the time, which I was *self-medicating* for.  I've been sober for 3 months now and feel like garbage again, but they say it'll get better when GOD decides to make me alright again.
 
 I'm currently *retooling* for a job in **Manufacturing Maintenance** at MATC, which I'm enjoying thoroughly.  I'm on the Dean's list.
 
