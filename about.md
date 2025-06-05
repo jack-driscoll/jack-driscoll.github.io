@@ -14,6 +14,8 @@ description: "An About Me page for Jack Driscoll"
 
 ## Introduction
 
+![chueh inside](/images/whats_inside.jpg)
+
 Welcome, intrepid traveler, to my humble internet dwelling.  Perhaps you'd like to know more about me?  Let's skip the small talk and dive in!  What would you like to learn about first?
 
 [Interests](#interests)
@@ -163,13 +165,30 @@ I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and
 - The only **surgery** I've ever had was to drain my ears as a baby
 - I'm *claustrophobic* due to an incident where *I got stuck in a rolled up carpet* as a child
 - My first cassette tape was **Kriss-Kross: Totally Krossed Out**
-- I like to ate, ate, ate, apels and banaynays
 - I have a `3TB online media collection` I will share with you if you ask
 - The *Sean/Brody/Hunter Plateaus arc* is well over 100 pages
 - I have almost no IRL friends anymore, as they've all "moved on with their lives"
 - I love *Salad Fingers* and *David Firth*
-- I have had every STD except HIV
 - This is supposed to be **reminiscent** of *[Jean Teasdale](https://muckrack.com/jean-teasdale/articles)* or apparently a different author who **did** *this*
+- My favorite **The Onion** author is [T. Herman Zweibel](https://muckrack.com/t-herman-zweibel/articles)
+
+### Hair
+
+I typically like short hair, usually a slightly longer variant of the high and t
+ight, but I also really like **mullets** - business up front, party in the back.
+  This is probably my most impressive mullet.
+
+Here I am at 'peak mullet'
+
+![mullet](!/images/peak_mullet.jpg)
+
+### I'm a furry
+
+Here I am in my 'storebought' 'non-fursuit' with a (really cute) MTU fursuiter.  I am mostly a Deer named Dex.
+
+![me and MTU fursuiter](/images/furry.jpg)
+
+![deer named dex](/images/furry_me.jpg)
 
 ## History
 

@@ -39,7 +39,9 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 ## 🛠️ Highlights
 
 - 🏗️ [Quick GitHub Pages Starter](https://github.com/jack-driscoll/quick-github-pages): A 9KB portable Jekyll base.
-- 🌄 [The Plateaus](https://theplateaus.neocities.org): A surreal sports mythology built from the woods up.
+- 🌄 [The Plateaus on neocities](https://theplateaus.neocities.org): A surreal sports mythology built from the woods up.
+- 🏈 [The Plateaus on github](https://github.com/jack-driscoll/the-plateaus) This has the background and complete character profiles in a repo
+- 🏈 [The Plateaus on notion](
 - 🌐 [EtherTech.org](https://ethertech.org): Networked infrastructure for creative signal workers.
 - 🖼️ [nanogallery2 Gallery Generator](https://github.com/jack-driscoll/auto-nanogallery2/): A python script that automagically generates thumbnails and gallery.json file!
 
@@ -59,6 +61,4 @@ For a more detailed view, check out [my intro](https://jackd.ethertech.org/intro
 
 © 2025 Jack Driscoll & Lupa — Hand Coded with marinara sauce on the side.
 
----
-
-## Blog posts
+# Blog posts
