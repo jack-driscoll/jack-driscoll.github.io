@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: home
 permalink: /
 date: 2025-06-04
 title: Get'n Jack'D in CYBERSPACE!!!
