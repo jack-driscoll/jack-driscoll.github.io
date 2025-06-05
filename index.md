@@ -6,7 +6,7 @@ title: Get'n Jack'D in CYBERSPACE!!!
 nav_exclude: true
 ---
 
-# Welcome to Jack'D
+# Jack Driscoll
 
 I'm Jack Driscoll — a multidisciplinary technician, systems thinker, creative worldbuilder and myth wrangler.  Please be patient, I'm in the process of re-imagining the world as we know it in a way that:
 
@@ -33,8 +33,6 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 [Project Highlights](#highlights)
 
 [Skills at a Glance](#skills)
-
-[Markdown Gallery](#markdown-gallery)
 
 ---
 

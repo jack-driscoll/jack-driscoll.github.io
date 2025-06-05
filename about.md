@@ -22,9 +22,15 @@ Welcome, intrepid traveler, to my humble internet dwelling.  Perhaps you'd like 
 
 [Mental/Social Differences](#mental)
 
-[Cool Shit & Fun Facts](#cool-shit)
+[Cool Shit](#cool-shit)
+
+[Fun Facts](#fun-facts)
 
 [History](#history)
+
+[Contact](#contact)
+
+[Football](#football)
 
 ## Interests
 
@@ -59,6 +65,7 @@ I possess a number of skills, certifications, and credentials.  IQ: 141, ACT: 33
 - Osha 10
 - Forklift training
 - Network+
+- Dean's List @ MATC
 
 ### Skills
 
@@ -70,32 +77,22 @@ computer, which I had accidentally broken, likely doing something reckless or
 perhaps merely accidentally breaking it).  This led to a productive 15-year
 career in IT, which only ended due to personal circumstances.
 
-I often joke that *I'm only so good at fixing things because I'm so good at\
-breaking them*, and there's a lot of truth to that.  I've always been curious
+I often joke that *I'm only so good at fixing things because I'm so good at*
+*breaking them*, and there's a lot of truth to that.  I've always been curious
 about how things work.  When most boys and girls were playing with dolls and
 action figures, I was playing with cables/cords and collecting sweetgrass.
 
 I pride myself on my ability to learn quickly and thoroughly.  I believe
 **anything worth doing is worth doing right**, but also recognize that there's
 room for alpha and beta level systems.  When I find something I'm interested in
-learning, *I sink my teeth in and learn it as thoroughly and completely as\
-possible*, from beginner's manuals to scientific papers.  *I do not constrain\
-myself to what people believe to be possible.*  After all, the impossible is
+learning, *I sink my teeth in and learn it as thoroughly and completely as*
+*possible*, from beginner's manuals to scientific papers.  *I do not constrain*
+*myself to what people believe to be possible.*  After all, the impossible is
 merely that which has not yet been done (barring some mathematical and
 theoritical things and the *utterly insane* idea of **infinite growth** on a
 **finite planet**.  If we do not constrain ourselves, we will die.
 
-Some other great advice:
-
-- efficiency is better than power
-- if it ain't broke, don't fix it
-- newer does not mean better, although it can
-- older does not mean worse, and reliability is better than novelty
-- a well tuned and engineered machine is far better than a faster one
-- quality, speed, features / good, fast, cheap - pick 2
-- improving your design is better than throwing money at something
-
-Skills list:
+**Skills list:**
 - RF Site Surveys/Spectral Analysis/Link Budgeting/Interference Elimination
 - 802.11 - from raw RF to frames to network protocols
 - Ethernet/TCP-IP/DNS/HTTP/FTP/SMB/SSH/NFS
@@ -123,6 +120,16 @@ Skills list:
 - bash/python/powershell scripting
 - fluency on the CLI and GUI
 
+### Advice
+
+- efficiency is better than power
+- if it ain't broke, don't fix it
+- newer does not mean better, although it can
+- older does not mean worse, and reliability is better than novelty
+- a well tuned and engineered machine is far better than a faster one
+- quality, speed, features / good, fast, cheap - pick 2
+- improving your design is better than throwing money at something
+
 ## Mental and Social Differences & Impediments {#mental}
 
 - An unknown sleep disorder
@@ -138,7 +145,9 @@ Skills list:
 
 ### M1030B1
 
-I have an M1030B1, the USMC version of the Kawasaki KLR650.  It's a blast, and the only blasts I get these days!  No, it's not a diesel, the diesel is the M1030M1, however, as cool as they are, given their rarity, maintenance would be a huge concern.  They're also really expensive when they do come up for sale.  **I'm looking for other on/off road motorcycle enthusiasts in WI.**  If this is you, [contact me](#contact).
+I have an M1030B1, the USMC version of the Kawasaki KLR650.  I call him Dex.  It's a blast, and *the only blasts I get these days*!  No, it's not a diesel, the diesel is the M1030M1, however, as cool as they are, given their rarity, maintenance would be a huge concern.  They're also really expensive when they do come up for sale.  **I'm looking for other on/off road motorcycle enthusiasts in WI.**  If this is you, [contact me](#contact).
+
+![M1030B1 at the land](/images/the_land.jpg)
 
 ### Dell T320
 
@@ -146,27 +155,43 @@ I have an M1030B1, the USMC version of the Kawasaki KLR650.  It's a blast, and t
 
 #### Storage
 
-I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and ease of backup.  You can pull any drive and hook it up to any supporting OS and access the information without rebuilding, without any ZFS filesystem funny business, because the drive thinks it's the only drive, there's no "mirror volume" to be missing.  I've had issues with ZFS RAID1 where I had two drives and the filesystem got corrupted.  Both drives got corrupted, somehow differently, and when trying to mount, you'd have to force because "the other volume is missing" even though each should be an entirely independant filesystem. 
+I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and ease of backup.  You can pull any drive and hook it up to any supporting OS and access the information without rebuilding, without any ZFS filesystem funny business, because the drive thinks it's the only drive, there's no "mirror volume" to be missing.  I've had issues with ZFS RAID1 where I had two drives and the filesystem got corrupted.  Both drives got corrupted, somehow differently, and when trying to mount, you'd have to force because "the other volume is missing" even though each should be an entirely independant filesystem.
 
-### Fun facts
+## Fun facts
 
 - I have never broken a bone
-- I have had every STD except HIV
-- The only surgery I've ever had was to drain my ears as a baby
-- I'm claustrophobic due to an incident where I got stuck in a rolled up carpet as a child
-- My first cassette tape was Kriss-Kross: Totally Krossed Out
+- The only **surgery** I've ever had was to drain my ears as a baby
+- I'm *claustrophobic* due to an incident where *I got stuck in a rolled up carpet* as a child
+- My first cassette tape was **Kriss-Kross: Totally Krossed Out**
 - I like to ate, ate, ate, apels and banaynays
-- I have a 3TB media collection I will share with you if you ask
-- The Sean/Brody/Hunter Plateaus arc is well over 100 pages
+- I have a `3TB online media collection` I will share with you if you ask
+- The *Sean/Brody/Hunter Plateaus arc* is well over 100 pages
 - I have almost no IRL friends anymore, as they've all "moved on with their lives"
+- I love *Salad Fingers* and *David Firth*
+- I have had every STD except HIV
+- This is supposed to be **reminiscent** of *[Jean Teasdale](https://muckrack.com/jean-teasdale/articles)*
 
 ## History
 
 I was born on January 17, 1984 in Warez, Old Mexico, the product of the unholy mating of a dolphin and a mule donkey.  After a short childhood being raised by wolves, I entered school in the Missouri Church Lutheran Synod (MCLS), where I was taught that gay people might go to hell, just because, women pastors are of the devil, as is grape juice for communion, and speaking of sex will result in a huge overresponse likely to leave you emotionally scarred for life.  I went to high school at a parachial school as well, and I must admit, the education was good.  I had a great senior theology teacher who pulled me back from the depths of atheism and I do believe that Jesus Christ was literally the son of GOD and died to open salvation for everyone and maybe even everything in existence.  I also don't mind if you don't believe that.  I'm not here to police your existence.
 
-I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.
+I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.  I entered the "job market" as a bus boy, computer salesperson, delivery driver and then as a *Network Support Specialist*, which began a **15-year career in IT**.
 
-There's more, but this is a solid start.  If you're interested, you can talk to me using your mouth-words, or by writing using the english alphabet and language.  Continue reading to find out how!
+In **2017-2018** I lost:
+
+- My favorite person
+- My partner of 7 years
+- My duplex in Riverwest/Milwaukee, WI
+- My uncle died
+- My family farm
+- My job
+- My sanity
+
+After a bout of severe depression for the following 7 years, including 2 years of crack and heroin use, I went to rehab.
+
+I'm currently *retooling* for a job in **Manufacturing Maintenance** at MATC, which I'm enjoying thoroughly.  I'm on the Dean's list.
+
+There's more, but this is a solid start.  If you're interested, you can talk to me using *your mouth-words*, or by writing using the english alphabet and language.  Continue reading to [find out how](#contact)!
 
 ## Contact
 
@@ -186,6 +211,20 @@ You can look them up using kleopatra on Windows.  E-mail via unsecured if you ha
 ### Donny
 
 You can even contact [Donny](therealdonaldtrump@ethertech.org).
+
+## Football
+
+I love the game of football, not so much "following it", but watching it in person or on TV and playing it.  I am borderline obsessed with **football uniforms**.
+
+Things I love about football:
+
+- Uniforms
+- Jockstraps
+- Tackling
+- Running
+- Locker Room
+- Being part of a team
+- Physicality
 
 ***How else can you get in touch with me?  This exercize is left to the reader.***
 
