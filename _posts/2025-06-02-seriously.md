@@ -5,6 +5,7 @@ title: "Realistically now"
 date: 2025-06-02 14:40:11
 categories: intro bio
 tags: bio info intro
+permalink: /2025-06-02-seriously.html
 ---
 
 # Welcome to My Biography

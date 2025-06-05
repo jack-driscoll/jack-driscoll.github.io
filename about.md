@@ -1,15 +1,177 @@
 ---
 layout: page
 title: "About Me"
-date: 2025-06-02
+date: 2025-06-04
 permalink: /about.html
-categories: [personal, page]
 author: jackd
 description: "An About Me page for Jack Driscoll"
 ---
 
 # Jack Driscoll
+
+[Contact Information Here](#contact)
+
+
+## Introduction
+
+Welcome, intrepid traveler, to my humble internet dwelling.  Perhaps you'd like to know more about me?  Let's skip the small talk and dive in!  What would you like to learn about first?
+
+[Interests](#interests)
+
+[Skills and Certifications](#skills)
+
+[Mental/Social Differences](#mental)
+
+[Cool Shit & Fun Facts](#cool-shit)
+
+[History](#history)
+
+## Interests
+
+In no particular order, some of my interests:
+
+- gardening/farming/aquaponics/hydroponics/mycology
+- low-tech/high-tech
+- theology/philosophy/sociology
+- hiking/walking/bicycling/motorbiking (I have an [M1030B1](#m1030b1)
+- driving (I used to have a [2003 GMC Yukon](https://board.net/p/2003_GMC_Yukon) you can read about)
+- A/V, PA, audiophile (I built Bill Fitz-Maurice Speakers)
+- computers & OSes
+- FreeBSD/Linux/Windows/Mac/embedded
+- neuropharmacology/pharmacology/neurochemistry
+- altered states of consciousness
+- biology/bioelectronics
+- TMS/rTMS as treatment and enhancement
+- ketamine as a treatment for depression
+- animal lover
+- hot gay sex
+- music such as: indie/rap/country/rock/folk/anti-folk/EDM/DnB/jungle/breakcore/IDM
+
+## Skills
+
+I possess a number of skills, certifications, and credentials.  IQ: 141, ACT: 33, Iowa Basic: 99th percentile
+
+### Credentials/Certifications
+
+- 66 College Credits (Associates Degree in **Manufacturing Maintenance** in Progress)
+- EPA 608 Types I, II, III
+- Fist Aid
+- Osha 10
+- Forklift training
+- Network+
+
+### Skills
+
+A lifelong **polymath and autodidact**, I have done most of my learning on my 
+own, as I'm often interested in very specific fields or things that do not have 
+"courses".  I taught myself how to use, repair, and build computers (in that
+order - I can still recall my frantic searching for a way to repair our family
+computer, which I had accidentally broken, likely doing something reckless or
+perhaps merely accidentally breaking it).  This led to a productive 15-year
+career in IT, which only ended due to personal circumstances.
+
+I often joke that *I'm only so good at fixing things because I'm so good at\
+breaking them*, and there's a lot of truth to that.  I've always been curious
+about how things work.  When most boys and girls were playing with dolls and
+action figures, I was playing with cables/cords and collecting sweetgrass.
+
+I pride myself on my ability to learn quickly and thoroughly.  I believe
+**anything worth doing is worth doing right**, but also recognize that there's
+room for alpha and beta level systems.  When I find something I'm interested in
+learning, *I sink my teeth in and learn it as thoroughly and completely as\
+possible*, from beginner's manuals to scientific papers.  *I do not constrain\
+myself to what people believe to be possible.*  After all, the impossible is
+merely that which has not yet been done (barring some mathematical and
+theoritical things and the *utterly insane* idea of **infinite growth** on a
+**finite planet**.  If we do not constrain ourselves, we will die.
+
+Some other great advice:
+
+- efficiency is better than power
+- if it ain't broke, don't fix it
+- newer does not mean better, although it can
+- older does not mean worse, and reliability is better than novelty
+- a well tuned and engineered machine is far better than a faster one
+- quality, speed, features / good, fast, cheap - pick 2
+- improving your design is better than throwing money at something
+
+Skills list:
+- RF Site Surveys/Spectral Analysis/Link Budgeting/Interference Elimination
+- 802.11 - from raw RF to frames to network protocols
+- Ethernet/TCP-IP/DNS/HTTP/FTP/SMB/SSH/NFS
+- Windows/Linux/FreeBSD Severs/Desktops
+- All levels of tech support
+- All levels of systems administration
+- All levels of network administration
+- DPI/IPS/IDS/Network Security/Network Sanity
+- NTFS/ZFS/ext2-3-4/UFS/RAID/NAS/SAN
+- Carpentry/Hydraulics/Pneumatics/Mechanics/Hand & Power Tools
+- Automotive
+- HVAC
+- Gardening/Farming/Animal Husbandry & Midwifing
+- Tractors/Skid Steers/Forklifts
+- CD/DVD/HDD/FDD/Zip
+- Vinyl/Cassette/DAW
+- PA and Pro Sound Production/Mixing/Editing
+- A/V of most types and sizes
+- Good in the sack
+- A good voice, ability to do vocal work
+- AI - prompt engineering, illustration, writing/storytelling
+- Human - writing/storytelling/mythmaking/worldbuilding
+- Design/SVG/Vector Art/Graphic Illustration/Editing
+- Software, such as MS Office, Inkscape, LibreOffice
+- bash/python/powershell scripting
+- fluency on the CLI and GUI
+
+## Mental and Social Differences & Impediments {#mental}
+
+- An unknown sleep disorder
+- ADD, MDD, and possibly Schizo-affective disorder
+- Social Anxiety
+- Chronic Pain/Exhaustion
+- Queer
+- Likely "on the spectrum" (autistic)
+- Anti-Authoritarian
+- Might go apeshit if subjected to fascist bullshit
+
+## Cool shit
+
+### M1030B1
+
+I have an M1030B1, the USMC version of the Kawasaki KLR650.  It's a blast, and the only blasts I get these days!  No, it's not a diesel, the diesel is the M1030M1, however, as cool as they are, given their rarity, maintenance would be a huge concern.  They're also really expensive when they do come up for sale.  **I'm looking for other on/off road motorcycle enthusiasts in WI.**  If this is you, [contact me](#contact).
+
+### Dell T320
+
+[This is my "baby", lol](http://board.net/p/T320).  It's pretty old by most standards, but this is a *fucking supercomputer to me*.  It's got `8x2.8Ghz CPUs` and `96GB of RAM`.  Currently running **GhostBSD**, but I'm probably going to go back to vanilla **FreeBSD** because it's a bit better supported.  Although, I will give it to the GhostBSD telegram community, they're very helpful.  This would have been an entire rack when I was a kid.
+
+#### Storage
+
+I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and ease of backup.  You can pull any drive and hook it up to any supporting OS and access the information without rebuilding, without any ZFS filesystem funny business, because the drive thinks it's the only drive, there's no "mirror volume" to be missing.  I've had issues with ZFS RAID1 where I had two drives and the filesystem got corrupted.  Both drives got corrupted, somehow differently, and when trying to mount, you'd have to force because "the other volume is missing" even though each should be an entirely independant filesystem. 
+
+### Fun facts
+
+- I have never broken a bone
+- I have had every STD except HIV
+- The only surgery I've ever had was to drain my ears as a baby
+- I'm claustrophobic due to an incident where I got stuck in a rolled up carpet as a child
+- My first cassette tape was Kriss-Kross: Totally Krossed Out
+- I like to ate, ate, ate, apels and banaynays
+- I have a 3TB media collection I will share with you if you ask
+- The Sean/Brody/Hunter Plateaus arc is well over 100 pages
+- I have almost no IRL friends anymore, as they've all "moved on with their lives"
+
+## History
+
+I was born on January 17, 1984 in Warez, Old Mexico, the product of the unholy mating of a dolphin and a mule donkey.  After a short childhood being raised by wolves, I entered school in the Missouri Church Lutheran Synod (MCLS), where I was taught that gay people might go to hell, just because, women pastors are of the devil, as is grape juice for communion, and speaking of sex will result in a huge overresponse likely to leave you emotionally scarred for life.  I went to high school at a parachial school as well, and I must admit, the education was good.  I had a great senior theology teacher who pulled me back from the depths of atheism and I do believe that Jesus Christ was literally the son of GOD and died to open salvation for everyone and maybe even everything in existence.  I also don't mind if you don't believe that.  I'm not here to police your existence.
+
+I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.
+
+There's more, but this is a solid start.  If you're interested, you can talk to me using your mouth-words, or by writing using the english alphabet and language.  Continue reading to find out how!
+
 ## Contact
+
+I currently only support the English Language, although I would love to learn Gaelic and Ojibemowiin.  Gmail gets checked more often, but I'll probably give you bonus points if you use my custom domain, because let's admit it: having a custom domain is awesome.
+
 ### Jack Driscoll (jackd/Jack'D)
 
 If you'd like to know more about [me](https://jackd.ethertech.org/), you can send me electronic mail at [GMail](jack.driscoll@gmail.com) or [EtherTech](root@ethertech.org).
@@ -25,36 +187,6 @@ You can look them up using kleopatra on Windows.  E-mail via unsecured if you ha
 
 You can even contact [Donny](therealdonaldtrump@ethertech.org).
 
-How else can you get in touch with me?  This exercize is left to the reader.
-
-## Introduction
-
-### Formal
-
-Hello good sir.  My name is Jack Ryan Driscoll, I'm very pleased to meet you.
-
-### Normal
-
-Hi, how's it going?  My name's Jack.
-
-### Crazy
-
-Did *they* send you?  There's been lots of **agents** coming around trying to *learn* about my *secret projects*.  You might think you know what's going on, but *you have no idea*, you're **a sheep**, a *tool* of **the machine**.  The **Military-Industrial Complex** might have their issues, but they *pay well*.  I'll have one of *my people* talk with *your people*.
-
-### Friendly
-
-Hey, buddy, how's it going?  Whatcha up to?
-
-### Streetwise
-
-Yo dawg, this my webpage, dawg, wut up?
-
-### AI
-
-### Thorough/infodump
-
-Hello, new friend, you probably want to know all about me, right?
-
-I have the downlow (DL) on Jack.  I know the *nitty-gritty*, the *details*, the *real deal* on me, because no one knows you as well as you.
+***How else can you get in touch with me?  This exercize is left to the reader.***
 
 **Last updated:** 2025-06-02
