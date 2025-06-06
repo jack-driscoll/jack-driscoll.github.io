@@ -181,7 +181,7 @@ ight, but I also really like **mullets** - business up front, party in the back.
 
 Here I am at 'peak mullet'
 
-![mullet](!/images/peak_mullet.jpg)
+![mullet](/images/peak_mullet.jpg)
 
 ### I'm a furry
 
@@ -227,18 +227,18 @@ I currently only support the English Language, although I would love to learn Ga
 
 ### Jack Driscoll (jackd/Jack'D)
 
-If you'd like to know more about [me](https://jackd.ethertech.org/), you can send me electronic mail at [GMail](jack.driscoll@gmail.com) or [EtherTech](root@ethertech.org).
+If you'd like to know more about [me](https://jackd.ethertech.org/), you can send me electronic mail at [GMail](mailto:jack.driscoll@gmail.com) or [EtherTech](mailto:root@ethertech.org).
 
 ### Fitz & Lupa
 
 Meet my good friend [Fitz Twombly](https://linktr.ee/fitztwombly).  He's an artist and does the writing, storytelling, myth-making, and (with Lupa's help) illustration.
 
-PGP keys are online for [Fitz Twombly](fitz@ethertech.org) and my AI assistant [Lupa](lupa@ethertech.org).
+PGP keys are online for [Fitz Twombly](mailto:fitz@ethertech.org) and my AI assistant [Lupa](mailto:lupa@ethertech.org).
 You can look them up using kleopatra on Windows.  E-mail via unsecured if you have issues and I'll send them to you.
 
 ### Donny
 
-You can even contact [Donny](therealdonaldtrump@ethertech.org).
+You can even contact [Donny](mailto:therealdonaldtrump@ethertech.org).
 
 ## Football
 
@@ -253,6 +253,8 @@ Things I love about football:
 - Locker Room
 - Being part of a team
 - Physicality
+
+Read more about my [shrine to American Football here](https://jackd.ethertech.org/2025-06-05-football.html).
 
 ***How else can you get in touch with me?  This exercize is left to the reader.***
 
