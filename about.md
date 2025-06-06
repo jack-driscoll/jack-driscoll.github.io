@@ -159,7 +159,7 @@ I have an M1030B1, the USMC version of the Kawasaki KLR650.  I call him Dex.  It
 
 I've got about `12TB of RAID1 storage`, with ZFS on top of it for versioning and ease of backup.  You can pull any drive and hook it up to any supporting OS and access the information without rebuilding, without any ZFS filesystem funny business, because the drive thinks it's the only drive, there's no "mirror volume" to be missing.  I've had issues with ZFS RAID1 where I had two drives and the filesystem got corrupted.  Both drives got corrupted, somehow differently, and when trying to mount, you'd have to force because "the other volume is missing" even though each should be an entirely independant filesystem.
 
-<details><summary>FUN FACTS</summary>
+
 ## Fun facts
 
 - I have never broken a bone
@@ -191,13 +191,17 @@ Here I am in my 'storebought' 'non-fursuit' with a (really cute) MTU fursuiter. 
 
 ![deer named dex](/images/furry_me.jpg)
 
+<details><summary>yiff</summary>
+
+<p>Sorry, there's knot anything, here: &O What did you expect to find...? ;-)</p>
+
 </details>
 
 ## History
 
-<details><summary>Semi-Ficticious Hidden Origins</summary>
+### Questionable Origins
+
 I was born on January 17, 1984 in Warez, Old Mexico, the product of the unholy mating of a dolphin and a mule donkey.  After a short childhood being raised by wolves, I entered school in the Missouri Church Lutheran Synod (MCLS), where I was taught that gay people might go to hell, just because, women pastors are of the devil, as is grape juice for communion, and speaking of sex will result in a huge overresponse likely to leave you emotionally scarred for life.  I went to high school at a parachial school as well, and I must admit, the education was good.  I had a great senior theology teacher who pulled me back from the depths of atheism and I do believe that Jesus Christ was literally the son of GOD and died to open salvation for everyone and maybe even everything in existence.  I also don't mind if you don't believe that.  I'm not here to police your existence.
-</details>
 
 I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.  I entered the "job market" as a bus boy, computer salesperson, delivery driver and then as a *Network Support Specialist*, which began a **15-year career in IT**.
 
