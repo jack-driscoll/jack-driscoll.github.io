@@ -11,6 +11,12 @@ description: "An About Me page for Jack Driscoll"
 
 [Contact Information Here](#contact)
 
+None of this is necessary, I just wanted a simple fucking landing page.  A couple hundred megabytes of files and stuff later, and it's still hand coded html and markdown w/ a bit of liquid scripting for pretty fonts and broken nav menus.  Why?
+
+- [x] People told me to use jekyll
+- [ ] It's easier
+- [ ] Version control
+
 
 ## Introduction
 

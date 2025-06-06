@@ -6,7 +6,13 @@ title: "Donate"
 
 # Donate to me, give me free monies!
 ## Bitcoin
-Send the *free monies* to my bitcoin here: 1A8RuVPPPGtQm9GP29ERoMdKvW2p99zThr
+<strike>Send the *free monies* to my bitcoin here: 1A8RuVPPPGtQm9GP29ERoMdKvW2p99zThr</strike>
+
+not sure where this wallet is rn, contact me for BTC or...
+
+[donate via ko-fi](https://ko-fi.com/s/364cd6b5af)
+
+[buy The Plateaus' zine](https://ko-fi.com/s/162861ea65)
 
 ## Unnecessary content
 
