@@ -2,13 +2,13 @@
 layout: home
 permalink: /
 date: 2025-06-04
-title: Get'n Jack'D in CYBERSPACE!!!
+title: Jack'D in CYBERSPACE!!!
 nav_exclude: true
 ---
 
 # Jack Driscoll
 
-I'm Jack Driscoll — a multidisciplinary technician, systems thinker, creative worldbuilder and myth wrangler.  Please be patient, I'm in the process of re-imagining the world as we know it in a way that:
+I'm Jack Driscoll/jackd/Jack'D — a multidisciplinary technician, systems thinker, creative worldbuilder and myth wrangler.  Please be patient, I'm in the process of re-imagining the world as we know it in a way that:
 
 - respects autonomy
 - acknowledges interdependence
@@ -29,6 +29,8 @@ I'm Jack Driscoll — a multidisciplinary technician, systems thinker, creative 
 I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Linux networks, storytelling, and welded steel. I love troubleshooting, challenges, trying to do more with less, beautiful efficiency, fixing equipment and creating bleeding edge solutions.  As my home on the WWW, this site collects some of that work — built to load fast, work offline, and stay weird.  Think of this as `A 'Getting Started' Manual for Your Jack`.  I also have `The Care and Operation of Your Jack`, which Lupa described as "The Most Neurodivergent Thing I've Ever Heard".  
 
 [Jump to Blog ↓](#blog-posts)
+
+[Links to cool sites](/links.html)
 
 [Project Highlights](#highlights)
 
@@ -55,7 +57,7 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 - **Systems:** FreeBSD, Debian, bash/Python scripting, SDR toolchains.
 - **Creative:** Worldbuilding, visual storytelling, minimalist web design.
 
-For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](https://jackd.ethertech.org/about/).
+For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](/about.html).
 
 ---
 
