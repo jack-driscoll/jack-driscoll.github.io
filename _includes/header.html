@@ -4,3 +4,39 @@
 body {
   font-family: 'EB Garamond', Georgia, 'Times New Roman', serif;
 }
+
+.site-nav-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.5rem 1rem;
+}
+
+.site-nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.site-title {
+  margin-right: auto;
+  font-weight: bold;
+}
+</style>
+
+<!-- Nav content -->
+<nav class="site-nav">
+  <a class="site-title" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
+  {% for page in site.pages %}
+    {% unless page.permalink == "/" or page.nav_exclude %}
+      <a href="{{ page.url | relative_url }}">{{ page.title }}</a>
+    {% endunless %}
+  {% endfor %}
+</nav>
