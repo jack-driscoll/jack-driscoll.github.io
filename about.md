@@ -227,7 +227,7 @@ I currently only support the English Language, although I would love to learn Ga
 
 ### Jack Driscoll (jackd/Jack'D)
 
-If you'd like to know more about [me](https://jackd.ethertech.org/), you can send me electronic mail at [GMail](mailto:jack.driscoll@gmail.com) or [EtherTech](mailto:root@ethertech.org).
+If you'd like to know more about [me](/index.html), you can send me electronic mail at [GMail](mailto:jack.driscoll@gmail.com) or [EtherTech](mailto:root@ethertech.org).
 
 ### Fitz & Lupa
 
@@ -254,7 +254,7 @@ Things I love about football:
 - Being part of a team
 - Physicality
 
-Read more about my [shrine to American Football here](https://jackd.ethertech.org/2025-06-05-football.html).
+Read more about my [shrine to American Football here](/2025-06-05-football.html).
 
 ***How else can you get in touch with me?  This exercize is left to the reader.***
 

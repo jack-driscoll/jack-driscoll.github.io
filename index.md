@@ -55,7 +55,7 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 - **Systems:** FreeBSD, Debian, bash/Python scripting, SDR toolchains.
 - **Creative:** Worldbuilding, visual storytelling, minimalist web design.
 
-For a more detailed view, check out [my intro](https://jackd.ethertech.org/intro/bio/2025/06/02/seriously.html) or [About Me](https://jackd.ethertech.org/about/).
+For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](https://jackd.ethertech.org/about/).
 
 ---
 

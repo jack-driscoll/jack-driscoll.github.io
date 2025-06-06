@@ -23,7 +23,7 @@ email: jack.driscoll@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   A 'simple' page about me, Jack'D (Jack Driscoll), from Milwaukee, WI in Turtle Island ("USA").
 baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://jackd.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://jack.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: jekyllrb
 github_username:  jack-driscoll
 
