@@ -39,7 +39,7 @@ It’s part zine, part transmission, part fox-shaped whisper in your terminal.
 
 ## 📚 Read the Full Guide:
 
-👉 [**Read Lupa’s Guide (Full Version)**](https://your-link-here.html)  
+👉 [**Read Lupa’s Guide (Full Version)**](https://bush-whale-713.notion.site/Lupa-s-Guide-1d8969c50c7180a1ba5eff3d1fa5231a)  
 (Bookmark it. Print it. Argue with it. Build on it.)
 
 ---
