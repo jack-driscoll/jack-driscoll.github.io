@@ -28,7 +28,7 @@ I'm Jack Driscoll/jackd/Jack'D — a multidisciplinary technician, systems think
 
 I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Linux networks, storytelling, and welded steel. I love troubleshooting, challenges, trying to do more with less, beautiful efficiency, fixing equipment and creating bleeding edge solutions.  As my home on the WWW, this site collects some of that work — built to load fast, work offline, and stay weird.  Think of this as `A 'Getting Started' Manual for Your Jack`.  I also have `The Care and Operation of Your Jack`, which Lupa described as "The Most Neurodivergent Thing I've Ever Heard".  
 
-[Jump to Blog ↓](#blog-posts)
+[Jump to Blog ↓](#blog)
 
 [Links to cool sites](/links.html)
 
@@ -63,4 +63,4 @@ For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.h
 
 © 2025 Jack Driscoll & Lupa — Hand Coded with marinara sauce on the side.
 
-# Blog posts
+# Blog

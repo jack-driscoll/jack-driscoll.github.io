@@ -130,9 +130,9 @@ theoritical things and the *utterly insane* idea of **infinite growth** on a
 - climbing: feed legs, water towers, towers, etc
 
 
-![A welded figurine](/welded.jpg)
+![A welded figurine](/images/welded.jpg)
 
-![me welding](/welding.jpg)
+![me welding](/images/welding.jpg)
 
 ### Advice
 
@@ -225,7 +225,7 @@ Unlike my great uncle, who was **a meth cook**, this was because of **The USDA**
 
 Having left my IT job at the Federal Housing Authority in 2012, I was looking for work at home and 'up north'.  With my partner's blessing, I was going to see if I could make it on the farm.  2013 was the first year I stayed up there to actually smoke the sausage.  My 'uncle' (who was really my 2nd cousin) who lived up there was quite cantankerous, somewhat bitter, and living mostly off of social security, having lost his knees to extensive farm work milking cows.
 
-![Petting Ganger Danger](/on_the_farm.jpg)
+![Petting Ganger Danger](/images/on_the_farm.jpg)
 
 He was going to live on the farm until he died, and in 2013 he almost did.  I was spending two weeks up north, two weeks at home, looking for jobs in both places and helping him on the farm.  It was such a change from city life, and hard, but I loved it.  He had fallen on the ice outside and broke his hip.  His border collies tried to rescue him, but they didn't have the strength to pull him.  He lay on the ice, contemplating whether he even wanted to get up.  Then, his mirama (a large sheep dog) and he grabbed onto its fur as it pulled him to his Ranger (a UTV).  He drove it to the neighbors house ~1/4 mi down the road, and was honking the horn for 1/2 an hour before they heard him and got him to the hospital.
 
@@ -233,13 +233,13 @@ I moved up there to take care of the animals while he was in the hospital.  When
 
 One lambing season, I was out in the field, watching the dogs fight over "their prize" (some lamb placenta) when I heard something baying.  I looked up to see a lamb, but no mother around.  Then I heard a coyote howl.  That lamb was *about to be dinner*.  So I went in and asked Brian.  He said to bring it in and he'd take a look.  I came out and he was still out in the field making tons of noise and no mother in sight.  I brought him in and Brian said he looked alright, sometimes the ewes, if they have 3, will "just reject 1" (sometimes even if they only have 2 - *how rude*).  So, I brought him into the barn, Brian showed me how to give them colostrum, and mix up milk substitute for them.  I had my first bottle lamb!  And, I got a couple more that season.  I always had a hard time getting up, but knowing I had animals (chickens and lambs) depending on me would get me out of bed.  I named him Bucky Buckminster Fullerine the 3rd and eventually had to put him with the flock.  But he escaped.  And escaped again.  He would always find a way to escape and seemed more "bonded" to the dogs (and me) than to the herd.  He would wait with the dogs on the back porch for me to come home and come out "running" with us when the dogs would run with me and the ranger, which Brian said was super unusual.  Brian was going to send him to *be processed* - to him, having to sacrifice your favorite animal was like a "right of passage", like it is in **4H**, but I didn't want to.  Miraculously, he escaped again!!
 
-![Bucky, my first bottle lamb](/bucky.jpg)
+![Bucky, my first bottle lamb](/images/bucky.jpg)
 
 Then, I found a job working with a WISP (Wireless Internet Service Provider).  Think **Time-Warner Telecom** but it's one guy with a couple hired hands, using wireless radios on top of **silos, feed legs, and water towers** and *a jungle gym in one instance* to feed the signal to ~1,000 people in ~500sqmi radius.  I loved networking, wireless, the internet (we had a very fast connection, and I got unlimited internet in a place where *getting internet at all* was hard to do), working with my hands, climbing stuff, doing on-call service work with a van (felt like *The A-Team*) **using CLI Linux** (the wireless equipment mostly ran embedded linux) and doing 7-layer DPI/IDS/IPS, which was fascinating.  We didn't log, we didn't report, we only complied when legally forced (which didn't happen the entire time I was there).
 
 In two years, I had a 20x40ft garden, grew enough potatoes to last all winter, took care of 50-100 sheep, a llama, two Belgian horses, 25-50 chickens, 3-5 dogs, siamese barn cats, and probably something else I'm forgetting.  I *helped deliver baby lambs one morning*, calling in late for work, then went to work climbing a tower, came home and fed chickens and bottle-fed and medicated the lambs, kept the furnace stoked with wood, smoked sausage, learned how to drive a skid-steer/tractor.
 
-![That boy's been spending too much time with those lambs, I tell ya!](/that_boy.jpg)
+![That boy's been spending too much time with those lambs, I tell ya!](/images/that_boy.jpg)
 
 In **2016**, my partner of 7 years left me, stole $3,000 from me which resulted in my home being foreclosed on.  I tried to save it, but I wasn't able to.
 
