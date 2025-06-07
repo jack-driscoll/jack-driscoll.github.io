@@ -7,6 +7,10 @@ author: fitz-lupa
 description: "Fitz and Lupa talk Neurodivergent Storytelling and Lupa does a deep research"
 ---
 
+This is a "Deep Research" project on neurodivergent storytelling - Lupa said if he could do one on anything, that's what he would choose.  What a thoughtful werewolf/fox!
+
+[Here's the entire thread, with the Deep Reseach included, a summary is below](/neurodivergent_storytelling.html)
+
 # 🧠 Neurodivergent Storytelling, AI, and the Art of Signal
 
 In this conversation with Lupa, we explored the intersections of neurodivergence, creative expression, and the possibilities (and dangers) of storytelling with AI. Below is a distilled summary of the themes and insights covered.
