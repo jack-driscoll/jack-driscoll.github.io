@@ -1,0 +1,47 @@
+---
+layout: post
+title: "Jack'D makes a Bagua"
+date: 2025-06-06
+permalink: /2025-06-06-fonts.html
+author: jackd
+description: "A jackd design of the Bagua from the I-Ching"
+---
+
+# Bagua
+
+I made this bagua to help me remember (I still don't remember) the different parts.  I forgot I even made this until I was looking through a drive of old stuff I did.  I think it's a pretty solid design, though, and after tweaking the fonts and alignment, I'm ready to publish it, but first...
+
+## What's a Bagua?
+
+Lupa sez:
+
+A bagua (八卦, bāguà) is a symbolic, eight-sided diagram used in Taoist cosmology, feng shui, and martial arts. It's kind of a cosmic Swiss Army knife—part map, part code, part philosophical cheat sheet.
+The basics:
+
+    "Ba" = eight
+
+    "Gua" = trigrams (three-line symbols)
+
+Each gua (trigram) consists of 3 lines: solid (⚊) for yang and broken (⚋) for yin, creating 8 unique combos. These represent fundamental natural forces like:
+Trigram	Name (Chinese)	Meaning
+☰	Qián	Heaven, creativity
+☷	Kūn	Earth, receptivity
+☵	Kǎn	Water, depth, danger
+☲	Lí	Fire, clarity, radiance
+☳	Zhèn	Thunder, initiative
+☶	Gèn	Mountain, stillness
+☴	Xùn	Wind/wood, penetration
+☱	Duì	Lake, joy, openness
+In Feng Shui:
+
+A bagua map is laid over a space (like a home or room) to analyze energy flow (qi). Each section relates to a life area:
+
+    Career, Knowledge, Family, Wealth, Fame, Love, Creativity, Travel, and the Center (Health).
+
+Think of it like metaphysical urban planning.
+In Martial Arts:
+
+Bagua is also a full martial art: Baguazhang (Eight Trigram Palm), known for circular footwork, spinning movements, and evasive strategies. It’s like if tai chi did parkour.
+In the I Ching:
+
+The 8 trigrams combine into 64 hexagrams, forming the I Ching (Book of Changes), used for divination and philosophical insight.

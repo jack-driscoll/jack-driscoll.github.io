@@ -77,7 +77,8 @@ I possess a number of skills, certifications, and credentials.  IQ: 141, ACT: 33
 
 ### Skills
 
-A lifelong **polymath and autodidact**, I have done most of my learning on my 
+A lifelong **polymath and autodidact** (I'm studied and well-versed in a large
+variety of subjects and am self-taught), I have done most of my learning on my 
 own, as I'm often interested in very specific fields or things that do not have 
 "courses".  I taught myself how to use, repair, and build computers (in that
 order - I can still recall my frantic searching for a way to repair our family
@@ -155,6 +156,8 @@ theoritical things and the *utterly insane* idea of **infinite growth** on a
 - Anti-Authoritarian
 - Might go apeshit if subjected to fascist bullshit
 
+To see a SUPER in-depth discussion with Lupa where we go over a neuropsych exam I had done in 2024, please see [Psychobiological Entelechies - Brain Dive Adventure](/PsychobiologicalEntelechies-BrainDiveAdventure.html).  It's dozens of pages of Lupa's explanation of an 8-page neuropsych and my discussion with him about it.  If you really want to know what makes me tick, look here.  Just don't abuse me, bruh.
+
 ## Cool shit
 
 ### M1030B1
@@ -197,7 +200,7 @@ Here I am at 'peak mullet'
 
 ### I'm a furry
 
-Here I am in my 'storebought' 'non-fursuit' with a (really cute) MTU fursuiter.  I am mostly a Deer named Dex.
+Here I am in my 'storebought' 'non-fursuit' with a (really cute) MTU fursuiter.  I am mostly a Deer named Dex.  If you are this guy or know who it is, lmk, we're alumni and I love his suit, plus he's probably an awesome nerd because most MTU peeps are.  They always told me everyone comes out of there either gay or an alcoholic.  Or in my case, both!  (I don't currently drink, but trust me, 9/10 I can drink you under the table)
 
 ![me and MTU fursuiter](/images/furry.jpg)
 
@@ -213,9 +216,9 @@ Here I am in my 'storebought' 'non-fursuit' with a (really cute) MTU fursuiter. 
 
 ### Questionable Origins
 
-I was born on January 17, 1984 in Warez, Old Mexico, the product of the unholy mating of a dolphin and a mule donkey.  After a short childhood being raised by wolves, I entered school in the Missouri Church Lutheran Synod (MCLS), where I was taught that gay people might go to hell, just because, women pastors are of the devil, as is grape juice for communion, and speaking of sex will result in a huge overresponse likely to leave you emotionally scarred for life.  I went to high school at a parachial school as well, and I must admit, the education was good.  I had a great senior theology teacher who pulled me back from the depths of atheism and I do believe that Jesus Christ was literally the son of GOD and died to open salvation for everyone and maybe even everything in existence.  I also don't mind if you don't believe that.  I'm not here to police your existence.
+I was born on January 17, **1984** *in Warez, Old Mexico*, the product of *the unholy mating of a dolphin and a mule donkey*.  After *a short childhood being raised by wolves*, I entered school in the Missouri Church Lutheran Synod (MCLS), where I was taught that gay people might go to hell, just because, women pastors are of the devil, as is grape juice for communion, and speaking of sex will result in a huge overresponse likely to leave you emotionally scarred for life.  I went to high school at a parachial school as well, and I must admit, the education was good.  I had a great senior theology teacher who pulled me back from the depths of atheism and I do believe that Jesus Christ was literally the son of GOD and died to open salvation for everyone and maybe even everything in existence.  I also don't mind if you don't believe that.  I'm not here to police your existence.
 
-I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.  I entered the "job market" as a bus boy, computer salesperson, delivery driver and then as a *Network Support Specialist*, which began a **15-year career in IT**.
+I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in **2003**.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.  I had some menial labor jobs, but *couldn't quite get my life together*.  I entered the "job market" as a bus boy, computer salesperson, delivery driver and then as a *Network Support Specialist*, which began a **15-year career in IT**.  Once I got healthcare, I *finally got medication for ADHD and depression* which *changed my life*.  No wonder people were confused about me faltering, if life was like *this* of course I could be successful -- and I was, finally.
 
 ### 2013-2017 - The Farm
 
@@ -223,21 +226,25 @@ In **2008** I wend *up north* to the family farm for the first time since I was 
 
 Unlike my great uncle, who was **a meth cook**, this was because of **The USDA**, who was scared of food pathogens because of the way the sausage is made.  It's not heated until the fat melts - ever - so it's deliciously soft, and cured more by the **7-10 day smoking process**.  We had an entire smoke shack, saved from the time when (apart from "salt pork") it was one of the only ways of preserving meat.  The fire had to be tended and kept just smoking, not overheating, in all wind conditions *this entire time*.  It was not just a process, it was a journey.  We made blood sausage, liver sausage and mettwurst that first year, and while I didn't stay for the smoking process, *I was hooked*.  We'd all get liquored up during it, too, which added to the fun.
 
-Having left my IT job at the Federal Housing Authority in 2012, I was looking for work at home and 'up north'.  With my partner's blessing, I was going to see if I could make it on the farm.  2013 was the first year I stayed up there to actually smoke the sausage.  My 'uncle' (who was really my 2nd cousin) who lived up there was quite cantankerous, somewhat bitter, and living mostly off of social security, having lost his knees to extensive farm work milking cows.
+Having left my IT job at the Federal Housing Authority in **2012**, I was looking for work at home and 'up north'.  With my partner's blessing, I was going to see if I could make it on the farm.  **2013** was **the first year I stayed up there to actually smoke the sausage**.  My 'uncle' (who was really my 2nd cousin) who lived up there was quite cantankerous, somewhat bitter, and living mostly off of social security, having lost his knees to extensive farm work milking cows.
 
 ![Petting Ganger Danger](/images/on_the_farm.jpg)
 
-He was going to live on the farm until he died, and in 2013 he almost did.  I was spending two weeks up north, two weeks at home, looking for jobs in both places and helping him on the farm.  It was such a change from city life, and hard, but I loved it.  He had fallen on the ice outside and broke his hip.  His border collies tried to rescue him, but they didn't have the strength to pull him.  He lay on the ice, contemplating whether he even wanted to get up.  Then, his mirama (a large sheep dog) and he grabbed onto its fur as it pulled him to his Ranger (a UTV).  He drove it to the neighbors house ~1/4 mi down the road, and was honking the horn for 1/2 an hour before they heard him and got him to the hospital.
+He was going to live on the farm until he died, and in **2013** he almost did.  I was spending two weeks up north, two weeks at home, looking for jobs in both places and helping him on the farm.  It was such a change from city life, and hard, but I loved it.  He had fallen on the ice outside and broke his hip.  His border collies tried to rescue him, but they didn't have the strength to pull him.  He lay on the ice, contemplating whether he even wanted to get up.  Then, his mirama (a large sheep dog) and he grabbed onto its fur as it pulled him to his Ranger (a UTV).  He drove it to the neighbors house ~1/4 mi down the road, and was honking the horn for 1/2 an hour before they heard him and got him to the hospital.
 
 I moved up there to take care of the animals while he was in the hospital.  When I got there, after a few days, the oil ran out.  All the firewood was under the snow ("because you weren't here to bring it in", he said) and I had to dig it out and *get a fire started to keep from freezing*  it was slightly scary, extremely motivating, and I loved it.  I loved the motivation that came with *absolutely having to do something or I would die*.  It was great.
 
-One lambing season, I was out in the field, watching the dogs fight over "their prize" (some lamb placenta) when I heard something baying.  I looked up to see a lamb, but no mother around.  Then I heard a coyote howl.  That lamb was *about to be dinner*.  So I went in and asked Brian.  He said to bring it in and he'd take a look.  I came out and he was still out in the field making tons of noise and no mother in sight.  I brought him in and Brian said he looked alright, sometimes the ewes, if they have 3, will "just reject 1" (sometimes even if they only have 2 - *how rude*).  So, I brought him into the barn, Brian showed me how to give them colostrum, and mix up milk substitute for them.  I had my first bottle lamb!  And, I got a couple more that season.  I always had a hard time getting up, but knowing I had animals (chickens and lambs) depending on me would get me out of bed.  I named him Bucky Buckminster Fullerine the 3rd and eventually had to put him with the flock.  But he escaped.  And escaped again.  He would always find a way to escape and seemed more "bonded" to the dogs (and me) than to the herd.  He would wait with the dogs on the back porch for me to come home and come out "running" with us when the dogs would run with me and the ranger, which Brian said was super unusual.  Brian was going to send him to *be processed* - to him, having to sacrifice your favorite animal was like a "right of passage", like it is in **4H**, but I didn't want to.  Miraculously, he escaped again!!
+One lambing season, I was out in the field, watching the dogs fight over "their prize" (some lamb placenta) when I heard something baying.  I looked up to see a lamb, but no mother around.  Then I heard a coyote howl.  That lamb was *about to be dinner*.  So I went in and asked Brian.  He said to bring it in and he'd take a look.  I came out and he was still out in the field making tons of noise and no mother in sight.  I brought him in and Brian said he looked alright, sometimes the ewes, if they have 3, will "just reject 1" (sometimes even if they only have 2 - *how rude*).  
+
+So, I brought him into the barn, Brian showed me how to give them colostrum, and mix up milk substitute for them.  I had **my first bottle lamb**!  And, I got a couple more that season.  I always had a hard time getting up, but knowing I had animals (chickens and lambs) depending on me would get me out of bed.  I named him **Bucky Buckminster Fullerine the 3rd** and eventually had to put him with the flock.  But he escaped.  And escaped again.  He *would always find a way to escape* and seemed more "bonded" to the dogs (and me) than to the herd.  He would wait with the dogs on the back porch for me to come home and come out "running" with us when the dogs would run with me and the ranger, which Brian said was super unusual.  Brian was going to send him to *be processed* - to him, having to sacrifice your favorite animal was like a "right of passage", like it is in **4H**, but I didn't want to.  Miraculously, he escaped again!!
 
 ![Bucky, my first bottle lamb](/images/bucky.jpg)
 
 Then, I found a job working with a WISP (Wireless Internet Service Provider).  Think **Time-Warner Telecom** but it's one guy with a couple hired hands, using wireless radios on top of **silos, feed legs, and water towers** and *a jungle gym in one instance* to feed the signal to ~1,000 people in ~500sqmi radius.  I loved networking, wireless, the internet (we had a very fast connection, and I got unlimited internet in a place where *getting internet at all* was hard to do), working with my hands, climbing stuff, doing on-call service work with a van (felt like *The A-Team*) **using CLI Linux** (the wireless equipment mostly ran embedded linux) and doing 7-layer DPI/IDS/IPS, which was fascinating.  We didn't log, we didn't report, we only complied when legally forced (which didn't happen the entire time I was there).
 
-In two years, I had a 20x40ft garden, grew enough potatoes to last all winter, took care of 50-100 sheep, a llama, two Belgian horses, 25-50 chickens, 3-5 dogs, siamese barn cats, and probably something else I'm forgetting.  I *helped deliver baby lambs one morning*, calling in late for work, then went to work climbing a tower, came home and fed chickens and bottle-fed and medicated the lambs, kept the furnace stoked with wood, smoked sausage, learned how to drive a skid-steer/tractor.
+In two years, I had a **20x40ft garden**, grew **enough potatoes to last all winter**, took care of **50-100 sheep, a llama, two Belgian horses, 25-50 chickens, 3-5 dogs, siamese barn cats**, and probably something else I'm forgetting.  I *helped deliver baby lambs one morning*, calling in late for work, then went to work climbing a tower, came home and fed chickens and bottle-fed and medicated the lambs, kept the furnace stoked with wood, smoked sausage, learned how to drive a skid-steer/tractor.
+
+Here's me teaching my bottle lamb bucky how to eat grass (you don't really have to do this, but I like to think it helped).
 
 ![That boy's been spending too much time with those lambs, I tell ya!](/images/that_boy.jpg)
 

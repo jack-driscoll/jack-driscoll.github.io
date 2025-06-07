@@ -38,7 +38,7 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 
 ---
 
-## 🛠️ Highlights
+## 🛠️ Highlights {#highlights}
 
 - 🏗️ [Quick GitHub Pages Starter](https://github.com/jack-driscoll/quick-github-pages): A 9KB portable Jekyll base.
 - 🌄 [The Plateaus on neocities](https://theplateaus.neocities.org): A surreal sports mythology built from the woods up.
