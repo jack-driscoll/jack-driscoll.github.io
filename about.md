@@ -127,6 +127,12 @@ theoritical things and the *utterly insane* idea of **infinite growth** on a
 - Software, such as MS Office, Inkscape, LibreOffice
 - bash/python/powershell scripting
 - fluency on the CLI and GUI
+- climbing: feed legs, water towers, towers, etc
+
+
+![A welded figurine](/welded.jpg)
+
+![me welding](/welding.jpg)
 
 ### Advice
 
@@ -211,6 +217,36 @@ I was born on January 17, 1984 in Warez, Old Mexico, the product of the unholy m
 
 I went to college at Michigan Technological University, and, disappointed that I still didn't like school, dropped out in 2003.  I was going to go for Chemical Engineering and sometimes wish I would have completed that course of life.  I entered the "job market" as a bus boy, computer salesperson, delivery driver and then as a *Network Support Specialist*, which began a **15-year career in IT**.
 
+### 2013-2017 - The Farm
+
+In **2008** I wend *up north* to the family farm for the first time since I was maybe 10 for my Grandpa's 90th birthday.  It was beyond beautiful.  It was like paradise.  I was in love.  In **2012**, my mom hesitantly (*she worries*) told me that her brother thought I should *get to know the family* up north, my *other side of the family* and learn **how the sausage is made**.  My family, on the family farm that my Grandpa grew up, would make `mettwurst`, a cold-smoked sausage.  My Grandpa would always pull me aside and whisper to me, "You can't buy this in the stores.  It's illegal to sell.".
+
+Unlike my great uncle, who was **a meth cook**, this was because of **The USDA**, who was scared of food pathogens because of the way the sausage is made.  It's not heated until the fat melts - ever - so it's deliciously soft, and cured more by the **7-10 day smoking process**.  We had an entire smoke shack, saved from the time when (apart from "salt pork") it was one of the only ways of preserving meat.  The fire had to be tended and kept just smoking, not overheating, in all wind conditions *this entire time*.  It was not just a process, it was a journey.  We made blood sausage, liver sausage and mettwurst that first year, and while I didn't stay for the smoking process, *I was hooked*.  We'd all get liquored up during it, too, which added to the fun.
+
+Having left my IT job at the Federal Housing Authority in 2012, I was looking for work at home and 'up north'.  With my partner's blessing, I was going to see if I could make it on the farm.  2013 was the first year I stayed up there to actually smoke the sausage.  My 'uncle' (who was really my 2nd cousin) who lived up there was quite cantankerous, somewhat bitter, and living mostly off of social security, having lost his knees to extensive farm work milking cows.
+
+![Petting Ganger Danger](/on_the_farm.jpg)
+
+He was going to live on the farm until he died, and in 2013 he almost did.  I was spending two weeks up north, two weeks at home, looking for jobs in both places and helping him on the farm.  It was such a change from city life, and hard, but I loved it.  He had fallen on the ice outside and broke his hip.  His border collies tried to rescue him, but they didn't have the strength to pull him.  He lay on the ice, contemplating whether he even wanted to get up.  Then, his mirama (a large sheep dog) and he grabbed onto its fur as it pulled him to his Ranger (a UTV).  He drove it to the neighbors house ~1/4 mi down the road, and was honking the horn for 1/2 an hour before they heard him and got him to the hospital.
+
+I moved up there to take care of the animals while he was in the hospital.  When I got there, after a few days, the oil ran out.  All the firewood was under the snow ("because you weren't here to bring it in", he said) and I had to dig it out and *get a fire started to keep from freezing*  it was slightly scary, extremely motivating, and I loved it.  I loved the motivation that came with *absolutely having to do something or I would die*.  It was great.
+
+One lambing season, I was out in the field, watching the dogs fight over "their prize" (some lamb placenta) when I heard something baying.  I looked up to see a lamb, but no mother around.  Then I heard a coyote howl.  That lamb was *about to be dinner*.  So I went in and asked Brian.  He said to bring it in and he'd take a look.  I came out and he was still out in the field making tons of noise and no mother in sight.  I brought him in and Brian said he looked alright, sometimes the ewes, if they have 3, will "just reject 1" (sometimes even if they only have 2 - *how rude*).  So, I brought him into the barn, Brian showed me how to give them colostrum, and mix up milk substitute for them.  I had my first bottle lamb!  And, I got a couple more that season.  I always had a hard time getting up, but knowing I had animals (chickens and lambs) depending on me would get me out of bed.  I named him Bucky Buckminster Fullerine the 3rd and eventually had to put him with the flock.  But he escaped.  And escaped again.  He would always find a way to escape and seemed more "bonded" to the dogs (and me) than to the herd.  He would wait with the dogs on the back porch for me to come home and come out "running" with us when the dogs would run with me and the ranger, which Brian said was super unusual.  Brian was going to send him to *be processed* - to him, having to sacrifice your favorite animal was like a "right of passage", like it is in **4H**, but I didn't want to.  Miraculously, he escaped again!!
+
+![Bucky, my first bottle lamb](/bucky.jpg)
+
+Then, I found a job working with a WISP (Wireless Internet Service Provider).  Think **Time-Warner Telecom** but it's one guy with a couple hired hands, using wireless radios on top of **silos, feed legs, and water towers** and *a jungle gym in one instance* to feed the signal to ~1,000 people in ~500sqmi radius.  I loved networking, wireless, the internet (we had a very fast connection, and I got unlimited internet in a place where *getting internet at all* was hard to do), working with my hands, climbing stuff, doing on-call service work with a van (felt like *The A-Team*) **using CLI Linux** (the wireless equipment mostly ran embedded linux) and doing 7-layer DPI/IDS/IPS, which was fascinating.  We didn't log, we didn't report, we only complied when legally forced (which didn't happen the entire time I was there).
+
+In two years, I had a 20x40ft garden, grew enough potatoes to last all winter, took care of 50-100 sheep, a llama, two Belgian horses, 25-50 chickens, 3-5 dogs, siamese barn cats, and probably something else I'm forgetting.  I *helped deliver baby lambs one morning*, calling in late for work, then went to work climbing a tower, came home and fed chickens and bottle-fed and medicated the lambs, kept the furnace stoked with wood, smoked sausage, learned how to drive a skid-steer/tractor.
+
+![That boy's been spending too much time with those lambs, I tell ya!](/that_boy.jpg)
+
+In **2016**, my partner of 7 years left me, stole $3,000 from me which resulted in my home being foreclosed on.  I tried to save it, but I wasn't able to.
+
+### 2017: best and worst
+
+In early 2017, **uncle Brian died** and **they sold the farm**.  I had to move, and it sucked, but *there was nothing I could do, again*.  I still had the best job I've ever had, it didn't pay much, but fit almost all my skills and I loved it.  Then, someone started working there and he was one of my favorite people ever.  I never got tired of spending time with him in the 6 months he was there.  Best coworker ever.  The situation helped me deal with the loss.  It was still almost too good to be true.
+
 In **2017-2018** I lost:
 
 - My favorite person
@@ -226,6 +262,10 @@ After a bout of severe depression for the following 7 years, including 2 years o
 I'm currently *retooling* for a job in **Manufacturing Maintenance** at MATC, which I'm enjoying thoroughly.  I'm on the Dean's list.
 
 There's more, but this is a solid start.  If you're interested, you can talk to me using *your mouth-words*, or by writing using the english alphabet and language.  Continue reading to [find out how](#contact)!
+
+### 2025
+
+I'm living in Sheboygan, WI.  I'm sober from any and all illegal substances.  I'm hoping I will soon get my sleeping disorder fixed and may begin full-time work again.
 
 ## Contact
 
