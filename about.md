@@ -120,7 +120,6 @@ theoritical things and the *utterly insane* idea of **infinite growth** on a
 - Vinyl/Cassette/DAW
 - PA and Pro Sound Production/Mixing/Editing
 - A/V of most types and sizes
-- Good in the sack
 - A good voice, ability to do vocal work
 - AI - prompt engineering, illustration, writing/storytelling
 - Human - writing/storytelling/mythmaking/worldbuilding
