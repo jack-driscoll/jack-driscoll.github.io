@@ -8,6 +8,20 @@ nav_exclude: true
 
 # Jack Driscoll
 
+---
+
+## 🧠 Skills at a Glance {#skills}
+
+- **Mechanical:** Hydraulics, pneumatics, welding, HVAC, blueprint reading.
+- **Electrical:** AC/DC circuits, field wiring, looms/harnesses, structured wiring
+- **Networking:** 802.11 troubleshooting, Linux routing, spectrum awareness, TCP/IP
+- **Systems:** FreeBSD, Debian, bash/Python scripting, SDR toolchains.
+- **Creative:** Worldbuilding, visual storytelling, minimalist web design.
+
+For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](/about.html).
+
+---
+
 I'm Jack Driscoll/jackd/Jack'D — a multidisciplinary technician, systems thinker, creative worldbuilder and myth wrangler.  Please be patient, I'm in the process of re-imagining the world as we know it in a way that:
 
 - respects autonomy
@@ -46,18 +60,6 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 - 🏈 [The Plateaus on notion](https://bush-whale-713.notion.site/The-Plateaus-1d0969c50c7180f3811fd194901d96ac) Player Roster Table, unshared files
 - 🌐 [EtherTech.org](https://ethertech.org): Networked infrastructure for creative signal workers.
 - 🖼️ [nanogallery2 Gallery Generator](https://github.com/jack-driscoll/auto-nanogallery2/): A python script that automagically generates thumbnails and gallery.json file!
-
----
-
-## 🧠 Skills at a Glance {#skills}
-
-- **Mechanical:** Hydraulics, pneumatics, welding, HVAC, blueprint reading.
-- **Electrical:** AC/DC circuits, field wiring, looms/harnesses, structured wiring
-- **Networking:** 802.11 troubleshooting, Linux routing, spectrum awareness, TCP/IP
-- **Systems:** FreeBSD, Debian, bash/Python scripting, SDR toolchains.
-- **Creative:** Worldbuilding, visual storytelling, minimalist web design.
-
-For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](/about.html).
 
 ---
 
