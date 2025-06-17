@@ -48,8 +48,6 @@ I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Lin
 
 [Project Highlights](#highlights)
 
-[Skills at a Glance](#skills)
-
 ---
 
 ## 🛠️ Highlights {#highlights}
