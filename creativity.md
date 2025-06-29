@@ -1,13 +1,13 @@
 ---
 layout: page
-title: "EMTG: Office of Mythic Prototyping | Making Your Dreams Reality"
+title: "Office of Mythic Prototyping | Making Your Dreams Reality"
 date: 2025-06-29
 permalink: /creativity.html
 author: jackd
 description: "Ethereal Modern Technology: Office of Mythic Prototyping | Making Your Dreams Reality"
 ---
 
-# EMTG: The Ethereal Modern Technology Group - The Office of Mythic Prototyping
+# EMTG: The Ethereal Modern Technology Group - The Office of Mythic Prototyping: Making Your Dreams Reality
 
 ## Who are you?
 
@@ -27,7 +27,7 @@ Welcome to the realm where possibility files for residency.
 
 This is where we create all the things that don't exist yet in the literary realm.  I do things like copyediting, writing, reading, reviewing, researching, creating myths and stories and helping you tell yours.
 
-The Lab of Lucid Fabrications isn’t just a sandbox for scribbles—it’s a forge for what ifs, why nots, and maybe somedays. Here, we do more than write—we summon. We draw language like sigils, we edit like alchemists, and we treat stories like living organisms that need air, water, and the occasional dramatic monologue.
+The **Lab of Lucid Fabrications** isn’t just a sandbox for scribbles—it’s a forge for what ifs, why nots, and maybe somedays. Here, we do more than write—we summon. We draw language like sigils, we edit like alchemists, and we treat stories like living organisms that need air, water, and the occasional dramatic monologue.
 
 I work across many roles—**copyeditor, writer, reader, reviewer, researcher, ritual scribe, and myth-seed cultivator**—but all in service of the same sacred process: guiding ideas from the liminal fog of maybe into the hard light of oh wow, that’s a real thing now.
 
@@ -39,7 +39,7 @@ Welcome to the narrative threshold.
 
 ## The Feral Workshop
 
-Welcome to The Feral Workshop—where we snarl, scratch, and scribble beauty into being.
+Welcome to **The Feral Workshop**—where we snarl, scratch, and scribble beauty into being.
 
 This is where we channel our inner animal instincts into crafting things you can see, touch, hang on a wall, or slap on a lunchbox. Logos that growl. Illustrations that whisper. Diagrams that pulse with ancient signals. Product designs shaped not just by utility, but by the wild urge to make something real.
 
@@ -56,11 +56,11 @@ Our work includes:
 
 Whether you're dreaming up a new creature, a visual identity, or just want to watch art emerge like moss from stone—this is your den. No house style, no leash. Just instinct, imagination, and a slightly chewed Wacom pen.
 
-The Feral Workshop: Because sometimes the muse has teeth.
+**The Feral Workshop: Because sometimes the muse has teeth.**
 
 ## The Sensory Exploratorium
 
-Welcome to The Sensory Exploratorium—where sound and vision are sculpted, sampled, whispered, and wired.
+Welcome to **The Sensory Exploratorium**—where sound and vision are sculpted, sampled, whispered, and wired.
 
 This is our chamber of resonance and perception, where **auditory and visual media come alive**. Whether it’s a voice that needs to be heard, a story that needs a soundtrack, or a world that needs just the right flicker of light and texture—this is where we make it feel real.
 
@@ -76,4 +76,4 @@ I work with what I have—and sometimes that’s just cleverness, caffeine, and 
 
 If it makes noise or light, if it needs rhythm or texture, if it belongs on a screen or in your ears—this is where we explore it.
 
-The Sensory Exploratorium: Touch it. Hear it. Make it hum.
+**The Sensory Exploratorium: Touch it. Hear it. Make it hum.**

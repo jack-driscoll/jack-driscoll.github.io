@@ -10,6 +10,14 @@ nav_exclude: true
 
 ---
 
+## IT/Network Support & More
+
+I [offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).
+
+## Office of Mythic Prototyping - Creative Works
+
+Fitz [offers creative works of all types shapes and sizes, from writing to visuals to voice work & more!](https://jackd.ethertech.org/creativity.html)
+
 ## 🧠 Skills at a Glance {#skills}
 
 - **Mechanical:** Hydraulics, pneumatics, welding, HVAC, blueprint reading.
