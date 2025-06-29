@@ -112,6 +112,8 @@ In short, I don't have any.  I have **Network+**, the lowliest cert you can get,
 -	I set up a domain with DHCP, DNS, firewall, local NFS/SMB server on FreeBSD before WiFi existed for fun and learning
 -	Monitoring GSM using a reprogrammed cell phone and osmocom
 -	I used to work for an ISP – I know what to look for and how to hide it
+-   Structured Wiring
+-   TIA/EIA 568 Standards
 
 
 ### Software & Toolkit
