@@ -12,7 +12,7 @@ nav_exclude: true
 
 ## IT/Network Support & More
 
-I [offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).
+I [offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
 
 ## Office of Mythic Prototyping - Creative Works
 

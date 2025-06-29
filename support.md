@@ -11,6 +11,10 @@ description: "Ethereal Modern Technology: Support From the Future, Today | IT, N
 
 `"Technology that runs from a backpack on a pissed-off deer in a thunderstorm"`
 
+## Hire me!
+
+[You can hire me at Upwork for monthly service at the starting price of $50/month - less than a single service call!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)  You can have your own "IT guy" on call, with 24-hour turnaround for your SME or even home users!  I do it all!
+
 ## Who Are You?
 
 My name is Jack Driscoll (AKA **jackd**/Jack'D/nteleky)  I got my **first computer in 1994** and immediately ran up a $500 bill with AOL that I fervently denied having created. I’ve been using **Linux and FreeBSD since 1999**, when I managed to get them running on an old laptop a parent's friend donated.  Of course, we ran 3.11 on our family desktop - the best Christmas present ever and the only one successfully hidden from my brother.
