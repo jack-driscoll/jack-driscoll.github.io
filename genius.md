@@ -13,7 +13,9 @@ MyGenius – Life Support For The Rest Of Us
 
 ## Are you really a genius?
 
-According to a psychiatrist who evaluated me when I was 13, yes.  I have an IQ of 141, which places me (barely) in the "genius" category.  I'm not a prick about it, though - no condescension, no "dumb questions", nothing too big or small.
+According to a psychiatrist who evaluated me when I was 13, yes.  (I have an IQ of 141)[/images/iq_test.jpg], which places me (barely) in the "genius" category.  I'm not a prick about it, though - no condescension, no "dumb questions", nothing too big or small.  I always used to downplay my intelligence because sometimes people think I'm trying to say I'm "better than them".  I'm not "better" than anyone.  Everyone has their strengths (and weaknesses) and one of mine happens to be a *really nice brain*.  Unfortunately, much to my dismay, *it's not benefitting other people*, and that's what I would like to use it for and I think that's what the cosmos intends as well.
+
+I'm not a *super genius* or anything, I'm not *rainman* (although I do have mental illness), and I'm not interested in comparative measures of intelligence.  This isn't about *who's the smartest*.  Everyone has different talents and strengths, this is mine, and I know I'm not and I'm never going to be *"the smartest"*, so do yourself a favor and don't compare yourself to other people, including me.  Look at your strengths and use them.  Look at your weaknesses and fortify them.  Be the best person you can be and accept yourself *exactly as you are*, and forget the pissing contest (unless it's for entertainment).
 
 ## Can't I "Just Google it"?
 

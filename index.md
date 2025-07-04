@@ -6,11 +6,12 @@ title: Jack'D in CYBERSPACE!!!
 nav_exclude: true
 ---
 
+---
 # <a href="https://jackd.ethertech.org/support.html">IT/Network Support & More</a> by Jack Driscoll
 
-I [offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
+[I offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
 
-## <a href="https://jackd.ethertech.org/genius/">MyGenius</a>
+## <a href="https://jackd.ethertech.org/genius/">MyGenius/brainspunk</a>
 
 I recently decided to do a **180** and go from being completely nonpluss about my intelligence to marketing it.  Here's my logic, see if you follow it:  if you're the top 1% athlete, or salesperson, or cake-baker, *aren't you going to advertise that*?  Doesn't it make a difference that you are *better than 99% of people*?  That in a room of 100 people, you are objectively *the best*?  When I was 13, I had my intelligence tested by a professional, and while I'm well aware of the baked-in biases of IQ tests and **that intelligence comes in many types**, it's legitimately exceptional that I'm *really smart*.  I test highly in aptitude in reasoning, spatial understanding, reading comprehension, memory, and other areas - so much so that I'm literally in the top 1% - *at least*, possibly higher.  It's not just IQ tests, either.  I got a **33 in the ACT**, I was routinely in **the 99th percentile in the Iowa Test of Basic Skills**, and in gradeschool and High School *I didn't have the grades to prove it*.  Wait, what?  That's right!  Because I'm neurodivergent, and for various reasons suffered in school as a child, my grades were *not great*, although I did graduate from gradeschool and High School.  Now that I'm in college, however, **I was on the Dean's list**, *even while hiding a secret crack and heroin addiction* I'm now free of.
 
@@ -24,7 +25,7 @@ I'm offering you the chance to get **more informed, educated, and capable for on
 
 ## Office of Mythic Prototyping - Creative Works
 
-Fitz [offers creative works of all types shapes and sizes, from writing to visuals to voice work & more!](https://jackd.ethertech.org/creativity.html)
+[Fitz offers creative works of all types shapes and sizes, from writing to visuals to voice work & more!](https://jackd.ethertech.org/creativity.html)
 
 ## 🧠 Skills at a Glance {#skills}
 
@@ -36,7 +37,7 @@ Fitz [offers creative works of all types shapes and sizes, from writing to visua
 
 For a more detailed view, check out [my intro](/intro/bio/2025/06/02/seriously.html) or [About Me](/about.html).
 
----
+## Who are you?
 
 I'm Jack Driscoll/jackd/Jack'D — a multidisciplinary technician, systems thinker, creative worldbuilder and myth wrangler.  Please be patient, I'm in the process of re-imagining the world as we know it in a way that:
 
