@@ -22,16 +22,6 @@ body {
   display: none !important;
 }
 @media (max-width: 768px) {
-  body, html {
-    overflow-x: hidden;
-  }
-  .site-header,
-  .site-nav,
-  .site-nav a {
-    max-width: 100vw;
-    box-sizing: border-box;
-  }
-
   .site-header {
     padding-top: 1rem;
   }
@@ -46,20 +36,17 @@ body {
   .site-nav a {
     display: block;
     width: 100%;
-    text-align: center;
     padding: 0.5rem 0;
-    word-break: break-word;
   }
 
   .site-title {
     font-weight: bold;
     font-size: 1.5rem;
     text-align: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: 1rem;
     border-bottom: 1px solid #ccc;
-    padding-bottom: 0.25rem;
+    padding-bottom: 0.5rem;
     width: 100%;
-    display: block;
   }
 }
 </style>
@@ -67,7 +54,7 @@ body {
 <!-- Re-implement Minima's default header -->
 <header class="site-header" role="banner">
   <div class="wrapper">
-    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">jackd</a>
+    <a class="site-title" rel="author" href="{{ '/' | relative_url }}">{{ site.title | escape }}</a>
 
     <nav class="site-nav">
       <a class="page-link" href="/index.html#blog">Blog Posts</a>
