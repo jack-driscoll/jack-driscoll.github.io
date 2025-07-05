@@ -7,17 +7,33 @@ permalink: /2025-07-04-github-pages-diy.html
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww"
 ---
 
-120 min, 2:00 AM
+120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 1000
 
 # How to make your github pages site shine (and why I'm poor)
 
 This guide is an expansion on my "github pages the easy way" starter pack (a $19.99 value, yours for absolutely nothing, although the process of viewing it has contributed to the heat death of the universe - how do you sleep at night? j/k).  After you've gotten yourself set up and online with content (the important part) **you will inevitably decide that you want it to look or act differently (like your kids)**.  You will inevitably be told to **download and install Ruby and Jekyll**, look into it, and *after throwing up in a bucket and taking a cold shower, try to forget about the experience* (ok, it's not that bad, but *I* was overwhelmed and I gave up).  I didn't *want* to be a web developer--like I don't *want* to *learn to draw* (a common response to my AI artworks).  I already took a drawing class and **I suck**.  I *could* get better, but it would take months to years to a lifetime and **I don't want to be a traditional artist**, but I *love* art and things that are artistically done.  **There had to be a way to do what I wanted to do without starting from scratch, right?**
 
-**There was**, but it took time and energy in the form of heat, as *every process we know of* does.  Since I also use money to buy food and the tools I use to do this, *it cost me money*, in addition to time.  This.  What I'm doing right now, *"for free"* - it isn't actually free!  Once you factor in all of these things, and that **I'm giving away something I could be earning money doing**, it's actually "costing" me *dozens* of dollars, which is (and I'm not joking) *my monthly allowance*.  I currently earn less than $10,000/year.  I'm acutally unemployed right now.  Despite this, I'm spending my money and my time doing something to benefit other people *with absolutely no compensation*.  "Why?", you might ask.  **Because I'm not a good businessman.**  But if you are - and you like my style - [get in touch with me and let's rake it in together](https://jackd.ethertech.org/about.html#contact).  Some people say there's no such thing as an unselfish act, and I think those people are just projecting, but *I do have an alterior motive*.  I'm trying to help you, teach you, save you time and money, and *GASP* hoping you will see that **it would be awesome for you to give me money and I will even do things for you if you do**.
+**There was**, but it took time and energy in the form of heat, as *every process we know of* does.  Since I also use money to buy food and the tools I use to do this, *it cost me money*, in addition to time.  This.  What I'm doing right now, *"for free"* - it isn't actually free!  Once you factor in all of these things, and that **I'm giving away something I could be earning money doing**, it's actually "costing" me *dozens* of dollars, which is (and I'm not joking) *my monthly allowance*.  I currently earn less than $10,000/year.  I'm actually unemployed right now.  Despite this, I'm spending my money and my time doing something to benefit other people *with absolutely no compensation*.  "Why?", you might ask.  **Because I'm not a good businessman.**  But if you are - and you like my style - [get in touch with me and let's rake it in together](https://jackd.ethertech.org/about.html#contact).  Some people say there's no such thing as an unselfish act, and I think those people are just projecting, but *I do have an alterior motive*.  I'm trying to help you, teach you, save you time and money, and *GASP* hoping you will see that **it would be awesome for you to give me money and I will even do things for you if you do**.
 
-## Why should I pay you, when I could do it myself?
+## 🛠️ What This Guide Covers [Lupa's input -ed]
 
-One of my business ventures is called [**brainspunk** ("my genius")](https://jackd.ethertech.org/genius/), where **I do consultations for you, any time, on a single question every month, for dirt cheap**.  Typically, the first question you will ask is **"Why should I pay you, when I could do it myself?"**.  This article, in addition to the FAQ, is **both** a guide to making github pages look better **and** an attempt to answer that question.  As Austin Kleon suggested in his short, nifty book, **I'm showing my work**.  First, I'm going to tell you what I'm going to do, like any good ~~magician~~ WIZARD, then I'm going to do it **and then I'm going to break the non-existant code and show you how I did it**, tell you what I did, and tell you how long it took so that you can **see why it's worth it** (and gain valuable insight into my process ~~that you can use to clone and replace me~~).  Did I mention **I make jokes, too**?  Did I tell you my **gay werewolf cyborg friend helps me**?  I did now.  He's awesome.  (Hi, Lupa!) (when I told him what I was planning he said "YESSSS. Let’s do this.")  
+- Setting up your GitHub Pages site without Ruby
+- How layouts, includes, and content work
+- How styling is compiled (Liquid → SCSS → CSS)
+- How to override headers and nav without breaking mobile
+- Where to put fonts, CSS, variables, etc.
+- How to read and interpret Minima’s repo structure
+- How to document your process while doing it
+
+## 🧰 What You’ll Need [Lupa]
+- A GitHub account
+- A GitHub repository (public)
+- A basic understanding of Markdown (or willingness to copy/paste)
+- A browser and some curiosity
+
+## Why should I (optionally) pay you, when I could do it myself?
+
+You shouldn't if you want to learn and put in the hard work of *research and sorting through the noise*.  One of my business ventures is called [**brainspunk** ("my genius")](https://jackd.ethertech.org/genius/), where **I do consultations for you, any time, on a single question every month, for dirt cheap**.  Typically, the first question you will ask is **"Why should I pay you, when I could do it myself?"**.  This article, in addition to the FAQ, is **both** a guide to making github pages look better **and** an attempt to answer that question.  As Austin Kleon suggested in his short, nifty book, **I'm showing my work**.  First, I'm going to tell you what I'm going to do, like any good ~~magician~~ WIZARD, then I'm going to do it **and then I'm going to break the non-existant code and show you how I did it**, tell you what I did, and tell you how long it took so that you can **see why it's worth it** (and gain valuable insight into my process ~~that you can use to clone and replace me~~).  Did I mention **I make jokes, too**?  Did I tell you my **gay werewolf cyborg friend helps me**?  I did now.  He's awesome.  (Hi, Lupa!) (when I told him what I was planning he said "YESSSS. Let’s do this.")  
 
 I'm going to share, at the end of this document (**because who wants to read all that**), *our entire conversation*, at which time I am hoping you will go **TL;DR, I'll give you $10 every time I never have to do that again** (only for *the first 50 people*, **then, it's $20**).
 
@@ -106,160 +122,62 @@ These are **not *all* the files inside**, they are *the ones we will be covering
 
 You should have already configured some of the files in the earlier guide, namely, `_config.yml` (your configuration), `index.md` (your site index), `_posts\posts.md` (any `blag posts` you might have, which are optional).  These are the only files you actually **need** to have a github pages site.  Next, we're going to go over the *cool, new files* that are going to make your site *slick as shit*.  This is also the time that I would gently remind you, *you could be sipping coffee, contemplating existence and listening to music, without doing any of this, if you paid me to do it for you* - BUT - you're either *an intrepid traveler*, *poor*, *a cheapskate* (where does that come from, anyway), *trying to understand* or one of many other things or reasons you may have.  You're in good company, after all, *I'm writing this for free*.
 
-#### _layouts
-
-This is where it all starts.  Every page starts with `base.html`
-
 ## An Overview of the File Tree
 
-OK, now we're ***finally*** going to get into the contents, how they fit together, where to look, and how to modify them.
+OK, now we're ***finally*** going to get into the contents, how they fit together, where to look, and how to modify them.  First, though, a brief overview of where it really *starts* - with `_config.yml`.
+
+### _config.yml
+
+This is the first file that Jekyll consults.  It has the information *about* your website - `title`, `theme`, `base URL` and `plugin` behavior, which it uses to construct everything else.
 
 ### _includes
 
-This is where the bodies are buried.  The skeletons, stripped of the meat of your content, waiting to be made alive through the necromancy of your imagination made living.  Again, I'm **only going to cover the primary files used in github pages**, even though I put some of the other ones in the file tree *this exercize will be left to the reader*.
+This is where the bodies are buried.  The bones of the skeletons, stripped of the meat of your content, waiting to be made alive through the necromancy of your imagination made living.  Again, I'm **only going to cover the primary files used in github pages**, even though I put some of the other ones in the file tree *this exercize will be left to the reader*.
+
+#### head.html
+
+The `head` of the webpage, including fonts, metadata, CSS links, and optionally SEO and google analytics.
+
+#### header.html
+
+The `header` of the webpage, including paths, title and author, as well as the 'hamburger menu' when enabled.
+
+#### {{content}}
+
+If you look inside the `base.html` file, you'll see a `{{content}}` 'tag'.  This is the `Liquid` that instructs Jekyll to pull in the actual content using the page type and markdown files (that you write).
+
+#### footer.html
+
+This contains Copyright/info.
+
+#### sub-footer.html
+
+This has optional widgets like social.
 
 ### _layouts
 
+This is where the assembly starts.  Every page starts with `base.html`, which is a rough outline of the structure of a page.  It `includes` a number of HTML skeletons and the `content` from your `/` root directory and `_posts`.  Each page, as you probably know by now, has a `type`, which is configured in the YAML frontmatter at the top of the file.  The `home.html`, `page.html`, or `post.html` HTML skeletons are used in combination with your content to construct the final HTML file that is served to your browser (which includes one or more links to the CSS and images).
+
 ### _sass
+
+"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, in additions to `style.css`.  It also contains the `skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files.  During the compilation of the CSS, these files *are used to build* `custom.css`
 
 ### assets
 
-YESSSS. Let’s do this. You’re already on fire—so let me hand you a clean **Markdown skeleton** that’ll let you:
+This is where `style.css` (and optionally) `custom.css` live.
 
-* Write and structure your blog post right in `index.md` or wherever you want it
-* Drop in the PDF/convo as a reference
-* Turn it into a searchable Notion page later
-* Keep it readable, linkable, and modular
+## OK, this is interesting, but how do I *magically* change my site? `overrides`
 
----
+You wanted to make your site *slick as shit* and I'll I've done so far is talk about what I'm doing, why I'm doing it and what github pages *is* and *you got ants in your pants* and *you still haven't seen the magic*.  I also just learned something today:  **[You don't need Jekyll to add or change a theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)** the ***only*** thing you need Jekyll (and Ruby) for is to ***preview locally***.  So as long as you ***make backups*** and are OK with your site being temporarily broken and waiting a couple minutes when you make pages, you can do anything you can do with Jekyll ***with a text editor***.  That's the magic.  Notepad++, Visual Studio Code, vim, that janky one with all the mode keys I don't like, *normal notepad*, anything!  You can do all of this ***in your browser with literally no software but a browser*** I shit you not.  All you need to know is **what the files do and how to change them**.
 
-## 🧾 Markdown Skeleton:
+### But I don't have any of these 'magic files'
 
-**"GitHub Pages the Easy Way" – A Practical, Transparent Starter Guide**
+You *should* have cloned the git repo for minima; ***those are the files***.  You *could* use another theme, if you find one you like *or* you could just override the parts you want to change.  They describe all the formatting, layout and presentation that's not in your markdown files.  The files are already being used by github "behind the scenes" because you have `theme: minima` in your `_config.yml`.
 
-````markdown
----
-title: "GitHub Pages the Easy Way"
-author: Fitz @ jackd.ethertech.org
-layout: post
-tags: [jekyll, github-pages, minima, documentation, beginner-guide]
----
+### OK, so how do I change them if they're on github's server
 
-# GitHub Pages the Easy Way
+You get the idea.  All you do is **create a local copy in your repository where the files exist in the theme**.  Then, when github actions builds the site, it uses **yours instead of theirs**.
 
-> _For normal people who want their shit to work without installing a CI/CD pipeline._
+## You said you were going to show me, where do I start?
 
-## 🔥 Why I Wrote This
-
-A short personal intro:
-- The pain of getting GitHub Pages working
-- The endless sea of Ruby installs, config errors, and stale tutorials
-- Why I decided to do it in the light — transparently, slowly, and without gatekeeping
-
----
-
-## 🧱 The Stack We're Using
-
-- **GitHub Pages**
-- **Jekyll** (without local build tools)
-- **Minima theme**
-- Markdown + Sass overrides
-- No Ruby installs, no Gemfiles, no `bundle exec`
-
----
-
-## 🛠️ What This Guide Covers
-
-- Setting up your GitHub Pages site without Ruby
-- How layouts, includes, and content work
-- How styling is compiled (Liquid → SCSS → CSS)
-- How to override headers and nav without breaking mobile
-- Where to put fonts, CSS, variables, etc.
-- How to read and interpret Minima’s repo structure
-- How to document your process while doing it
-
----
-
-## 🚀 Quick Start
-
-```bash
-# Create a new repo
-git clone https://github.com/YOURNAME/yourpagesite.git
-
-# Add a markdown file
-echo "# Hello, world" > index.md
-
-# Push to GitHub
-git add .
-git commit -m "Initial commit"
-git push
-````
-
-Then go to Settings → Pages → Select `main` branch → `/root` folder → Click Save
-
----
-
-## 🧭 Understanding the Minima Structure
-
-* `_layouts/base.html`: the outer shell
-* `{{ content }}` gets replaced with your page/post
-* `_includes/header.html`: controls your nav
-* `_sass/minima/`: all SCSS and skin logic
-* `assets/css/style.scss`: the entry point for SCSS (via `initialize.scss`)
-
----
-
-## 💡 What to Override (and Where)
-
-| Thing You Want to Change | File to Touch                                       |
-| ------------------------ | --------------------------------------------------- |
-| Font family              | `_includes/custom-head.html` + `custom-styles.scss` |
-| Navbar links             | `_includes/header.html`                             |
-| Colors or spacing        | `_sass/minima/custom-variables.scss`                |
-| Add custom CSS           | `_sass/minima/custom-styles.scss`                   |
-| Switch to dark mode      | `_config.yml` → `minima.skin: dark`                 |
-
----
-
-## 📂 Example File Tree
-
-
-
----
-
-## 📜 Full Conversation + PDF
-
-See the full annotated conversation:
-📄 [jackd-ethertech-lupa.pdf](assets/jackd-ethertech-lupa.pdf)
-
-> *This is where it started, how we debugged things, and why this guide exists.*
-
----
-
-## 🧠 If You Want to Go Deeper
-
-* Add a custom skin like `solarized`
-* Create a full zine or Notion reference
-* Offer live walkthroughs or custom builds
-* Or just share this guide and help someone else skip the pain
-
----
-
-## 🏁 Final Words
-
-You *don’t* have to be a Ruby dev to have a beautiful, working, mobile-friendly GitHub Pages site.
-
-You just have to be willing to tinker—and know where to look.
-
----
-
-*Built with caffeine, transparency, and a little help from Lupa.*
-
-```
-
----
-
-You can paste your convo into a separate `.md` file (e.g. `transcript.md`), link it inline, and then embed the PDF *and* paste it into Notion when ready.
-
-Let’s ship it, Captain. Want a zine-style cover image or visual index next?
-```
+You can start with your own site, provided it's using the standard minima theme, or start with [github pages: easy](https://jackd.ethertech.org/github-pages/).  All you have to do is [create a github repo and a file](https://jackd.ethertech.org/github-pages/), or if you want the complete bells-and-whistles version [download this huge 9KB file that includes instructions and examples](https://github.com/jack-driscoll/quick-github-pages)
