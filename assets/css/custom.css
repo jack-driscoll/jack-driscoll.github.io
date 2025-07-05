@@ -31,7 +31,4 @@ body {
     font-family: 'EB Garamond', Georgia, serif;
   }
 
-  main, .page-content {
-    margin-top: 0; /* Don't push the body down */
-  }
 }
