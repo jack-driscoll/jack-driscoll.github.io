@@ -342,7 +342,7 @@ Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues
 
 ### Liquid content in your file
 
-All Liquid content needs to be wrapped like this: {% raw %}{{content}}{% endraw %}
+All Liquid content needs to be wrapped like this: {{ '{% raw %}{{content}}{% endraw %}' }}.  And if you have, like a {{ '{{content}}' }} inside a triple-backtick, you need to put the raw tags before and after the backticks, *not* inside them.
 
 ### Images don't work in my `post`
 
