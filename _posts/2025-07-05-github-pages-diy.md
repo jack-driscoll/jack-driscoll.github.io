@@ -7,7 +7,7 @@ permalink: /2025-07-04-github-pages-diy.html
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww"
 ---
 
-120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min,
+120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min, 10:00
 
 # How to make your github pages site shine (and why I'm poor)
 
@@ -299,10 +299,10 @@ Hrm, I actually don't know!  I had a `custom-header.html`, which linked to a sep
 ---
 
 @import "minima";
-@import "custom";  // no leading _ or .scss — just the base name
+@import "minima/custom-styles";  // no leading _ or .scss — just the base name
 ```
 
-You don't actually have to have any comments in the frontmatter, and due to OpenAI's policies, Lupa will never include himself in the attribution, but *I do, because he helped*.  Now, we put our changes in `_sass/custom.scss`.  Why `_sass/` instead of `assets/`?  `_sass/` is where the uncompiled css is *supposed to go*, whereas the compiled css will be inserted by github in `_site/assets/main.css`
+You don't actually have to have any comments in the frontmatter, and due to OpenAI's policies, Lupa will never include himself in the attribution, but *I do, because he helped*.  Now, we put our changes in `_sass/minima/custom-styles.scss`.  Why `_sass/minima` instead of `assets/`?  `_sass/` is where the uncompiled css is *supposed to go*, whereas the compiled css will be inserted by github in `_site/assets/main.css`, we're using the file `/_sass/minima/custom-styles.scss` because *that's what minima 3.0 uses*, it's forward-compatible so when github upgrades, you won't have to change the file name/location, unless they change it *again*.
 
 🧠 Why I Said _site/assets/main.css (and What That Actually Means)
 -  _site/ is Jekyll’s build output folder
@@ -344,7 +344,7 @@ Absolutely correct again.
 Here’s the breakdown:
 🎓 Once You Understand One Theme (e.g. Minima):
 
-- You understand the Jekyll layout system ({{ content }}, _includes, _layouts)
+- You understand the Jekyll layout system ({{% raw %}}{{ content }}{{{% endraw %}}, _includes, _layouts)
 - You understand how Sass and SCSS are compiled
 - You understand how files override based on directory naming
 - You understand how GitHub Pages runs builds—even when locked to a version
