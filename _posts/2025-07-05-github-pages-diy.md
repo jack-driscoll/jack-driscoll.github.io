@@ -214,7 +214,7 @@ You get the idea.  All you do is **create a local copy in your repository where 
 
 This is how Jekyll (residing on github's servers) puts everything together:
 
-```
+```liquid
 User Request (URL)
    ↓
 Jekyll Reads _config.yml
