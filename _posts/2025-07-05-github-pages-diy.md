@@ -225,7 +225,7 @@ Layout Loaded (e.g., base.html)
    ↓
 Includes Injected (head, header, footer)
    ↓
-{{% raw %}}{{ content }}{{% endraw %}} → Markdown Rendered → HTML
+{{% raw %}}&#123;&#123; content &#125;&#125;{{% endraw %}} → Markdown Rendered → HTML
    ↓
 Liquid Variables Replaced
    ↓
@@ -322,6 +322,9 @@ And then, of course, we commit the files:
 
 ![a git commit example, in case you haven't seen it]({{ "/images/git_commit.png" | relative_url }})
 
+### Let's take the homepage out of the nav bar, because I already linked to it with my custom header  {#no-index}
+
+So my index was showing up in the header
 
 ## What doesn't work?
 
@@ -345,7 +348,22 @@ Images were working fine in my pages, at least the ones directly off the root of
 
 ### What if I want a page, but I don't want it in my navigation bar?
 
-Just add this to the frontmatter `nav_exclude: true`
+~~Just add this to the frontmatter `nav_exclude: true`~~ This is not included in **2.5.1** in github pages, [see here](#no-index)
+
+### What plugins are allowed in _config.yml?
+
+✅ Bonus: Plugins Allowed on GitHub Pages
+
+GitHub Pages has a hard whitelist of supported plugins. As of now (confirmed at pages.github.com/versions), these are allowed:
+
+- jekyll-feed
+- jekyll-seo-tag
+- jekyll-sitemap
+- jekyll-paginate
+- jekyll-remote-theme
+- jekyll-include-cache
+
+❌ jekyll-navigation is not allowed, and nav_exclude is typically used with that plugin.
 
 
 ## Let's implement a completely different theme
