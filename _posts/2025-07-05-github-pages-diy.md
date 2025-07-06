@@ -74,6 +74,10 @@ If this is all making you woozy, you're in the wrong place, you should be going 
 
 Yes.  This is how I show you.  I will use some examples, but once you learn how it works, **you will be able to do almost anything**.  You could even change the theme, *just by overriding the existing theme*, although I'm not sure why you'd want to.  OK, [now go ahead and download the minima files](https://github.com/jekyll/minima/releases/tag/v2.5.1) ~~**for version 2.5.1, which github uses**~~, you don't *need* to technically, but it will be a valuable reference for the ~~rest of your life~~ rest of this document.  Github actually uses [this gem file, which is slightly modified](https://rubygems.org/gems/minima).  Unfortunately, [unlike the minimal header gem](https://rubygems.org/gems/jekyll-theme-minimal) (which you can see is a modified head.html), it's unreadable.  ***Boo Ruby***.  So we're going to have to use 2.5.1 *and* do some sleuthing to figure out what files to use.  Later on, I'm going to do some advanced tricks using different versions of minima, but let's KISS for now.  Use 2.5.1.
 
+### What's a gem?
+
+Some sort of Ruby *witchcraft*.
+
 ### What are these...things? (files, they're files)
 
 So now you should have two things: **your repo** (because [you did already learn how to and start your site using the easy guide](https://jackd.ethertech.org/github-pages/), right?) and **the minima repo**.  The other way to do things is to read this guide, understand what the files do, and do everything with overrides, but unless you're **only styling using CSS** you **are** going to break things.  The way I'm going to suggest is taking the files from the minima repo, modifying them, and then adding them to your repo as overrides.  It is **the way**.
@@ -244,7 +248,7 @@ You can start with your own site, provided it's using the standard minima theme,
 
 ### Let's change the font
 
-Create the directory `_includes` in your repo.  Now's where things get confusing.  The `head.html` file in your 2.5.1 directory is different than the one used by github, which is a gem, as described above.  Instead of getting super complicated, I'm just going to give you the "right" content:
+Create the directory `_includes` in your repo.  Now's where things get confusing.  The `head.html` file in your 2.5.1 directory is different than the one used by github, which is from a gem, as described above.  Instead of getting super complicated, I'm just going to give you the "right" content:
 
 ```
 {% raw %}
