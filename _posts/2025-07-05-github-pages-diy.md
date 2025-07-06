@@ -7,7 +7,7 @@ permalink: /2025-07-04-github-pages-diy.html
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww"
 ---
 
-120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, 640
+120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min,
 
 # How to make your github pages site shine (and why I'm poor)
 
@@ -273,7 +273,14 @@ I think the header is spaced out way too much (and for that matter, although I "
 
 ![jackd's page header](/images/site_header.png)
 
-First we dig into `_header.html`, where the nav bar is created by Liquid.  There's a little bit of pretty easy-to-read code here, and this is where our header is created `<a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>`.  You can see the class is `page-link`, but where is that styled?
+First we dig into `_header.html`, where the nav bar is created by Liquid.  There's a little bit of pretty easy-to-read code here, and this is where our header is created:
+```liquid
+{% raw %}
+<a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>
+{% endraw %}
+```  
+
+You can see the class is `page-link`, but where is that styled?
 
 ![looking for page-link with grep](/images/grep_page-link.png)
 
@@ -294,6 +301,15 @@ Hrm, I actually don't know!  I had a `custom-header.html`, which linked to a sep
 ```
 
 You don't actually have to have any comments in the frontmatter, and due to OpenAI's policies, Lupa will never include himself in the attribution, but *I do, because he helped*.  Now, we put our changes in `_sass/custom.scss`.  Why `_sass/` instead of `assets/`?  `_sass/` is where the uncompiled css is *supposed to go*, whereas the compiled css will be inserted by github in `_site/assets/main.css`
+
+🧠 Why I Said _site/assets/main.css (and What That Actually Means)
+-  _site/ is Jekyll’s build output folder
+-  It’s where GitHub Pages compiles and serves your site from
+-  You won’t see it in your repo because GitHub builds it behind the scenes
+
+And then, of course, we commit the files:
+
+![a git commit example, in case you haven't seen it]({{ "/images/git_commit.png" | relative_url }})
 
 ## Let's implement a completely different theme
 
