@@ -1,17 +1,17 @@
 .site-nav {
-  line-height: 1.4 !important;
+  line-height: 1 !important;
 }
 
 .site-nav .page-link {
   display: inline-block;
   padding: 0.25rem 0.5rem;     // reduce vertical space between lines
   margin: 0.25rem;             // reduce horizontal wrap spacing
-  line-height: 1.2 !important; // controls vertical line spacing
+  line-height: 1.1 !important; // controls vertical line spacing
   text-decoration: none;
 }
 
 .site-nav .page-link:hover {
   background-color: #e0f5e0;  // soft light green
   border-radius: 8px;         // gently rounded corners
-  transition: all 0.4s ease-in-out; // smooth in/out
+  transition: all 0.2s ease-in-out; // smooth in/out
 }
