@@ -242,6 +242,7 @@ You can start with your own site, provided it's using the standard minima theme,
 Create the directory `_includes` in your repo.  Now's where things get confusing.  The `head.html` file in your 2.5.1 directory is different than the one used by github, which is a gem, as described above.  Instead of getting super complicated, I'm just going to give you the "right" content:
 
 ```
+{% raw %}
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -263,6 +264,7 @@ Create the directory `_includes` in your repo.  Now's where things get confusing
     }
   </style>
 </head>
+{% endraw %}
 ```
 
 You can get all sorts of fonts from googlies API site, and the way you add them is the same.  Change the link URL and change the name in `font-family:`.  OK, we're a little less ugly.
