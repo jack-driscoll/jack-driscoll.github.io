@@ -216,7 +216,7 @@ Layout Loaded (e.g., base.html)
    ↓
 Includes Injected (head, header, footer)
    ↓
-{{ content }} → Markdown Rendered → HTML
+{{% raw %}}{{ content }}{{% endraw%}} → Markdown Rendered → HTML
    ↓
 Liquid Variables Replaced
    ↓
