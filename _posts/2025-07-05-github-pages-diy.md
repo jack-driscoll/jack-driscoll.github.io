@@ -342,15 +342,15 @@ Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues
 
 ### Liquid content in your file
 
-All Liquid content needs to be wrapped like this: {% raw %}{% raw %}{{content}}{% endraw %}{% endraw %}.  
-
-And if you have, like a {% raw %}{{content}}{% endraw %} inside a triple-backtick, you need to put the raw tags before and after the backticks, *not* inside them.
-
-{% raw %}
+All Liquid content needs to be wrapped like this: {% raw %}
 ```liquid
-{% raw %}{{ content }}{% endraw %}  And if you have, like a {{content}} inside a triple-backtick, you need to put the raw tags before and after the backticks, *not* inside them.  If you want to print what Lupa calls "rawception" i.e. raw tags surrounding content tag, you need to "rawtag-triplebackticks-rawtags-content-endraw-triplebackticks-endraw", the most elegant phrase in the universe.
+{% raw %}{{ content }}{% endraw %}
 ```
 {% endraw %}
+
+You must place `{% raw %}` *outside* the triple backticks, not inside.  
+If you try to include it *within* the code block, Liquid will still parse the contents and break your build.
+
 
 ### Images don't work in my `post`
 
