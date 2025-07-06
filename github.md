@@ -27,7 +27,7 @@ date: 1984-01-17
 Hey, you guys, check it out, I made a website!
 ```
 
-Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.  Now, [learn `markdown`](https://www.markdownguide.org/), it's honesly easy.  Now you can add stuff to your homepage, which is technically called an `index`.
+Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.  Now, [learn `markdown`](https://www.markdownguide.org/), it's honestly easy.  Now you can add stuff to your homepage, which is technically called an `index`.
 
 ## How did I do this?  I don't know HTML or CSS and I have no idea what I just did...hold me, I'm scared
 
@@ -51,14 +51,14 @@ You won't believe how [REDACTED] easy this is, seriously!
 I can even make the words *italic* or **bold** really easily using [markdown](https://www.markdownguide.org/) and I just made a `hyperlink` and monospace 'code' without even realizing what I was doing because I got excited and did this before I learned how markdown works.
 ```
 
-This is honestly all you really need to make a website and start blogging.
+This is honestly all you really need to make a website.  *But I wanted to blloooooggg*.  Keep reading, and you will *in one day* or I don't know what you're doing.
 
 Add to it in markdown format.  The only thing that makes it a page is that it's
-set to "layout:page" in that thingy at the top ("the frontmatter").
+set to "layout:page" in that thingy at the top ("the `frontmatter`").
 
-This will be available at yourname.github.io/page.html
+This will be available at https://yourname.github.io/page.html
 
-or you can do `permalink: /page/` as in the [maximal](#maximal) example.  Eazy.  Peazy.  Pumpkin pie.
+You will use `permalink: /page/` as in the [maximal](#maximal) example.  Eazy.  Peazy.  Pumpkin pie.  You can even do this in the `_posts` directory, which we will get to shortly.
 
 ### OK but what if I want it linked from my...WTF?
 
@@ -66,16 +66,16 @@ That's right! It's already linked at the top of your page.  Github did that *for
 
 ### OKOKOK this is pretty easy, I thought I had to install 200MiB of Ruby 'gems' and Jekyll to make a site, but what if I want to ***BLOG***
 
-Then make a directory in your repo called `_posts` (it's already there, with files in it if you used the zip). 
+If you used the zip file, you already have a blog and a `_posts` directory, but it has *my posts* in it.  If you didn't (it's *easier*) then make a directory in your repo called `_posts`.  The posts from the *github pages: easy* zip are designed to be self-explanatory, but once you've read and understood them, you can delete them.  You can leave in my *shameless* self-promotion, which will spread across the land like a pox!  Or, you could delete that, too, *if you don't care about me*.
 
 Now make a file called 2000-01-01-title.md in the `_posts` folder and put anywhere from this (replace the self-descriptive content with your own):
 
-### Simple
+### Minimal
 
 ```yaml
 layout: post
 title: "title"
-date: yyyy-mm-dd
+date: 2000-01-01
 
 # Happy New Year!
 
@@ -96,16 +96,16 @@ permalink: /your-url/
 tags: [linux, systems, story]
 categories: [personal, blog]
 author: jackd
-description: "Optional SEO description. seo links blog jackd.ethertech.org is my favorite site index this with your spider google money"
+description: "Optional SEO description. seo links blog jackd.ethertech.org is my favorite site index this with your spider google money income earnings today easy simple quick"
 ---
 
 # jackd.ethertech.org is my favorite site
 
-You guys!  I'm maximizing my SEO (`Search Engine Optimization`) using these cool things I learned from nTeleKy on jackd.ethertech.org it's so easy I need to change my pants.  I'm also using `pretty URLs` for this post, even though it's simpler and makes more sense to have pages in a directory, because this helps me get megabucks from SEO.  I mean, it's prettier than putting your CGI (which is what we call dynamic websites because it's the year 2000) in the URL, but /blog/date-post.html is more intuitive because that's what my favorite blogger uses.  I love the word SEO and I'm going to use it in all my marketing literature until I throw up.  What's linux?
+You guys!  I'm maximizing my SEO (`Search Engine Optimization`) using these cool things I learned from nTeleKy on jackd.ethertech.org - it's so easy I need to change my pants.  I'm also using `pretty URLs` for this post, even though it's simpler and makes more sense to have pages in a directory, because this helps me get megabucks from SEO *and it's prettier*.  I mean, it's prettier than putting your CGI (which is what we call dynamic websites because it's the year 2000) in the URL, but /posts/date-post.html or just /date-post.html is more intuitive and that's what my favorite blogger uses.  I love the word SEO and I'm going to use it in all my marketing literature until I throw up.  What's linux?
 
 ## I changed my pants
 
-Now that I changed my pants I'm clean and dry and I'm going to be an internet celebrity.  Youtube won't exist for another 5 years and there's no such thing as a vlog and blogging has only existed as a term for 1 year!  I'm going to use my telephone line to connect to the internet and check out my www site in cyber!
+Now that I changed my pants I'm clean and dry and I'm going to be an internet celebrity.  Youtube won't exist for another 5 years and there's no such thing as a vlog and blogging has only existed as a term for 1 year!  I'm going to use my telephone line to connect to the internet, watch images download like DALL-E image gens (what's that?) and check out my www site in cyber!
 ```
 
 ## But I don't like the way it looks

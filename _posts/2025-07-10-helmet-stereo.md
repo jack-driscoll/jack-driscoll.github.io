@@ -21,6 +21,10 @@ I finally got a bluetooth module for my helmet - 2, actually.  I bought one and 
 
 ### Comparing Amplifiers
 
+The ATH-M50
+
+[This 5V 5W amplifier](https://www.amazon.com/PAM8406-Amplifier-Potentiometers-Envistia-Mall/dp/B07R86BH6Q) for $5 (lot a fives) should put out 500mW into 32 ohms.  If I want more than that, looks like I'll need a boost converter, which I've done before with a 4x100W T-Amp in my truck (which sounded great, btw).
+
 ### Testing w/ an o-scope
 
 ### How do they sound
