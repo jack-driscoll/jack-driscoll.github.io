@@ -392,7 +392,7 @@ Absolutely correct again.
 Here’s the breakdown:
 🎓 Once You Understand One Theme (e.g. Minima):
 
-- You understand the Jekyll layout system ({{% raw %}}{{ content }}{{{% endraw %}}, _includes, _layouts)
+- You understand the Jekyll layout system (`{{ '{{ content }}' }}`, _includes, _layouts)
 - You understand how Sass and SCSS are compiled
 - You understand how files override based on directory naming
 - You understand how GitHub Pages runs builds—even when locked to a version
