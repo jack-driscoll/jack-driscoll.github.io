@@ -4,12 +4,15 @@ title: "So you want a custom github pages site and you want it for free?"
 date: 2025-07-05
 tags: [diy, how-to, guide, github, web, html, css, documentation, jekyll]
 permalink: /2025-07-04-github-pages-diy.html
-description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww"
+author: nteleky
+description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
 120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min, 10:00
 
 # How to make your github pages site shine (and why I'm poor)
+
+This is an advanced guide to doing cool shift with github pages *without additional software*.  If you want the absolute easiest guide to getting started on the internet see [github pages in 10 lines](https://jackd.ethertech.org/github-pages/).  If you want a solid beginner-level website, check out the self-documenting [quick-github-pages](https://github.com/jack-driscoll/quick-github-pages).
 
 This guide is an expansion on my "github pages the easy way" starter pack (a $19.99 value, yours for absolutely nothing, although the process of viewing it has contributed to the heat death of the universe - how do you sleep at night? j/k).  After you've gotten yourself set up and online with content (the important part) **you will inevitably decide that you want it to look or act differently (like your kids)**.  You will inevitably be told to **download and install Ruby and Jekyll**, look into it, and *after throwing up in a bucket and taking a cold shower, try to forget about the experience* (ok, it's not that bad, but *I* was overwhelmed and I gave up).  I didn't *want* to be a web developer--like I don't *want* to *learn to draw* (a common response to my AI artworks).  I already took a drawing class and **I suck**.  I *could* get better, but it would take months to years to a lifetime and **I don't want to be a traditional artist**, but I *love* art and things that are artistically done.  **There had to be a way to do what I wanted to do without starting from scratch, right?**
 
@@ -218,7 +221,7 @@ Layout Loaded (e.g., base.html)
    ↓
 Includes Injected (head, header, footer)
    ↓
-{{% raw %}}{{ content }}{{% endraw%}} → Markdown Rendered → HTML
+{{% raw %}}{{ content }}{{% endraw %}} → Markdown Rendered → HTML
    ↓
 Liquid Variables Replaced
    ↓
@@ -324,7 +327,7 @@ These are imaginary, minima 3.0, minima 3.0 and minima 3.0, in that order.  Gith
 
 ### custom-head.html
 
-Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues/472) unless you DIY.
+Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues/472) unless you DIY. 
 
 ## Misc Tips & Tricks
 
@@ -336,6 +339,9 @@ All Liquid content needs to be wrapped like this: {% raw %}{{content}}{% endraw 
 
 Images were working fine in my pages, at least the ones directly off the root of my site (e.g. https://jackd.ethertech.org/page.html) with the exception of my blog articles.  Why?  Because the pages *actually live somewhere else* in the file heirarchy.  Github pages is *slick* and they rewrite the URLs, likely using their HTTP server.  They also hide the actual file location, so a file that's served from the root directory might *really* be in https://jackd.ethertech.org/posts/page.html and when you like to e.g. `![this](/images/image.png)` it tries to look in https://jackd.ethertech.org/posts/images/image.png when it's *really* in https://jackd.ethertech.org/images/image.png.  Solution?  use `{% raw %}![Caption]({{ "/images/foo.png" | relative_url }}){% endraw %}` instead.
 
+### What if I want a page, but I don't want it in my navigation bar?
+
+Just add this to the frontmatter `nav_exclude: true`
 
 
 ## Let's implement a completely different theme

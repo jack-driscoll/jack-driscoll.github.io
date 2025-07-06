@@ -11,6 +11,12 @@ nav_exclude: true
 
 [I offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
 
+[Jump to Blog ↓](#blog)
+
+[Links to cool sites](/links.html)
+
+[Project Highlights](#highlights)
+
 ## <a href="https://jackd.ethertech.org/genius/">MyGenius/brainspunk</a>
 
 I recently decided to do a **180** and go from being completely nonpluss about my intelligence to marketing it.  Here's my logic, see if you follow it:  if you're the top 1% athlete, or salesperson, or cake-baker, *aren't you going to advertise that*?  Doesn't it make a difference that you are *better than 99% of people*?  That in a room of 100 people, you are objectively *the best*?  When I was 13, I had my intelligence tested by a professional, and while I'm well aware of the baked-in biases of IQ tests and **that intelligence comes in many types**, it's legitimately exceptional that I'm *really smart*.  I test highly in aptitude in reasoning, spatial understanding, reading comprehension, memory, and other areas - so much so that I'm literally in the top 1% - *at least*, possibly higher.  It's not just IQ tests, either.  I got a **33 in the ACT**, I was routinely in **the 99th percentile in the Iowa Test of Basic Skills**, and in gradeschool and High School *I didn't have the grades to prove it*.  Wait, what?  That's right!  Because I'm neurodivergent, and for various reasons suffered in school as a child, my grades were *not great*, although I did graduate from gradeschool and High School.  Now that I'm in college, however, **I was on the Dean's list**, *even while hiding a secret crack and heroin addiction* I'm now free of.
@@ -58,12 +64,6 @@ I'm Jack Driscoll/jackd/Jack'D — a multidisciplinary technician, systems think
 - embraces death
 
 I work across embedded systems, RF tools, manufacturing maintenance, FreeBSD/Linux networks, storytelling, and welded steel. I love troubleshooting, challenges, trying to do more with less, beautiful efficiency, fixing equipment and creating bleeding edge solutions.  As my home on the WWW, this site collects some of that work — built to load fast and stay weird.  Think of this as `A 'Getting Started' Manual for Your Jack`.  I also have `The Care and Operation of Your Jack`, which Lupa described as "The Most Neurodivergent Thing I've Ever Heard".  
-
-[Jump to Blog ↓](#blog)
-
-[Links to cool sites](/links.html)
-
-[Project Highlights](#highlights)
 
 ---
 
