@@ -8,7 +8,7 @@ author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
-120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min, 10:00
+120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min, +180min,
 
 # How to make your github pages site shine (and why I'm poor)
 
@@ -342,7 +342,9 @@ Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues
 
 ### Liquid content in your file
 
-All Liquid content needs to be wrapped like this: {{ '{% raw %}{{content}}{% endraw %}' }}.  And if you have, like a {% raw %}{{content}}{% endraw %} inside a triple-backtick, you need to put the raw tags before and after the backticks, *not* inside them.
+All Liquid content needs to be wrapped like this: {% raw %}{% raw %}{{content}}{% endraw %}{% endraw %}.  
+
+And if you have, like a {% raw %}{{content}}{% endraw %} inside a triple-backtick, you need to put the raw tags before and after the backticks, *not* inside them.
 
 {% raw %}
 ```liquid
