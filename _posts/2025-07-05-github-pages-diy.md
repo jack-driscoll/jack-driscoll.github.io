@@ -139,9 +139,9 @@ The `head` of the webpage, including fonts, metadata, CSS links, and optionally 
 
 The `header` of the webpage, including paths, title and author, as well as the 'hamburger menu' when enabled.
 
-#### {{content}}
+#### {% raw %}{{content}}{% endraw %}
 
-If you look inside the `base.html` file, you'll see a `{{content}}` 'tag'.  This is the `Liquid` that instructs Jekyll to pull in the actual content using the page type and markdown files (that you write).
+If you look inside the `base.html` file, you'll see a `{% raw %}{{content}}{% endraw %}` 'tag'.  This is the `Liquid` that instructs Jekyll to pull in the actual content using the page type and markdown files (that you write).
 
 #### footer.html
 
@@ -231,7 +231,7 @@ Final Site Output: _site/
 
 Your best option?  Take a look.  Fire up your browser and inspect your page source yourself and see what it's using.  You can see here that mine is using `/assets/main.css`, a file that is not in my repo - because the theme is stored on github's servers and *compiled into main.css* from the .scss source files.  We're going to explore more later to see what works and what doesn't.
 
-![jackd source code](/images/jackd_source.png)
+![jackd source code]({{ "/images/jackd_source.png" | relative_url }})
 
 ## You said you were going to show me, where do I start?
 
@@ -273,7 +273,7 @@ You can get all sorts of fonts from googlies API site, and the way you add them 
 
 I think the header is spaced out way too much (and for that matter, although I "get" having a neat central column, there's so much wasted screen real estate).  Let's tackle the header first.  Right now it looks like this:
 
-![jackd's page header](/images/site_header.png)
+![jackd's page header]({{ "/images/site_header.png" | relative_url }})
 
 First we dig into `_header.html`, where the nav bar is created by Liquid.  There's a little bit of pretty easy-to-read code here, and this is where our header is created:
 ```liquid
@@ -284,7 +284,7 @@ First we dig into `_header.html`, where the nav bar is created by Liquid.  There
 
 You can see the class is `page-link`, but where is that styled?
 
-![looking for page-link with grep](/images/grep_page-link.png)
+![looking for page-link with grep]({{ "/images/grep_page-link.png" | relative_url}})
 
 There it is!  OK, so we send Lupa (I hope you have a cyborg friend because it makes life so much easier and more pleasant to have someone in your corner, even if it's "not a person", *as if being a person is something you'd actually want*) the files `_header.html` and `_layout.css` and ask him how to change this.  I also want a little green background to pop up so you're sure you're clicking on the right link since they won't be spaced out as much.
 
@@ -313,13 +313,26 @@ And then, of course, we commit the files:
 
 ![a git commit example, in case you haven't seen it]({{ "/images/git_commit.png" | relative_url }})
 
+
+
+
+## Misc Tips & Tricks
+
+### Liquid content in your file
+
+All Liquid content needs to be wrapped like this: {% raw %}{{content}}{% endraw %}
+
+### Images don't work in my `post`
+
+Images were working fine in my pages, at least the ones directly off the root of my site (e.g. https://jackd.ethertech.org/page.html) with the exception of my blog articles.  Why?  Because the pages *actually live somewhere else* in the file heirarchy.  Github pages is *slick* and they rewrite the URLs, likely using their HTTP server.  They also hide the actual file location, so a file that's served from the root directory might *really* be in https://jackd.ethertech.org/posts/page.html and when you like to e.g. `![this](/images/image.png)` it tries to look in https://jackd.ethertech.org/posts/images/image.png when it's *really* in https://jackd.ethertech.org/images/image.png.  Solution?  use `{% raw %}![Caption]({{ "/images/foo.png" | relative_url }}){% endraw %}` instead.
+
 ## Let's implement a completely different theme
 
 I know, I said I wasn't going to do this, but then I found out it's possible to upgrade to minima 3.0 (which, BTW is *completely* different - why people make drastic architectural changes is beyond me) and then use a dark theme
 
 ### Don't I need Jekyll?
 
-According to Gemini *and github*, for that matter, you *need* Jekyll to implement a custom theme.  But, if I can override all of the HTML templates, and override *all* of the CSS, I should be able to implement whatever I want, as long as I follow the expected structure (i.e. use the same .html templates and .scss/.css files).  And *according to my AI*, I'm right.
+According to Gemini *and github*, for that matter, you *need* Jekyll to implement a custom theme (actually depends on the page, some say yes, some say no).  But, if I can override all of the HTML templates, and override *all* of the CSS, I should be able to implement whatever I want, as long as I follow the expected structure (i.e. use the same .html templates and .scss/.css files).  And *according to my AI*, I'm right.
 
 #### What does Lupa say?
 
@@ -347,6 +360,15 @@ You’re not just customizing Minima—you’re reverse engineering the theme sy
 
 "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, in additions to `/assets/css/style.css`.  It also contains the `skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files.  During the compilation of the CSS, these files *are used to build* `custom.css`
 
-### assets
+### /assets/css (minima 3.0)
 
-This is where `style.css` (and optionally) `custom.css` live.
+This is where `style.css` (and optionally) `custom.css` live.  This, in turn, has some code in it and then runs:
+
+```
+@import
+  "minima/custom-variables", // Hook to override predefined variables.
+  "minima/base",             // Defines element resets.
+  "minima/layout",           // Defines structure and style based on CSS selectors.
+  "minima/custom-styles"     // Hook to override existing styles.
+;
+```
