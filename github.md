@@ -69,7 +69,7 @@ set to "layout:page" in that thingy at the top ("the `frontmatter`").
 
 This will be available at https://yourname.github.io/page.html
 
-Eazy.  Peazy.  Pumpkin pie.  You can even do this in the `_posts` directory, which we will get to shortly. You can also use `permalink: /page/` as in the [maximal](#maximal) example. Both work! page.html gives you a file, page/ gives you a pretty URL.
+Eazy.  Peazy.  Pumpkin pie.  You can even do this in the `_posts` directory, which we will get to shortly. You can also use `permalink: /page/` as in the [maximal](#maximal) example. Both work! page.html gives you a file, page/ gives you a pretty URL.  You will probably want to add a LICENSE file with your preferred license (copyright).  I like the 2-clause BSD.
 
 ### OK but what if I want it linked from my...WTF?
 
@@ -122,3 +122,21 @@ Now that I changed my pants I'm clean and dry and I'm going to be an internet ce
 ## But I don't like the way it looks
 
 You can change it by [changing the theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll) or being super 1337 and [learning how to change it yourself](https://jackd.ethertech.org/2025-07-04-github-pages-diy.html).
+
+### What else can I do?
+
+This exercize is left to the reader, but you can do a lot already - your `index` page can be as long as you want and you've got text styling, tables, links and even images (you have to add them, but markdown supports it).  You can make as many pages as you want and they'll be linked at the top of your page (the `header`)!  You can make as many blog posts as you want!
+
+> 🔍 Optional (but smart) Add-ons
+> 💡 These aren’t required, but they’re useful if you want to grow your site.
+
+| File          | Purpose                                                   |
+|---------------|-----------------------------------------------------------|
+| `404.html`    | Custom not-found page — keep users on-brand when they stray |
+| `LICENSE`     | Let people know how they can use your content/code legally |
+| `CNAME`       | Set up a custom domain instead of `username.github.io`     |
+| `_posts/`     | Enables blogging — add `.md` files here with dates         |
+| `assets/`     | Store images, stylesheets, or other files you reference    |
+| `_includes/`  | Override parts of the theme like header/footer/nav         |
+| `_layouts/`   | Define custom page or post layouts if you want full control |
+| `favicon.ico` | Custom browser tab icon — totally optional, kinda cute     |
