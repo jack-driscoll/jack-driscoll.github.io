@@ -347,6 +347,12 @@ All Liquid content needs to be wrapped like this: &#123;% raw %&#125; &#123;&#12
 You must place &#123;% raw %&#125; *outside* the triple backticks, not inside.  
 If you try to include it *within* the code block, Liquid will still parse the contents and break your build.
 
+You'll have to mix that with this (I spent nearly an hour playing with it until I found the right combo):
+
+```html
+&#123;&#123; content &#125;&#125;
+```
+
 
 ### Images don't work in my `post`
 
