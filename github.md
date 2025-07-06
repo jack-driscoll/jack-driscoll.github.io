@@ -13,9 +13,20 @@ description: "nTeleKy's easy guide to getting started with github pages how to s
 
 Check out the post with [the complete version with a short intro here](https://jackd.ethertech.org/quick-github-pages.html) [or on github](https://github.com/jack-driscoll/quick-github-pages).
 
-# How do I make a website?
+# How do I make a website on github pages in only 10 lines and two files?
 
-[Create a repository](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) called `username.github.io`.  Go into the repository, click **Add File** and call it **index.md** and put this in it:
+[Create a repository](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) called `username.github.io`.  
+
+Go into the repository, click **Add File** and call it **_config.yml** and put this in it:
+
+```
+title: My First GitHub Pages Site # this is the part at the top
+description: Built with Markdown, duct tape, and vibes # describe your site, the part at the bottom
+theme: minima # you can ignore this unless you want to change your theme
+```
+This is the *absolute minimum* you need.  If you want more options, see quick-github-pages, above.
+
+Go into the repository, click **Add File** and call it **index.md** and put this in it:
 
 ```yaml
 layout: home
@@ -31,7 +42,7 @@ Save the file and go to `username.github.io` and shit yourself.  You just made a
 
 ## How did I do this?  I don't know HTML or CSS and I have no idea what I just did...hold me, I'm scared
 
-Github took your `markdown` file and ***automagically wrote the HTML file for you and included their own CSS***.  They will do this with any file named `*.md` in your main directory.
+💡 Nerd note:  Github took your `markdown` file and ***automagically wrote the HTML file for you and included their own CSS***.  They will do this with any file named `*.md` in your main directory.  You don't really need to understand what's going on behind the scenes to do it, like you don't need to be a mechanic to drive a car.
 
 ### How do I make a page?
 
@@ -58,7 +69,7 @@ set to "layout:page" in that thingy at the top ("the `frontmatter`").
 
 This will be available at https://yourname.github.io/page.html
 
-You will use `permalink: /page/` as in the [maximal](#maximal) example.  Eazy.  Peazy.  Pumpkin pie.  You can even do this in the `_posts` directory, which we will get to shortly.
+Eazy.  Peazy.  Pumpkin pie.  You can even do this in the `_posts` directory, which we will get to shortly. You can also use `permalink: /page/` as in the [maximal](#maximal) example. Both work! page.html gives you a file, page/ gives you a pretty URL.
 
 ### OK but what if I want it linked from my...WTF?
 

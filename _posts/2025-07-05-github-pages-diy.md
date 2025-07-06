@@ -173,9 +173,11 @@ Here's how it works:
 
 ## OK, this is interesting, but how do I *magically* change my site? `overrides`
 
-You wanted to make your site *slick as shit* and I'll I've done so far is talk about what I'm doing, why I'm doing it and what github pages *is* and *you got ants in your pants* and *you still haven't seen the magic*.  I also just learned something today:  **[You don't need Jekyll to add or change a theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)** the ***only*** thing you need Jekyll (and Ruby) for is to ***preview locally***.  So as long as you ***make backups*** and are OK with your site being temporarily broken and waiting a couple minutes when you make pages, you can do anything you can do with Jekyll ***with a text editor***.  That's the magic.  Notepad++, Visual Studio Code, vim, that janky one with all the mode keys I don't like, *normal notepad*, anything!  You can do all of this ***in your browser with literally no software but a browser*** I shit you not.  All you need to know is **what the files do and how to change them**.
+You wanted to make your site *slick as shit* and I'll I've done so far is talk about what I'm doing, why I'm doing it and what github pages *is* and *you got ants in your pants* and *you still haven't seen the magic*.  I also just learned something today:  **[You don't need Jekyll to add or change a theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)** the ***only*** thing you need Jekyll (and Ruby) for is to ***preview locally***.  (ok, you also need it for unsupported plugins, custom gems, or advanced Sass features, but I've never needed any of those; if your AI suggests something you can't do, tell it your limitations and ask if there's another way, there *often is*).
 
-If, for instance, there is a `_includes/head.html` in the minima theme (and there is) and you make a `_includes/` directory and put a `head.html` in it, github will use yours instead, just like with `main.scss`
+So as long as you ***make backups*** and are **OK with your site being temporarily broken and waiting a couple minutes when you make pages**, you can do anything you can do with Jekyll ***with a text editor***.  That's *the magic*.  Notepad++, Visual Studio Code, vim, that janky one with all the mode keys I don't like, *normal notepad*, anything!  You can do all of this ***in your browser with literally no software but a browser*** I shit you not.  All you need to know is **what the files do and how to change them**.
+
+If, for instance, there is a `_includes/head.html` in the minima theme (and there is) and you make a `_includes/` directory and put a `head.html` in it, github will use yours instead, just like with `main.scss`.  If you do this, *it will replace the entire file*, not just add to it, that's why you need the information from the files in the zip - you add the "standard" code, and then modify it!
 
 ### Are you sure about that?
 
@@ -314,7 +316,15 @@ And then, of course, we commit the files:
 ![a git commit example, in case you haven't seen it]({{ "/images/git_commit.png" | relative_url }})
 
 
+## What doesn't work?
 
+### /assets/custom.scss, /assets/css/style.scss, /_sass/minima/custom-variables.scss and /_sass/minima/custom-styles.scss
+
+These are imaginary, minima 3.0, minima 3.0 and minima 3.0, in that order.  Github uses 2.5.1, so they don't work unless you add them, which you *can totally do*.
+
+### custom-head.html
+
+Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues/472) unless you DIY.
 
 ## Misc Tips & Tricks
 
@@ -325,6 +335,8 @@ All Liquid content needs to be wrapped like this: {% raw %}{{content}}{% endraw 
 ### Images don't work in my `post`
 
 Images were working fine in my pages, at least the ones directly off the root of my site (e.g. https://jackd.ethertech.org/page.html) with the exception of my blog articles.  Why?  Because the pages *actually live somewhere else* in the file heirarchy.  Github pages is *slick* and they rewrite the URLs, likely using their HTTP server.  They also hide the actual file location, so a file that's served from the root directory might *really* be in https://jackd.ethertech.org/posts/page.html and when you like to e.g. `![this](/images/image.png)` it tries to look in https://jackd.ethertech.org/posts/images/image.png when it's *really* in https://jackd.ethertech.org/images/image.png.  Solution?  use `{% raw %}![Caption]({{ "/images/foo.png" | relative_url }}){% endraw %}` instead.
+
+
 
 ## Let's implement a completely different theme
 
