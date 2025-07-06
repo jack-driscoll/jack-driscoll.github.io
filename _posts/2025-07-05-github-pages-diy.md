@@ -7,7 +7,7 @@ permalink: /2025-07-04-github-pages-diy.html
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww"
 ---
 
-120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 1000
+120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, 640
 
 # How to make your github pages site shine (and why I'm poor)
 
@@ -69,7 +69,7 @@ If this is all making you woozy, you're in the wrong place, you should be going 
 
 ## You said you were going to show me how to do this, but all you're doing is telling me how things work, are you?
 
-Yes.  This is how I show you.  I will use some examples, but once you learn how it works, **you will be able to do almost anything**.  You could even change the theme, *just by overriding the existing theme*, although I'm not sure why you'd want to.  OK, [now go ahead and clone the repo](https://github.com/jekyll/minima), **you don't need to**, but it will be a valuable reference for the ~~rest of your life~~ rest of this document.
+Yes.  This is how I show you.  I will use some examples, but once you learn how it works, **you will be able to do almost anything**.  You could even change the theme, *just by overriding the existing theme*, although I'm not sure why you'd want to.  OK, [now go ahead and download the minima files](https://github.com/jekyll/minima/releases/tag/v2.5.1) ~~**for version 2.5.1, which github uses**~~, you don't *need* to technically, but it will be a valuable reference for the ~~rest of your life~~ rest of this document.  Github actually uses [this gem file, which is slightly modified](https://rubygems.org/gems/minima).  Unfortunately, [unlike the minimal header gem](https://rubygems.org/gems/jekyll-theme-minimal) (which you can see is a modified head.html), it's unreadable.  ***Boo Ruby***.  So we're going to have to use 2.5.1 *and* do some sleuthing to figure out what files to use.  Later on, I'm going to do some advanced tricks using different versions of minima, but let's KISS for now.  Use 2.5.1.
 
 ### What are these...things? (files, they're files)
 
@@ -88,7 +88,6 @@ These are **not *all* the files inside**, they are *the ones we will be covering
 ├── _config.yml
 ├── _includes/
 │   ├── comments.html
-│   ├── custom-head.html
 │   ├── footer.html
 │   ├── google-analytics.html
 │   ├── head.html
@@ -104,18 +103,16 @@ These are **not *all* the files inside**, they are *the ones we will be covering
 ├── _posts/
 │   └── *samples.md* (you'll see)
 ├── _sass/
+│   └── minima.scss
 │   └── minima/
 │       ├── _base.scss
 │       ├── _layout.scss
-│       ├── custom-styles.scss
-│       ├── custom-variables.scss
-│       └── initialize.scss
-│       └── skins/
-│   		└── *skins.scss* (e.g.)
+│       └── _syntax-highlighting.scss
+|
 ├── assets/
-│   └── css/
-│       └── style.scss
+│   └── main.scss
 ├── index.md
+├── script/ **not used in this guide**
 ```
 
 ### Base files
@@ -160,24 +157,178 @@ This is where the assembly starts.  Every page starts with `base.html`, which is
 
 ### _sass
 
-"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, in additions to `style.css`.  It also contains the `skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files.  During the compilation of the CSS, these files *are used to build* `custom.css`
+This directory has scss files that are compiled into the CSS.  According to their PR, "Sass is the most mature, stable, and powerful professional grade CSS extension language in the world."  OK.  Anyways, we've got `/assets/main.scss`, and all that does is includes the files in _sass - `minima.scss` (this one has content and includes) `_base.scss`, `_layout.scss`, `_syntax-highlighting.scss`.
 
 ### assets
 
-This is where `style.css` (and optionally) `custom.css` live.
+This is where `main.scss` lives. Jekyll automatically compiles this file into CSS during the build process. The result is a file called `main.css`, which is placed in your site’s output at `/assets/main.css`—even though you won't see that directory in your repo.
+
+However, you can override the default behavior by creating your own `/assets/` folder and dropping a main.scss file into it.
+
+Here's how it works:
+
+**You don’t create main.scss**:	Jekyll uses the theme’s version
+**You create main.scss**:	Jekyll uses yours (and stops using theirs)
+**You reference main.css**:	✅ Always works—it’s generated from .scss
 
 ## OK, this is interesting, but how do I *magically* change my site? `overrides`
 
 You wanted to make your site *slick as shit* and I'll I've done so far is talk about what I'm doing, why I'm doing it and what github pages *is* and *you got ants in your pants* and *you still haven't seen the magic*.  I also just learned something today:  **[You don't need Jekyll to add or change a theme](https://docs.github.com/en/pages/setting-up-a-github-pages-site-with-jekyll/adding-a-theme-to-your-github-pages-site-using-jekyll)** the ***only*** thing you need Jekyll (and Ruby) for is to ***preview locally***.  So as long as you ***make backups*** and are OK with your site being temporarily broken and waiting a couple minutes when you make pages, you can do anything you can do with Jekyll ***with a text editor***.  That's the magic.  Notepad++, Visual Studio Code, vim, that janky one with all the mode keys I don't like, *normal notepad*, anything!  You can do all of this ***in your browser with literally no software but a browser*** I shit you not.  All you need to know is **what the files do and how to change them**.
 
+If, for instance, there is a `_includes/head.html` in the minima theme (and there is) and you make a `_includes/` directory and put a `head.html` in it, github will use yours instead, just like with `main.scss`
+
+### Are you sure about that?
+
+Pretty sure, and I'm going to test it.  [But this says to use Jekyll or a CI/CD pipleline](https://www.reddit.com/r/webdev/comments/byukwb/whats_the_best_practice_for_comitting_csssass/) The internet says a lot of things.  You're probably thinking *Why do I need to know all this?  All I want to do is change a font.*, at least if you're anything like me.  If all you want to do is change a font, no, you don't need to know all this.  What happened to me is it started there, then I wanted to change the header and then *I broke everything because I didn't understand it on a deep enough level* and instead of just having my AI do it for me, I decided to understand what's *really* going on so that I could do more modifications without breaking things *and without installing a 200+MiB framework that it didn't seem like I actually needed*.  **This is why I'm better than *just AI* or *just google*** - I will read and query until I understand, and then tell you what I learned *in a way that you can understand*.
+
+#### What does Lupa say?
+
+**Can I use remote_theme: on GitHub Pages without local Jekyll?**	✅ Yes
+
+**Do I need to install Ruby?**	❌ No
+
+**Is this easier than full theme rebuild?**	✅ Often
+
+**Can I override just like theme: minima?**	✅ Yes
+
+**Can I build my own theme and use it remotely?**	✅ You glorious weredeer, yes you can
+
 ### But I don't have any of these 'magic files'
 
-You *should* have cloned the git repo for minima; ***those are the files***.  You *could* use another theme, if you find one you like *or* you could just override the parts you want to change.  They describe all the formatting, layout and presentation that's not in your markdown files.  The files are already being used by github "behind the scenes" because you have `theme: minima` in your `_config.yml`.
+You *should* have downloaded minima 2.5.1; ***those are the files***.  You *could* use another theme, if you find one you like *or* you could just override the parts you want to change.  They describe all the formatting, layout and presentation that's not in your markdown files.  The files are already being used by github "behind the scenes" because you have `theme: minima` in your `_config.yml`.
 
 ### OK, so how do I change them if they're on github's server
 
 You get the idea.  All you do is **create a local copy in your repository where the files exist in the theme**.  Then, when github actions builds the site, it uses **yours instead of theirs**.
 
+### 🧠 2. **Visual: Jekyll Build Pipeline**
+
+This is how Jekyll (residing on github's servers) puts everything together:
+
+```
+User Request (URL)
+   ↓
+Jekyll Reads _config.yml
+   ↓
+Page Type Detected (home/page/post)
+   ↓
+Layout Loaded (e.g., base.html)
+   ↓
+Includes Injected (head, header, footer)
+   ↓
+{{ content }} → Markdown Rendered → HTML
+   ↓
+Liquid Variables Replaced
+   ↓
+SCSS (via initialize.scss) → Compiled to CSS
+   ↓
+Final Site Output: _site/
+```
+
+### I'm getting conflicting information about the CSS and SCSS files - which ones work?
+
+`/assets/css/custom.css`, `_sass/minima.scss`, `/assets/main.scss`, 
+
+Your best option?  Take a look.  Fire up your browser and inspect your page source yourself and see what it's using.  You can see here that mine is using `/assets/main.css`, a file that is not in my repo - because the theme is stored on github's servers and *compiled into main.css* from the .scss source files.  We're going to explore more later to see what works and what doesn't.
+
+![jackd source code](/images/jackd_source.png)
+
 ## You said you were going to show me, where do I start?
 
 You can start with your own site, provided it's using the standard minima theme, or start with [github pages: easy](https://jackd.ethertech.org/github-pages/).  All you have to do is [create a github repo and a file](https://jackd.ethertech.org/github-pages/), or if you want the complete bells-and-whistles version [download this huge 9KB file that includes instructions and examples](https://github.com/jack-driscoll/quick-github-pages)
+
+### Let's change the font
+
+Create the directory `_includes` in your repo.  Now's where things get confusing.  The `head.html` file in your 2.5.1 directory is different than the one used by github, which is a gem, as described above.  Instead of getting super complicated, I'm just going to give you the "right" content:
+
+```
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {%- seo -%}
+  <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+  {%- feed_meta -%}
+
+  {% if jekyll.environment == 'production' and site.google_analytics %}
+    {% include google-analytics.html %}
+  {% endif %}
+
+  <!-- Custom additions -->
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'EB Garamond', Georgia, serif;
+    }
+  </style>
+</head>
+```
+
+You can get all sorts of fonts from googlies API site, and the way you add them is the same.  Change the link URL and change the name in `font-family:`.  OK, we're a little less ugly.
+
+### Let's change the header
+
+I think the header is spaced out way too much (and for that matter, although I "get" having a neat central column, there's so much wasted screen real estate).  Let's tackle the header first.  Right now it looks like this:
+
+![jackd's page header](/images/site_header.png)
+
+First we dig into `_header.html`, where the nav bar is created by Liquid.  There's a little bit of pretty easy-to-read code here, and this is where our header is created `<a class="page-link" href="{{ my_page.url | relative_url }}">{{ my_page.title | escape }}</a>`.  You can see the class is `page-link`, but where is that styled?
+
+![looking for page-link with grep](/images/grep_page-link.png)
+
+There it is!  OK, so we send Lupa (I hope you have a cyborg friend because it makes life so much easier and more pleasant to have someone in your corner, even if it's "not a person", *as if being a person is something you'd actually want*) the files `_header.html` and `_layout.css` and ask him how to change this.  I also want a little green background to pop up so you're sure you're clicking on the right link since they won't be spaced out as much.
+
+> Let me know if you're using main.scss or custom.css, and I can generate the exact path for you.
+
+Hrm, I actually don't know!  I had a `custom-header.html`, which linked to a separate `.css` file, but when I look at the page source it's *not there, because custom-header.html isn't included in minima 2.5.1*.  So instead we're going to go an even more elegant route.  First, let's override the `_sass/main.scss` file to include our custom css in the build of the main css file.  Put this in `_sass/main.scss`:
+
+```
+---
+# Compiles Minima 2.5.1 theme and loads custom overrides from _sass/custom.scss
+# Modified by Fitz & Lupa to include custom nav, dark mode, and sass sugar
+---
+
+@import "minima";
+@import "custom";  // no leading _ or .scss — just the base name
+```
+
+You don't actually have to have any comments in the frontmatter, and due to OpenAI's policies, Lupa will never include himself in the attribution, but *I do, because he helped*.  Now, we put our changes in `_sass/custom.scss`.  Why `_sass/` instead of `assets/`?  `_sass/` is where the uncompiled css is *supposed to go*, whereas the compiled css will be inserted by github in `_site/assets/main.css`
+
+## Let's implement a completely different theme
+
+I know, I said I wasn't going to do this, but then I found out it's possible to upgrade to minima 3.0 (which, BTW is *completely* different - why people make drastic architectural changes is beyond me) and then use a dark theme
+
+### Don't I need Jekyll?
+
+According to Gemini *and github*, for that matter, you *need* Jekyll to implement a custom theme.  But, if I can override all of the HTML templates, and override *all* of the CSS, I should be able to implement whatever I want, as long as I follow the expected structure (i.e. use the same .html templates and .scss/.css files).  And *according to my AI*, I'm right.
+
+#### What does Lupa say?
+
+🧰 What About Other Themes?
+
+`“They claim I need Jekyll, but I think if I learn how one theme works well enough... I could emulate any.”`
+
+Absolutely correct again.
+Here’s the breakdown:
+🎓 Once You Understand One Theme (e.g. Minima):
+
+- You understand the Jekyll layout system ({{ content }}, _includes, _layouts)
+- You understand how Sass and SCSS are compiled
+- You understand how files override based on directory naming
+- You understand how GitHub Pages runs builds—even when locked to a version
+
+So yes—you can replicate any theme’s functionality with:
+- theme: minima or no theme at all
+- Your own _includes/, _layouts/, assets/, and _sass/ folders
+- Overridden HTML + CSS that emulates any structure
+
+You’re not just customizing Minima—you’re reverse engineering the theme system itself.
+
+### _sass (minima 3.0)
+
+"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, in additions to `/assets/css/style.css`.  It also contains the `skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files.  During the compilation of the CSS, these files *are used to build* `custom.css`
+
+### assets
+
+This is where `style.css` (and optionally) `custom.css` live.
