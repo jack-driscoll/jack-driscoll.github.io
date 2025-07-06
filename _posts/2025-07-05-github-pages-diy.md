@@ -214,6 +214,7 @@ You get the idea.  All you do is **create a local copy in your repository where 
 
 This is how Jekyll (residing on github's servers) puts everything together:
 
+{% raw %}
 ```liquid
 User Request (URL)
    ↓
@@ -233,6 +234,7 @@ SCSS (via initialize.scss) → Compiled to CSS
    ↓
 Final Site Output: _site/
 ```
+{% endraw %}
 
 ### I'm getting conflicting information about the CSS and SCSS files - which ones work?
 
