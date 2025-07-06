@@ -342,13 +342,9 @@ Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues
 
 ### Liquid content in your file
 
-All Liquid content needs to be wrapped like this: {% raw %}
-```liquid
-{% raw %}{{ content }}{% endraw %}
-```
-{% endraw %}
+All Liquid content needs to be wrapped like this: &#123;% raw %&#125; &#123;&#123; content &#125;&#125; &#123;% endraw %&#125;
 
-You must place `{% raw %}` *outside* the triple backticks, not inside.  
+You must place &#123;% raw %&#125; *outside* the triple backticks, not inside.  
 If you try to include it *within* the code block, Liquid will still parse the contents and break your build.
 
 
