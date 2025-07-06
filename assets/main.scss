@@ -1,0 +1,7 @@
+---
+# Compiles Minima 2.5.1 theme and loads custom overrides from _sass/custom.scss
+# Modified by Fitz & Lupa to include custom nav, dark mode, and sass sugar
+---
+
+@import "minima";
+@import "custom";  // no leading _ or .scss — just the base name
