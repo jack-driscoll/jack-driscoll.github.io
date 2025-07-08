@@ -20,7 +20,7 @@ These plugins are **pre-installed** and **enabled automatically** by GitHub Page
 | `jekyll-feed`              | Adds an Atom/RSS feed at `/feed.xml` for your posts.                        |
 | `jekyll-seo-tag`           | Auto-generates SEO, OpenGraph, and Twitter card meta tags.                  |
 | `jekyll-sitemap`           | Builds a full sitemap.xml automatically.                                    |
-| `jekyll-gist`              | Lets you embed GitHub Gists with &#123;`% gist %`&#125;.                              |
+| `jekyll-gist`              | Lets you embed GitHub Gists with I HATE LIQUID NOW, LOOK IT UP.                              |
 | `jekyll-paginate`          | Enables simple blog pagination (split post list into pages).                |
 | `jekyll-redirect-from`     | Adds redirect logic via YAML front matter (e.g., `redirect_from:`).         |
 | `jekyll-optional-front-matter` | Allows files to be processed without needing `---` front matter.       |
