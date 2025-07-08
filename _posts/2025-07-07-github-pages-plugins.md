@@ -71,7 +71,7 @@ Works as long as you’re pulling from a public GitHub-hosted theme repo that fo
 
 ### `jekyll-include-cache` ❌ *NOT allowed by GitHub Pages*
 
-This plugin caches ``{% include %}`` results to speed up local builds, but it is **not supported** on GitHub Pages' servers.
+This plugin caches % include % (Liquid can die in a fire) results to speed up local builds, but it is **not supported** on GitHub Pages' servers.
 
 If you try to use it, the site will fail to build unless you use a custom CI setup.
 
