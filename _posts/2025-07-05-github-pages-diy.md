@@ -8,8 +8,6 @@ author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
-<!-- force deploy -->
-
 ![nteleky and lupa present: github pages without 200+MiB of dependencies](/images/gh_pages_intro.png)
 
 # How to make your github pages site shine (and why I'm poor)
@@ -66,8 +64,6 @@ Polished, like you would polish a shoe (or a rock, or your knob - doorknob! get 
 
 **looks around** Are you alone?  Yeah?  Then come with me...
 
-![it runs jekyll, on Ruby!](/images/ruby_bucket.png)
-
 ## What is github pages, anyway?
 
 It's a combination of Jekyll (a static site generator, which is written in Ruby, a programming language *I don't like, unnecessarily*) and a hosted web server that takes documents written in `markdown` (a markup language, which is just a fancy way of formatting things) and turns them into web pages that you can view by making an `HTTP` request using your `web browser`.  This is supposed to be a layman's guide (easy) so I'm going to slightly over-explain so that hopefully everyone can understand (which is another *soft skill* I have).  Basically, you write text files using some special characters to indicate what type of page it is, when it was written, what the text should look like, whether something should be a list or a table or a link, then you send them to `the cloud` (not GOD's cloud, it's slang for 'a bunch of computers out there somewhere', accompanied by a wild hand gesture) where they're *magically converted* into something you can see by, for instance, saying *"Hey siri, open jackd.ethertech.org"* (which opened ethertech.org for me, which looks *even cooler* because we made it by hand, but you get the idea).
@@ -76,9 +72,11 @@ It *only* **"requires"** 200+MiB of files to generate your (checks site size) 26
 
 If this is all making you woozy, you're in the wrong place, you should be going to [github pages: easy](https://jackd.ethertech.org/github-pages/) which links to the longer, more complete, and self-documenting [THE QUICKEST GITHUB PAGES EVER!](https://jackd.ethertech.org/quick-github-pages.html).  You could theoretically do it without even using `git` (which is a program that takes your files and sends them to `the cloud`, but also does things like save old versions and keeps track of your changes).  There are *actually useful* guides to `git` out there, so I'm not writing my own (yet).
 
+![it runs jekyll, on Ruby!](/images/ruby_bucket.png)
+
 ### What is Jekyll?
 
-`Jekyll` is a `static site generator`.  It takes your `markdown` files (and optionally, which is what we're going to do), `HTML` and `CSS` and ~~puts it in a blender~~ **combines them all** in a way that makes them into a complete `web page`.  It's written in `Ruby`, which I *refuse to touch* because **I think it looks gross and scary**.  There's a `template engine` called `Liquid` that takes {{these things}} and "puts other things where those things are".  You'll probably pick up on it pretty quick, but you don't really *need* to learn it.  **You will need a knowledge of HTML and CSS or a cyborg friend**, for these advanced uses, however.  You'll also *want* but not *need* to clone the `minima` repo.  `minima` is the default `theme` for github pages and the only one I'll be covering.  A `theme` is basically the colors and layout of the page, how everything is displayed.  You can get other themes, but you have to *install things* and *I don't want to install things*.  **All you need, software-wise, is git and a text editor.**  This was my demand, and so it shall be!
+`Jekyll` is a `static site generator`.  It takes your `markdown` files (and optionally, which is what we're going to do), `HTML` and `CSS` and ~~puts it in a blender~~ **combines them all** in a way that makes them into a complete `web page`.  It's written in `Ruby`, which I *refuse to touch* because **I think it looks gross and scary**.  There's a `template engine` called `Liquid` that takes &#123;%&#123;%these things&#125;%&#125;% and "puts other things where those things are".  You'll probably pick up on it pretty quick, but you don't really *need* to learn it.  **You will need a knowledge of HTML and CSS or a cyborg friend**, for these advanced uses, however.  You'll also *want* but not *need* to clone the `minima` repo.  `minima` is the default `theme` for github pages and the only one I'll be covering.  A `theme` is basically the colors and layout of the page, how everything is displayed.  You can get other themes, but you have to *install things* and *I don't want to install things*.  **All you need, software-wise, is git and a text editor.**  This was my demand, and so it shall be!
 
 ## You said you were going to show me how to do this, but all you're doing is telling me how things work, are you?
 
