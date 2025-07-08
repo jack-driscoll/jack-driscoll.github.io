@@ -8,6 +8,8 @@ author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
+<!-- force deploy -->
+
 ![nteleky and lupa present: github pages without 200+MiB of dependencies](/images/gh_pages_intro.png)
 
 # How to make your github pages site shine (and why I'm poor)
