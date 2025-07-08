@@ -15,3 +15,21 @@
   border-radius: 8px;         // gently rounded corners
   transition: all 0.2s ease-in-out; // smooth in/out
 }
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.blog-center-link {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #0077cc;
+  text-decoration: none;
+  font-size: 1.1em;
+}
