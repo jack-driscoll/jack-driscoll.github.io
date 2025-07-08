@@ -470,6 +470,8 @@ I’m giving it away because:
 - I like helping people solve weird, frustrating problems.
 - I’m *"putting myself out there"*, hoping it leads to work or collaboration—because fighting for $5 jobs on Upwork/Fiverr is for the birds.
 
-I spent $20 I barely had on applications, paying for *the privilege of being considered for a job*, not including the hours of work preparing and sending cover pages and **only 2 were even seen...**  [You can see our entire undistilled conversation here.](https://www.notion.so/github-discussion-227969c50c718061870ad1283eb6bdd0?source=copy_link) so you can see how I use AI, that I actually wrote 90+% of this article *using my hands* (that's a UCB joke; Bradwick's Family Restaurant represent), and that it's worth it to have me **TL;DR for you**.  
+I spent $20 I barely had on applications, paying for *the privilege of being considered for a job*, not including the hours of work preparing and sending cover pages and **only 2 were even seen...**  
+
+[You can see our entire undistilled conversation here](https://www.notion.so/github-discussion-227969c50c718061870ad1283eb6bdd0?source=copy_link) so you can see how I use AI, that I actually wrote 90+% of this article *using my hands* (that's a **UCB** joke; *Bradwick's Family Restaurant represent*), and that it's worth it to have me **TL;DR for you**.  
 
 Have a great day; hope this helped you be a little less frustrated and get your website online *the way you want it*.
