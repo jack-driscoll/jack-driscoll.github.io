@@ -340,6 +340,40 @@ The line &#123;%- if my_page.title -%&#125; generates the `anchors` (a/k/a `hype
 
 You *don't* want an anchor for '/', so change it to `&#123;%- if my_page.title and my_page.url != '/' -%&#125;`, which says if the URL is '/' (the homepage/index), then *just don't*.  It works!  Not everything is as difficult as commenting out Liquid!
 
+### Let's add a blog link to the top header
+
+Open up `header.html`, you'll see where it adds the title (I'm *done* trying to put those damn curly brackets in here, lol, they break *every time*) in the anchor link with `class=site-title`.  We're going to put it in the middle (because the hamburgler menu is on the right) and match the text size with site-title.
+
+It should look like:
+
+```html
+    <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+    <a class="blog-center-link" href="#blog">blog</a>
+```
+
+Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text in the middle.  So I add this to my /_sass/minima/custom-styles.scss:
+
+```scss
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.blog-center-link {
+  @include relative-font-size(1.625);
+  font-weight: 300;
+  line-height: $base-line-height * $base-font-size * 2.25;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+```
+
+This is, of course, assuming you have a blog posts section called "blog", which will be linked as #blog when the markdown is processed.
+
 ### How does the 'hamburgler menu' work *without* javascript?
 
 This is kind of nifty.
