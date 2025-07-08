@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "About Me"
+title: "About Me/Contact"
 date: 2025-06-04
 permalink: /about.html
 author: jackd

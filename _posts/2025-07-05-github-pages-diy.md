@@ -8,13 +8,13 @@ author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
-120 min, 2:00 AM-3:00AM, + 30min, 26 min, 24 min, 100 min, 75min, +83min, +180min,
-
 # How to make your github pages site shine (and why I'm poor)
+
+[I built this because I had to figure it all out the hard way—and I wanted to leave a map for the next person.](#why-this)
 
 This is an advanced guide to doing cool shift with github pages *without additional software*.  If you want the absolute easiest guide to getting started on the internet see [github pages in 10 lines](https://jackd.ethertech.org/github-pages/).  If you want a solid beginner-level website, check out the self-documenting [quick-github-pages](https://github.com/jack-driscoll/quick-github-pages).
 
-This guide is an expansion on my "github pages the easy way" starter pack (a $19.99 value, yours for absolutely nothing, although the process of viewing it has contributed to the heat death of the universe - how do you sleep at night? j/k).  After you've gotten yourself set up and online with content (the important part) **you will inevitably decide that you want it to look or act differently (like your kids)**.  You will inevitably be told to **download and install Ruby and Jekyll**, look into it, and *after throwing up in a bucket and taking a cold shower, try to forget about the experience* (ok, it's not that bad, but *I* was overwhelmed and I gave up).  I didn't *want* to be a web developer--like I don't *want* to *learn to draw* (a common response to my AI artworks).  I already took a drawing class and **I suck**.  I *could* get better, but it would take months to years to a lifetime and **I don't want to be a traditional artist**, but I *love* art and things that are artistically done.  **There had to be a way to do what I wanted to do without starting from scratch, right?**
+This guide is an expansion on my "github pages the easy way" starter pack (a ~~$19.99~~ $500 value, yours for absolutely nothing, although the process of viewing it has contributed to the heat death of the universe - how do you sleep at night? j/k).  After you've gotten yourself set up and online with content (the important part) **you will inevitably decide that you want it to look or act differently (like your kids)**.  You will inevitably be told to **download and install Ruby and Jekyll**, look into it, and *after throwing up in a bucket and taking a cold shower, try to forget about the experience* (ok, it's not that bad, but *I* was overwhelmed and I gave up).  I didn't *want* to be a web developer--like I don't *want* to *learn to draw* (a common response to my AI artworks).  I already took a drawing class and **I suck**.  I *could* get better, but it would take months to years to a lifetime and **I don't want to be a traditional artist**, but I *love* art and things that are artistically done.  **There had to be a way to do what I wanted to do without starting from scratch, right?**
 
 **There was**, but it took time and energy in the form of heat, as *every process we know of* does.  Since I also use money to buy food and the tools I use to do this, *it cost me money*, in addition to time.  This.  What I'm doing right now, *"for free"* - it isn't actually free!  Once you factor in all of these things, and that **I'm giving away something I could be earning money doing**, it's actually "costing" me *dozens* of dollars, which is (and I'm not joking) *my monthly allowance*.  I currently earn less than $10,000/year.  I'm actually unemployed right now.  Despite this, I'm spending my money and my time doing something to benefit other people *with absolutely no compensation*.  "Why?", you might ask.  **Because I'm not a good businessman.**  But if you are - and you like my style - [get in touch with me and let's rake it in together](https://jackd.ethertech.org/about.html#contact).  Some people say there's no such thing as an unselfish act, and I think those people are just projecting, but *I do have an alterior motive*.  I'm trying to help you, teach you, save you time and money, and *GASP* hoping you will see that **it would be awesome for you to give me money and I will even do things for you if you do**.
 
@@ -88,7 +88,7 @@ This is the bread and butter of this guide.  I'm ~~sorry you had to wade through
 
 ### File Tree - "What's Inside"
 
-These are **not *all* the files inside**, they are *the ones we will be covering*.
+These are **not *all* the files inside**, they are *only the ones we will be covering*.
 
 ```
 .
@@ -326,7 +326,35 @@ And then, of course, we commit the files:
 
 ### Let's take the homepage out of the nav bar, because I already linked to it with my custom header  {#no-index}
 
-So my index was showing up in the header
+So my index was showing up in the header and [I thought I could use nav: exclude](#nav-exclude, but no.  So there's a couple ways of doing it, like specifying pages in the `_config.yml` file or (since I want the auto-nav) **excluding it** in the generation of the nav bar.  In order to do this, since we're changing the html and not just the display, we need to copy the `header.html` from the minima **2.5.1** source to `/_includes/header.html`.
+
+The line &#123;%- if my_page.title -%&#125; generates the `anchors` (a/k/a `hyperlinks` a/k/a `links` a/k/a `clicky things`) in the title for mobile and desktop and through *this one simple trick* renders them as a clickable hamburgler menu on mobile *without* javascript.
+
+You *don't* want an anchor for '/', so change it to `&#123;%- if my_page.title and my_page.url != '/' -%&#125;`, which says if the URL is '/' (the homepage/index), then *just don't*.  It works!  Not everything is as difficult as commenting out Liquid!
+
+### How does the 'hamburgler menu' work *without* javascript?
+
+This is kind of nifty.
+
+🧠 Mechanism:
+
+- There's a `<input type="checkbox" class="nav-trigger" />`
+- Paired with a `<label for="nav-trigger">` that holds the hamburger SVG
+- The real magic is in the CSS: when `#nav-trigger:checked` is true, `.site-nav .trigger` becomes `display: block`
+
+🔧 In CSS (from Minima):
+
+```css
+.site-nav .trigger {
+  display: none; // hidden by default (mobile)
+}
+
+.nav-trigger:checked + label + .trigger {
+  display: block; // shown when checkbox is checked
+}
+```
+
+This is a pure HTML/CSS toggle — no JavaScript.
 
 ## What doesn't work?
 
@@ -336,7 +364,11 @@ These are imaginary, minima 3.0, minima 3.0 and minima 3.0, in that order.  Gith
 
 ### custom-head.html
 
-Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues/472) unless you DIY. 
+Another feature [not available in 2.5.1](https://github.com/jekyll/minima/issues/472) unless you DIY.
+
+### `nav_exclude: true` in the frontmatter {#nav-exclude}
+
+Guessed why?  Only in minima 3.0.
 
 ## Misc Tips & Tricks
 
@@ -349,10 +381,9 @@ If you try to include it *within* the code block, Liquid will still parse the co
 
 You'll have to mix that with this (I spent nearly an hour playing with it until I found the right combo):
 
-```html
+```text
 &#123;&#123; content &#125;&#125;
 ```
-
 
 ### Images don't work in my `post`
 
@@ -364,23 +395,15 @@ Images were working fine in my pages, at least the ones directly off the root of
 
 ### What plugins are allowed in _config.yml?
 
-✅ Bonus: Plugins Allowed on GitHub Pages
+✅ Bonus: [Plugins Allowed on GitHub Pages](https://jackd.ethertech.org/2025-07-07-github-pages-plugins.html) is a complete list with descriptions of which ones work and which ones don't.  I didn't put it in here because it's kind of long.
 
-GitHub Pages has a hard whitelist of supported plugins. As of now (confirmed at pages.github.com/versions), these are allowed:
-
-- jekyll-feed
-- jekyll-seo-tag
-- jekyll-sitemap
-- jekyll-paginate
-- jekyll-remote-theme
-- jekyll-include-cache
-
-❌ jekyll-navigation is not allowed, and nav_exclude is typically used with that plugin.
-
+We're just going to take a look at one of them for starters, `jekyll-remote-theme`.
 
 ## Let's implement a completely different theme
 
-I know, I said I wasn't going to do this, but then I found out it's possible to upgrade to minima 3.0 (which, BTW is *completely* different - why people make drastic architectural changes is beyond me) and then use a dark theme
+I know, I said I wasn't going to do this, but then I found out it's possible to upgrade to minima 3.0 (which, BTW is *completely* different - why people make drastic architectural changes is beyond me) and then use a dark theme.
+
+I'm leaving these notes in, but ***don't do this***, not because you can't, but because there's a *way easier way*.  Instead see my post [Implementing a New Theme Without Resorting to Installing Jekyll or Ruby](https://jackd.ethertech.org/2025-07-07-github-pages-remote-themes.html).
 
 ### Don't I need Jekyll?
 
@@ -410,7 +433,7 @@ You’re not just customizing Minima—you’re reverse engineering the theme sy
 
 ### _sass (minima 3.0)
 
-"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, in additions to `/assets/css/style.css`.  It also contains the `skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files.  During the compilation of the CSS, these files *are used to build* `custom.css`
+"Sass is the most mature, stable, and powerful professional grade CSS extension language in the world." according to its PR team.  This is where most of the styling happens, and renders to `_site/assets/css/style.css`.  It also contains the `/_sass/minima/skins`, which are variations on the minima theme.  All of the files are inside a minima subdirectory, for a reason I have yet to determine.  Things here start with `initialize.scss`, which has some configuration and in turn includes the other files `base.scss`, `layout.scss`, `custom-styles.scss` and `custom-variables.scss`.  During the compilation of the CSS, these files *are used to build* `site_/assets/css/style.css`.
 
 ### /assets/css (minima 3.0)
 
@@ -424,3 +447,21 @@ This is where `style.css` (and optionally) `custom.css` live.  This, in turn, ha
   "minima/custom-styles"     // Hook to override existing styles.
 ;
 ```
+
+## Closing Notes {#why-this}
+
+This ended up being way longer than I intended, but I wanted it to be a thorough introductory guide to making manual changes to your site without breaking things.  Hopefully it was helpful to you.  If you have any questions, don't hesitate to [contact me](https://jackd.ethertech.org/about.html#contact) with questions, requests, job offers, whatever!  As I continue to modify my site and play with github pages, I'll keep updating this page.  My pages all have permalinks, so it'll be in the same place today, tomorrow and for the forseeable future.
+
+This page took me **12.13 hours to make** — including research, experimentation, debugging, and documentation.
+At my usual rate of $42/hour, that’s over $500 worth of work.
+Even at a steep discount, it’s still well over $200.
+
+I’m giving it away because:
+
+- This is the guide I needed—the one GitHub didn’t write.
+- I like helping people solve weird, frustrating problems.
+- I’m *"putting myself out there"*, hoping it leads to work or collaboration—because fighting for $5 jobs on Upwork/Fiverr is for the birds.
+
+I spent $20 I barely had on applications, paying for *the privelege of being considered for a job*, not including the hours of work preparing and sending cover pages and **only 2 were even seen...**  [You can see our entire undistilled conversation here.](https://www.notion.so/github-discussion-227969c50c718061870ad1283eb6bdd0?source=copy_link) so you can see how I use AI, that I actually wrote 90+% of this article *using my hands* (that's a UCB joke; Bradwick's Family Restaurant represent), and that it's worth it to have me **TL;DR for you**.  
+
+Have a great day; hope this helped you be a little less frustrated and get your website online *the way you want it*.
