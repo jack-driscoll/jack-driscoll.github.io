@@ -24,12 +24,12 @@
 }
 
 .blog-center-link {
+  @include relative-font-size(1.625);
+  font-weight: 300;
+  line-height: $base-line-height * $base-font-size * 2.25;
+  letter-spacing: -1px;
+  margin-bottom: 0;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  font-weight: 600;
-  text-transform: uppercase;
-  color: #0077cc;
-  text-decoration: none;
-  font-size: 1.1em;
 }
