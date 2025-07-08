@@ -20,7 +20,7 @@ These plugins are **pre-installed** and **enabled automatically** by GitHub Page
 | `jekyll-feed`              | Adds an Atom/RSS feed at `/feed.xml` for your posts.                        |
 | `jekyll-seo-tag`           | Auto-generates SEO, OpenGraph, and Twitter card meta tags.                  |
 | `jekyll-sitemap`           | Builds a full sitemap.xml automatically.                                    |
-| `jekyll-gist`              | Lets you embed GitHub Gists with I HATE LIQUID NOW, LOOK IT UP.                              |
+| `jekyll-gist`              | Lets you embed GitHub Gists with LIQUID IS DRIVING ME NUTS.                              |
 | `jekyll-paginate`          | Enables simple blog pagination (split post list into pages).                |
 | `jekyll-redirect-from`     | Adds redirect logic via YAML front matter (e.g., `redirect_from:`).         |
 | `jekyll-optional-front-matter` | Allows files to be processed without needing `---` front matter.       |
@@ -71,7 +71,7 @@ Works as long as you’re pulling from a public GitHub-hosted theme repo that fo
 
 ### `jekyll-include-cache` ❌ *NOT allowed by GitHub Pages*
 
-This plugin caches `{% include %}` results to speed up local builds, but it is **not supported** on GitHub Pages' servers.
+This plugin caches ``{% include %}`` results to speed up local builds, but it is **not supported** on GitHub Pages' servers.
 
 If you try to use it, the site will fail to build unless you use a custom CI setup.
 
