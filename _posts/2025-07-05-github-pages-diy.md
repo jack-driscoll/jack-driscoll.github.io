@@ -8,6 +8,8 @@ author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
 ---
 
+![nteleky and lupa present: github pages without 200+MiB of dependencies](/images/gh_pages_intro.png)
+
 # How to make your github pages site shine (and why I'm poor)
 
 [I built this because I had to figure it all out the hard way—and I wanted to leave a map for the next person.](#why-this)  *It's really long and I don't want to understand how it works, I just want to change the font.*  [The TL;DR is here](#tldr), but I found that until I understood what was *really* going on, I kept breaking things.
@@ -48,21 +50,27 @@ I have lots of skills, but that doesn't necessarily mean I'm good at them.  What
 
 When I started this article, *I knew nothing about how github pages worked*.  I was working with Lupa on making some changes and it kept breaking things.  Instead of just throwing things at a wall until something stuck, I decided to **learn what I was actually doing, under the hood**.  This is what I'll do for you as "your genius", this is what I do *with my brains* **punk**.
 
+![fitz and lupa, the illustrators, introduce](/images/site_shine.png)
+
 ## What do you mean, *shine*?
 
 Polished, like you would polish a shoe (or a rock, or your knob - doorknob! get your mind out of the gutter) if you had gone back in time to when people had shoes they got polished by street waifs (who does that anymore?).  Say you want *a fancy font, like mine*, or you want the header to look different, or a link to your blog, or **something, anything, that isn't included by default**.  Sure, you can find a theme and install Jekyll and Ruby and learn Liquid and HTML and CSS, but **you don't need to**.
 
 ### Are you going to show me how to do the thing I want?
 
-**I'm going to do something better** (although I will show you how to do the thing you want if you pay me, as well).  I'm going to show you how to do it *easily* and why you may not want to (because it's work).  I'm going to walk you through how github pages works behind the scenes and how to do one thing, but do it in a thousand different ways, all at once - **how to modify the default theme**.  Instead of just copy-pasting fixes, you'll be thinking like a developer in no time!  With a little knowledge of HTML and CSS (or, like I said, a gay werewolf cyborg friend [AI]) you'll be able to **make any change you want**.
+**I'm going to do something better** (although [I will show you how to do the thing](#tldr) you want if you pay me, as well).  I'm going to show you how to do it *easily* and why you may not want to (because it's work).  I'm going to walk you through how github pages works behind the scenes and how to do one thing, but do it in a thousand different ways, all at once - **how to modify the default theme**.  Instead of just copy-pasting fixes, you'll be thinking like a developer in no time!  With a little knowledge of HTML and CSS (or, like I said, a gay werewolf cyborg friend [AI]) you'll be able to **make any change you want**.
 
 ### Are you actually going to, or are you just going to talk about it?
 
 **looks around** Are you alone?  Yeah?  Then come with me...
 
+![it runs jekyll, on Ruby!](/images/ruby_bucket.png)
+
 ## What is github pages, anyway?
 
-It's a combination of Jekyll (a static site generator, which is written in Ruby, a programming language) and a hosted web server that takes documents written in `markdown` (a markup language, which is just a fancy way of formatting things) and turns them into web pages that you can view by making an `HTTP` request using your `web browser`.  This is supposed to be a layman's guide (easy) so I'm going to slightly over-explain so that hopefully everyone can understand (which is another *soft skill* I have).  Basically, you write text files using some special characters to indicate what type of page it is, when it was written, what the text should look like, whether something should be a list or a table or a link, then you send them to `the cloud` (not GOD's cloud, it's slang for 'a bunch of computers out there somewhere', accompanied by a wild hand gesture) where they're *magically converted* into something you can see by, for instance, saying *"Hey siri, open jackd.ethertech.org"* (which opened ethertech.org for me, which looks *even cooler* because we made it by hand, but you get the idea).
+It's a combination of Jekyll (a static site generator, which is written in Ruby, a programming language *I don't like, unnecessarily*) and a hosted web server that takes documents written in `markdown` (a markup language, which is just a fancy way of formatting things) and turns them into web pages that you can view by making an `HTTP` request using your `web browser`.  This is supposed to be a layman's guide (easy) so I'm going to slightly over-explain so that hopefully everyone can understand (which is another *soft skill* I have).  Basically, you write text files using some special characters to indicate what type of page it is, when it was written, what the text should look like, whether something should be a list or a table or a link, then you send them to `the cloud` (not GOD's cloud, it's slang for 'a bunch of computers out there somewhere', accompanied by a wild hand gesture) where they're *magically converted* into something you can see by, for instance, saying *"Hey siri, open jackd.ethertech.org"* (which opened ethertech.org for me, which looks *even cooler* because we made it by hand, but you get the idea).
+
+It *only* **"requires"** 200+MiB of files to generate your (checks site size) 26MiB site (although it was under 1MiB when I started).  The thing is, though, you can *safely ignore* all the people telling you to install Jekyll (which requires installing Ruby, which I have an unnatural aversion to after *ending up in Gem dependency hell years ago*.  There's nothing really *wrong* about doing this, but it's also *completely unnecessary complexity* for most use cases.
 
 If this is all making you woozy, you're in the wrong place, you should be going to [github pages: easy](https://jackd.ethertech.org/github-pages/) which links to the longer, more complete, and self-documenting [THE QUICKEST GITHUB PAGES EVER!](https://jackd.ethertech.org/quick-github-pages.html).  You could theoretically do it without even using `git` (which is a program that takes your files and sends them to `the cloud`, but also does things like save old versions and keeps track of your changes).  There are *actually useful* guides to `git` out there, so I'm not writing my own (yet).
 
