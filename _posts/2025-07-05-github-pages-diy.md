@@ -368,7 +368,6 @@ Then, we need to style it like the site-title, so we take a look in `_layout.scs
   margin-bottom: 0;
   position: absolute;
   left: 50%;
-  margin-left: 0.75rem;
 }
 ```
 
