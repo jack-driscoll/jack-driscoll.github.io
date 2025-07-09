@@ -11,11 +11,7 @@ nav_exclude: true
 
 [I offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
 
-[Jump to Blog ↓](#blog)
-
-[Links to cool sites](/links.html)
-
-[Project Highlights](#highlights)
+[Jump to Blog ↓](#blog) [Project Highlights](#highlights)
 
 ## <a href="https://jackd.ethertech.org/genius/">MyGenius/brainspunk</a>
 
