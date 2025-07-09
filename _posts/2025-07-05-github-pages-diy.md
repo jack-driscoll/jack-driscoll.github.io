@@ -351,18 +351,38 @@ It should look like:
     <a class="blog-link" href="#blog">blog</a>
 ```
 
-Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text right next to it (0.75 rem away) and make it green because fuck it.  So I add this to my /_sass/minima/custom-styles.scss:
+Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text right next to it (0.75 rem away) and make it green because fuck it.  This also brings the nav bar to the right of the "jackd blog" part, which I'm going to pretend was intentional.  So I add this to my /_sass/minima/custom-styles.scss:
 
 ```scss
 .blog-link {
-  margin-left: 0.75rem; /* space between jackd and blog */
-  font-size: inherit;   /* matches jackd */
-  font-weight: inherit; /* same weight */
-  color: #00400f;       /* same color */
+  margin-left: 1rem;
+  font-size: 1.4rem; // slightly larger for emoji clarity
+  font-weight: 500;
+  text-decoration: none;
+  color: #2ecc71; // emerald
+  padding: 0.2em 0.5em;
+  border-radius: 6px;
+  line-height: 1;
+  display: inline-block;
+  transition: background 0.2s, transform 0.1s ease-in-out;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &:active,
+  &:focus {
+    background: #d2f8df;
+    outline: none;
+  }
+
+  &:visited {
+    color: #2ecc71;
+  }
 }
 ```
 
-This is, of course, assuming you have a blog posts section called "blog", which will be linked as #blog when the markdown is processed.
+This is, of course, assuming you have a blog posts section called "blog", which will be linked as #blog when the markdown is processed.  If you don't, add `# Blog` to the very end of your `index.md` file.
 
 ### How does the 'hamburgler menu' work *without* javascript?
 
@@ -416,6 +436,8 @@ You'll have to mix that with this (I spent nearly an hour playing with it until 
 ```text
 &#123;&#123; content &#125;&#125;
 ```
+
+This is going to drive you *absolutely nuts*, I guarantee it.  I spent upwards of an hour effing around with this while I was writing (change, wait/write, check, repeat).
 
 ### Images don't work in my `post`
 
@@ -499,3 +521,9 @@ I spent $20 I barely had on applications, paying for *the privilege of being con
 [You can see our entire undistilled conversation here](https://www.notion.so/github-discussion-227969c50c718061870ad1283eb6bdd0?source=copy_link) so you can see how I use AI, that I actually wrote 90+% of this article *using my hands* (that's a **UCB** joke; *Bradwick's Family Restaurant represent*), and that it's worth it to have me **TL;DR for you**.  
 
 Have a great day; hope this helped you be a little less frustrated and get your website online *the way you want it*.
+
+### Follow-Ups
+
+Instead of making one super-duper long page, additional sections will be new posts and listed here
+: [Github Pages Plugins](https://jackd.ethertech.org/2025-07-07-github-pages-plugins.html)
+: [Github Pages Remote Themes](https://jackd.ethertech.org/2025-07-07-github-pages-remote-themes.html)
