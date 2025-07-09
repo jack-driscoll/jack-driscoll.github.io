@@ -27,7 +27,6 @@
   line-height: 1;
   display: inline-block;
   transition: background 0.2s, transform 0.1s ease-in-out;
-  background: #e6e6e6;
 
   &:hover {
     background: #e6e6e6;
@@ -45,7 +44,11 @@
   }
 }
 
-.site-nav .trigger a.page-link {
-  display: block;
-  padding: 0.5em 0;
+/* Mobile menu stack only inside trigger */
+@media (max-width: 768px) {
+  .trigger a.nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.5em 0;
+  }
 }
