@@ -17,9 +17,6 @@
 }
 
 .blog-link {
-  margin-left: 0.75rem; /* space between jackd and blog */
-  font-size: inherit;   /* matches jackd */
-  font-weight: inherit; /* same weight */
   color: #00400f;       /* same color */
   @include relative-font-size(1.625);
   font-weight: 300;
