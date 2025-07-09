@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "MyGenius: Life Support For The Rest Of Us"
+title: "brainspunk/'my genius': Life Support For The Rest Of Us"
 date: 2025-07-03
 tags: [personal, diy, support, questions, mygenius]
 permalink: /genius/
