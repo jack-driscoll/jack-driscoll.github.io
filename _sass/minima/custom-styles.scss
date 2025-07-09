@@ -18,28 +18,30 @@
 
 .blog-link {
   margin-left: 1rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem; // slightly larger for emoji clarity
   font-weight: 500;
   text-decoration: none;
-  color: #2ecc71; // emerald green
-  transition: background 0.2s, color 0.2s, border-radius 0.2s;
-  padding: 0.2em 0.6em;
-  border-radius: 4px;
+  color: #2ecc71; // emerald
+  padding: 0.2em 0.5em;
+  border-radius: 6px;
+  line-height: 1;
+  display: inline-block;
+  transition: background 0.2s, transform 0.1s ease-in-out;
+  background: #e6e6e6;
 
   &:hover {
-    background: #d2f8df; // light green background
-    color: #208b4d;
-  }
-
-  &:visited {
-    color: #2ecc71; // stay green after click
+    background: #d2f8df;
+    transform: scale(1.05);
   }
 
   &:active,
   &:focus {
-    color: #2ecc71;
     background: #d2f8df;
-    text-decoration: none;
+    outline: none;
+  }
+
+  &:visited {
+    color: #2ecc71;
   }
 }
 
