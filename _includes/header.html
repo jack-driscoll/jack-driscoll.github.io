@@ -5,7 +5,7 @@
     {%- assign page_paths = site.header_pages | default: default_paths -%}
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
     <a class="blog-link" href="https://jackd.ethertech.org/#blog">blog</a>
-	<img src="/images/curly.png" alt="curly bracket" style="height: auto; max-height: 100%; object-fit: cover;">
+	<img src="/images/curly.png" alt="curly bracket" style="height: auto; object-fit: contain;">
     {%- if page_paths -%}
       <nav class="site-nav">
         <input type="checkbox" id="nav-trigger" class="nav-trigger" />
