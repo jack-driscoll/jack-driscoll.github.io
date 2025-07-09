@@ -348,7 +348,7 @@ It should look like:
 
 ```html
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-    <a class="blog-link" href="#blog">blog</a>
+    <a class="blog-link" href="https://jackd.ethertech.org/#blog">blog</a>
 ```
 
 Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text right next to it (0.75 rem away) and make it green because fuck it.  This also brings the nav bar to the right of the "jackd blog" part, which I'm going to pretend was intentional.  So I add this to my /_sass/minima/custom-styles.scss:
@@ -504,7 +504,7 @@ This is where `style.css` (and optionally) `custom.css` live.  This, in turn, ha
 
 ## Closing Notes {#why-this}
 
-This ended up being way longer than I intended, but I wanted it to be a thorough introductory guide to making manual changes to your site without breaking things.  Hopefully it was helpful to you.  If you have any questions, don't hesitate to [contact me](https://jackd.ethertech.org/about.html#contact) with questions, requests, job offers, whatever!  As I continue to modify my site and play with github pages, I'll keep updating this page.  My pages all have permalinks, so it'll be in the same place today, tomorrow and for the forseeable future.
+This ended up being way longer than I intended, but I wanted it to be a thorough introductory guide to making manual changes to your site without breaking things.  Hopefully it was helpful to you.  If you have any questions, don't hesitate to [contact me](https://jackd.ethertech.org/about.html#contact) with questions, requests, job offers, whatever!  As I continue to modify my site and play with github pages, I'll keep updating this page.  My pages all have permalinks, so it'll be in the same place today, tomorrow and for the forseeable future.  I think there's enough here to give you the information you need to (with a little help from google and AI and maybe a good book) *do anything with GitHub Pages* that includes presenting information.  **You can't make dynamic websites on GH Pages** so no interactivity; if you're storing and sharing information, though, this is all you need.
 
 This page took me **12.13 hours to make** — including research, experimentation, debugging, and documentation.
 At my usual rate of $42/hour, that’s over $500 worth of work.
