@@ -7,13 +7,34 @@ permalink: /genius/
 description: "MyGenius: Get the answers (and art) you need delivered by a friendly gay"
 ---
 
+---
+
+**Tired of bad AI answers, SEO sludge, and endless forum threads?**  
+**What if you had a personal genius on call—human, kind, and fast?**  
+
+For just $10/month, I’ll do the thinking for you.  
+Skip the noise. Get the answer. Stay brilliant.  
+[Subscribe on Ko-fi →](https://ko-fi.com/fitztwombly/tiers)
+
+---
+
 # What is this?
 
 **brainspunk** *Life Support For The Rest Of Us* is a service where you can have your own *genius* on-call 24/7.  Think of it like the "Who Wants To Be A Millionaire" call a friend.  Think of it like having the world's least expensive consultant.  Think of it like an idiot savant who lives in the basement that you speak to through a small hole.  Most importantly?  "Don't think about it" - let me.
 
+## Where do I get it?
+
+Go to KO-FI and [get my genius at your command for these low monthly rates](https://ko-fi.com/fitztwombly/tiers).  I don't think I can possibly emphasize just how *cheap* this is.  If you ask really good questions, you will *save time, make money, and improve your life* for as low as ~~$20~~ $10/month (for the first hundred subscribers only).  100 questions, 100 hours, *2 1/2 standard work weeks* at full usage.  This is what I'm *made* for: helping you.
+
+### Why is it so cheap?
+
+Because it's *really hard* to get people to try new things.  Let me be really clear: when I do consulting work, I charge **$42/hr** and I'm *worth it* because I can do twice the work in half the time.  I can *save you hours* of your own time that you would otherwise spend *searching for answers* and **I'll do it with a smile, patience, and humility**.  I'm here to *help you* not *make you feel insecure*.  I'm not *that* computer guy who's like **eugh, don't you *know*** how to do this!?  I understand that we all start from a place of ignorance, no one is born with knowledge, and I'm here to help you develop yours.
+
+It's also *really hard to find work* and I would rather do this for $10/hr than flip burgers for $15, you know?
+
 ## Are you really a genius?
 
-According to a psychiatrist who evaluated me when I was 13, yes.  <a href="/images/iq_test.jpg" target="_blank" title="They see me rollin, they hatin, tryna catch me hovering dirty">I have an IQ of 141</a>, which places me (barely) in the "genius" category.  I'm not a prick about it, though - no condescension, no "dumb questions", nothing too big or small.  I always used to downplay my intelligence because sometimes people think I'm trying to say I'm "better than them".  I'm not "better" than anyone.  Everyone has their strengths (and weaknesses) and one of mine happens to be a *really nice brain*.  Unfortunately, much to my dismay, *it's not benefitting other people*, and that's what I would like to use it for and I think that's what the cosmos intends as well.
+According to a psychiatrist who evaluated me when I was 13, yes.  <a href="/images/iq_test.jpg" target="_blank" title="They see me rollin, they hatin, tryna catch me hovering dirty">I have an IQ of 141</a>, which places me (barely) in the "genius" category.  I'm not a prick about it, though - no condescension, no "dumb questions", nothing too big or small.  I used to downplay my intelligence because I never want anyone to feel less-than. Intelligence is just one kind of gift—we all have different ones.  Everyone has their strengths (and weaknesses) and one of mine happens to be a *really nice brain*.  Unfortunately, much to my dismay, *it's not benefitting other people*, and that's what I would like to use it for and I think that's what the cosmos intends as well.
 
 I'm not a *super genius* or anything, I'm not *rainman* (although I do have mental illness), and I'm not interested in comparative measures of intelligence.  This isn't about *who's the smartest*.  Everyone has different talents and strengths, this is mine, and I know I'm not and I'm never going to be *"the smartest"*, so do yourself a favor and don't compare yourself to other people, including me.  Look at your strengths and use them.  Look at your weaknesses and fortify them.  Be the best person you can be and accept yourself *exactly as you are*, and forget the pissing contest (unless it's for entertainment).
 
