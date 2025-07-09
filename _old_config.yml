@@ -28,15 +28,10 @@ url: "https://jack.ethertech.org" # the base hostname & protocol for your site, 
 github_username:  jack-driscoll
 
 # Build settings
-remote_theme: jekyll/minima
-
 theme: minima
-  skin: dark
-
 plugins:
   - jekyll-feed
   - jekyll-last-modified-at
-  - jekyll-remote-themes
 
 #includes:
 #  - head
