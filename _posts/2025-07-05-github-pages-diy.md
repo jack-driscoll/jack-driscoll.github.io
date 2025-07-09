@@ -342,32 +342,23 @@ You *don't* want an anchor for '/', so change it to `&#123;%- if my_page.title a
 
 ### Let's add a blog link to the top header
 
-Open up `header.html`, you'll see where it adds the title (I'm *done* trying to put those damn curly brackets in here, lol, they break *every time*) in the anchor link with `class=site-title`.  We're going to put it in the middle (because the hamburgler menu is on the right) and match the text size with site-title.
+Open up `header.html`, you'll see where it adds the title (I'm *done* trying to put those damn curly brackets in here, lol, they break *every time*) in the anchor link with `class=site-title`.  We're going to put it next to 'jackd' (because the hamburgler menu is on the right) and match the text size with site-title.
 
 It should look like:
 
 ```html
     <a class="site-title" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
-    <a class="blog-center-link" href="#blog">blog</a>
+    <a class="blog-link" href="#blog">blog</a>
 ```
 
-Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text in the middle.  So I add this to my /_sass/minima/custom-styles.scss:
+Then, we need to style it like the site-title, so we take a look in `_layout.scss` where site-title lives and steal its formatting, but place the blog text right next to it (0.75 rem away) and make it green because fuck it.  So I add this to my /_sass/minima/custom-styles.scss:
 
 ```scss
-.site-header {
-  display: flex;
-  justify-content: space-between;
-  position: relative;
-}
-
-.blog-center-link {
-  @include relative-font-size(1.625);
-  font-weight: 300;
-  line-height: $base-line-height * $base-font-size * 2.25;
-  letter-spacing: -1px;
-  margin-bottom: 0;
-  position: absolute;
-  left: 50%;
+.blog-link {
+  margin-left: 0.75rem; /* space between jackd and blog */
+  font-size: inherit;   /* matches jackd */
+  font-weight: inherit; /* same weight */
+  color: #00400f;       /* same color */
 }
 ```
 
