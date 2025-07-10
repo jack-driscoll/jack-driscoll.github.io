@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Simply The Best Software in Existence"
+title: "Software"
 date: 2025-07-09
 tags: [guide, documentation, software, links]
 permalink: /software/
