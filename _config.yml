@@ -75,6 +75,7 @@ plugins:
   - jekyll-feed
   - jekyll-last-modified-at
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 # you can manually specify which elements you want included
 #includes:

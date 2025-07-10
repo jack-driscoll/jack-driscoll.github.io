@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "So you want a custom github pages site and you want it for free?"
+title: "GitHub Pages The Hard Way: So you want a custom github pages site and you want it for free?"
 date: 2025-07-05
 tags: [diy, how-to, guide, github, web, html, css, documentation, jekyll]
 permalink: /2025-07-04-github-pages-diy.html
@@ -10,7 +10,11 @@ description: "How to make your own github pages site that rocks socks without to
 
 ![nteleky and lupa present: github pages without 200+MiB of dependencies](/images/gh_pages_intro.png)
 
-# How to make your github pages site shine (and why I'm poor)
+# GitHub Pages The Hard Way
+
+This is an advanced guide to github pages.  If you're just getting started (and it's a great place to get started on the web, for anyone - *really*) check out [GitHub Pages the Easiest Way](https://jackd.ethertech.org/github-pages/) and the simple, small (<10KiB), self-documenting `.zip` file to get you started - [quick-github-pages](https://jackd.ethertech.org/quick-github-pages.html).  This will have you up and running on GH Pages in a couple hours, *max*; fast people will be less than an hour.  It's easy enough for *anyone*.
+
+## How to make your github pages site shine (and why I'm poor)
 
 [I built this because I had to figure it all out the hard way—and I wanted to leave a map for the next person.](#why-this)  *It's really long and I don't want to understand how it works, I just want to change the font.*  [The TL;DR is here](#tldr), but I found that until I understood what was *really* going on, I kept breaking things.
 

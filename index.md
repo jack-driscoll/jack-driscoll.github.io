@@ -3,7 +3,9 @@ layout: home
 permalink: /
 date: 2025-06-04
 title: Jack'D in CYBERSPACE!!!
-nav_exclude: true
+description: A 'simple' (ok not anymore) page about me, Jack'D (Jack Driscoll), from Milwaukee, WI in Turtle Island ("USA"). Also home to content from guest writers Fitz Twombly, nTeleKy and Lupa.
+author: jackd
+image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
 ---
