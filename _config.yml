@@ -26,14 +26,14 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://jack.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nteleky
 github_username: jack-driscoll
-logo: /images/portal_300dpi.png
+logo: https://jackd.ethertech.org/images/portal_300dpi.png
 
 # Default to "Support From The Mythic Zone" for entire site
 defaults:
   - scope:
       path: ""
     values:
-      image: /images/mythic_support.png
+      image: https://jackd.ethertech.org/images/mythic_support.png
       tagline: Support from the Mythic Zone
 
 # you can also set defaults in a single domain ie posts
