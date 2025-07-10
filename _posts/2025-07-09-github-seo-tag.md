@@ -18,6 +18,8 @@ Why?
 
 ![this is why](/images/clear_as_shit.png)
 
+![THIS SHIT](/images/clear_as_shit2.png)
+
 ## SEO - How to get the best publicity absolutely free by cramming a bunch of keywords into your SEO thingers
 
 Great question. Unlike Minima 3.0’s restructuring chaos, `jekyll-seo-tag` is a lightweight, well-behaved plugin that’s:
