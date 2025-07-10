@@ -484,8 +484,10 @@ That **should** be recognized as the default image used by `jekyll-seo-tag` — 
 The [SEO template you provided](#517) checks:
 
 ```liquid
-{% if seo_tag.image %}
-  <meta property="og:image" content="{{ seo_tag.image.path }}" />
+ if seo_tag.image 
+  <meta property="og:image" content=" seo_tag.image.path  />
+  
+  HAVE I TOLD YOU HOW MUCH LIQUIDS PARSING MAKES ME WANT TO DIE
 ```
 
 But the plugin only assigns `seo_tag.image` if:
