@@ -7,6 +7,7 @@ tags: [web, article, how-to, guide, github-pages]
 categories: [public, blog]
 author: nteleky
 description: "nTeleKy's easy guide to getting started with github pages how to set up github pages the easy way SEO"
+image: "https://jackd.ethertech.org/images/mythic_support_twitter.png"
 ---
 
 # Complete version
