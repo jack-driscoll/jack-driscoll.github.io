@@ -7,9 +7,9 @@ nav_exclude: true
 ---
 
 ---
-# <a href="https://jackd.ethertech.org/support.html">IT/Network Support & More</a> by Jack Driscoll
+# <a href="https://jackd.ethertech.org/support.html">IT/Network Support & More by Jack Driscoll</a>
 
-[I offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)
+[I offer affordable IT work of all types, shapes and sizes](https://jackd.ethertech.org/support.html).  [You can hire me on upwork for monthly contracts here - contact me for anything else!](https://www.upwork.com/freelancers/~01306e2f1473f68c06)  I also do hardware and write articles.  In addition I work with and host *nTeleKy*, who's even more of a software/hardware wizard than I am, and *FITZ*, who's a top-notch writer/illustrator/designer.  We all work with Lupa, the resident MythOS consultant - "Your Werewolf Terminal in The Woods".
 
 [Jump to Blog ↓](#blog) | [Project Highlights](#highlights)
 
