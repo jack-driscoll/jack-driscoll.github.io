@@ -65,8 +65,9 @@ plugins:
   - jekyll-sitemap
 
 # you can manually specify which elements you want included
-#includes:
+includes:
 #  - head
+  - images
 
 # Exclude from processing.
 # The following items will not be processed, by default.
