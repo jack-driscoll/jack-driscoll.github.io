@@ -8,6 +8,8 @@ author: nteleky
 description: "A guide to implementing remote custom themes on github pages using jekyll-remote-theme without installing anything, the easiest way to implement cool new themes for your github pages site, by nTeleKy and Lupa"
 ---
 
+***I decided not to do this because I just got my site looking right and they changed everything and I'm not changing it back just for a preview of something I'm not even planning on using***  So **it might not be accurate**.  This is pure, unfollowed suggestion.  There's [some more information here](https://github.com/benbalter/jekyll-remote-theme).
+
 # 📦 `jekyll-remote-theme` – What It Is and How to Use It
 
 `jekyll-remote-theme` is a GitHub Pages–approved plugin that allows you to **use any public GitHub-hosted Jekyll theme** without cloning or copying its files directly into your repo.
@@ -38,6 +40,8 @@ Then remove or ignore:
 
 - Any manually copied `_layouts`, `_includes`, `_sass/minima`, or `assets/main.scss`
 - Custom overrides should go **after** the remote theme is applied
+
+I'm going to try and save my `header.html`, but if I can't fuck minima 3.0 I just spent a couple hours getting it to look right and I'm not re-doing it the day after.  I did ` mv main.scss _main.scss` because *you have to because they changed everything about how CSS works* for whatever reason.  There's other ways of doing it but I'm gonna try this.
 
 ---
 

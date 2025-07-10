@@ -21,18 +21,62 @@
 title: "jackd"
 email: jack.driscoll@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  A 'simple' page about me, Jack'D (Jack Driscoll), from Milwaukee, WI in Turtle Island ("USA").
+  A 'simple' page about me, Jack'D (Jack Driscoll), from Milwaukee, WI in Turtle Island ("USA"). Also home to content from guest writers Fitz Twombly, nTeleKy and Lupa.
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://jack.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
-#twitter_username: jekyllrb
-github_username:  jack-driscoll
+twitter_username: nteleky
+github_username: jack-driscoll
+logo: /images/portal_300dpi.png
 
+# Default to "Support From The Mythic Zone" for entire site
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /images/mythic_support.png
+      tagline: Support from the Mythic Zone
+
+# you can also set defaults in a single domain ie posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      author: jackd         # Applies only to posts
+      twitter:
+        username: "@nteleky"  # Optional; redundant if same as global
+
+# Set author
+author:
+  name: jackd
+  url: https://jackd.ethertech.org/
+
+# Set default twitter account to resident artist Fitz Twombly
+  username: '@nteleky'
+  card: summary-large-image
+
+# Share some information about jackd's socials
+social:
+  name: Jack Driscoll
+  links:
+    - https://github.com/jack-driscoll
+
+# Let's embiggen the SEO description
+defaults:
+  - scope:
+      path: ""
+    values:
+      seo_description_max_words: 200
+
+# OKOKOK S E O, now back to the good stuff BUILD SETTINGS
 # Build settings
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-last-modified-at
+  - jekyll-seo-tag
 
+# you can manually specify which elements you want included
 #includes:
 #  - head
 
@@ -48,10 +92,19 @@ plugins:
 #   - .sass-cache/
 #   - .jekyll-cache/
 #   - gemfiles/
-#   - Gemfile
+#   - Gemfile (quick someone get me a trash can or a paper bag)
 #   - Gemfile.lock
 #   - node_modules/
 #   - vendor/bundle/
 #   - vendor/cache/
 #   - vendor/gems/
 #   - vendor/ruby/
+
+# Honestly not sure how to use these
+#webmaster_verifications:
+#  google: 1234
+#  bing: 1234
+#  alexa: 1234
+#  yandex: 1234
+#  baidu: 1234
+#  facebook: 1234
