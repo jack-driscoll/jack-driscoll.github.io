@@ -651,3 +651,91 @@ If it’s something like /images/... without a domain, Twitter/X will fail to re
 ### what about image: "/images/image.jpg"
 
 nope, yes to relative link if you have url and baseurl set right in _config.yml, but **no to quotes**, it will break it
+
+## What do the cards even do?
+
+Exactly — if you’ve got the `og:image`, `og:title`, and `description` tags **in place and accurate**, then you’ve won 90% of the battle.
+
+Let’s break down **what they’re for**, so you can decide what’s worth automating vs. doing manually.
+
+---
+
+## 🧠 What Open Graph & Twitter Card Tags Actually Do
+
+These tags are **meta-data for robots** — they’re not SEO in the classic keyword sense, but they affect how your site **looks when shared** on other platforms.
+
+---
+
+### 🔷 **Open Graph (`og:*`)**
+
+Originally made by Facebook, now used by:
+
+* Facebook
+* Discord
+* Reddit
+* LinkedIn
+* Pinterest
+* Slack
+
+#### Important tags:
+
+* `og:title` → what shows as the clickable title
+* `og:description` → preview text below it
+* `og:image` → big preview image
+* `og:url` → canonical URL of the page
+
+---
+
+### 🐦 **Twitter Card Tags**
+
+Twitter uses its own tags (but falls back to `og:*` if they’re missing)
+
+#### Key ones:
+
+* `twitter:card` → `summary` or `summary_large_image`
+* `twitter:title`, `twitter:description`, `twitter:image`
+* `twitter:site` or `twitter:creator` → for attribution
+
+---
+
+## 💥 Why They Matter (For You)
+
+### ✅ 1. **Search and Crawl Quality**
+
+* They don’t directly affect Google rankings
+* But they **improve index clarity**, especially when people share your links
+* Sites with good `og:*` data **get better snippets and social visibility**
+
+### ✅ 2. **Professional Look When Shared**
+
+* If you drop your URL on Discord, X, Reddit, Tumblr, etc., it will show:
+
+  ```
+  ┌────────────┐
+  │  image     │
+  └────────────┘
+  🔗 Title
+  📝 Description
+  ```
+
+  vs. a boring raw link or default fallback
+
+### ✅ 3. **Content Ownership & Branding**
+
+* Putting a consistent image + description means people **associate your project** with a visual instantly
+* You can “claim” your aesthetic just by people sharing the link
+
+---
+
+## 😎 TL;DR: If These Are Working...
+
+```html
+<meta property="og:image" content="https://jackd.ethertech.org/images/mythic_support_twitter.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="Support from the mythic zone — elegant tech, weird help, and gentle mastery.">
+```
+
+...then your site **is ready to be shared**, indexed, linked, and used in professional contexts.
+
+You can totally live with manually adding `image:` to frontmatter for now.
+Want me to write a custom Jekyll include that logs when `page.image` is missing so you can catch it in future posts?
