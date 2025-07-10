@@ -21,6 +21,8 @@ Is this hard to read? Confusing? ***GOOD*** This is what life is like without re
 
 ![FUCKING CHRIST!](https://jack.ethertech.org/images/mythic_support_come_on.png)
 
+![FUCKING CHRIST!](/images/mythic_support.png)
+
 ## Can twitter die in a fire?  I ain't starting it, but I ain't putting it out
 
 Why?
