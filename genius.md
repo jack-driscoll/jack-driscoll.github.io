@@ -5,6 +5,7 @@ date: 2025-07-03
 tags: [personal, diy, support, questions, mygenius]
 permalink: /genius/
 description: "MyGenius: Get the answers (and art) you need delivered by a friendly gay"
+image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
 ---
