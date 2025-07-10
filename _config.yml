@@ -45,7 +45,7 @@ defaults:
     values:
       author: jackd         # Applies only to posts
       twitter:
-        username: "@nteleky"  # Optional; redundant if same as global
+        username: "nteleky"  # Optional; redundant if same as global
 
 # Set author
 author:
@@ -53,7 +53,7 @@ author:
   url: https://jackd.ethertech.org/
 
 # Set default twitter account to resident artist Fitz Twombly
-  username: '@nteleky'
+  username: 'nteleky'
   card: summary-large-image
 
 # Share some information about jackd's socials
