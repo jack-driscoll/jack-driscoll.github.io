@@ -12,6 +12,12 @@ description: "this is a completely disorganized information dump about jekyll-se
 
 Is this hard to read? Confusing? ***GOOD*** This is what life is like without resident genius Fitz Twombly to do your work for you
 
+## Can twitter die in a fire?  I ain't starting it, but I ain't putting it out
+
+Why?
+
+![this is why](/images/clear_as_shit.png)
+
 ## SEO - How to get the best publicity absolutely free by cramming a bunch of keywords into your SEO thingers
 
 Great question. Unlike Minima 3.0’s restructuring chaos, `jekyll-seo-tag` is a lightweight, well-behaved plugin that’s:
@@ -452,3 +458,127 @@ Absolutely! Here’s a chunky list of 100 keywords/terms related to **SEO**, **J
 ---
 
 Let me know if you want these optimized for human-readable copy, metadata, or tagging format.
+
+---
+
+### argh! why isn't the image being applied *globally*, it's set multiple times in multiple ways and none of them are taking
+
+You're right — the SEO plugin is **not picking up your default image** from `_config.yml`, even though it should. Let's break down what’s going on and what you can do.
+
+---
+
+### ✅ You already have in `_config.yml`:
+
+```yaml
+image: /images/portal.png
+```
+
+That **should** be recognized as the default image used by `jekyll-seo-tag` — but it's not. And here's why:
+
+---
+
+## 🔎 Why It's Not Working
+
+The [SEO template you provided](#517) checks:
+
+```liquid
+{% if seo_tag.image %}
+  <meta property="og:image" content="{{ seo_tag.image.path }}" />
+```
+
+But the plugin only assigns `seo_tag.image` if:
+
+* There's an `image` in the front matter, **or**
+* A few specific structured image objects are defined in `_config.yml`.
+
+A single `image:` field in `_config.yml` **does not always populate** `seo_tag.image` unless it's structured like this:
+
+```yaml
+image:
+  path: /images/portal.png
+  height: 630
+  width: 1200
+  alt: "A surreal glowing deer sigil portal"
+```
+
+That means you’ll need to change your `_config.yml` from:
+
+```yaml
+image: /images/portal.png
+```
+
+to:
+
+```yaml
+image:
+  path: /images/portal.png
+  height: 630
+  width: 1200
+  alt: "A surreal glowing deer sigil portal"
+```
+
+That *should* solve the issue.
+
+---
+
+### 🖼 On `logo`: Where does it apply?
+
+* The `logo:` field is **not used** by the SEO plugin.
+* It can be useful for `schema.org` JSON-LD metadata or custom theme usage, but it won’t populate Twitter/OpenGraph cards.
+
+---
+
+### 🧪 Test Tips: How to verify it’s working
+
+Use:
+
+1. **Twitter Card Validator** → [cards-dev.twitter.com/validator](https://cards-dev.twitter.com/validator)
+2. **Meta Tag Validator** → [metatags.io](https://metatags.io)
+3. **Google Rich Results Test** → [search.google.com/test/rich-results](https://search.google.com/test/rich-results)
+
+---
+
+### ✅ Summary
+
+* ✅ Add the structured `image:` block to `_config.yml`
+* ❌ `logo:` is not used for SEO card rendering
+* 🔄 SEO plugin does not fallback to flat `image: /...` value
+* 🛠 Use validator tools to confirm
+
+Let me know if you want a full rewritten `_config.yml` block with all relevant SEO settings.
+
+# What doesn't work in _config.yml
+
+none of this shit seems to work
+
+```
+# Default to "Support From The Mythic Zone" for entire site
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: https://jackd.ethertech.org/images/mythic_support.png
+      tagline: Support from the Mythic Zone
+
+# you can also set defaults in a single domain ie posts
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      author: jackd         # Applies only to posts
+      twitter:
+        username: "nteleky"  # Optional; redundant if same as global
+
+header:
+  image: /assets/images/your-page-image.jpg
+  og_image: /assets/images/your-og-image.jpg
+```
+
+it just *doesn't get applied* despite theoretically working
+
+also
+```
+image: /assets/images/your-page-image.jpg
+```
+doesn't seem to apply globally
