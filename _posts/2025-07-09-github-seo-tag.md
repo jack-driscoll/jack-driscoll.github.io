@@ -5,6 +5,7 @@ date: 2025-07-09
 tags: [guide, documentation, software, links, seo, github]
 permalink: /2025-07-09-github-seo-tag.html
 author: jackd
+image: /images/mythic_support_twitter.png
 description: "this is a completely disorganized information dump about jekyll-seo-tag page speed frontmatter templating backlinks indexing spider custom plugins html liquid optimization guide how-to information tag targeted UP THE RA increase production dev development"
 ---
 
@@ -586,3 +587,55 @@ also
 image: /assets/images/your-page-image.jpg
 ```
 doesn't seem to apply globally
+
+## What about this shit, it says this works
+
+nope, not in my experience
+
+logo: https://jackd.ethertech.org/images/portal_300dpi.png
+image: https://jackd.ethertech.org/images/mythic_support.png
+  
+image:
+  path: https://jackd.ethertech.org/images/mythic_support.png
+  height: 418
+  width: 800
+  alt: "Support From the Mythic Zone"
+
+none of it works
+
+## what if I fuck with this?
+
+✅ Short Answer:
+
+You do NOT need to include the full https://jackd.ethertech.org/... URL for jekyll-seo-tag if your url and baseurl are properly configured in _config.yml.
+Correct:
+
+url: "https://jackd.ethertech.org"
+baseurl: ""  # or "/whatever" if you're hosting in a subdirectory
+
+Then you can just use:
+
+image:
+  path: /images/mythic_support_v2.png
+
+jekyll-seo-tag will automatically prepend url and baseurl to generate the full absolute URL.
+❌ When You Do Need the Full URL
+
+If url: is missing, blank, or incorrect, then Twitter and others will fail to load the image because jekyll-seo-tag won’t generate a full og:image or twitter:image URL.
+🧪 How to Test
+
+View your rendered HTML and search for:
+
+<meta property="og:image" content="https://jackd.ethertech.org/images/mythic_support_v2.png">
+
+If that shows up, you're good.
+If it’s something like /images/... without a domain, Twitter/X will fail to render the card image.
+🧩 TL;DR
+
+    ✅ path: /images/whatever.png is fine if url: is correct in _config.yml
+
+    🚨 Without url: set, use the full URL manually
+
+    🔍 Double-check what the generated meta tags actually say
+	
+###

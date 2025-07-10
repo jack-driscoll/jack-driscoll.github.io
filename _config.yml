@@ -26,15 +26,19 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://jack.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nteleky
 github_username: jack-driscoll
-logo: https://jackd.ethertech.org/images/portal_300dpi.png
-image: https://jackd.ethertech.org/images/mythic_support.png
-  
-image:
-  path: https://jackd.ethertech.org/images/mythic_support.png
-  height: 418
-  width: 800
-  alt: "Support From the Mythic Zone"
-  
+
+# Maybe???
+defaults:
+  - scope:
+      path: ""
+      type: posts
+    values:
+      image:
+        path: /images/mythic_support_twitter.png
+        width: 514
+        height: 270
+        alt: "Support From The Mythic Zone - Lupa the WereWolf and Fitz the WereDeer helping you"
+        
 # Set author
 author:
   name: jackd
