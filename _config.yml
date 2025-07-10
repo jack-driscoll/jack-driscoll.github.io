@@ -28,30 +28,13 @@ twitter_username: nteleky
 github_username: jack-driscoll
 logo: https://jackd.ethertech.org/images/portal_300dpi.png
 image: https://jackd.ethertech.org/images/mythic_support.png
-
-# Default to "Support From The Mythic Zone" for entire site
-defaults:
-  - scope:
-      path: ""
-    values:
-      image: https://jackd.ethertech.org/images/mythic_support.png
-      tagline: Support from the Mythic Zone
-
-# you can also set defaults in a single domain ie posts
-defaults:
-  - scope:
-      path: ""
-      type: "posts"
-    values:
-      author: jackd         # Applies only to posts
-      twitter:
-        username: "nteleky"  # Optional; redundant if same as global
-
-header:
-  image: /assets/images/your-page-image.jpg
-  og_image: /assets/images/your-og-image.jpg
   
-
+image:
+  path: /images/mythic_support.png
+  height: 630
+  width: 1200
+  alt: "Support From the Mythic Zone"
+  
 # Set author
 author:
   name: jackd
