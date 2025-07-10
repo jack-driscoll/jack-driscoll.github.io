@@ -27,6 +27,7 @@ url: "https://jack.ethertech.org" # the base hostname & protocol for your site, 
 twitter_username: nteleky
 github_username: jack-driscoll
 logo: https://jackd.ethertech.org/images/portal_300dpi.png
+image: https://jackd.ethertech.org/images/mythic_support.png
 
 # Default to "Support From The Mythic Zone" for entire site
 defaults:
