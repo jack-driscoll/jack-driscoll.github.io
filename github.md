@@ -6,8 +6,8 @@ permalink: /github-pages/
 tags: [web, article, how-to, guide, github-pages]
 categories: [public, blog]
 author: nteleky
-description: "nTeleKy's easy guide to getting started with github pages how to set up github pages the easy way SEO"
-image: "https://jackd.ethertech.org/images/mythic_support_twitter.png"
+description: "nTeleKy's easy guide to getting started with github pages how to set up github pages the easy way, this is the absolute easiest simple diy no software quick fast way to start a new website on github pages, it's a no hassle way to set up your page right away"
+image: https://jackd.ethertech.org/images/mythic_support_twitter.png
 ---
 
 # Complete version
