@@ -6,6 +6,7 @@ tags: [diy, how-to, guide, github, web, html, css, documentation, jekyll]
 permalink: /2025-07-04-github-pages-diy.html
 author: nteleky
 description: "How to make your own github pages site that rocks socks without touching ruby or jekyll, because eww.  The advanced guide to github pages with no additional software, easy and in-depth."
+image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
 ![nteleky and lupa present: github pages without 200+MiB of dependencies](/images/gh_pages_intro.png)

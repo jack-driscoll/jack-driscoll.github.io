@@ -6,6 +6,7 @@ tags: [diy, how-to, guide, github, web, html, css, documentation, jekyll]
 permalink: /2025-07-07-github-pages-remote-themes.html
 author: nteleky
 description: "A guide to implementing remote custom themes on github pages using jekyll-remote-theme without installing anything, the easiest way to implement cool new themes for your github pages site, by nTeleKy and Lupa"
+image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
 ***I decided not to do this because I just got my site looking right and they changed everything and I'm not changing it back just for a preview of something I'm not even planning on using***  So **it might not be accurate**.  This is pure, unfollowed suggestion.  There's [some more information here](https://github.com/benbalter/jekyll-remote-theme).

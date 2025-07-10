@@ -6,6 +6,7 @@ tags: [diy, how-to, guide, github, web, html, css, documentation, jekyll]
 permalink: /2025-07-07-github-pages-plugins.html
 author: lupa
 description: "A brief and concise list of allowed github pages plugins and what they do including custom themes"
+image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
 
