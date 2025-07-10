@@ -15,6 +15,8 @@ Is this hard to read? Confusing? ***GOOD*** This is what life is like without re
 
 [Here's a guide he put together with another resident genius, nTeleKy, on how to make your very first website in around an hour!](https://jackd.ethertech.org/github-pages/)  Notice I didn't BS you with "get started in minutes" when the only reason it takes the webdev minutes is because they already spent hours building the environment it depends on?  That stuff drives me *bonkers*, and while I work on my resentments and medicate myself, I also try to help other people not *go bonkers*.
 
+![FUCKING CHRIST!](https://jack.ethertech.org/images/mythic_support_twitter.png)
+
 ## Can twitter die in a fire?  I ain't starting it, but I ain't putting it out
 
 Why?
