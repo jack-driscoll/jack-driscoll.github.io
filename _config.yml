@@ -26,17 +26,18 @@ baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://jack.ethertech.org" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: nteleky
 github_username: jack-driscoll
+logo: /images/portal_300dpi.png
 
-# Maybe??? add image, embiggen SEO
+# Maybe??? add image, embiggen SEO | not sure why this isn't working, but it's not
 defaults:
   - scope:
       path: ""
       type: posts
     values:
       image:
-        path: /images/mythic_support_twitter.png
-        width: 514
-        height: 270
+        path: /images/mythic_support.png
+        width: 1531
+        height: 842
         alt: "Support From The Mythic Zone - Lupa the WereWolf and Fitz the WereDeer helping you"
       seo_description_max_words: 200
         
@@ -65,9 +66,9 @@ plugins:
   - jekyll-sitemap
 
 # you can manually specify which elements you want included
-includes:
+#includes:
 #  - head
-  - images
+#  - images # try taking this out some day when everything else isn't breaking
 
 # Exclude from processing.
 # The following items will not be processed, by default.

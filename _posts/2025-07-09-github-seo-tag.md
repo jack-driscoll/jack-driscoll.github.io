@@ -648,4 +648,6 @@ If it’s something like /images/... without a domain, Twitter/X will fail to re
 
     🔍 Double-check what the generated meta tags actually say
 	
-###
+### what about image: "/images/image.jpg"
+
+nope, yes to relative link if you have url and baseurl set right in _config.yml, but **no to quotes**, it will break it
