@@ -30,9 +30,9 @@ logo: https://jackd.ethertech.org/images/portal_300dpi.png
 image: https://jackd.ethertech.org/images/mythic_support.png
   
 image:
-  path: /images/mythic_support.png
-  height: 630
-  width: 1200
+  path: https://jackd.ethertech.org/images/mythic_support.png
+  height: 418
+  width: 800
   alt: "Support From the Mythic Zone"
   
 # Set author
