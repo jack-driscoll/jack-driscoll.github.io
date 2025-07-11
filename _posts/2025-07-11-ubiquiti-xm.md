@@ -16,15 +16,23 @@ image: https://jackd.ethertech.org/images/mythic_support_small.png
 
 Hi, today we're going to take a look at the Ubiquiti XM and XW devices and play with a rare bird from the collection.  My personal collection was thrown away when I ended up in jail in 2024 and I'm trying to revive it; [see here if you have equipment you might consider donating](https://jackd.ethertech.org/2025-07-01-wisp-2.html#hw-request).
 
+## References
+
+Tektronix has an excellent guide to the physical layer of `802.11` that will be referenced repeatedly [^1]
+
 ## Ubiquiti Rocket M 5.8 GHz International
 
-The Ubiquiti Rocket devices are 5.8GHz 802.11 a/b/g/n, although Ubiquiti offers modifications of the standard 802.11 protocol known as AirView.
+The Ubiquiti Rocket devices are 5.8GHz 802.11 a/b/g/n, although Ubiquiti offers modifications of the standard 802.11 protocol known as AirView.  They come with two reverse-SMA connectors so they can be mounted to a variety of antennas.  While they don't support AC, they can still push a surprising amount of bandwidth, as we'll see later.  We typically used these for APs, but also backhaul with some larger parabolic dishes (up to around 3 ft and 34dBi).
 
 ### AirView - What is it?
 
+## Getting started
+
+I put together a repository for the software and firmware used in this post.  It's all available on Ubiquiti's website, with the exception of some of the firmware, which I found on third-party sites and scanned for virii.  The last time virustotal saw the firmware was *2 years ago*!  We'll change the firmware, factory default the device and then start exploring it.  In later posts, we're going to write our own python utilities to automate management, get information, and possibly explore some in-depth hardware exploration like serial console and USB host (some, but not all of the Rockets support this).
+
 ### Finding the device
 
-The devices are "discovered" via layer-2 MAC queries using `ubnt-discovery`, the Ubiquiti Discovery Tool.  Unfortunately they only seem to have the newer v6 tool and I get a java exception when trying to run it.
+The devices are "discovered" via layer-2 MAC queries using `ubnt-discovery`, the Ubiquiti Discovery Tool.  Unfortunately they only seem to have the newer v6 tool and I get a java exception when trying to run it.  You'll need an old version of java to support these utilities, I'm using `jre1.8.0_451`.
 
 ![ubiquiti discovery tool](/images/ubiquiti/network_connection_ds_3.png)
 
@@ -55,6 +63,8 @@ The next one, written in javascript, known for its low-level networking capabili
 
 OK, so we have our radio at the default address of `192.168.1.20` and it's got a nice CLI interface and even shows us the firmware version, which is unfortunately `XM.ar7240.v5.5.10.24241.141001.1649`.  Why unfortunately?  Because these radios, ending with **5.5.6**, could access all the frequencies of all the countries.  Not necessarily necessary, but could be useful.  In any case, let's see if we can log into the radio with the default **ubnt/ubnt**.
 
+### Logging In
+
 I can't even log into the web interface, because this version of FireFox won't support this version of **TLS**.
 
 ![nuh-uh, no radio for you, says the fire fox](/images/ubiquiti/network_connection_ff_9.png)
@@ -73,6 +83,8 @@ You might go to security hell for supporting low versions of **TLS**, but it's a
 
 Hey, a familiar face at last!  I managed to find this particular version online, so we don't have to worry about extracting the `*.bin` file (which I can assure you *is* possible).  Why?  Some of these firmwares are hard to find now!  Ubiquiti doesn't have a very clear way to download their old firmwares, even the ones they do still host.  For some reason, 5.5.6 is mysteriously missing, probably **F**anny's **C**upcake **C**atering gave them a hard time about it.  I'm not even going to tell you what I had to do to get **v5.5.6build17762**, but I had to take a hot shower afterward.
 
+### Downgrading The Firmware
+
 !["upgrading" the firmware](/images/ubiquiti/fw_update_1.png)
 
 !["upgrading" the firmware](/images/ubiquiti/fw_update_2.png)
@@ -83,15 +95,26 @@ Yes!  This is what I wanted to see.  I recently moved to the unregulated territo
 
 !["upgrading" the firmware](/images/ubiquiti/fw_update_3.png)
 
+### Look Around You ,.-*
+
+#### Site Survey
+
 Let's take a look at our network neighborhood.  First off, Holy Shit!, I thought these guys had an expanded range, but ***wow***.  Secondly, Holy Shit!, I must be living in the boondocks because I only have **4** 5.8 networks visible!
 
 !["upgrading" the firmware](/images/ubiquiti/fw_update_4.png)
+
+#### AirView - Getting Started
+
+One of the coolest thing about the XM and XW series devices was their Spectrum Analyzer.  Unlike later devices, which had **2 radios** in them to support constant spectral awareness, these radios have to be taken *out of service* to do an **AirView**, which is the built-in Spectrum Analyzer.  The advantage of a spectrum analysis is that you can see *any* transmission in the specified range, not only supported wireless 802.11.  This is super important for detecting interference and **link budgeting** (finding clear spectra and deciding where to place links and what channel/spectral width to use).
 
 Unfortunately, Java, like FireFox doesn't like our ancient security protocol.
 
 ![danger, Will Robinson, TLS version too antiquated](/images/ubiquiti/airview_1.png)
 
 So ask your resident know-it-all-werewolf, Lupa, what to do...
+
+---
+---
 
 Ah yes — the classic **Java + AirView JNLP app + deprecated TLS** pain combo. You're seeing:
 
@@ -178,11 +201,20 @@ Say to ignore these warnings
 
 ![yes AND](/images/ubiquiti/airview_6.png)
 
+---
+---
+
+#### Airview: We're In!
+
 We're in!  I wonder if it'll let me look at the whole thing?  Let's go to preferences and put in a custom range of 4900-6300.  Well it only goes up to 6100, looks like, but hey - it does!
 
 ![woot, we're in](/images/ubiquiti/airview_7.png)
 
-Aight, cool.  Looks like there's some overlap here, let's take a look at where our router, which is probably autoconfigured (which only works ~50% of the time) is.  It's a WiFi6 router, but...well, let's just take a look.
+Aight, cool.  Looks like there's some overlap here, [let's take a look at our router](#my-network), which is probably autoconfigured (which only works ~50% of the time).
+
+## Taking a Look at My Network {#my-network}
+
+[^router] It's a WiFi6 router, but...well, let's just take a look.
 
 Oh, cool, just what I needed - *another app*.  Criminy Jickets.  Well, I gave up fighting the "this is completely unnecessary, why do I need an app for this" battle a while ago, so I'll just *comply*.  Great, it wants a user name and password, not just the authentication information from the router and this isn't my personal account, it's a house account.  Let's check Spectrum's website, which is garbage and has no information on changing the WiFi channel.  OK, now let's [check reddit](https://www.reddit.com/r/Spectrum/comments/uxpn18/wifi_6_router_web_interface/) and it looks like we're probably SOL, you definitely need the app but it doesn't look like anyone's actually used the app to do anything advanced.  You also see a claim that anyone with over 20 WiFi devices needs a $100+ "gaming router".  I can assure you that you do not need to spend that much, but $50+ is reasonable if you get the right equipment.  You need enough CPU and RAM, say 400+MHz and 32-64MiB for starters, but most importantly *you need a clear channel* and it's obvious we don't have that.  You can also see that although this is called **WiFi 6** only **WiFi 6E** uses the '6GHz band' (5935-7115MHz), the rest of **WiFi 6** is actually extensions to `802.11ac`, `802.11ax`, like higher rates due to increased `QAM` (Quadrature Amplitude Modulation - how many bits per cycle) and `OFDMA` (Orthogonal Frequency Division Multiple Access - simultaneous low data-rate users and simplified Collision Avoidance, among other things).  None of this means **jack shit** if you have two devices sitting on top of each other, however.
 
@@ -200,7 +232,7 @@ This is why I use multiple services - here we have *wildly different results*.  
 
 460/11 and 38ms, with no jitter (variability in ping) test results.  Also, the summary icons have nonsense numbers, for some reason (89/213??).  This is at 5:30AM, though, once more people are actively communicating, collisions and retransmissions are going to go up and increase those numbers.  Ok, now I have an IP address conflict - I have two Networks with a **192.168.1.0/24** subnet and while it may **somehow work**, it really shouldn't, because which network do you send packets destined for that subnet to?
 
-Let's take a look at our more coherent AirView.  I'm guessing we have a 40MHz at 5770, a 20MHz at 5780 and then it gets kind of hard to read.  They'll always extend out slightly past their actual bandwidth - it looks like a plateau with little angles toward the bottom (depending on the technology used).  I'm going to wait for it to come back (change out of Spectrum Analyzer mode) and then check to see what's visible again.  Right now, we're in **auto 20/40MHz**, so we can see both 20 and 40 MHz networks by SSID, but not 10 or 80 MHz networks (or any of the other weird channel widths ubiquiti offers; obviously we can see their emissions in the Spectrum Analyzer, though).  Let's take a look:
+Let's take a look at our more coherent AirView.  I'm guessing we have a 40MHz at 5770, a 20MHz at 5780 and then it gets kind of hard to read.  They'll always extend out slightly past their actual bandwidth - it looks like a plateau with little angles toward the bottom (depending on the technology used).[^1]  I'm going to wait for it to come back (change out of Spectrum Analyzer mode) and then check to see what's visible again.  Right now, we're in **auto 20/40MHz**, so we can see both 20 and 40 MHz networks by SSID, but not 10 or 80 MHz networks (or any of the other weird channel widths ubiquiti offers; obviously we can see their emissions in the Spectrum Analyzer, though).  Let's take a look:
 
 ![5785 and 5220 center channels](/images/ubiquiti/site_survey_1.png)
 
@@ -220,4 +252,9 @@ I'm going to switch this to a `192.168.11.0/24` network so we don't have any pot
 
 ### Speed Testing Woes
 
-I do pretty in-depth testing of everything I do, because I know that without good, reliable and diverse information, it's easy to overlook things or get hoodwinked.  [An exploration of our speed testing adventures is available in another post.](/2025-07-11-speed-tests.html)
+I do pretty in-depth testing of everything I do, because I know that without good, reliable and diverse information, it's easy to overlook things or get hoodwinked.  It went beyond the scope of this post and  [an exploration of our speed testing adventures is available in another post.](/2025-07-11-speed-tests.html).
+
+## References
+
+[^1] Wi-Fi: Overview of the 802.11 Physical Layer and Transmitter Measurements
+	Tektronix, https://www.tek.com/en/documents/primer/wi-fi-overview-80211-physical-layer-and-transmitter-measurements#Transmit-Spect
