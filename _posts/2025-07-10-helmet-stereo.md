@@ -20,7 +20,17 @@ I finally got a bluetooth module for my helmet - 2, actually.  I bought one and 
 
 I'm using the drivers from an old pair of ATH-M50 where the cable connecting the two halves broke, so the drivers are still good.  The construction of the earpieces is very nice, the drivers are angled and there's baffling inside the phones.  We won't be able to do that (they don't fit in the helmet) but these things sound great and take a comparatively high.  They have a sensitivity of 99dB and take a maximum of 1,600 mW @ 1KHz!.  They have an impedance of 38 ohms, not high, but not low.  This will limit the amount of power we can push to them.
 
+### Sacrificial Headset
+
+I butchered a Mossy Oak bluetooth headset.  Mossy Oak, known for their high fidelity audio equipment, really shit their pants on this one.  It's the worst sounding one I've ever heard, but it's camoflage, which I need to reinforce my fragile male ego.  The driver is 31 ohms - great, close to my AT drivers.  The chip is a BL something, they almost never have datasheets, it's a chinese company.  I wish I would have gotten that magnifier the other day but I didn't have any Vine picks at the time.
+
 ### Patching in the 3.5mm jack
+
+I'm just cutting up a cheapo 3.5mm cable.  My silver graphite audiophile woo-woo type shit cable isn't coming until tomorrow!  The wires are super tiny, the best way to do this is gently squeeze in the blades of the wire cutter, then angle it slightly and pull.  I only fucked up one of them!  I hooked these up to a bluetooth adapter.  At 1000kHz at 100%, the output is 15.3mV into 31 ohms.
+
+### Testing
+
+Hook up the alligator clips to the speaker, connect them to the DVM leads, then put another set of alligator clips connecting then DVM leads to the hacked wire.  I get 15.3mV at 100% volume - not great 
 
 ### Patching in the headphones
 
