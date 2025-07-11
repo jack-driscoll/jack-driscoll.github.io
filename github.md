@@ -25,7 +25,7 @@ title: My First GitHub Pages Site # this is the part at the top
 description: Built with Markdown, duct tape, and vibes # describe your site, the part at the bottom
 theme: minima # you can ignore this unless you want to change your theme
 ```
-This is the *absolute minimum* you need.  If you want more options, see quick-github-pages, above.
+This is the *absolute minimum* you need.  If you want more options, see quick-github-pages, above.  You don't even *technically need this*, but it's highly recommended.
 
 Go into the repository, click **Add File** and call it **index.md** and put this in it:
 
@@ -40,6 +40,10 @@ Hey, you guys, check it out, I made a website!
 ```
 
 Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.  Now, [learn `markdown`](https://www.markdownguide.org/), it's honestly easy.  Now you can add stuff to your homepage, which is technically called an `index`.
+
+## Enable GitHub Pages
+
+In order to make the site live, you need to [enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md)  **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!
 
 ## How did I do this?  I don't know HTML or CSS and I have no idea what I just did...hold me, I'm scared
 

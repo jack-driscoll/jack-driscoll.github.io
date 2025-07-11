@@ -4,7 +4,8 @@ title: "Any Level, Any Device, Any Time | IT/Networking Support"
 date: 2025-06-29
 permalink: /support.html
 author: jackd
-description: "Ethereal Modern Technology: Support From the Future, Today | IT, Networking, Servers, Desktops, Mobile, and MORE!"
+description: "Ethereal Modern Technology: Support From the Future, Today | IT, Networking, Servers, Desktops, Mobile, and MORE!  jackd, nTeleKy, Fitz and Lupa offer an amazing variety of services at the lowest prices, from networking to illustration, FreeBSD admin - a rare find, linux embedded experience, 802.11 wireless wifi specialist, affordable rates and performance backed guarantee from upwork.com"
+image: /images/mythic_support_small.png
 ---
 
 # Ethereal Modern Technologies: 

@@ -5,7 +5,7 @@ date: 2025-06-30
 tags: [diy, electronics, hardware, biking, audio, audiophile, music]
 permalink: /2025-07-10-helmet-stereo.html
 description: "A Car Stereo For Your Head - DIY Audiophile-Quality 'System' for your motorcycle helmet; jackd builds an amplifier-powered motorcycle headset replacement with an audio technica ATH-M50 and two tested headphone amplifiers"
-image: https://jackd.ethertech.org/images/mythic_support_small.png
+image: /images/mythic_support_small.png
 ---
 
 # A Car Stereo For Your Head
@@ -30,7 +30,7 @@ I'm just cutting up a cheapo 3.5mm cable.  My silver graphite audiophile woo-woo
 
 ### Testing
 
-Hook up the alligator clips to the speaker, connect them to the DVM leads, then put another set of alligator clips connecting then DVM leads to the hacked wire.  I get 15.3mV at 100% volume - not great 
+Hook up the alligator clips to the speaker, connect them to the DVM leads, then put another set of alligator clips connecting then DVM leads to the hacked wire.  I get 15.3mV at 100% volume - not great.  I can't use my webcam b/c the quality is shitty and I can't use my phone b/c I'm using it as a signal generator - wait, though, what if I generate the signal on my PC instead?  Brilliant.  And, Holy Shit, the output went up to over 300mV at full volume - what's up with that?
 
 ### Patching in the headphones
 
