@@ -43,7 +43,7 @@ Save the file and go to `username.github.io` and shit yourself.  You just made a
 
 ## Enable GitHub Pages
 
-In order to make the site live, you need to [enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md)  **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!
+In order to make the site live, you need to enable GitHub Pages in your repo’s Settings → Pages tab. [Here's a visual guide to enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md) from another (pretty good) guide. **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!
 
 ## How did I do this?  I don't know HTML or CSS and I have no idea what I just did...hold me, I'm scared
 
