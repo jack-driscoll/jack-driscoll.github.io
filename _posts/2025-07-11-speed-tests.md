@@ -10,6 +10,8 @@ description: "nTeleKy's demonstration of the audacity of ISPs owned by media com
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
+```python def greet(name): print(f"Hello, {name}!") if __name__ == "__main__": greet("Jack'D") ```
+ 
 # ISP Speed Tests Are Gamed
 
 Your ISP is likely 'faking it', by prioritizing popular speed tests, feeding content from an internally-hosted CDN, or otherwise bullshitting you.  There are other better ways to test your internet connection these days, which we'll do - and see that things are not what they initially appear.  I started off with a 400x11 speed test and found my http performance was 20Mbps and even trying to maximize my connection only gave me ~50Mbps.

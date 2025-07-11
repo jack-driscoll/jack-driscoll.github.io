@@ -12,13 +12,13 @@ image: https://jackd.ethertech.org/images/mythic_support_small.png
 
 ***Work in Progress as of 2025/07/11***
 
-# Ubiquiti XM and XW Devices
+# Ubiquiti XM and XW Devices and the 802.11 PHY layer
 
 Hi, today we're going to take a look at the Ubiquiti XM and XW devices and play with a rare bird from the collection.  My personal collection was thrown away when I ended up in jail in 2024 and I'm trying to revive it; [see here if you have equipment you might consider donating](https://jackd.ethertech.org/2025-07-01-wisp-2.html#hw-request).
 
-## References
+[References](#references) are at the bottom.  GH Pages doesn't support footnotes in markdown.
 
-Tektronix has an excellent guide to the physical layer of `802.11` that will be referenced repeatedly [^1]
+Tektronix has an excellent guide to the physical layer of `802.11` that will be referenced repeatedly.  If you aren't familiar with the physical layer, you may want to read this first.
 
 ## Ubiquiti Rocket M 5.8 GHz International
 
@@ -224,7 +224,13 @@ I'm guessing we have a 40MHz at 5770, a 20MHz at 5780 and then it gets kind of h
 
 ![5785 and 5220 center channels](/images/ubiquiti/site_survey_1.png)
 
-Well, I was wrong, we've got a 5220MHz (not visible on the spectrum analyzer due to constrained bandwidth) @ **-85/95dBm** and our network (5785) at **-48/93dBm**.  This gives us an `SNR` of 45dBm, which is really good actually.[^2]  If you look at the AirView, though, you can clearly see the real noise floor looks more like **-75dBm**, although those transmissions are less frequent.  Why is this?  I'd guess there's two other networks on **80MHz** channels.  Unfortunately this is not an `802.11ac` radio, so I can't scan for these using this router (which is why I'd be thrilled if you had any old hardware [even AC is old now] you could send me, because I'm *really poor*).  I'm hoping to get either a nanobeam AC or an LR AC so I can increase my visibility.  I'm also going to see what chipset my laptop has and if I can do anything with that.  The good thing is, the only two visible networks are not on top of each other, the bad thing is some of the invisible ones are.
+Well, I was wrong, we've got a 5220MHz (not visible on the spectrum analyzer due to constrained bandwidth) @ **-85/95dBm** and our network (5785) at **-48/93dBm**.  This gives us an `SNR` of 45dBm, which is [really good actually](https://d2cpnw0u24fjm4.cloudfront.net/wp-content/uploads/802.11n-and-802.11ac-MCS-SNR-and-RSSI.pdf).  If you look at the AirView, though, you can clearly see the real noise floor looks more like **-75dBm**, although those transmissions are less frequent.  Why is this?  I'd guess there's two other networks on **80MHz** channels.  Unfortunately this is not an `802.11ac` radio, so I can't scan for these using this router (which is why I'd be thrilled if you had any old hardware [even AC is old now] you could send me, because I'm *really poor*).  I'm hoping to get either a nanobeam AC or an LR AC so I can increase my visibility.  I'm also going to see what chipset my laptop has and if I can do anything with that.  The good thing is, the only two visible networks are not on top of each other, the bad thing is some of the invisible ones are.
+
+## Establishing a Link
+
+## We're Going In!
+
+One of the best things about these is they're embedded linux and run busybox, so if you're already familiar with linux and busybox, you've got a leg up on the competition.  You can `SSH` into the radios and do a number of things, the most useful of which is `athstats`.
 
 ## Taking a Look at My Network {#my-network}
 
@@ -264,10 +270,27 @@ I'm going to switch this to a `192.168.11.0/24` network so we don't have any pot
 
 I do pretty in-depth testing of everything I do, because I know that without good, reliable and diverse information, it's easy to overlook things or get hoodwinked.  It went beyond the scope of this post and  [an exploration of our speed testing adventures is available in another post.](/2025-07-11-speed-tests.html).
 
+## Radio 2 - 6.3.6
+
+I wanted to explore a newer fw to see what it's like. First difference, they no longer recognize my homeland of "Compliance Testia" as a country.
+
+![compliance test missing](/images/ubiquiti/uncountry.png)
+
+And according to this, you can't downgrade to 5.6.6 without `TFTP`, which is no biggie, but whatevs.
+
+![no downgrade for you](/images/ubiquiti/airos_uboot_fw.png)
+
+### Let's Explore!
+
+It still has `SSH` and `athstats`; Lupa says I can damage the power amp IC by using it without an antenna, and since it still broadcasts in station mode, I'm going to shelve it for now.
+
+![athstats](/images/ubiquiti/636_athstats.png)
+
 ## References
 
-[^1] Wi-Fi: Overview of the 802.11 Physical Layer and Transmitter Measurements
+[TekTronix Wi-Fi: Overview of the 802.11 Physical Layer and Transmitter Measurements](https://www.tek.com/en/documents/primer/wi-fi-overview-80211-physical-layer-and-transmitter-measurements)
 	Tektronix, https://www.tek.com/en/documents/primer/wi-fi-overview-80211-physical-layer-and-transmitter-measurements#Transmit-Spect
 	
-[^2] MCS Rates and Their Requisite SNR
-	https://d2cpnw0u24fjm4.cloudfront.net/wp-content/uploads/802.11n-and-802.11ac-MCS-SNR-and-RSSI.pdf
+[MCS Rates and Their Requisite SNR](https://d2cpnw0u24fjm4.cloudfront.net/wp-content/uploads/802.11n-and-802.11ac-MCS-SNR-and-RSSI.pdf)
+
+[Ubiquiti's rather hard-to-find software page for the Rocket M5](https://ui.com/download/software/m5)

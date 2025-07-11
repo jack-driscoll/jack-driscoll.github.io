@@ -35,7 +35,7 @@ defaults:
       type: posts
     values:
       image:
-        path: /images/mythic_support_small.png
+        path: /images/mythic_support_small.png # changed this and the two below values 2025-07-11 from mythic_support
         width: 750
         height: 412
         alt: "Support From The Mythic Zone - Lupa the WereWolf and Fitz the WereDeer helping you"
