@@ -10,7 +10,7 @@ description: "nTeleKy's demonstration of the audacity of ISPs owned by media com
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
-```python def greet(name): print(f"Hello, {name}!") if __name__ == "__main__": greet("Jack'D") ```
+<pre> ```python def greet(name): print(f"Hello, {name}!") if __name__ == "__main__": greet("Jack'D") ``` </pre>
  
 # ISP Speed Tests Are Gamed
 
