@@ -212,6 +212,20 @@ We're in!  I wonder if it'll let me look at the whole thing?  Let's go to prefer
 
 Aight, cool.  Looks like there's some overlap here, [let's take a look at our router](#my-network), which is probably autoconfigured (which only works ~50% of the time).
 
+I let it run for a while, as it's scanning across the frequencies and the device may not be transmitting at the exact second it samples, you need to let it run for a bit to get a good view; the wider the bandwidth, the longer the run.  Here it as after 90 minutes.
+
+![a 90 minute full-spectrum scan](/images/ubiquiti/airview_8.png)
+
+Let's take a look at our more coherent AirView from 5750-5850  
+
+![5750-5850MHz AirView](/images/ubiquiti/airview_9.png)
+
+I'm guessing we have a 40MHz at 5770, a 20MHz at 5780 and then it gets kind of hard to read.  They'll always extend out slightly past their actual bandwidth - it looks like a plateau with little angles toward the bottom (depending on the technology used).[^1]  I'm going to wait for it to come back (change out of Spectrum Analyzer mode) and then check to see what's visible again.  Right now, we're in **auto 20/40MHz**, so we can see both 20 and 40 MHz networks by SSID, but not 10 or 80 MHz networks (or any of the other weird channel widths ubiquiti offers; obviously we can see their emissions in the Spectrum Analyzer, though).  Let's take a look:
+
+![5785 and 5220 center channels](/images/ubiquiti/site_survey_1.png)
+
+Well, I was wrong, we've got a 5220MHz (not visible on the spectrum analyzer due to constrained bandwidth) @ **-85/95dBm** and our network (5785) at **-48/93dBm**.  This gives us an `SNR` of 45dBm, which is really good actually.[^2]  If you look at the AirView, though, you can clearly see the real noise floor looks more like **-75dBm**, although those transmissions are less frequent.  Why is this?  I'd guess there's two other networks on **80MHz** channels.  Unfortunately this is not an `802.11ac` radio, so I can't scan for these using this router (which is why I'd be thrilled if you had any old hardware [even AC is old now] you could send me, because I'm *really poor*).  I'm hoping to get either a nanobeam AC or an LR AC so I can increase my visibility.  I'm also going to see what chipset my laptop has and if I can do anything with that.  The good thing is, the only two visible networks are not on top of each other, the bad thing is some of the invisible ones are.
+
 ## Taking a Look at My Network {#my-network}
 
 [^router] It's a WiFi6 router, but...well, let's just take a look.
@@ -232,11 +246,7 @@ This is why I use multiple services - here we have *wildly different results*.  
 
 460/11 and 38ms, with no jitter (variability in ping) test results.  Also, the summary icons have nonsense numbers, for some reason (89/213??).  This is at 5:30AM, though, once more people are actively communicating, collisions and retransmissions are going to go up and increase those numbers.  Ok, now I have an IP address conflict - I have two Networks with a **192.168.1.0/24** subnet and while it may **somehow work**, it really shouldn't, because which network do you send packets destined for that subnet to?
 
-Let's take a look at our more coherent AirView.  I'm guessing we have a 40MHz at 5770, a 20MHz at 5780 and then it gets kind of hard to read.  They'll always extend out slightly past their actual bandwidth - it looks like a plateau with little angles toward the bottom (depending on the technology used).[^1]  I'm going to wait for it to come back (change out of Spectrum Analyzer mode) and then check to see what's visible again.  Right now, we're in **auto 20/40MHz**, so we can see both 20 and 40 MHz networks by SSID, but not 10 or 80 MHz networks (or any of the other weird channel widths ubiquiti offers; obviously we can see their emissions in the Spectrum Analyzer, though).  Let's take a look:
-
-![5785 and 5220 center channels](/images/ubiquiti/site_survey_1.png)
-
-Well, I was wrong, we've got a 5220MHz (not visible on the spectrum analyzer due to constrained bandwidth) @ **-85/95dBm** and our network (5785) at **-48/93dBm**.  This gives us an `SNR` of 45dBm, which is sufficient.  If you look at the AirView, though, you can clearly see the real noise floor looks more like **-75dBm**, although those transmissions are less frequent.  Why is this?  I'd guess there's two other networks on **80MHz** channels.  Unfortunately this is not an `802.11ac` radio, so I can't scan for these using this router (which is why I'd be thrilled if you had any old hardware [even AC is old now] you could send me, because I'm *really poor*).  I'm hoping to get either a nanobeam AC or an LR AC so I can increase my visibility.  I'm also going to see what chipset my laptop has and if I can do anything with that.  The good thing is, the only two visible networks are not on top of each other, the bad thing is some of the invisible ones are.
+### Doing an AC scan
 
 I've got an `Intel Dual-Band AC 8260`
 
@@ -258,3 +268,6 @@ I do pretty in-depth testing of everything I do, because I know that without goo
 
 [^1] Wi-Fi: Overview of the 802.11 Physical Layer and Transmitter Measurements
 	Tektronix, https://www.tek.com/en/documents/primer/wi-fi-overview-80211-physical-layer-and-transmitter-measurements#Transmit-Spect
+	
+[^2] MCS Rates and Their Requisite SNR
+	https://d2cpnw0u24fjm4.cloudfront.net/wp-content/uploads/802.11n-and-802.11ac-MCS-SNR-and-RSSI.pdf
