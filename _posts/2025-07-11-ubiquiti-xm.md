@@ -294,3 +294,11 @@ It still has `SSH` and `athstats`; Lupa says I can damage the power amp IC by us
 [MCS Rates and Their Requisite SNR](https://d2cpnw0u24fjm4.cloudfront.net/wp-content/uploads/802.11n-and-802.11ac-MCS-SNR-and-RSSI.pdf)
 
 [Ubiquiti's rather hard-to-find software page for the Rocket M5](https://ui.com/download/software/m5)
+
+Upload proc-tree.txt to me and I can:
+
+    Turn it into an interactive HTML tree
+
+    Highlight any weird kernel modules, open FDs, etc.
+
+    Pull out just the interesting /proc/sys, /proc/net, /proc/irq, etc.

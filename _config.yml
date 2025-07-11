@@ -64,6 +64,12 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-seo-tag
   - jekyll-sitemap
+  
+# turn on syntax highlighting
+highlighter: rouge
+
+# bye footnotes, hello strikethrough (it's default anyway)
+markdown: kramdown
 
 # you can manually specify which elements you want included
 #includes:
