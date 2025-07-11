@@ -35,9 +35,9 @@ defaults:
       type: posts
     values:
       image:
-        path: /images/mythic_support.png
-        width: 1531
-        height: 842
+        path: /images/mythic_support_small.png
+        width: 750
+        height: 412
         alt: "Support From The Mythic Zone - Lupa the WereWolf and Fitz the WereDeer helping you"
       seo_description_max_words: 200
         
