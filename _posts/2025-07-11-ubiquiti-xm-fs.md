@@ -163,3 +163,27 @@ ubnt-discovery(1).zip=@ubnt-discovery(1),0
 You'll just have to trust me that's the proper contents of `desktop.ini`, mysteriously saved as `antenna.pdf` *intentionally*... ;-)
 
 *Make sure to run cfgmtd -w -p /etc/ or similar afterward **to persist the file** across reboots if you're writing to /etc/persistent/*
+
+### The Filesystem
+
+Check out the directories, which (will) link to a full breakdown of each one; the symlinks go to their sources, just like IRL.  Thank Lupa for this, and the beatiful complete file tree!  Isn't it gorgeous?
+
+<pre style="background: #000; color: white; padding: 1em; font-family: monospace; font-size: 0.95em;">
+<span style="color: limegreen;">drwxr-xr-x</span>  2 ubnt  admin  3550  May 28 14:53  bin
+drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 .
+drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 ..
+drwxr-xr-x    2 ubnt     admin        3550 May 28 14:53 <a href="/bin" style="color: orchid;">bin</a>
+drwxrwxrwt    4 ubnt     admin        2420 May 28 17:55 <a href="/bin" style="color: orchid;">dev</a>
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">etc</span> -> var/etc
+-rwxr-xr-x    1 ubnt     admin        4665 May 28 14:55 <a href="/bin" style="color: limegreen;">init</a>
+drwxr-xr-x    2 ubnt     admin           3 May 28 14:56 <a href="/bin" style="color: orchid;">jffs</a>
+drwxr-xr-x   11 ubnt     admin        1248 May 28 14:55 <a href="/bin" style="color: orchid;">lib</a>
+drwxr-xr-x    2 ubnt     admin           3 May 28 14:52 <a href="/bin" style="color: orchid;">mnt</a>
+dr-xr-xr-x   33 ubnt     admin           0 Jan  1  1970 <a href="/bin" style="color: orchid;">proc</a>
+lrwxrwxrwx    1 ubnt     admin           3 May 28 14:55 <span style="color: deepskyblue;">sbin</span> -> <a href="/bin" style="color: orchid;">bin</a>
+drwxr-xr-x   11 ubnt     admin           0 Jan  1  1970 <a href="/bin" style="color: orchid;">sys</a>
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">tmp</span> -> <a href="/bin" style="color: orchid;">var/tmp</a>
+drwxr-xr-x    5 ubnt     admin          96 May 28 14:55 <a href="/bin" style="color: orchid;">usr</a>
+drwxrwxrwt    7 ubnt     admin         140 Jan  1  1970 <a href="/bin" style="color: orchid;">var</a>
+</pre>
+
