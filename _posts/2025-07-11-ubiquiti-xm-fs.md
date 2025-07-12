@@ -6,7 +6,7 @@ permalink: /2025-07-11-ubiquiti-xm-fs.html
 tags: [article, internet, embedded, ubiquiti, 802.11, wifi, wireless, cli, programming]
 categories: [wireless, ubiquiti, programming, hardware, software, diy]
 author: nteleky
-description: "nTeleKy's demonstration of the amazing powers of an XM series radio from Ubiquiti; what Ubiquiti hardware used to be like and why it's awesome; programming the radios and interfacing with them via SSH and the linux/windows CLI; interference mitigation; much, much more! in this episode we take the deepest dive into the filesystem!
+description: "nTeleKy's demonstration of the amazing powers of an XM series radio from Ubiquiti; what Ubiquiti hardware used to be like and why it's awesome; programming the radios and interfacing with them via SSH and the linux/windows CLI; interference mitigation; much, much more! in this episode we take the deepest dive into the filesystem!"
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
