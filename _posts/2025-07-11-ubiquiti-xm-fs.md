@@ -172,7 +172,7 @@ Check out the directories, which (will) link to a full breakdown of each one; th
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 .
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 ..
 drwxr-xr-x    2 ubnt     admin        3550 May 28 14:53 <a href="/2025-07-12-ubiquiti-xm-fsc.html#bin" style="color: orchid;" title="Not a screenshot, this baby’s live">bin</a>
-drwxrwxrwt    4 ubnt     admin        2420 May 28 17:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#dev" style="color: orchid;" title="My gay werewolf friend helped me with this>dev</a>
+drwxrwxrwt    4 ubnt     admin        2420 May 28 17:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#dev" style="color: orchid;" title="My gay werewolf friend helped me with this">dev</a>
 lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">etc</span> -> <a href="/2025-07-12-ubiquiti-xm-fsc.html#var-etc" style="color: orchid;" title="realistically, I would have given up">var/etc</a>
 -rwxr-xr-x    1 ubnt     admin        4665 May 28 14:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#init" style="color: limegreen;" title="looks slick as shit, hey?">init</a>
 drwxr-xr-x    2 ubnt     admin           3 May 28 14:56 <a href="/2025-07-12-ubiquiti-xm-fsc.html#jffs" style="color: orchid;" title="there's a different hidden message in each one, too">jffs</a>

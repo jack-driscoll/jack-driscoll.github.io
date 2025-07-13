@@ -22,6 +22,26 @@ Anyways, they're be *the best* in my mind because of this openness, and I really
 
 ## /bin {#bin}
 
+```
+ubntconf: invalid option -- -
+System configurator ubntconf
+Copyright 2006-2013, Ubiquiti Networks, Inc. <support@ubnt.com>
+
+This program is proprietary software; you can not redistribute it and/or modify
+it without signed agreement with Ubiquiti Networks, Inc.
+
+Usage: ubntconf [options]
+        -c <config file>        - Configuration file to use. (Default: /tmp/system.cfg)
+        -p <config file>        - Previuos config file to differ with file specified in -c option. (Default: none)
+        -d <file name>          - File name for script generated from the diff. (Default: /tmp/diff.sh)
+        -o <output directory>   - Directory to output scripts. (Default: /etc/sysinit)
+        -i <symlink>            - Create Symlink to default configuration file.
+        -f                      - Fix configuration from older version
+        -h                      - This message.
+```
+
+TYPO!!@
+
 ## /dev {#dev}
 
 ## /etc {#etc}
@@ -60,7 +80,8 @@ Actually [a symlink to /var/tmp](#var-tmp)
 
 ## The Complete Tree
 
-<pre>
+{% raw %}
+<pre class="fs-tree">
 └── /
     ├── bin
     │   ├── 80211debug
@@ -8052,3 +8073,4 @@ Actually [a symlink to /var/tmp](#var-tmp)
             ├── system.cfg
             └── ubntconf.log
 </pre>
+{% endraw %}
