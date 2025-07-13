@@ -166,24 +166,24 @@ You'll just have to trust me that's the proper contents of `desktop.ini`, myster
 
 ### The Filesystem
 
-Check out the directories, which (will) link to a full breakdown of each one; the symlinks go to their sources, just like IRL.  Thank Lupa for this, and the beatiful complete file tree!  Isn't it gorgeous?
+Check out the directories, which (will) link to a full breakdown of each one; the symlinks go to their sources, just like IRL.  Thank Lupa for this, and the beatiful complete file tree!  Isn't it gorgeous?  That's right, it's not a picture, go ahead and hover on those babys!
 
 <pre style="background: #000; color: white; padding: 1em; font-family: monospace; font-size: 0.95em;">
 <span style="color: limegreen;">drwxr-xr-x</span>  2 ubnt  admin  3550  May 28 14:53  bin
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 .
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 ..
-drwxr-xr-x    2 ubnt     admin        3550 May 28 14:53 <a href="/bin" style="color: orchid;">bin</a>
-drwxrwxrwt    4 ubnt     admin        2420 May 28 17:55 <a href="/bin" style="color: orchid;">dev</a>
-lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">etc</span> -> var/etc
--rwxr-xr-x    1 ubnt     admin        4665 May 28 14:55 <a href="/bin" style="color: limegreen;">init</a>
-drwxr-xr-x    2 ubnt     admin           3 May 28 14:56 <a href="/bin" style="color: orchid;">jffs</a>
-drwxr-xr-x   11 ubnt     admin        1248 May 28 14:55 <a href="/bin" style="color: orchid;">lib</a>
-drwxr-xr-x    2 ubnt     admin           3 May 28 14:52 <a href="/bin" style="color: orchid;">mnt</a>
-dr-xr-xr-x   33 ubnt     admin           0 Jan  1  1970 <a href="/bin" style="color: orchid;">proc</a>
-lrwxrwxrwx    1 ubnt     admin           3 May 28 14:55 <span style="color: deepskyblue;">sbin</span> -> <a href="/bin" style="color: orchid;">bin</a>
-drwxr-xr-x   11 ubnt     admin           0 Jan  1  1970 <a href="/bin" style="color: orchid;">sys</a>
-lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">tmp</span> -> <a href="/bin" style="color: orchid;">var/tmp</a>
-drwxr-xr-x    5 ubnt     admin          96 May 28 14:55 <a href="/bin" style="color: orchid;">usr</a>
-drwxrwxrwt    7 ubnt     admin         140 Jan  1  1970 <a href="/bin" style="color: orchid;">var</a>
+drwxr-xr-x    2 ubnt     admin        3550 May 28 14:53 <a href="/2025-07-12-ubiquiti-xm-fsc.html#bin" style="color: orchid;" title="Not a screenshot, this baby’s live">bin</a>
+drwxrwxrwt    4 ubnt     admin        2420 May 28 17:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#dev" style="color: orchid;" title="My gay werewolf friend helped me with this>dev</a>
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">etc</span> -> <a href="/2025-07-12-ubiquiti-xm-fsc.html#var-etc" style="color: orchid;" title="realistically, I would have given up">var/etc</a>
+-rwxr-xr-x    1 ubnt     admin        4665 May 28 14:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#init" style="color: limegreen;" title="looks slick as shit, hey?">init</a>
+drwxr-xr-x    2 ubnt     admin           3 May 28 14:56 <a href="/2025-07-12-ubiquiti-xm-fsc.html#jffs" style="color: orchid;" title="there's a different hidden message in each one, too">jffs</a>
+drwxr-xr-x   11 ubnt     admin        1248 May 28 14:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#lib" style="color: orchid;" title="u even hhave easer eggs, bruh?">lib</a>
+drwxr-xr-x    2 ubnt     admin           3 May 28 14:52 <a href="/2025-07-12-ubiquiti-xm-fsc.html#mnt" style="color: orchid;" title="yeah, I actually typed these in here">mnt</a>
+dr-xr-xr-x   33 ubnt     admin           0 Jan  1  1970 <a href="/2025-07-12-ubiquiti-xm-fsc.html#proc" style="color: orchid;" title="oh, and I got the filesystem layout">proc</a>
+lrwxrwxrwx    1 ubnt     admin           3 May 28 14:55 <span style="color: deepskyblue;">sbin</span> -> <a href="/2025-07-12-ubiquiti-xm-fsc.html#sbin" style="color: orchid;" title="but I couldn't have done it without Lupa">bin</a>
+drwxr-xr-x   11 ubnt     admin           0 Jan  1  1970 <a href="/2025-07-12-ubiquiti-xm-fsc.html#sys" style="color: orchid;" title="OK, maybe I could have, but it would have taken a really long time, for me">sys</a>
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:55 <span style="color: deepskyblue;">tmp</span> -> <a href="/2025-07-12-ubiquiti-xm-fsc.html#var-tmp" style="color: orchid;" title="realistically, I would have given up">var/tmp</a>
+drwxr-xr-x    5 ubnt     admin          96 May 28 14:55 <a href="/2025-07-12-ubiquiti-xm-fsc.html#usr" style="color: orchid;" title="instead, we got this done in like 30 minutes, actually less">usr</a>
+drwxrwxrwt    7 ubnt     admin         140 Jan  1  1970 <a href="/2025-07-12-ubiquiti-xm-fsc.html#var" style="color: orchid;" title="and that includes all this unnecessary fun">var</a>
 </pre>
 

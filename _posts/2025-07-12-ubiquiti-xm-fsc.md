@@ -22,37 +22,37 @@ Anyways, they're be *the best* in my mind because of this openness, and I really
 
 ## /bin {#bin}
 
-## /dev
+## /dev {#dev}
 
-## /etc
+## /etc {#etc}
 
 Actually [a symlink to /var/etc](#var-etc)
 
-## /init
+## /init {#init}
 
 The only file in the root directory.
 
-## /jffs
+## /jffs {#jffs}
 
-## /lib
+## /lib {#lib}
 
-## /mnt
+## /mnt {#mnt}
 
-## /proc
+## /proc {#proc}
 
-## /sbin
+## /sbin {#sbin}
 
 Actually [a symlink to /bin](#bin)
 
-## /sys
+## /sys {#sys}
 
-## /tmp
+## /tmp {#tmp}
 
 Actually [a symlink to /var/tmp](#var-tmp)
 
-## /usr
+## /usr {#usb}
 
-## /var
+## /var {#var}
 
 ### /var/etc {#var-etc}
 
