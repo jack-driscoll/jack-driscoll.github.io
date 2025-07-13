@@ -169,7 +169,6 @@ You'll just have to trust me that's the proper contents of `desktop.ini`, myster
 Check out the directories, which (will) link to a full breakdown of each one; the symlinks go to their sources, just like IRL.  Thank Lupa for this, and the beatiful complete file tree!  Isn't it gorgeous?  That's right, it's not a picture, go ahead and hover on those babys!
 
 <pre style="background: #000; color: white; padding: 1em; font-family: monospace; font-size: 0.95em;">
-<span style="color: limegreen;">drwxr-xr-x</span>  2 ubnt  admin  3550  May 28 14:53  bin
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 .
 drwxr-xr-x   11 ubnt     admin         186 May 28 14:56 ..
 drwxr-xr-x    2 ubnt     admin        3550 May 28 14:53 <a href="/2025-07-12-ubiquiti-xm-fsc.html#bin" style="color: orchid;" title="Not a screenshot, this baby’s live">bin</a>
