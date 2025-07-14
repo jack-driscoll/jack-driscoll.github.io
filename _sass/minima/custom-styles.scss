@@ -1,3 +1,5 @@
+/* make site nav look better */
+
 .site-nav {
   line-height: 1 !important;
 }
@@ -16,6 +18,7 @@
   transition: all 0.2s ease-in-out; // smooth in/out
 }
 
+/* add the green blog link */
 .blog-link {
   margin-left: 1rem;
   font-size: 1.4rem; // slightly larger for emoji clarity
@@ -43,6 +46,7 @@
   }
 }
 
+/* this doesn't work b/c they aren't adding the class */
 pre.fs-tree {
   background: #000;
   color: limegreen;
@@ -50,4 +54,18 @@ pre.fs-tree {
   font-size: 0.95em;
   line-height: 1.0;
   padding: 0.75em;
+}
+
+/* only show the giant bracket on desktop */
+
+@media (max-width: 600px) {
+  .nav-bracket img {
+    display: none;
+  }
+}
+
+@media (min-width: 601px) {
+  .nav-bracket img {
+    display: inline;
+  }
 }

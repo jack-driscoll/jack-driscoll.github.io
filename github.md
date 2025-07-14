@@ -14,6 +14,8 @@ image: https://jackd.ethertech.org/images/mythic_support_twitter.png
 
 Check out the post with [the complete version with a short intro here](https://jackd.ethertech.org/quick-github-pages.html) [or on github](https://github.com/jack-driscoll/quick-github-pages).
 
+Old hat to you?  [Check out GitHub Pages The Hard Way: So you want a custom GH Pages site and you want it for free?](https://jackd.ethertech.org/2025-07-04-github-pages-diy.html)
+
 # How do I make a website on github pages in only 10 lines and two files?
 
 [Create a repository](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) called `username.github.io`.  
@@ -25,7 +27,7 @@ title: My First GitHub Pages Site # this is the part at the top
 description: Built with Markdown, duct tape, and vibes # describe your site, the part at the bottom
 theme: minima # you can ignore this unless you want to change your theme
 ```
-This is the *absolute minimum* you need.  If you want more options, see quick-github-pages, above.  You don't even *technically need this*, but it's highly recommended.
+If you want more options, see quick-github-pages, above.  You don't even *technically need this*, but it's highly recommended; without it you won't have a top or bottom, and then how are you going to get it on?  The theme is a good reminder, but it defaults to minima anyway.
 
 Go into the repository, click **Add File** and call it **index.md** and put this in it:
 

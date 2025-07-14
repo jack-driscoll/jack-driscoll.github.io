@@ -286,6 +286,27 @@ It still has `SSH` and `athstats`; Lupa says I can damage the power amp IC by us
 
 ![athstats](/images/ubiquiti/636_athstats.png)
 
+### Filesystem Quickstart
+
+| Directory                  | Purpose / Description                                                                 |
+|---------------------------|----------------------------------------------------------------------------------------|
+| `/bin/`                   | Essential system binaries; core Unix commands and scripts used in boot and ops        |
+| `/etc/`                   | Configuration files, including network, SSH, and system-level configs                 |
+| `/etc/persistent/`        | Persistent configuration and custom files that survive reboot                         |
+| `/lib/`                   | Shared libraries required by binaries in `/bin` and `/sbin`                           |
+| `/proc/`                  | Virtual filesystem exposing kernel and process information                            |
+| `/sbin/`                  | System administration binaries (e.g., init, reboot, ifconfig)                         |
+| `/tmp/`                   | Temporary files stored in RAM; cleared on reboot                                      |
+| `/usr/`                   | Secondary system binaries and tools; more app-level utilities                         |
+| `/usr/etc/`               | Extended or alternate config files                                                    |
+| `/usr/lib/`               | Libraries used by user-space programs                                                 |
+| `/usr/www/`               | Web UI resources for AirOS                                                            |
+| `/var/`                   | Runtime system data (logs, lock files, DHCP leases, etc.)                             |
+| `/var/etc/`               | Temp or runtime-generated config files                                                |
+| `/var/log/`               | System log output (note: often empty or RAM-based on embedded systems)                |
+| `/www/`                   | Web server root directory; contains device web interface (often symlinked to `/usr/www`) |
+
+Theres [a comprehensive guide here](/2025-07-11-ubiquiti-xm-fs.html) and [a really comprehensive guide here](/2025-07-12-ubiquiti-xm-fsc.html)
 ## References
 
 [TekTronix Wi-Fi: Overview of the 802.11 Physical Layer and Transmitter Measurements](https://www.tek.com/en/documents/primer/wi-fi-overview-80211-physical-layer-and-transmitter-measurements)
