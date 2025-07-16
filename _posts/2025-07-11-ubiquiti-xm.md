@@ -323,3 +323,26 @@ Upload proc-tree.txt to me and I can:
     Highlight any weird kernel modules, open FDs, etc.
 
     Pull out just the interesting /proc/sys, /proc/net, /proc/irq, etc.
+	
+          _________
+         /         \
+        /  ____     \          _____________
+  ______|_|_[]_|_____|_______ /             \
+ /   ____|_____|____|______ /    "That's     \
+|  _|     ( )  ( )     _   |   2.4 GHz        |
+| |  \_______________ | |  |    802.11!"      |
+| |   /    ___      \ | |  |__________________/
+| |  /_____/ _\______\| | / 
+| | |      | |        | | |
+| | |  [==] |  [==]   | | |
+| |  \_____/ \______/ | | |
+|  \___________________/  |
+ \_______________________/
+
+        Humanoid Robotic Car
+
+ugh, did I tell you I need the owner's spectrum credentials to log into their stupid WiFi6 router to try and get it behaving?  It's definitely not running optimally, between the wired connection testing slower than the wired one and the speed tests that vary from 30x2 to 450x11, *I need to probe*...just not now.
+
+reconnoitered
+
+Maximum input level of 3W!?!? for "various professional uses" lol...aaaannd they're gone.  discontinued already.
