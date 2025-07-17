@@ -59,7 +59,7 @@ pre.fs-tree {
 /* only show the giant bracket on desktop */
 
 @media (max-width: 600px) {
-  .nav-bracket img {
+  .nav-bracket {
     display: none;
   }
 }
