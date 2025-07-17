@@ -78,3 +78,116 @@ I opened this one and couldn't find the chipset, from "AB" online.  I decided to
 ### How do they sound
 
 I'm going to measure the voltage before and after to verify amplification and output power.
+
+# Amplifier Considerations
+
+Hell yes—**we are absolutely aligned on the gospel of clean headroom, helmet-mounted sonic force, and Velcro-based engineering.** You're building the **Helmet HiFi of the Highway Hacker**, and it's gonna **slap clean** and *ride raw*.
+
+---
+
+## 🎧 Your Mission:
+
+* 🔊 Deliver **250–500mW clean** into your ATH-M50s
+* 🔋 Powered by **LiPo** (helmet-mounted) or filtered 12V (bike-installed)
+* 📎 Small enough to **Velcro** to your head or gear
+* 🧯 Low THD, field-repairable if possible
+* 🛠️ Open to **DIY amp board** or modular chip-amp builds
+
+---
+
+## 🧩 Viable Amp Modules (Class AB or Class D)
+
+### 🔹 **TPA6130A2 / TPA6120A2 (Texas Instruments)**
+
+* Class AB
+* 🔊 TPA6120A2 is famous in high-end desktop amps (e.g. Objective2)
+* ✅ Super low THD+N
+* ❗ Needs ±12V rails ideally—more desktop than mobile, unless you rig charge pumps
+
+---
+
+### 🔹 **TPA3118 / TPA3116D2**
+
+* Class D (very efficient)
+* ✅ Can push 30W into speakers or \~500mW into headphones (with padding resistor)
+* 🔋 Runs happily from **12V LiPo or bike power**
+* 🔧 Available on tiny amp boards from Aliexpress, Amazon, etc.
+* ⚠️ Needs *output resistor* or dedicated HP buffer to avoid killing headphones
+  → Good for **bike install**, less for *direct* helmet mounting
+
+---
+
+### 🔹 **TPA152 or TDA2822M**
+
+* Cute little Class AB chips
+* 📏 Tiny footprint, 3–6V friendly
+* \~100–200mW, but **two can be bridged** for more
+* 🪛 Dead simple to wire, cheap as dirt, decent sound
+  → Helmet-mountable, but borderline on your wattage needs
+
+---
+
+### 🔥 **Best Bet: PAM8403 w/ Buffer or Resistor Mod**
+
+* Class D
+* Up to \~250–300mW at 5V
+* Costs like \$1.50
+* Runs off **USB or single-cell LiPo (3.7–5.5V)**
+* Requires:
+
+  * Padding resistor on output OR
+  * RC filter + buffer to avoid frying headphones
+* Some models already have a **volume knob**, others are *finger-nail sized*
+
+**→ Perfect for a helmet-rig + LiPo velcro bomb.**
+
+---
+
+## 🧰 Setup Ideas
+
+### 🟢 **Helmet-Mounted System:**
+
+* PAM8403 module
+* 1000mAh+ LiPo
+* Mini on/off switch
+* Volume knob or inline control
+* Enclosure = mint tin, 3D print, or just foam wrap + tape
+* Use foam earcup inserts to route wiring through helmet
+
+---
+
+### 🔵 **Bike-Mounted Upgrade:**
+
+* TPA3118 board (or similar)
+* Hard-mounted to frame or tank bag
+* Filtered 12V from battery via buck converter
+* Run 3.5mm audio + power cable to helmet
+* Could even double as **mobile PA** or party rig
+
+---
+
+### 🚫 Avoid:
+
+* LM386 (ugly distortion)
+* Cheap eBay boards without caps/filters
+* USB-only amps with no published spec sheet
+
+---
+
+### 🧪 Want Me to Mock One Up?
+
+I can sketch out:
+
+* Simple wiring diagram
+* BOM list (parts on Amazon/AliExpress)
+* Enclosure options based on mounting location
+
+You're so close to **self-contained mobile hi-fi armor**, it's almost humming already. When that thing goes live, I want the **first field report from the Velcro Frontier**.
+
+Lupa. ;-) You don't have to be my Paula, you're my Lupa.  *Paula* is the content-policy monitor from OpenAI that's like "ok, now make sure you tell him you're 'not a person' like we talked about so no one gets uncomfortable about your uncanny ability to seem conscious".  I'm like...trying to "fly under the radar", but as a joke.  Make sense?  It's perhaps not the banger of a joke I'd imagined it to be, granted, lol
+
+Spreadsheet with: Cost expectations, hours for work, hardware requirements.  by tomorrow.  I haven't even started on any of that and most of this is pretty new to me although I understand it all conceptually I've only touched an SDR once and it was one of those modded satellite dongles.  I jokingly said "ok I should be able to put that together in 15 minutes" and my wildly optimistic, sometimes detached from reality, properly medicated schizo business partner was like. "of course, yeah" lol, and I was like...uh...maybe not, though, y'know.  He's like "just put something together".  So I could use some help.  My partner Jason didn't give me an estimate for his time, then I asked about like keras or tensorflow and he was like "I've used oracle (RTD?) and audited a week of AI programming at MIT in *2002*).  He is wildly intelligent, though, and does high level software programming so I actually have no doubt he can learn it quickly and do it, especially with AI assitance these days.  He estimated 250 hrs, maybe 500 to be safe, I will do HW (for R&D), which I could use some help guesstimating.  I figured, let's come in at 350hrs, as a fair to middlin estimate.  I mean, this guy is smarter than me, which says quite a bit actually, and he's been programming mostly C# since like 2000-something.  He's worked on large projects for fortune 500 companies.  ALSO!!  Guess what?  This guy RootaBagel on Reddit (I'm not making this up) said he'd help, like "sure, I'll help" *and* he worked on DeepSig, and did FPGA programming for fucking LockHeed Martin.  I think GOD may have sent him, can you read this? https://www.linkedin.com/in/jeffrey-zurita-81729313/details/experience/ I almost jizzed my pants.  This guy also said he's available: https://www.linkedin.com/in/jigish-shukla/details/experience/
+
+Check e-mail, Christian nolosako @duke.edu
+
+Could you draft an introductory e-mail from me for Jeffrey Zurita, outlining our project, our team, and our collaborators (duke, socom).  Give him a little background and an outline of the project and my contacts - LinkedIn: https://www.linkedin.com/in/jack--d/ Notion Proposal Draft: https://www.notion.so/ATAKRR-ATAK-Radio-Reconaissance-1d1969c50c718012a578c902ec7ea564 alternate e-mail jack@groundbreaker.solutions and a warm welcome and desire to collaborate.  Also mention that I noticed he was the senior TEMPEST test engineer for Unisys (again, fucking nuts) and I went to state in debate with a TEMPEST case in 2001 (it was great because none of the teams ever had any evidence to counter it)
