@@ -41,15 +41,21 @@ date: 1984-01-17
 Hey, you guys, check it out, I made a website!
 ```
 
-Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.  Now, [learn `markdown`](https://www.markdownguide.org/), it's honestly easy.  Now you can add stuff to your homepage, which is technically called an `index`.
+Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.
 
 ## Enable GitHub Pages
 
-In order to make the site live, you need to enable GitHub Pages in your repo’s Settings → Pages tab. [Here's a visual guide to enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md) from another (pretty good) guide. **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!
+Go to GitHub Pages to ~~enable your site~~ verify your site is enabled, and click on that link where it says "Your site is live at".  This entire process took me 11 minutes, including the time it took to do screenshots.
+
+~~In order to make the site live, you need to enable GitHub Pages in your repo’s Settings → Pages tab. [Here's a visual guide to enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md) from another (pretty good) guide. **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!~~
 
 ## How did I do this?  I don't know HTML or CSS and I have no idea what I just did...hold me, I'm scared
 
 💡 Nerd note:  Github took your `markdown` file and ***automagically wrote the HTML file for you and included their own CSS***.  They will do this with any file named `*.md` in your main directory.  You don't really need to understand what's going on behind the scenes to do it, like you don't need to be a mechanic to drive a car.
+
+### What next?
+
+Now, [learn `markdown`](https://www.markdownguide.org/), it's honestly easy.  Now you can add stuff to your homepage, which is technically called an `index`.
 
 ### How do I make a page?
 
