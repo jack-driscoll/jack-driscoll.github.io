@@ -65,8 +65,9 @@ Go to Settings → Pages to verify your site is enabled (it should be by default
 Look for the line that says:
 "Your site is live at https://yourname.github.io/"
 
-This entire process took me 11 minutes, including the time it took to do screenshots.
+![eff it, we're doing it live](/images/github/gh_6.png)
 
+This entire process took me 11 minutes, including the time it took to do screenshots.
 
 ~~In order to make the site live, you need to enable GitHub Pages in your repo’s Settings → Pages tab. [Here's a visual guide to enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md) from another (pretty good) guide. **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!~~
 
