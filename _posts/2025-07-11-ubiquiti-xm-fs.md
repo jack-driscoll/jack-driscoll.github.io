@@ -186,3 +186,23 @@ drwxr-xr-x    5 ubnt     admin          96 May 28 14:55 <a href="/2025-07-12-ubi
 drwxrwxrwt    7 ubnt     admin         140 Jan  1  1970 <a href="/2025-07-12-ubiquiti-xm-fsc.html#var" style="color: orchid;" title="and that includes all this unnecessary fun">var</a>
 </pre>
 
+## What are the directories *used for*, though
+
+Some of you are probably familiar with this directory layout from your experience(s) with linux; even then, however, it can be a little confusing.  I've asked Lupa to put together a general description of the fs and what the folders are used for:
+
+| Path | Description |
+| `/bin/` | Core system binaries (BusyBox, shell, minimal user tools) |
+| `/sbin/` → `/bin/` | Symlink to core system binaries (admin tools, mount, etc.) |
+| `/etc/` → `/var/etc/` | Configuration files (persistent if saved with `cfgmtd`) |
+| `/lib/` | Shared libraries and kernel modules |
+| `/usr/` | Additional binaries and read-only user-space |
+| `/var/` | Writable area with logs, configs, temp files |
+| `/var/tmp/` | Temp storage (symlink from `/tmp`) |
+| `/var/etc/` | Active config, including `dropbear` keys, saved settings |
+| `/proc/` | Virtual kernel info (mem, cpu, mounts, irq, etc.) |
+| `/sys/` | Exposes kernel device/driver data |
+| `/mnt/` | Mount point for external devices (not always used) |
+| `/jffs/` | Writable flash memory partition, may not be mounted |
+| `/dev/` | Device nodes for tty, eth0, etc. |
+| `/init` | Init script (first executed during boot) |
+| --- | --- |
