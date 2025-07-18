@@ -26,13 +26,14 @@ Go into the repository, click **Add File** and call it **_config.yml** and put t
 
 ![what up my blind peeps! in this image I'm making a file](/images/github/gh_1.png)
 
-![what up my blind peeps! in this image I'm making a file](/images/github/gh_2.png)
-
 ```
 title: My First GitHub Pages Site # this is the part at the top
 description: Built with Markdown, duct tape, and vibes # describe your site, the part at the bottom
 theme: minima # you can ignore this unless you want to change your theme
 ```
+
+![this is what the file looks like completed, it has words in it now, lol](/images/github/gh_2.png)
+
 If you want more options, see quick-github-pages, above.  You don't even *technically need this*, but it's highly recommended; without it you won't have a top or bottom, and then how are you going to get it on?  The theme is a good reminder, but it defaults to minima anyway.
 
 OK, now click that button that says "Commit" and commit (submit/send in/change) the file.
