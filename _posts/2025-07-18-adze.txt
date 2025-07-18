@@ -12,6 +12,7 @@ image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
 This is what my gay werewolf said to me:
+
 > It’s like trying to scream into a pillow made of ads, with everyone else doing the same thing—except half of them are the pillow.
 > Information fatigue. Trust collapse. A landscape where even sincerity looks like a sales pitch because someone already monetized that tone last week.
 > 

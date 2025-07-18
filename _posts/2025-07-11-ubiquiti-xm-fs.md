@@ -206,3 +206,335 @@ Some of you are probably familiar with this directory layout from your experienc
 | `/dev/` | Device nodes for tty, eth0, etc. |
 | `/init` | Init script (first executed during boot) |
 | --- | --- |
+
+### /bin - a primer
+
+We're going to start where I started in this article and then jump to the deeper dive.  One of the first things I did was `ls -al /bin` to see what I had and didn't have.  Some things like `lspci`, for instance were notably lacking, but there are some goodies in there, too.
+
+```
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 80211debug -> athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 80211stats -> athbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 [ -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 [[ -> busybox
+-rwxr-xr-x    1 ubnt     admin        4448 May 28 14:52 adjtimex
+-rwxr-xr-x    1 ubnt     admin        8645 May 28 14:43 airview
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 arping -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ash -> busybox
+-rwxr-xr-x    1 ubnt     admin      129204 May 28 14:53 athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 athchans -> athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 athdebug -> athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 athkey -> athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 athstats -> athbox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 athstatsclr -> athbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 awk -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 basename -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 bgnd -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 brctl -> busybox
+-rwxr-xr-x    1 ubnt     admin         532 May 28 14:43 brmacs
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 bunzip2 -> busybox
+-rwxr-xr-x    1 ubnt     admin      538664 May 28 14:54 busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 bzcat -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 cat -> busybox
+-rwxr-xr-x    1 ubnt     admin         968 May 28 14:43 ccode.sh
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 cfgmtd -> ubntbox
+-rwxr-xr-x    1 ubnt     admin      259859 May 28 14:52 cgi
+-rwxr-xr-x    1 ubnt     admin       21788 May 28 14:55 chat
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 chgrp -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 chmod -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 chown -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 chroot -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 clear -> busybox
+-rwxr-xr-x    1 ubnt     admin          66 May 28 14:43 counterfeit
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 cp -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 crond -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 crontab -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 cut -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 date -> busybox
+lrwxrwxrwx    1 ubnt     admin          16 May 28 14:52 dbclient -> ../sbin/drop                                                                                                                                                             bear
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 dd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 df -> busybox
+-rwxr-xr-x    1 ubnt     admin       28228 May 28 14:52 dhcp-fwd
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 diff -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 dirname -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 discover -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 dmesg -> busybox
+-rwxr-xr-x    1 ubnt     admin      157292 May 28 14:52 dnsmasq
+-rwxr-xr-x    1 ubnt     admin      225396 May 28 14:52 dropbear
+lrwxrwxrwx    1 ubnt     admin          16 May 28 14:52 dropbearkey -> ../sbin/d                                                                                                                                                             ropbear
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 du -> busybox
+-rwxr-xr-x    1 ubnt     admin        3084 May 28 14:52 ebtables
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 echo -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 egrep -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 env -> busybox
+-rwxr-xr-x    1 ubnt     admin      117776 May 28 14:52 ethtool
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 expr -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 factorytest -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 false -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 fgrep -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 find -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 free -> busybox
+-rwxr-xr-x    1 ubnt     admin       19192 May 28 14:52 fusermount
+-rwxr-xr-x    1 ubnt     admin         686 May 28 14:54 fwupdate
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 fwupdate.real -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 garp -> busybox
+-rwxr-xr-x    1 ubnt     admin       49024 May 28 14:52 gcom
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 getty -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 grep -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 gunzip -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 gzip -> busybox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 haldebug -> athbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 halt -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 head -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 hexdump -> busybox
+-rwxr-xr-x    1 ubnt     admin      297456 May 28 14:52 hostapd
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 hostid -> busybox
+-rwxr-xr-x    1 ubnt     admin         155 May 28 14:43 hotplug-call
+-rwxr-xr-x    1 ubnt     admin       29628 May 28 14:52 hotplug2
+-rwxr-xr-x    1 ubnt     admin        7924 May 28 14:43 htb
+-rwxr-xr-x    1 ubnt     admin          46 May 28 14:43 http_enable
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 hwclock -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 id -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ifconfig -> busybox
+-rwxr-xr-x    1 ubnt     admin       33784 May 28 14:52 igmpproxy
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 infctld -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 init -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 insmod -> busybox
+-rwxr-xr-x    1 ubnt     admin      195748 May 28 14:52 ip
+-rwxr-xr-x    1 ubnt     admin       55352 May 28 14:54 ip6tables
+-rwxr-xr-x    1 ubnt     admin       96100 May 28 14:52 iperf
+-rwxr-xr-x    1 ubnt     admin       55316 May 28 14:54 iptables
+-rwxr-xr-x    1 ubnt     admin       84472 May 28 14:52 iwconfig
+lrwxrwxrwx    1 ubnt     admin           8 May 28 14:52 iwevent -> iwconfig
+lrwxrwxrwx    1 ubnt     admin           8 May 28 14:52 iwgetid -> iwconfig
+lrwxrwxrwx    1 ubnt     admin           8 May 28 14:52 iwlist -> iwconfig
+lrwxrwxrwx    1 ubnt     admin           8 May 28 14:52 iwpriv -> iwconfig
+lrwxrwxrwx    1 ubnt     admin           8 May 28 14:52 iwspy -> iwconfig
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 kill -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 killall -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 killall5 -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 klogd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 length -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 less -> busybox
+-rwxr-xr-x    1 ubnt     admin      210972 May 28 14:54 lighttpd
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ln -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 lock -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 logger -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 login -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 logread -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ls -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 lsmod -> busybox
+-rwxr-xr-x    1 ubnt     admin        7520 May 28 14:52 ma-auth
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:52 ma-check -> ma-auth
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:52 ma-deauth -> ma-auth
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:52 ma-rm -> ma-auth
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:52 ma-show -> ma-auth
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:52 ma-ticket-add -> ma-auth
+-rwxr-xr-x    1 ubnt     admin        1346 May 28 14:54 mca-config
+lrwxrwxrwx    1 ubnt     admin           4 May 28 14:54 mca-ctrl -> mcad
+-rwxr-xr-x    1 ubnt     admin        1025 May 28 14:54 mca-fwupdate
+-rwxr-xr-x    1 ubnt     admin        4122 May 28 14:54 mca-provision
+lrwxrwxrwx    1 ubnt     admin          13 May 28 14:54 mca-provision-list -> mc                                                                                                                                                             a-provision
+lrwxrwxrwx    1 ubnt     admin          13 May 28 14:54 mca-provision-rm -> mca-                                                                                                                                                             provision
+lrwxrwxrwx    1 ubnt     admin          13 May 28 14:54 mca-startup -> mca-provi                                                                                                                                                             sion
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mca-status -> ubntbox
+-rwxr-xr-x    1 ubnt     admin        1047 May 28 14:54 mca-ticket
+-rwxr-xr-x    1 ubnt     admin       63588 May 28 14:54 mcad
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 md5sum -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mesg -> busybox
+-rwxr-xr-x    1 ubnt     admin       85048 May 28 14:52 miniupnpd
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mkdir -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mkfifo -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mknod -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mktemp -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mount -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 mv -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 netmsg -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 netstat -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 nice -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 nslookup -> busybox
+-rwxr-xr-x    1 ubnt     admin       16728 May 28 14:52 ntpclient
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 passwd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pgrep -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pidof -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ping -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ping6 -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pivot_root -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pkill -> busybox
+-rwxr-xr-x    1 ubnt     admin        1583 May 28 14:43 pktgen.sh
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 poweroff -> busybox
+-rwxr-xr-x    1 ubnt     admin      289544 May 28 14:55 pppd
+-rwxr-xr-x    1 ubnt     admin       11652 May 28 14:55 pppstats
+-rwxr-xr-x    1 ubnt     admin       87912 May 28 14:52 pptp
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 printf -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ps -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pwd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 pwdog -> busybox
+-rwxr-xr-x    1 ubnt     admin        2328 May 28 14:43 radarmon
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 radartool -> athbox
+-rwxr-xr-x    1 ubnt     admin          69 May 28 14:43 radartoolw
+-rwxr-xr-x    1 ubnt     admin       84404 May 28 14:52 radvd
+-rwxr-xr-x    1 ubnt     admin       15484 May 28 14:52 radvdump
+-rwxr-xr-x    1 ubnt     admin         666 May 28 14:52 rate.awk
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 rdate -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 realpath -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 reboot -> busybox
+-rwxr-xr-x    1 ubnt     admin      109576 May 28 14:53 regdomain
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 reset -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 rm -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 rmdir -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 rmmod -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 route -> busybox
+-rwxr-xr-x    1 ubnt     admin       20212 May 28 14:54 rssi_decode
+lrwxrwxrwx    1 ubnt     admin          19 May 28 14:54 scanparser -> /usr/www/s                                                                                                                                                             tatus.cgi
+lrwxrwxrwx    1 ubnt     admin          16 May 28 14:52 scp -> ../sbin/dropbear
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sed -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 seq -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sh -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sleep -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sort -> busybox
+-rwxr-xr-x    1 ubnt     admin      316128 May 28 14:55 spectralbox
+lrwxrwxrwx    1 ubnt     admin          11 May 28 14:55 spectralplayer -> spectr                                                                                                                                                             albox
+lrwxrwxrwx    1 ubnt     admin          11 May 28 14:55 spectralserver -> spectr                                                                                                                                                             albox
+lrwxrwxrwx    1 ubnt     admin          11 May 28 14:55 spectraltool -> spectral                                                                                                                                                             box
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 speedicmp -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 speedsrv -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 speedtest -> ubntbox
+lrwxrwxrwx    1 ubnt     admin          16 May 28 14:52 ssh -> ../sbin/dropbear
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 start-stop-daemon -> bus                                                                                                                                                             ybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 status-full.cgi -> ubntb                                                                                                                                                             ox
+-rwxr-xr-x    1 ubnt     admin       24468 May 28 14:52 stress
+-rwxr-xr-x    1 ubnt     admin        3074 May 28 14:43 support
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 switch_root -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sync -> busybox
+-rwxr-xr-x    1 ubnt     admin         623 May 28 14:43 syscheck
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sysctl -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 sysled -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 syslogd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 tail -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 tar -> busybox
+-rwxr-xr-x    1 ubnt     admin      230776 May 28 14:52 tc
+-rwxr-xr-x    1 ubnt     admin      601032 May 28 14:52 tcpdump
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 tee -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 telnet -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 telnetd -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 test -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 tftp -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 time -> busybox
+-rwxr-xr-x    1 ubnt     admin       39568 May 28 14:55 tinysnmpd
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 top -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 touch -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 tr -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 traceroute -> busybox
+lrwxrwxrwx    1 ubnt     admin          19 May 28 14:54 trigger_url -> /usr/www/                                                                                                                                                             status.cgi
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 true -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ubnt-caldata -> ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ubnt-gps-reader -> ubntb                                                                                                                                                             ox
+-rwxr-xr-x    1 ubnt     admin     1332584 May 28 14:54 ubntbox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 ubntconf -> ubntbox
+-rwxr-xr-x    1 ubnt     admin       21931 May 28 14:52 udevtrigger
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 udhcpc -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 umount -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 uname -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 uniq -> busybox
+-rwxr-xr-x    1 ubnt     admin       18915 May 28 14:43 updatefix.sh
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 uptime -> busybox
+-rwxr-xr-x    1 ubnt     admin       38028 May 28 14:52 usb_modeswitch
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 uudecode -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 uuencode -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 vconfig -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 vi -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 watchdog -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 wc -> busybox
+lrwxrwxrwx    1 ubnt     admin          19 May 28 14:54 webping -> /usr/www/stat                                                                                                                                                             us.cgi
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 wget -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 which -> busybox
+lrwxrwxrwx    1 ubnt     admin           6 May 28 14:53 wlanconfig -> athbox
+-rwxr-xr-x    1 ubnt     admin      414736 May 28 14:53 wpa_supplicant
+lrwxrwxrwx    1 ubnt     admin          19 May 28 14:54 wstalist -> /usr/www/sta                                                                                                                                                             tus.cgi
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 xargs -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 yes -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 zcat -> busybox
+lrwxrwxrwx    1 ubnt     admin           7 May 28 14:54 zcip -> busybox
+```
+
+
+Right at the top we have `80211debug` and `80211stats`, which sound interesting and are symlinks to `athbox`, we see a bunch more `ath` utilities and remember we have an `ath`eros chipset, so that's a good place to start.
+
+```
+XM.v5.5.6# 80211debug
+net.ath0.debug: 0x0
+XM.v5.5.6# 80211stats
+1117 rx discard mgt frames
+816 rx required element missing
+1438141 rx element unknown
+11257 active scans started
+```
+OK, not much and kind of interesting.  `athstats` will give you general statistics on your baseband chipset, which can be really helpful.  The output will change depending on the mode and characteristics, whether it's in `AP` or `client`, etc.  You can see our base utilities are `athbox`, `busybox`, `mca-provision` and `ubntbox`.  If you don't know what [busybox](https://busybox.net/) is, [this is a good time to learn](https://en.wikipedia.org/wiki/BusyBox).  Basically, it's a bunch of common linux utilities, minimized and put in a single executable, often used on embedded linux systems.  From this, you can gather that `ubntbox` and `athbox` are similar utilities for management of the atheros chipset and the ubiquiti utilities.  You can read a little bit on `mca-provision` [here](https://community.ui.com/questions/Custom-use-of-mca-provision/8421ed78-6003-4388-abe0-700c3708a673).
+
+```
+XM.v5.5.6# athbox
+Usage: athbox <tool>
+ Supported tools:
+        wlanconfig
+        athstats
+        athstatsclr
+        80211stats
+        athkey
+        radartool
+        80211debug
+        athdebug
+        haldebug
+        athchans
+XM.v5.5.6# ubntbox
+Ubiquiti system tools colection
+Copyright 2006-2013, Ubiquiti Networks, Inc. <support@ubnt.com>
+
+This program is proprietary software; you can not redistribute it and/or modify
+it without signed agreement with Ubiquiti Networks, Inc.
+
+        ubntconf
+        cfgmtd
+        fwupdate.real
+        speedtest
+        speedsrv
+        speedicmp
+        infctld
+        factorytest
+        sysled
+        bgnd
+        mca-status
+        discover
+        status-full.cgi
+        status-new.cgi
+        ifstats.cgi
+        iflist.cgi
+        scan.cgi
+        ubnt-gps-reader
+        ubnt-caldata
+        dfs-unlock
+XM.v5.5.6# mca-provision
+Usage: /usr/bin/mca-provision <consoleurl> <ssh-public-key> [<id> [<comment>]]
+XM.v5.5.6# busybox
+BusyBox v1.11.2 (2013-05-28 17:52:06 EEST) multi-call binary
+Copyright (C) 1998-2008 Erik Andersen, Rob Landley, Denys Vlasenko
+and others. Licensed under GPLv2.
+See source distribution for full notice.
+
+Usage: busybox [function] [arguments]...
+   or: function [arguments]...
+
+        BusyBox is a multi-call binary that combines many common Unix
+        utilities into a single executable.  Most people will create a
+        link to busybox for each function they wish to use and BusyBox
+        will act like whatever it was invoked as!
+
+Currently defined functions:
+        [, [[, adjtimex, arping, ash, awk, basename, brctl, bunzip2, bzcat, cat, chgrp, chmod, chown, chroot, clear, cp, crond, crontab, cut, date, dd, df, diff, dirname, dmesg, du, echo, egrep, env, expr, false, fgrep, find,
+        free, garp, getty, grep, gunzip, gzip, halt, head, hexdump, hostid, hwclock, id, ifconfig, init, insmod, kill, killall, killall5, klogd, length, less, ln, lock, logger, login, logread, ls, lsmod, md5sum, mesg, mkdir,
+        mkfifo, mknod, mktemp, mount, mv, netmsg, netstat, nice, nslookup, passwd, pgrep, pidof, ping, ping6, pivot_root, pkill, poweroff, printf, ps, pwd, pwdog, rdate, realpath, reboot, reset, rm, rmdir, rmmod, route, sed,
+        seq, sh, sleep, sort, start-stop-daemon, switch_root, sync, sysctl, syslogd, tail, tar, tee, telnet, telnetd, test, tftp, time, top, touch, tr, traceroute, true, udhcpc, umount, uname, uniq, uptime, uudecode, uuencode,
+        vconfig, vi, watchdog, wc, wget, which, xargs, yes, zcat, zcip
+
+```
+
+OK, that's as far as we're going to go in this article, I'm trying to keep these to about a day's worth of content each, although some may be a bit longer.  Hope you're enjoying this exploratory adventure as much as I am and have a great day!
