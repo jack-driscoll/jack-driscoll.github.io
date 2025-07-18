@@ -20,7 +20,13 @@ Old hat to you?  [Check out GitHub Pages The Hard Way: So you want a custom GH P
 
 [Create a repository](https://docs.github.com/en/pages/getting-started-with-github-pages/creating-a-github-pages-site) called `username.github.io`.  
 
+![creating a gh repo](/images/github/gh_0.png)
+
 Go into the repository, click **Add File** and call it **_config.yml** and put this in it:
+
+![what up my blind peeps! in this image I'm making a file](/images/github/gh_1.png)
+
+![what up my blind peeps! in this image I'm making a file](/images/github/gh_2.png)
 
 ```
 title: My First GitHub Pages Site # this is the part at the top
@@ -28,6 +34,10 @@ description: Built with Markdown, duct tape, and vibes # describe your site, the
 theme: minima # you can ignore this unless you want to change your theme
 ```
 If you want more options, see quick-github-pages, above.  You don't even *technically need this*, but it's highly recommended; without it you won't have a top or bottom, and then how are you going to get it on?  The theme is a good reminder, but it defaults to minima anyway.
+
+OK, now click that button that says "Commit" and commit (submit/send in/change) the file.
+
+![commit _config.yml](/images/github/gh_3.png)
 
 Go into the repository, click **Add File** and call it **index.md** and put this in it:
 
@@ -41,11 +51,21 @@ date: 1984-01-17
 Hey, you guys, check it out, I made a website!
 ```
 
-Save the file and go to `username.github.io` and shit yourself.  You just made a webpage.
+Commit the file, like the last one.
 
-## Enable GitHub Pages
+![commit index.md](/images/github/gh_4.png)
 
-Go to GitHub Pages to ~~enable your site~~ verify your site is enabled, and click on that link where it says "Your site is live at".  This entire process took me 11 minutes, including the time it took to do screenshots.
+## Go to GitHub Pages
+
+Go to Settings → Pages to verify your site is enabled (it should be by default if your repo is named username.github.io).
+
+![gh pages settings - you're live!](/images/github/gh_5.png)
+
+Look for the line that says:
+"Your site is live at https://yourname.github.io/"
+
+This entire process took me 11 minutes, including the time it took to do screenshots.
+
 
 ~~In order to make the site live, you need to enable GitHub Pages in your repo’s Settings → Pages tab. [Here's a visual guide to enable GitHub Pages](https://github.com/tomcam/least-github-pages/blob/master/docs/enable-github-pages.md) from another (pretty good) guide. **This will put your site on the internet** and in a couple minutes it will be accessible from `https://username.github.io`.  Congratulations, you made your first website!~~
 
