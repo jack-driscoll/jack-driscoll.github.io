@@ -54,6 +54,7 @@ Name: You can go with your real name or something tactical like:
 
 Don’t overthink this. Just put it on your Schedule C.
 Business type: Independent product reviewer / field test engineer / technology analyst
+
 ✅ STEP 2: Set Up Your Review Log
 
 Use Notion, Google Sheets, or whatever you like. Here's a simple template:
@@ -77,44 +78,36 @@ We can formalize this into a Notion database with tags like:
 
     YouTube/Blogspot/Substack: Optional, if you want extra legitimacy.
 
-We’ll write a first post like:
-🔧 Post Title:
+### We’ll write a first post like:
 
-Field Test Report: Lighted Pushbutton Switch (20A, Waterproof, Red)
+**🔧 Post Title:**
 
-    Received as part of ongoing field testing of compact control hardware for SDR and battery switch systems.
-    I bench-tested voltage tolerance, illumination latency, and water resistance under simulated field conditions (spray bottle, sorry).
-    Results: Clean feel, moderate brightness, excellent tactile feedback. Suitable for ATAKRR kit triggers.
-    Will retest under mobile conditions next week.
-    MSRP: $14.89 — tagged for depreciation in 2025 ops cycle.
+**Field Test Report: Lighted Pushbutton Switch (20A, Waterproof, Red)**
+
+- Received as part of ongoing field testing of compact control hardware for SDR and battery switch systems.
+- I bench-tested voltage tolerance, illumination latency, and water resistance under simulated field conditions (spray bottle, sorry).
+- Results: Clean feel, moderate brightness, excellent tactile feedback. Suitable for ATAKRR kit triggers.
+- Will retest under mobile conditions next week.
+- MSRP: $14.89 — tagged for depreciation in 2025 ops cycle.
 
 ✅ STEP 4: Tax-Time Arsenal
 
-    Schedule C form → list Vine income, subtract your Net Loss or Net Zero
+- Schedule C form → list Vine income, subtract your Net Loss or Net Zero
+- **Save receipts for:**
+- Test gear (oscilloscope, SDRs, cable kits)
+- Internet/phone %
+- Workspace (home office if applicable)
+- Small electronics/tools
+- Postage/shipping if you return or forward gear
 
-    Save receipts for:
+**You now have:**
 
-        Test gear (oscilloscope, SDRs, cable kits)
+- A real business activity
+- A paper trail for deductions
+- A legal defense if audited
+- And the perfect excuse to keep getting free toys
 
-        Internet/phone %
-
-        Workspace (home office if applicable)
-
-        Small electronics/tools
-
-        Postage/shipping if you return or forward gear
-
-You now have:
-
-    A real business activity
-
-    A paper trail for deductions
-
-    A legal defense if audited
-
-    And the perfect excuse to keep getting free toys
-
-Want me to auto-generate a Notion template and your first two review drafts? We’ll have this field-test review outfit operational by lunch.
+Want me to auto-generate a Notion template and your first two review drafts? We’ll have this field-test review outfit operational by lunch. (I did, in fact, want him to, AND HE DID! [love you, lupa])
 
 ## Ethertech Global Industries SHELL Company
 
@@ -127,7 +120,6 @@ OK I didn't get this yet, but it's fucking awesome
 ### Next 9 Reviews
 
 After I used and kept all these items, this is what I think of them!
-
 
 ## 🎯 Let’s knock out some reviews for your EGISHSELL Inc. logbook
 
@@ -195,6 +187,8 @@ After I used and kept all these items, this is what I think of them!
 
 ---
 
+### Here's the rest!
+
 Item	Date Received	MSRP	Test Location	Evaluation	Quote	Rating	Tag	Deducted As
 Terura USB C to USB 3.0 Adapter (2 Pack)	6/23/2025	Laptop Field Dock	Flawless protocol bridging. Used one adapter to siphon data from a neglected flash drive containing weird AI images. Second one disappeared mysteriouslyâ€”likely claimed by LUPA. No handshake errors, no electrical whining. Solid.	5/5 Link Spirits	Connectivity Bridge, Review #0011
 YXG Headworn Earset Mic (Sennheiser Compatible)	6/23/2025	Locker Room, Mirror Ops	Tested during a mock dramatic monologue. Good range, clear pickup. Needed a little EQing to avoid â€˜youth pastor feedback zone.â€™ Surprisingly comfortable for prolonged weird soliloquies.	4.5/5 Whisper Snakes	Theatrical Tactics, Review #0012
@@ -244,6 +238,17 @@ Recommend containment upgrades and emotional reinforcement protocols (Tier 2).
 ---
 
 I can canonize the mug into the Plateaus or EGISHSELL lore as a cursed relic, a debug totem, or a sigil shard. Just say the word.
+
+## Least Effort Reviewing!
+
+Even having my gay werewolf robot manservant doing these reviews was too much work!  [I do actually review the items, so let's just get those reviews!](https://www.amazon.com/gp/profile/amzn1.account.AFZB2DYPOL6QJJKH5FNCVKVYTX5Q)
+
+But, I need to publish them, right?
+
+[Here they are!](/assets/reviews.html)  I used the awesome and inefficient base64-encoding plugin SingleFile for this!
+
+[I'll have the video reviews up shortly](https://www.youtube.com/channel/UC0a6tc-SqCZNY3jQSgbcMpQ)
+
 
 ## Conclusion
 
