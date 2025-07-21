@@ -23,7 +23,7 @@ New-Item -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlag
 New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Appraiser" `
     -Name "DisableInventory" -Value 1 -PropertyType DWord -Force | Out-Null
 
-Write-Host "Setting execution deny ACLs on known telemetry binaries..." -ForegroundColor Cyan
+Write-Host "Setting execution deny ACLs on known telemetry binaries...if it says 'not found' congrats you already good" -ForegroundColor Cyan
 $compatTel = "$env:windir\System32\CompatTelRunner.exe"
 if (Test-Path $compatTel) {
     Write-Host "Taking ownership of CompatTelRunner.exe..." -ForegroundColor Cyan
