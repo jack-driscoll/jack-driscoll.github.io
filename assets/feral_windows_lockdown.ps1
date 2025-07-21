@@ -5,32 +5,11 @@ Write-Host "Disable Bing and Search to Use Location"
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "BingSearchEnabled" -Value 0 -PropertyType DWord -Force
 New-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Search" -Name "AllowSearchToUseLocation" -Value 0 -PropertyType DWord -Force
 
-Write-Host "Block Windows Telemetry Domains"
-
-$telemetryDomains = @(
-  "vortex.data.microsoft.com",
-  "settings-win.data.microsoft.com",
-  "telemetry.microsoft.com",
-  "watson.telemetry.microsoft.com",
-  "oca.telemetry.microsoft.com",
-  "sqm.microsoft.com",
-  "wdcp.microsoft.com",
-  "tsfe.trafficshaping.dsp.mp.microsoft.com"
-)
-
-foreach ($domain in $telemetryDomains) {
-    New-NetFirewallRule -DisplayName "Block $domain" `
-	-Direction Outbound `
-    -RemoteAddress $domain `
-    -Action Block `
-    -Enabled True `
-    -Profile Any
-}
-
 Write-Host "Disabling NCSI"
+$key = "HKLM:\SYSTEM\CurrentControlSet\Services\NlaSvc\Parameters\Internet"
 Set-ItemProperty -Path $key -Name "EnableActiveProbing" -Value 0 -Type DWord
 
-Write-Host "Disabling DiagTrack and dmwappushsvc..." -ForegroundColor Cyan
+Write-Host "Disabling DiagTrack and dmwappushsvc...if it says 'not found' you already don't have it" -ForegroundColor Cyan
 Stop-Service DiagTrack -Force -ErrorAction SilentlyContinue
 Set-Service DiagTrack -StartupType Disabled
 Stop-Service dmwappushsvc -Force -ErrorAction SilentlyContinue

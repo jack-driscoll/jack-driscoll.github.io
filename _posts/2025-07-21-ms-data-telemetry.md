@@ -15,31 +15,21 @@ I don't want you all up in my system.  No.  Stay away, plz.  Thank you.  This al
 
 ## I donot like reading and trust nTeleKy's randon script
 
-Here’s your upgraded script with:
+Run as Administrator "PowerShell" and run this script (not revertible except by hand):
 
-* ✅ `-Revert` switch to undo lockdown actions
-* ✅ NCSI registry edit added
-* ✅ Clean conditional logic for services, tasks, binaries, and registry
-
-👉 [**Download `feral_windows_lockdown_revertable.ps1`**](/assets/feral_windows_lockdown_revertable.ps1)
+👉 [**Download `feral_windows_lockdown_revertable.ps1`**](/assets/feral_windows_lockdown.ps1)
 
 ---
 
 ### 🧠 Usage:
 
-🛡 **To apply lockdown:**
+🛡 **To apply lockdown ( as admin ):**
 
 ```powershell
 .\feral_windows_lockdown_revertable.ps1
 ```
 
-🔁 **To revert lockdown:**
-
-```powershell
-.\feral_windows_lockdown_revertable.ps1 -Revert
-```
-
-## How?
+## How do I stop this?  I want to know what's going on and how to stop it!
 
 Bill is probably not going to listen and do whatever he wants, look at this:
 
