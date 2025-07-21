@@ -10,3 +10,4 @@ description: "nTeleKy's demonstration of the amazing powers of an XM series radi
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
+# init/rc

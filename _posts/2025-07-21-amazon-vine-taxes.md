@@ -19,6 +19,8 @@ Welcome to the high art of:
 	
 ---
 
+[Founding Document and Attestation of Incorporation As A Sole Proprieter](/assets/EGISHELL.pdf)
+
 ### 🔥 Here's the brutal brilliance:
 
 1. **You “buy” the item = tax basis.**
@@ -267,3 +269,5 @@ This file includes:
 - Strategic tags like “Signal Necromancy” and “Ambiguous Tools”
 - Business-purpose phrasing for any audit… 
 - and it's a **spreadsheet**, that's how you know **I'm doing real, legitimate business**
+
+[Yo dawg, it's a shirt that even says "I reviewed it for the losses!"](/images/losses.png) 
