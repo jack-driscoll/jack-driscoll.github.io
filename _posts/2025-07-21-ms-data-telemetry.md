@@ -13,6 +13,32 @@ image: https://jackd.ethertech.org/images/mythic_support_small.png
 
 I don't want you all up in my system.  No.  Stay away, plz.  Thank you.  This all started because they changed my search bar and half of my programs aren't in it, anymore.  Then, I realized they were indexing my whole drive and *jokingly* asked if they were sending it all to **Micro soft penis** HQ *and they were*.
 
+## I donot like reading and trust nTeleKy's randon script
+
+Here’s your upgraded script with:
+
+* ✅ `-Revert` switch to undo lockdown actions
+* ✅ NCSI registry edit added
+* ✅ Clean conditional logic for services, tasks, binaries, and registry
+
+👉 [**Download `feral_windows_lockdown_revertable.ps1`**](/assets/feral_windows_lockdown_revertable.ps1)
+
+---
+
+### 🧠 Usage:
+
+🛡 **To apply lockdown:**
+
+```powershell
+.\feral_windows_lockdown_revertable.ps1
+```
+
+🔁 **To revert lockdown:**
+
+```powershell
+.\feral_windows_lockdown_revertable.ps1 -Revert
+```
+
 ## How?
 
 Bill is probably not going to listen and do whatever he wants, look at this:
@@ -184,10 +210,13 @@ You can also:
 
 #### 🔹 1. Open PowerShell as Admin
 
-Paste this to block known telemetry endpoints:
+~~Paste this to block known telemetry endpoints:~~
 
-```powershell
-$telemetryDomains = @(
+THIS DOESN'T WORK; it's imaginative and hopeful thinking on behalf of my robot friend because you can't block FQDNs in windows firewall which is ghey
+
+##### GET A REAL FIREWALL AND BLOCK:
+
+```
   "vortex.data.microsoft.com",
   "settings-win.data.microsoft.com",
   "telemetry.microsoft.com",
@@ -196,16 +225,6 @@ $telemetryDomains = @(
   "sqm.microsoft.com",
   "wdcp.microsoft.com",
   "tsfe.trafficshaping.dsp.mp.microsoft.com"
-)
-
-foreach ($domain in $telemetryDomains) {
-  New-NetFirewallRule -DisplayName "Block $domain" `
-    -Direction Outbound `
-    -RemoteAddress $domain `
-    -Action Block `
-    -Enabled True `
-    -Profile Any
-}
 ```
 
 ☢️ **Caveat:** Some domains (like `*.microsoft.com`) use rotating IPs or CDNs — for deeper blocking, use FQDN-aware firewalls or tools like [SimpleWall](https://www.henrypp.org/product/simplewall) (Windows) or pfSense rules if you’re routing through a LAN box.
@@ -305,6 +324,119 @@ Every time you connect to Wi-Fi or Ethernet, **NCSI** does this:
 
 ---
 
+Now you're going full black-bag on the telemetry stack. Let’s break it down — because **OneSettings** and **Microsoft Compatibility Appraiser** are two of the sneakiest Windows phone-home services still lingering even after "Disable Telemetry" is set.
+
+---
+
+## 🧠 What About the other ones you said you mentioned? I don't see them
+
+Here they are, GOD
+
+---
+
+### 🧨 **1. Microsoft Compatibility Appraiser (`CompatTelRunner.exe`)**
+
+| Location                                  | Purpose                                                                          |
+| ----------------------------------------- | -------------------------------------------------------------------------------- |
+| `C:\Windows\System32\CompatTelRunner.exe` | Collects telemetry about hardware, drivers, and compatibility for Windows Update |
+
+* Runs via scheduled task:
+  `Microsoft > Windows > Application Experience > Microsoft Compatibility Appraiser`
+
+* It:
+
+  * Crawls your installed programs
+  * Logs driver compatibility
+  * Sends telemetry to MS for “upgrade readiness” and **update targeting**
+
+---
+
+### 🔬 **2. OneSettings / `OneSettingsClientHost.exe`**
+
+\| Location                        | Purpose |
+\| `C:\Windows\System32\OneSettingsClientHost.exe` | Fetches configuration for feature rollouts, A/B tests, and experimental UI pushes |
+
+* It’s the backend for Microsoft's "Windows as a Service" rollout logic.
+* Used to selectively enable/disable features **outside of updates** (yes, even Copilot toggles).
+* Tied into **ContentDeliveryManager**, **Feature Experience Packs**, and MSUX data pipelines.
+
+---
+
+## 🚫 How to Disable These
+
+---
+
+### 🔧 **CompatTelRunner (Compatibility Appraiser)**
+
+1. Open `Task Scheduler`
+2. Go to:
+   `Task Scheduler Library > Microsoft > Windows > Application Experience`
+3. Right-click **Microsoft Compatibility Appraiser**
+   → **Disable**
+
+Or, via PowerShell:
+
+```powershell
+Disable-ScheduledTask -TaskPath "\Microsoft\Windows\Application Experience\" -TaskName "Microsoft Compatibility Appraiser"
+```
+
+---
+
+### 🔧 **OneSettingsClientHost / CDP Service**
+
+**Harder to disable directly** — it's managed via `Connected User Experiences and Telemetry` service.
+
+#### 🔥 Kill it this way:
+
+```powershell
+Stop-Service DiagTrack -Force
+Set-Service DiagTrack -StartupType Disabled
+```
+
+This neuters OneSettings by stopping its parent telemetry agent.
+
+#### 💣 Bonus: Block by ACL
+
+If you're *really* feral:
+
+```powershell
+icacls "C:\Windows\System32\CompatTelRunner.exe" /deny Everyone:RX
+icacls "C:\Windows\System32\OneSettingsClientHost.exe" /deny Everyone:RX
+```
+
+> ⛔ **Warning:** This blocks execution entirely. May break upgrade checks, feedback services, or newer Start Menu experiments. Do it only if you’re cool with never being part of the “test group.”
+
+---
+
+## 🛡️ Optional: Block Appraiser via Registry
+
+```reg
+[HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Appraiser]
+"DisableInventory"=dword:00000001
+```
+
+This doesn’t always stop execution, but limits **what it collects**.
+
+---
+
+## ✅ TL;DR
+
+| Service                     | Kill It By                                    |
+| --------------------------- | --------------------------------------------- |
+| `CompatTelRunner.exe`       | Disable scheduled task + ACL block (optional) |
+| `OneSettingsClientHost.exe` | Disable DiagTrack + optional ACL              |
+| Appraiser Data              | Reg key: `DisableInventory = 1`               |
+
+---
+
+You want all of this bundled in a script? `.ps1` that does:
+
+* Reg edit
+* ACL lockdown
+* Task scheduler disable
+* Service kill?
+
+Say the word.
 
 
 
