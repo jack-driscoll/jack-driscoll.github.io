@@ -59,12 +59,13 @@ Even **local file names** can be analyzed if:
 ### What is currently handling search?
 
 🧠 What Could Be Handling Search on Your System
-|Component|	Role	|Where to find
-**SearchHost.exe** |	Classic indexed local search host	| Older or controlled builds only
-**SearchApp.exe**	| Modern Start search / cloud integration	| C:\Windows\SystemApps\Microsoft.Windows.Search_*
-**StartMenuExperienceHost.exe**	| Start menu UI shell	| UI layer only, doesn’t search
-**TextInputHost.exe / WindowsShellExperienceHost.exe** |	Backend UI glue / animations	| Peripheral control
-**CopilotSearchService.exe** | (newer builds)	Web-integrated AI junk	| Canary/dev builds only so far
+|Component|	Role	|Where to find                              |
+| ------- | ------------------------------------------- |---------|
+|**SearchHost.exe** |	Classic indexed local search host	| Older or controlled builds only|
+|**SearchApp.exe**	| Modern Start search / cloud integration	| C:\Windows\SystemApps\Microsoft.Windows.Search_*|
+|**StartMenuExperienceHost.exe**	| Start menu UI shell	| UI layer only, doesn’t search|
+|**TextInputHost.exe / WindowsShellExperienceHost.exe** |	Backend UI glue / animations	| Peripheral control|
+|**CopilotSearchService.exe** | (newer builds)	Web-integrated AI junk	| Canary/dev builds only so far|
 
 
 ## 🛡️ Turn Off the Shit Funnel
@@ -237,3 +238,73 @@ Everything is:
     Immune to Start Menu shenanigans
 
 Assign it to Win+Space or Ctrl+Alt+F.
+
+## 🔧 Remaining Optional Polishes
+
+If you want to push the edge even further:
+
+[x] Mention OneSettings, NCSI, and Microsoft Compatibility Appraiser if you're feeling extra rude
+
+[ ] Schedule firewall rules refresh via task scheduler (for those slippery CDNs)
+
+[ ] Build a “feral install script” repo or .zip bundle for rapid deployment on new machines
+
+### the fuck is NCSI?
+
+#### 🧠 TL;DR
+
+| Feature | What It Does                                |
+| ------- | ------------------------------------------- |
+| NCSI    | Probes Microsoft to confirm internet status |
+| Risk    | Silent outbound ping, leaks presence        |
+| Disable | Registry: `EnableActiveProbing = 0`         |
+
+
+[disable in the registry](/assets/disable_ncsi.reg) Run as Admin (gives me full control of your computers, so I can hack the gibson)
+
+---
+
+**NCSI** = **Network Connectivity Status Indicator**
+
+It’s a little background component in Windows that *looks innocent*… but it pings Microsoft every time your system connects to a network to decide **"Am I online?"**
+
+---
+
+#### 🧪 What It Actually Does
+
+Every time you connect to Wi-Fi or Ethernet, **NCSI** does this:
+
+1. Makes an HTTP request to:
+
+   ```
+   http://www.msftconnecttest.com/connecttest.txt
+   ```
+
+   (Expected result: plain text response `Microsoft Connect Test`)
+
+2. Sometimes also probes:
+
+   ```
+   dns.msftncsi.com
+   ```
+
+3. If it gets the expected response:
+
+   * Green checkmark appears in your system tray
+   * Windows reports "Internet access"
+   * Some services (like Edge, Microsoft Store, or Defender updates) activate
+
+---
+
+#### 🚨 Why You Might Not Like That
+
+* It **automatically contacts Microsoft** *even if you didn’t open a browser*
+* It **bypasses proxy settings** to avoid being intercepted
+* It can **leak network presence** when you're on a restricted, captive, or airgapped LAN
+* It's **hardcoded** into Windows networking stack — even **airplane mode recovery** depends on it
+
+---
+
+
+
+
