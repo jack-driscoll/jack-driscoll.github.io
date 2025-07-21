@@ -9,7 +9,7 @@ description: "How to disable data collection, telemetry, and block micro$oft fro
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
-# Eww, gross, stay away from my local data, Bill
+# Eww, gross, stay away from my local data, Bill G
 
 I don't want you all up in my system.  No.  Stay away, plz.  Thank you.  This all started because they changed my search bar and half of my programs aren't in it, anymore.  Then, I realized they were indexing my whole drive and *jokingly* asked if they were sending it all to **Micro soft penis** HQ *and they were*.
 
