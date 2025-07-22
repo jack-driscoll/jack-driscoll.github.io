@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "brainspunk/'my genius': Life Support For The Rest Of Us"
+title: "'my genius'/brainspunk: Life Support For The Rest Of Us"
 date: 2025-07-03
 tags: [personal, diy, support, questions, mygenius]
 permalink: /genius/
@@ -8,14 +8,15 @@ description: "MyGenius: Get the answers (and art) you need delivered by a friend
 image: https://jackd.ethertech.org/images/mythic_support.png
 ---
 
----
+**TLDR**
 
 **Tired of bad AI answers, SEO sludge, and endless forum threads?**  
 **What if you had a personal genius on call—human, kind, and fast?**  
 
-For just $10/month, I’ll do the thinking for you.  
+For just $10/month, I’ll do the thinking for you.
+One question, one hour, one month; one genius.
 Skip the noise. Get the answer. Stay brilliant.  
-[Subscribe on Ko-fi →](https://ko-fi.com/fitztwombly/tiers)
+[→Subscribe on Ko-fi←](https://ko-fi.com/fitztwombly/tiers)
 
 ---
 
@@ -35,7 +36,9 @@ It's also *really hard to find work* and I would rather do this for $10/hr than 
 
 The other thing about me is that **I love helping people**.  I can still remember being a small child and **the feeling of joy that followed successfully teaching a younger child how to do something**.  When they finally *got it*, you could see it in their face, which went from a sort of unhappy grimace to a calm, smooth smile.  *It clicked*, and if I was successful, the same thing would always happen - difficulty and confusion for a period of time and then suddenly **BAMMO - they 'got it'** and could easly repeat it without my assistance.  This was *like magic to me* and *I loved it*.  
 
-**Transferring knowledge to another person** like you'd transfer a cold was *the opposite* - **they got better instead of worse**.  So even though it might be *partially selfish*, because I like the feeling of having successfully taught, *it's because I can see you like the feeling of successfully learning*.  It's also one of the few things that counters one of the basic principles of the universe - entropy.  Typically things move from a more ordered state to a more disordered state, but this was *negentropic* - another human went from being more disorganized to more organized and capable of creating *more organization*.  It's really pretty great and *I have a knack for it*.  Are you *less intelligent* than average?  **Even better**.  The less you know, the more you're capable of learning.  **I love a challenge, I love teaching beginners**, and **I especially love** teaching people who *think* that *they can't get it* because they've unsuccessfully tried.
+**Transferring knowledge to another person** like you'd transfer a cold was *the opposite* - **they got better instead of worse**.  So even though it might be *partially selfish*, because I like the feeling of having successfully taught, *it's because I can see you like the feeling of successfully learning*.  It's also one of the few things that counters one of the basic principles of the universe - entropy.  Typically things move from a more ordered state to a more disordered state, but this was *negentropic* - another human went from being more disorganized to more organized and capable of creating *more organization*.  It's really pretty great and *I have a knack for it*.  
+
+Are you *less intelligent* than average?  **Even better**.  The less you know, the *more* you're capable of learning.  **I love a challenge, I love teaching beginners**, and **I especially love** teaching people who *think* that *they can't get it* because they've unsuccessfully tried.
 
 ## Are you really a genius?
 
