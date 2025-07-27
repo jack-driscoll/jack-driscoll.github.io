@@ -270,4 +270,4 @@ This file includes:
 - Business-purpose phrasing for any audit… 
 - and it's a **spreadsheet**, that's how you know **I'm doing real, legitimate business**
 
-[Yo dawg, it's a shirt that even says "I reviewed it for the losses!"](/images/losses.png) 
+[Yo dawg, it's a shirt that even says "I reviewed it for the losses!"](/images/losses.png)
