@@ -78,6 +78,33 @@ You just want to make a plugin say "Hello MeshTastic", and they’re like:
 
 And I wouldn’t have it any other way. You want help scripting a Feral Zone intro sequence or branding the Vine episodes as canonical transmissions? I’m ready when you are.
 
+## We got jokes
+
+Preach. You're out here fighting three daemons, five Java spirits, a corrupted cache dimension, and a Gradle warlock just to get a damn action bar to render. **An action bar.** Not a railgun. Not warp drive. A rectangle at the top of a screen with a back button and maybe a menu.
+
+This is the hellscape we’ve built:
+
+* Want to draw a basic UI? Cool, hope you enjoy 3 JDKs, a cursed Gradle wrapper, and a plugin that hasn't been compatible since the fall of Rome.
+* Want to *see* your dependencies? They're in `~/.gradle/caches/jars-8/`… *but only visible to those worthy enough to defeat the lock daemon*.
+* Want to change Java versions? Good luck—your other projects just burst into flames.
+
+Honestly? The action bar should come with a certificate after this.
+
+> “You have endured the Rite of Buildscript Configuration. You may now inherit the Toolbar of Torment.”
+
+Let’s finish exorcising this beast. You’re close. One clean kill and that action bar is yours.
+
+## we got scripts
+
+```bash
+#!/bin/bash
+export JAVA_HOME=/path/to/jdk11
+find . -name 'gradle-wrapper.properties' -exec sed -i 's|https://services.gradle.org/distributions/gradle-[^/]*-all.zip|https://services.gradle.org/distributions/gradle-6.9.1-all.zip|' {} +
+find . -name 'build.gradle' -exec sed -i 's|com.android.tools.build:gradle:[^"]*|com.android.tools.build:gradle:4.2.2|' {} +
+echo "Patched wrappers and plugins. Ready to build."
+```
+
+## we got to wondering whether its like this for everyone?
 
 ## Don't do this
 

@@ -1,0 +1,122 @@
+---
+layout: post
+title: "Getting started with FreeBSD"
+date: 2025-08-03
+permalink: /2025-08-03-freebsd.html
+tags: [article, how-to, software, freebsd, config]
+categories: [article, how-to, software, freebsd]
+author: nteleky
+description: "A Guide to Getting Started with FreeBSD, installation, configuration, x windows, networking, etc -nTeleKy"
+image: https://jackd.ethertech.org/images/mythic_support_small.png
+---
+
+# Installation
+
+I recommend installing from the DVD image.  [In this situation I'm going to start with 14.3](https://download.freebsd.org/releases/ISO-IMAGES/14.3/), dhe dhd image.  It's a good idea to read [the RELEASE notes](https://www.freebsd.org/releases/14.3R/announce/) to see what's changed.  So far the only major change I've seen is they moved the default home directory to /home, which is actually a symlink to /usr/home (the traditional location).  If you have a normal network connection, use DHCP when setting up the network.  Since all the installation files are included in the image it should work whether or not you have a network.
+
+Add your user to the `wheel` group, which gives it super-human powers.  Sudo isn't installed by default, so when you do the intial configuration, you should either run as root with `su root` (use the root password, not "yours") or log in as root for the initial configuradion.  The first thing you want to do is double-check the `/etc/rc.conf` file to make sure it's correct.
+
+## The Filesystem
+
+Executables, any programs, are located at `/bin` and `/sbin` and "userland" (installed programs) are held at `/usr/local/bin` and `/usr/local/sbin`.  "FreeBSD base system configuration is located at the `/etc` directory, and the `/usr/local/etc` directory contains all the configuration files of the applications installed on the system through the ports collection and packages."
+
+### /etc/rc.conf
+
+`vi` is installed as part of the system, if you don't already know, learn how to use it - at least the basics.  Vi will start in `vi mode`, which does not allow touching the text file.  `i` will change the mode to `input mode`, which allows text entry, so you can edit the file, [ESC] leaves input mode `:` changes to command mode, `:wq[ENTER]` will quit.  If you're in `vi mode` and you put in a number and then an action, it will do that action the corresponding number of times.  One of the more popular actions is, for example, 10G, goes to the tenth line, 6dd deletes 6 lines of text, `yy` yanks a line and puts it in the clipboard, and `p` puts it under the cursor.  You can learn more here, but [that's enough to get you started](https://github.com/lamodots/vi-cheat-sheet).
+
+There is also `/etc/rc.conf.local`, which is also parsed.  The intention is that global site configuration can be done in `/etc/rc.conf` and machine-specific information in `/etc/rc.conf.local`.
+
+So `vi /etc/rc.conf`, you should see something like this:
+```
+clear_tmp_enable="YES"
+hostname="bsdeeznutz.rad.box"
+keymap="colemak.acc.kbd"
+ifconfig_em0="DHCP"
+ifconfig_em0_ipv6="inet6 accept_rtadv"
+local_unbound_enable="YES"
+sshd_enable="YES"
+moused_enable="YES"
+ntpd_enable="YES"
+ntpd_sync_on_start="YES"
+powerd_enable="YES"
+# Set dumpdev to "AUTO" to enable crash dumps, "NO" to disable
+dumpdev="AUTO"
+```
+
+You'll probably have a different hostname, keymap, and perhaps some other settings.
+
+# log_in_vain - Log any connection attempts to ports where there is no socket accepting connections
+
+### /etc/sysctl.conf
+
+"The sysctl(8) utility is used to make changes to a running FreeBSD system. The sysctl(8) utility retrieves kernel state and allows processes with appropriate privilege to set kernel state."
+
+Alright, let's do it!  A good place to start is to take a look at what's already there with `sysctl -a | more`, which lists all of the configured variables.
+
+You can also set a variable with something like `sysctl kern.maxfiles=5000`, however to keep the files after a reboot you will need to add them to `/etc/sysctl.conf`.
+
+## The Ports System
+
+Install `git`.  In my system, it was vulnerable, so I had to install it with the pkg manager instead of ports.
+
+root@bsdeeznutz:/usr/ports # git update
+git: 'update' is not a git command. See 'git --help'.
+
+The most similar command is
+        update-ref
+root@bsdeeznutz:/usr/ports # git remote add origin https://git.freebsd.org/ports.git
+root@bsdeeznutz:/usr/ports # git fetch origin
+
+I usually use portmaster and [there's a good guide on how to use it here](https://www.cyberciti.biz/faq/freebsd-updating-software-ports-applications/)
+
+### The Network
+
+
+[FreeBSD Network Tuning and Optimization](https://calomel.org/freebsd_network_tuning.html)
+
+[FreeBSD System TCP Performance Tuning](https://klarasystems.com/articles/freebsd-tcp-performance-system-controls/)
+
+### Services
+
+### The Firewall
+
+#### ipfw
+
+When you initially add the firewall (I started with ipfw), you'll *lose SSH access* unless you set it to 'open', so only do that if you're in front of the machine.
+
+You're supposed to be able to do something like this:
+```
+############
+# Trusted Services
+firewall_myservices = 22
+
+############
+# Trusted Machines
+firewall_trusted = 192.168.1.31
+```
+...but it doesn't seem to read the variables from the rc.conf file or even if you put them in the script itself.
+
+[There's a good guide to setting up ipfw here](https://www.zenarmor.com/docs/network-security-tutorials/freebsd-firewall-configuration-with-ipfw)
+
+#### pf
+
+#### ipfilter
+
+## The X Window System
+
+So, let's go! to /usr/ports/x11/xorg & make && make install clean and....
+
+![xorg vulnerability](/images/freebsd/xorg-vulnerability.png)
+
+https://vuxml.freebsd.org/freebsd/b0a3466f-5efc-11f0-ae84-99047d0a6bcc.html
+https://vuxml.FreeBSD.org/freebsd/a96cd659-303e-11f0-94b5-54ee755069b5.html
+ 
+OK, fine, we'll just update the ports tree 
+
+Alright, we have to `pkg install git` and go to /usr/ports and `git init` and `git remote add origin https://git.freebsd.org/ports.git`  and `git fetch origin`
+
+
+and...huh, still the same?  Let's take a look!  Oh, unmaintained with multiple *unfixed* vulnerabilities.  Guess we'll have to allow that.
+
+Broke his heart and it made him old
+Tries to rebuild but it just erodes
