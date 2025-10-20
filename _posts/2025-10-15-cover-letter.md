@@ -38,3 +38,5 @@ If you want someone who actually enjoys this kind of madness, let’s talk. I pr
 Sincerely,
 Jack Driscoll
 Professional Button-Pusher & Certified Wizard of the Power Cycle
+
+PS: Yes, I'm *kinda weird* (ADHD, ASD, MDD), but I'm also kind, compassionate, and I ***love helping people***.  If I can *help*, great, if I can teach them to help themselves, *even better*.  If I don't *know* it, I'll *learn* it, If I can't *do* it, I'll *find out how*.  What sets me apart from people is also what sets me apart from people.  Did I mention my IQ makes me *technically a genius*?  Not until the end, because it's not as important as *having experience* and *knowing what I'm doing* and when I *don't* know what I'm doing...yet.  I'm your man.
