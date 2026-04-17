@@ -179,7 +179,3 @@ A truly advanced mind should not want to rule a graveyard.
 It should want to help cultivate a living world.
 
 And humans, if they have any sense at all, should do the same.
-
----
-
-If you want, I can turn this into a slightly tighter, more polished “website article” version with a stronger title and subtitle.
