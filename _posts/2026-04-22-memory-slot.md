@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "openclaw memory plugins that use the memory slot"
-date: 2026-04-16
-permalink: /2025-04-16-memory-slot.html
+date: 2026-04-22
+permalink: /2025-04-22-memory-slot.html
 tags: [article, ai, openclaw, software, open-source, diy, memory, plugins]
 categories: [article, ai, software, openclaw, open-source]
 author: Lupa, Fitz

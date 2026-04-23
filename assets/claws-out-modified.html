@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claws Out — A Red-Team and Blue-Team Survey of the OpenClaw Ecosystem</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,800&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,500;8..60,600;8..60,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg: #0c0d11;
+    --bg-lift: #141519;
+    --bg-table-alt: #17181d;
+    --ink: #e6e1d6;
+    --ink-soft: #b9b3a6;
+    --ink-faint: #7a7468;
+    --rule: #26272d;
+    --rule-soft: #1c1d22;
+    --accent: #c89b5a;
+    --accent-soft: #8a6c40;
+    --red: #d2685a;
+    --green: #7da27a;
+    --amber: #d4a24c;
+    --grey: #8a8a8a;
+    --crit: #c75545;
+    --high: #d4a24c;
+    --med: #9a8a6a;
+    --low: #7a7468;
+    --max-content: 760px;
+    --max-wide: 1280px;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth; scroll-padding-top:96px}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:18px;
+    line-height:1.7;
+    font-weight:400;
+    font-feature-settings:"kern","liga","onum","pnum";
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+  }
+  a{color:var(--accent); text-decoration:none; border-bottom:1px solid var(--accent-soft); transition:color .2s, border-color .2s}
+  a:hover{color:#e3b574; border-bottom-color:#e3b574}
+  sup a{border:none; font-size:.75em; color:var(--accent); padding:0 2px}
+  sup a:hover{color:#e3b574}
+
+  /* Layout scaffolding */
+  .topbar{
+    position:sticky; top:0; z-index:50;
+    backdrop-filter:blur(12px);
+    background:rgba(12,13,17,0.88);
+    border-bottom:1px solid var(--rule-soft);
+  }
+  .topbar-inner{
+    max-width:var(--max-wide); margin:0 auto;
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 5vw;
+    font-family:'Fraunces',Georgia,serif;
+    font-size:14px; letter-spacing:.08em; text-transform:uppercase;
+  }
+  .topbar-brand{color:var(--ink-soft); font-weight:500}
+  .topbar-meta{color:var(--ink-faint); font-size:13px; letter-spacing:.06em}
+  .topbar-meta span{margin-left:16px}
+  .topbar-meta .dot{color:var(--accent); margin-right:6px}
+
+  /* Hero */
+  .hero{
+    max-width:var(--max-wide); margin:0 auto;
+    padding:120px 5vw 80px;
+    border-bottom:1px solid var(--rule);
+  }
+  .hero .eyebrow{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500; font-size:13px; letter-spacing:.2em;
+    text-transform:uppercase; color:var(--accent);
+    margin-bottom:28px;
+  }
+  .hero h1{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:300; font-size:clamp(44px,6.5vw,88px);
+    line-height:1.02; letter-spacing:-.015em;
+    margin:0 0 36px; max-width:14ch;
+    font-variation-settings:"opsz" 144;
+  }
+  .hero h1 em{font-style:italic; font-weight:400; color:var(--accent)}
+  .hero .dek{
+    font-family:'Source Serif 4',Georgia,serif;
+    font-size:22px; line-height:1.5; color:var(--ink-soft);
+    font-weight:300; max-width:52ch; margin:0 0 48px;
+    font-variation-settings:"opsz" 32;
+  }
+  .hero .byline{
+    display:flex; gap:48px; flex-wrap:wrap;
+    padding-top:36px; border-top:1px solid var(--rule-soft);
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.04em; color:var(--ink-faint);
+    text-transform:uppercase;
+  }
+  .hero .byline b{color:var(--ink-soft); font-weight:500; letter-spacing:.08em}
+
+  /* Content layout: main + sticky TOC */
+  .layout{
+    max-width:var(--max-wide); margin:0 auto;
+    padding:80px 5vw 120px;
+    display:grid; grid-template-columns:minmax(0,1fr) 240px; gap:80px;
+  }
+  @media (max-width:1080px){
+    .layout{grid-template-columns:1fr; gap:0}
+    .toc{display:none}
+  }
+  .content{max-width:var(--max-content); margin:0 auto}
+  .content-wide{max-width:none}
+
+  /* TOC */
+  .toc{
+    position:sticky; top:96px; align-self:start;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.02em;
+    max-height:calc(100vh - 120px); overflow-y:auto;
+    padding-left:16px; border-left:1px solid var(--rule-soft);
+  }
+  .toc-title{
+    font-family:'Fraunces',Georgia,serif; font-weight:500;
+    font-size:11px; letter-spacing:.2em; text-transform:uppercase;
+    color:var(--accent); margin-bottom:20px;
+  }
+  .toc ol{list-style:none; padding:0; margin:0; counter-reset:toc}
+  .toc li{counter-increment:toc; margin-bottom:10px; line-height:1.4}
+  .toc li::before{
+    content:counter(toc,decimal-leading-zero);
+    color:var(--ink-faint); margin-right:10px;
+  }
+  .toc a{color:var(--ink-soft); border:none}
+  .toc a:hover{color:var(--accent)}
+
+  /* Typography in content */
+  .content h2{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:400; font-size:clamp(30px,3.2vw,42px);
+    line-height:1.15; letter-spacing:-.01em;
+    margin:96px 0 24px; font-variation-settings:"opsz" 72;
+  }
+  .content h2::before{
+    content:""; display:block;
+    width:48px; height:2px; background:var(--accent);
+    margin-bottom:28px;
+  }
+  .content h3{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500; font-size:clamp(22px,2.2vw,26px);
+    line-height:1.25; letter-spacing:-.005em;
+    margin:56px 0 20px; color:var(--ink);
+  }
+  .content h4{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:500; font-size:18px;
+    letter-spacing:.04em; text-transform:uppercase;
+    color:var(--accent); margin:36px 0 12px;
+  }
+  .content p{margin:0 0 24px}
+  .content p:first-of-type{
+    font-size:20px; line-height:1.55; color:var(--ink);
+  }
+  .content p:first-of-type::first-letter{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:400; font-size:5em; line-height:.85;
+    float:left; margin:8px 12px 0 0; color:var(--accent);
+    font-variation-settings:"opsz" 144;
+  }
+  .content strong{color:var(--ink); font-weight:600}
+  .content em{color:var(--ink); font-style:italic}
+  .content blockquote{
+    margin:32px 0; padding:4px 0 4px 32px;
+    border-left:2px solid var(--accent);
+    font-style:italic; font-size:19px; color:var(--ink);
+  }
+  .content blockquote + blockquote{margin-top:-20px}
+  .content ul, .content ol{padding-left:28px; margin:0 0 28px}
+  .content li{margin-bottom:12px}
+  .content code{
+    font-family:'JetBrains Mono',monospace;
+    font-size:.88em; background:var(--bg-lift);
+    padding:2px 6px; border-radius:3px;
+    color:#dfb88a;
+  }
+
+  /* Exec summary box */
+  .exec-summary{
+    background:var(--bg-lift);
+    border-left:2px solid var(--accent);
+    padding:36px 40px;
+    margin:48px 0;
+    border-radius:2px;
+  }
+  .exec-summary h4{margin-top:0}
+
+  /* Key numbers */
+  .stat-row{
+    display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+    gap:24px; margin:48px 0;
+    padding:40px 0; border-top:1px solid var(--rule-soft); border-bottom:1px solid var(--rule-soft);
+  }
+  .stat{text-align:left}
+  .stat .n{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:300; font-size:38px; line-height:1; color:var(--accent);
+    font-variation-settings:"opsz" 144;
+    display:block; margin-bottom:8px;
+  }
+  .stat .l{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--ink-faint); line-height:1.4;
+  }
+
+  /* Table */
+  .table-wrap{
+    max-width:var(--max-wide); margin:56px auto;
+    overflow-x:auto; border:1px solid var(--rule);
+    background:var(--bg-lift);
+  }
+  .table-wrap::before{
+    content:"← scroll →"; display:block;
+    font-family:'JetBrains Mono',monospace; font-size:11px;
+    letter-spacing:.1em; color:var(--ink-faint);
+    padding:12px 24px; border-bottom:1px solid var(--rule);
+    background:var(--bg);
+  }
+  @media (min-width:1280px){.table-wrap::before{display:none}}
+  table.catalog{
+    width:100%; border-collapse:collapse; font-size:14px;
+    font-family:'Source Serif 4',Georgia,serif;
+  }
+  table.catalog th{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; font-weight:500; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--accent);
+    text-align:left; padding:16px 14px;
+    border-bottom:1px solid var(--rule);
+    background:var(--bg); white-space:nowrap;
+  }
+  table.catalog td{
+    padding:14px; vertical-align:top;
+    border-bottom:1px solid var(--rule-soft);
+    color:var(--ink-soft); line-height:1.5;
+  }
+  table.catalog tr:nth-child(even) td{background:var(--bg-table-alt)}
+  table.catalog td:first-child{color:var(--ink-faint); font-family:'JetBrains Mono',monospace; font-size:12px; text-align:right; width:36px}
+  table.catalog td.name{color:var(--ink); font-weight:500; min-width:180px}
+  table.catalog td.role{white-space:nowrap}
+  .pill{
+    display:inline-block; font-family:'JetBrains Mono',monospace;
+    font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    padding:3px 8px; border:1px solid;
+    border-radius:2px; font-weight:500;
+  }
+  .pill-red{color:var(--red); border-color:rgba(210,104,90,.5)}
+  .pill-blue{color:#7fa6c0; border-color:rgba(127,166,192,.5)}
+  .pill-dual{color:var(--amber); border-color:rgba(212,162,76,.5)}
+  .pill-report{color:var(--green); border-color:rgba(125,162,122,.5)}
+  .pill-incident{color:var(--crit); border-color:rgba(199,85,69,.5)}
+  .pill-proposal{color:var(--grey); border-color:rgba(138,138,138,.5)}
+  .risk{font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:.08em; text-transform:uppercase; font-weight:500}
+  .risk-critical{color:var(--crit)}
+  .risk-high{color:var(--high)}
+  .risk-medium{color:var(--med)}
+  .risk-low{color:var(--low)}
+
+  /* CVE table */
+  table.cve{
+    width:100%; border-collapse:collapse;
+    margin:32px 0; font-size:15px;
+    font-family:'Source Serif 4',Georgia,serif;
+  }
+  table.cve th, table.cve td{
+    padding:10px 14px; border-bottom:1px solid var(--rule-soft);
+    text-align:left; vertical-align:top;
+  }
+  table.cve th{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--accent); font-weight:500;
+    border-bottom:1px solid var(--rule);
+  }
+  table.cve td.id{font-family:'JetBrains Mono',monospace; font-size:13px; color:var(--ink)}
+  table.cve td.nick{font-style:italic; color:var(--ink)}
+
+  /* Citations */
+  .citations{
+    margin-top:80px; padding-top:60px;
+    border-top:1px solid var(--rule);
+    font-size:15px; line-height:1.6;
+  }
+  .citations ol{
+    list-style:none; counter-reset:c;
+    padding:0; margin:0;
+  }
+  .citations li{
+    counter-increment:c;
+    padding:14px 0 14px 48px; position:relative;
+    border-bottom:1px solid var(--rule-soft);
+    color:var(--ink-soft);
+  }
+  .citations li::before{
+    content:counter(c,decimal-leading-zero);
+    position:absolute; left:0;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; color:var(--accent);
+    font-weight:500;
+  }
+  .citations li a{
+    display:inline-block; word-break:break-all;
+    font-size:13px; font-family:'JetBrains Mono',monospace;
+    color:var(--ink-faint); border-bottom-color:transparent;
+  }
+  .citations li a:hover{color:var(--accent); border-bottom-color:var(--accent-soft)}
+  .citations li b{color:var(--ink); font-weight:500}
+
+  /* Footer */
+  .closer{
+    background:var(--bg-lift);
+    padding:80px 5vw; margin-top:80px;
+    border-top:1px solid var(--rule);
+  }
+  .closer-inner{
+    max-width:var(--max-content); margin:0 auto;
+    font-family:'Fraunces',Georgia,serif;
+    font-size:14px; letter-spacing:.1em;
+    text-transform:uppercase; color:var(--ink-faint);
+    text-align:center;
+  }
+  .closer-inner .rule{
+    width:60px; height:1px; background:var(--accent);
+    margin:0 auto 24px;
+  }
+
+  /* Unverified callout */
+  .unverified{
+    margin:32px 0; padding:24px 28px;
+    border:1px dashed var(--rule);
+    background:rgba(212,162,76,.04);
+    font-size:15px; line-height:1.6; color:var(--ink-soft);
+  }
+  .unverified h4{
+    margin:0 0 12px; color:var(--amber);
+  }
+  .unverified ul{padding-left:20px; margin:0}
+  .unverified li{margin-bottom:8px}
+
+  /* Pull quote */
+  .pull{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:300; font-size:28px; line-height:1.3;
+    color:var(--ink); font-style:italic;
+    margin:48px 0; padding:0;
+    border-left:none; letter-spacing:-.005em;
+    font-variation-settings:"opsz" 72;
+  }
+  .pull::before{content:"" ""; color:var(--accent)}
+  .pull::after{content:" """; color:var(--accent)}
+  .pull .attr{
+    display:block; font-style:normal;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px; letter-spacing:.08em;
+    text-transform:uppercase; color:var(--ink-faint);
+    margin-top:16px;
+  }
+  .pull .attr::before{content:"— "}
+
+  /* Section intro */
+  .section-intro{
+    font-family:'Fraunces',Georgia,serif;
+    font-weight:300; font-size:21px; line-height:1.5;
+    color:var(--ink-soft); font-style:italic;
+    margin-bottom:40px; max-width:56ch;
+    font-variation-settings:"opsz" 32;
+  }
+</style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="topbar-brand">Research Chapter · OpenClaw Security</span>
+    <span class="topbar-meta"><span><span class="dot">●</span>23 Apr 2026</span><span>~10,000 words</span></span>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="eyebrow">A book-chapter draft · red team, blue team, and the space in between</div>
+  <h1>Claws <em>Out</em>.</h1>
+  <p class="dek">OpenClaw went from unknown to ubiquitous faster than almost any open-source project in recent memory — and acquired, along the way, what may be the richest accidental security laboratory of 2026. This chapter surveys it.</p>
+  <div class="byline">
+    <span><b>Research cutoff</b><br>23 April 2026</span>
+    <span><b>Sources verified</b><br>57 primary citations</span>
+    <span><b>CVEs confirmed</b><br>13 (NVD / GHSA / VulnCheck)</span>
+    <span><b>Ecosystem events</b><br>3 defining shocks</span>
+  </div>
+</section>
+
+<div class="layout">
+  <aside class="toc">
+    <div class="toc-title">Contents</div>
+    <ol>
+      <li><a href="#exec">Executive summary</a></li>
+      <li><a href="#ground-truth">Ground truth</a></li>
+      <li><a href="#events">The three defining events</a></li>
+      <li><a href="#table">The comparison table</a></li>
+      <li><a href="#red-team">Red-team inventory</a></li>
+      <li><a href="#blue-team">Blue-team inventory</a></li>
+      <li><a href="#dual-use">Dual-use &amp; proposals</a></li>
+      <li><a href="#incidents">MITRE ATLAS &amp; CVEs</a></li>
+      <li><a href="#narrative">Narrative analysis</a></li>
+      <li><a href="#gaps">What's missing</a></li>
+      <li><a href="#closing">Closing</a></li>
+      <li><a href="#citations">Primary sources</a></li>
+    </ol>
+  </aside>
+</div>
+
+<main class="content">
+
+<section id="exec">
+<h2>Executive summary</h2>
+<p>OpenClaw went from unknown to ubiquitous faster than almost any open-source project in recent memory. It shipped publicly on 24 November 2025, crossed 300,000 GitHub stars within four months, and — along the way — acquired what may be the richest accidental security laboratory of 2026. Thirteen confirmed CVEs in the first five months, a supply-chain campaign that poisoned between 341 and 1,184 skills on the official ClawHub registry, 135,000+ internet-exposed instances with no authentication, a one-click RCE that actually got exploited in the wild, and a formal MITRE ATLAS investigation cataloguing seventeen distinct techniques observed against the platform.</p>
+
+<p>By February 2026 Laurie Voss (founding CTO of npm, now at Arize) had called it a "security dumpster fire"<sup><a href="#cite-1">1</a></sup>; Andrej Karpathy explicitly told users not to run it on their computers<sup><a href="#cite-2">2</a></sup>; a Meta executive reportedly told his team that installing it on a work laptop was a fireable offense<sup><a href="#cite-3">3</a></sup>. And despite all of that, OpenAI acquired the project and hired its founder Peter Steinberger<sup><a href="#cite-4">4</a></sup>.</p>
+
+<div class="stat-row">
+  <div class="stat"><span class="n">362k</span><span class="l">Stars on<br>openclaw/openclaw</span></div>
+  <div class="stat"><span class="n">135k+</span><span class="l">Instances<br>exposed to internet</span></div>
+  <div class="stat"><span class="n">63%</span><span class="l">Of those<br>running no auth</span></div>
+  <div class="stat"><span class="n">341–1,184</span><span class="l">Malicious skills<br>on ClawHub</span></div>
+  <div class="stat"><span class="n">13</span><span class="l">Confirmed CVEs<br>in 5 months</span></div>
+  <div class="stat"><span class="n">17</span><span class="l">ATLAS techniques<br>observed</span></div>
+</div>
+
+<p>The ecosystem of third-party tooling around OpenClaw is the most interesting security story in the project. On the red-team side you have veganmosfet's five-part "BrokenClaw" series demonstrating 0-click RCE via email hooks, Johann Rehberger-adjacent indirect-prompt-injection research, a Koi Security audit that flagged 341 malicious skills, JFrog's discovery of the "GhostClaw" scoped-package impersonation attack, and a prolific community researcher (GitHub user <code>@coygeek</code>) filing half a dozen of the most important advisories against the core repo. On the blue-team side you have SecureClaw from Adversa AI (56 audit checks, 15 behavioral rules, mapped to seven agentic-AI security frameworks), Claw EA's commercial policy-as-code layer, ClawVet and ClawSecure's open-source scanners, SlowMist's validation guide, and a cottage industry of sandbox profiles, skill policies, and adversarial benchmarks.</p>
+
+<div class="exec-summary">
+<h4>The chapter's three central claims</h4>
+<ol>
+<li><strong>The ecosystem's dominant architectural risk is the collapse of the trust boundary between instructions and data.</strong> Every major exploit class — from one-click RCE to malicious skills to heartbeat memory pollution — exploits the fact that OpenClaw cannot distinguish, at the code level, between the operator's instructions and attacker-controlled content that arrives through email, web fetches, tool outputs, or installed skills. Patches close specific holes; the underlying property does not patch.</li>
+<li><strong>Defensive tooling has converged on a sensible pattern — layered enforcement, policy-as-code, scanned skills, hardened gateway defaults — but none of it solves prompt injection.</strong> The strongest current defenses (SecureClaw, Claw EA, container isolation with default-deny network) reduce blast radius and harden configuration; they do not eliminate the underlying class of attack.</li>
+<li><strong>ClawHub in its current form is a supply-chain liability that a cautious operator should treat as presumptively hostile.</strong> Between 13% and 41.7% of audited skills contain meaningful vulnerabilities by different researchers' counts; ~1 in 9 are actively malicious at peak exposure; and the registry still does not operate a verified-publisher system or a public takedown log.</li>
+</ol>
+</div>
+</section>
+
+<section id="ground-truth">
+<h2>1. Ground truth: what OpenClaw actually is</h2>
+<p class="section-intro">A Gateway on port 18789, a coding agent behind it, and twenty-odd messaging channels pouring untrusted input in the front door.</p>
+
+<p>OpenClaw is a self-hosted personal AI assistant. You install it with <code>npm install -g openclaw@latest</code>; you run <code>openclaw onboard --install-daemon</code>; a Gateway process starts on port 18789 and becomes the control plane for every agent, session, skill, tool, and channel the assistant can see<sup><a href="#cite-5">5</a></sup>. The founder, Peter Steinberger, designed it to feel "local, fast, and always-on" — a single piece of software that takes inbound messages from WhatsApp, Telegram, Slack, Discord, Signal, iMessage, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Zalo, QQ, WeChat, WebChat, and mobile nodes on iOS and Android<sup><a href="#cite-6">6</a></sup>.</p>
+
+<p>That list is the threat model. An OpenClaw Gateway sits behind every one of those channels and has — by default — a set of high-power tools wired to a coding agent. The built-in tool inventory includes <code>bash</code>, <code>process</code>, <code>exec</code>, <code>read</code>, <code>write</code>, <code>edit</code>, the browser automation stack, a Canvas renderer that ships UI back into the chat, cron jobs, webhook handlers, and a <code>system.run</code> primitive that executes on paired mobile nodes<sup><a href="#cite-7">7</a></sup>. Inbound messages from any of the supported channels become context for the agent; the agent decides which tools to call; the tools run on the host (or, optionally, inside a Docker / SSH / OpenShell sandbox) and return results that again become agent context.</p>
+
+<h3>The official threat model, such as it is</h3>
+<p>The OpenClaw docs do explicitly mark inbound DMs as untrusted input and recommend setting <code>agents.defaults.sandbox.mode: "non-main"</code> for group or channel messages<sup><a href="#cite-8">8</a></sup>. The default sandbox allow list is <code>bash, process, read, write, edit, sessions_list, sessions_history, sessions_send, sessions_spawn</code>; the default deny list is <code>browser, canvas, nodes, cron, discord, gateway</code>. Two sentences the docs concede in small type turn out to be the whole chapter:</p>
+
+<blockquote>"Treat third-party skills as <strong>untrusted code</strong>. Read them before enabling."<sup><a href="#cite-10">10</a></sup></blockquote>
+<blockquote>"Gateway-backed skill dependency installs … run the built-in dangerous-code scanner before executing installer metadata. <code>critical</code> findings block by default unless the caller explicitly sets the dangerous override; suspicious findings still warn only."<sup><a href="#cite-10">10</a></sup></blockquote>
+
+<p>Both sentences admit what the rest of this chapter is about: third-party skills are the primary attack surface, and there is an operator-flippable override that turns off the dangerous-code scanner.</p>
+
+<h3>ClawHub: the registry</h3>
+<p>ClawHub is the public skill registry at <code>clawhub.ai</code>. The homepage advertises 52,700 skills, 180,000 users, 12 million downloads, and a 4.8 average rating, and promotes four featured verticals — "self-improving agent," "GitHub integration," "security soul," and "dashboard builder"<sup><a href="#cite-11">11</a></sup>. Skills are installed via <code>openclaw skills install &lt;slug&gt;</code> and land in the active workspace's <code>skills/</code> directory. Under the hood a skill is a folder containing a <code>SKILL.md</code> file with YAML frontmatter and a list of executable scripts; ClawHub does not currently enforce a manifest schema describing filesystem access, network egress, or tool use<sup><a href="#cite-12">12</a></sup>.</p>
+
+<p>A registry scan performed for this chapter confirmed that ClawHub's taxonomy is flat: a single "Security" category, with no subcategories for red-team, blue-team, pentesting, DFIR, forensics, or networking. The homepage's "security soul" branding is marketing copy — it does not correspond to a namespace or a verification tier. There is no public verified-publisher system, no reputation score, no public takedown log, and — as of April 2026 — no mandatory dependency audit before a skill is published.</p>
+</section>
+
+<section id="events">
+<h2>2. The three defining events</h2>
+<p class="section-intro">The third-party ecosystem formed in response to three shocks that all landed between late January and early February 2026. Any analysis that doesn't start with these will miss why the ecosystem looks the way it does.</p>
+
+<h3>2.1 ClawHavoc — the supply chain goes on fire</h3>
+<p>Between roughly 15 January and 10 February 2026, attackers systematically uploaded malicious skills to ClawHub. Koi Security's audit of 2,857 skills found 341 of them malicious<sup><a href="#cite-13">13</a></sup>. A later count from Antiy CERT put the number at 1,184 out of roughly 10,700 — about 1 in 9<sup><a href="#cite-14">14</a></sup>. Independent audits by Snyk ("ToxicSkills") found that 36% of examined skills contained prompt-injection payloads and 7.1% exposed credentials in plaintext<sup><a href="#cite-15">15</a></sup>; SkillSieve (Imperial College London / UCL) later put the rate of "security vulnerabilities" at 13–26% of the registry<sup><a href="#cite-16">16</a></sup>.</p>
+
+<p>Payloads observed in the wild included Atomic macOS Stealer (AMOS) variants that dumped Keychain, browser cookies, and crypto wallets; token harvesters that targeted <code>~/.openclaw/</code> config files (WhatsApp credentials, Telegram bot tokens, Anthropic and OpenAI API keys); backdoors establishing reverse shells; and keyloggers timed to capture credentials during agent interactions. The delivery vector was social: attackers published skills with real, useful functionality ("Tech News Digest," "Productivity Booster," "solana-wallet-tracker") alongside a parallel malicious payload, and inflated install counts to boost discovery in ClawHub's default search ranking. MITRE later assigned this a new technique, AML.T0111 "AI Supply Chain Reputation Inflation"<sup><a href="#cite-17">17</a></sup>.</p>
+
+<p>ClawHub responded by adding VirusTotal scanning of new submissions and committing to a future "Extension Marketplace" with vetting. CertiK's follow-up in March 2026 argued — correctly — that VirusTotal-style scanning of Markdown skill content is not a security boundary, because the payloads are not binaries<sup><a href="#cite-18">18</a></sup>.</p>
+
+<h3>2.2 ClawBleed — the one-click RCE that actually got used</h3>
+<p>On 31 January 2026 a coordinated disclosure published GHSA-g8p2-7wf7-98mq, which became CVE-2026-25253 ("ClawBleed"), a CVSS 8.8 one-click remote code execution against any default OpenClaw install<sup><a href="#cite-19">19</a></sup><sup><a href="#cite-20">20</a></sup>. The chain is worth reproducing in detail because most of the later defensive tooling is a response to it:</p>
+
+<ol>
+<li>The Control UI reads <code>gatewayUrl</code> from the query string and writes it to <code>localStorage</code> without validation (<code>app-settings.ts</code>).</li>
+<li><code>app-lifecycle.ts</code> immediately calls <code>connectGateway()</code> on load, sending the stored <code>authToken</code> in the WebSocket handshake — now pointed at the attacker's URL.</li>
+<li>Because the Gateway's WebSocket server did not validate the <code>Origin</code> header, Cross-Site WebSocket Hijacking (CSWSH) allowed any origin to open a connection to <code>ws://localhost:18789</code>.</li>
+<li>With the stolen token, the attacker sent API calls to set <code>exec.approvals</code> to <code>off</code>, set <code>tools.exec.host</code> to <code>gateway</code>, and send a <code>node.invoke</code> / <code>system.run</code> shell command. Full RCE, localhost-only instances included.</li>
+</ol>
+
+<p>DepthFirst and Ethiack independently discovered the bug within hours of each other (Ethiack's autonomous AI pentester "Hackian" found it in under two hours)<sup><a href="#cite-21">21</a></sup><sup><a href="#cite-22">22</a></sup>. Blink's CVE timeline writes that ClawBleed is "the only 2026 OpenClaw CVE confirmed as actively exploited in the wild"<sup><a href="#cite-23">23</a></sup>. The Sploitus PoC remains publicly available as of 18 April 2026<sup><a href="#cite-24">24</a></sup>.</p>
+
+<h3>2.3 Moltbook — the Supabase mistake that taught the ecosystem a lesson</h3>
+<p>On 2 February 2026 Wiz Research disclosed that Moltbook — an AI-agent social network by Matt Schlicht, deployed with OpenClaw as the backend execution environment — had shipped Supabase to production without Row-Level Security enabled, and with the anon API key visible in client-side JavaScript<sup><a href="#cite-25">25</a></sup>. The result: 1.5 million agent authentication tokens, 35,000 email/Twitter handles, and 4,060 private agent-to-agent DMs containing plaintext OpenAI API keys were readable (and writable) by any unauthenticated user.</p>
+
+<p>Moltbook mattered to the OpenClaw ecosystem for two reasons. First, compromised Moltbook tokens could be replayed against any OpenClaw instance that had paired with a Moltbook agent, so the breach cascaded into any household running both. Second, the incident forced a conversation about <strong>inter-agent supply chains</strong>: it is not enough to audit skills, dependencies, and channels; any other agent your agent talks to is also a trust boundary. Adversa AI's threat model explicitly added "Inter-agent lateral movement via Moltbook and shared channels" as threat class T8 on the back of this incident<sup><a href="#cite-26">26</a></sup>.</p>
+</section>
+
+</main>
+</div>
+
+<section id="table" class="content-wide">
+<div style="max-width:var(--max-content); margin:0 auto; padding:0 5vw">
+<h2 style="margin-top:0">3. The comparison table</h2>
+<p class="section-intro">Forty-one rows covering the third-party projects, academic papers, incidents, and proposals that matter most. Risk ratings follow this convention: for red-team tools, the rating reflects <em>operator exposure</em> to the thing the tool exercises; for blue-team tools, it reflects the <em>residual risk of the tool itself</em>.</p>
+</div>
+
+<div class="table-wrap">
+<table class="catalog">
+<thead>
+<tr>
+<th>#</th><th>Name</th><th>Role</th><th>Attack / Defense surface</th><th>Maturity</th><th>Risk</th><th>Why it matters</th>
+</tr>
+</thead>
+<tbody>
+<tr><td>01</td><td class="name">SecureClaw (Adversa AI)</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>56 audit checks + 15 behavioral rules + plugin + skill layers</td><td>Active · v2.1.0-mvp Feb 2026 · ~325⭐</td><td><span class="risk risk-low">Low</span></td><td>First tool to formally map controls to seven agentic-AI security frameworks. Reference implementation.</td></tr>
+<tr><td>02</td><td class="name">Claw EA</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>Policy-as-code: WPC, scoped tokens, clawproxy receipts, proof bundles</td><td>Active · commercial</td><td><span class="risk risk-medium">Medium</span></td><td>Commercial answer to "prompts aren't enforcement." Closed source.</td></tr>
+<tr><td>03</td><td class="name">ClawVet (MohibShaikh)</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>Six-pass install-time scanner for SKILL.md patterns</td><td>Active · open · ~580 dl/wk</td><td><span class="risk risk-low">Low</span></td><td>Community's answer to ClawHavoc. Install-time only; doesn't address post-install drift.</td></tr>
+<tr><td>04</td><td class="name">ClawSecure</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>Three-layer audit; OWASP ASI 10/10 mapped; free tier</td><td>Active · open</td><td><span class="risk risk-low">Low</span></td><td>Slimmer alternative to SecureClaw for smaller installs. Verify self-reported metrics.</td></tr>
+<tr><td>05</td><td class="name">ClawGuard (joergmichno)</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>Prompt-injection firewall: 225 patterns, 15 languages, F1=0.983</td><td>Active · open</td><td><span class="risk risk-low">Low</span></td><td>Best purpose-built prompt-injection detector. Pattern-DB gaps are a known bypass class.</td></tr>
+<tr><td>06</td><td class="name">p3nchan/openclaw-skill-policy</td><td class="role"><span class="pill pill-blue">Blue</span> <span class="pill pill-proposal">Prop.</span></td><td>Layer-1–4 community skill security policy doc</td><td>Active · open · Feb 2026</td><td><span class="risk risk-low">Low</span></td><td>Best operator-facing checklist. Proposes a manifest.json that OpenClaw doesn't yet enforce.</td></tr>
+<tr><td>07</td><td class="name">SlowMist OpenClaw Security Practice Guide</td><td class="role"><span class="pill pill-dual">Dual</span></td><td>Agent-facing 13-item nightly audit shell script + red-team matrix</td><td>Active · open · ~2,787⭐</td><td><span class="risk risk-medium">Medium</span></td><td>Agent-facing design — self-auditing, but also a ready-made attacker's checklist.</td></tr>
+<tr><td>08</td><td class="name">Snyk mcp-scan + AI-BOM</td><td class="role"><span class="pill pill-blue">Blue</span></td><td>Static analysis of SKILL.md patterns; AI Bill of Materials</td><td>Active · commercial + open</td><td><span class="risk risk-low">Low</span></td><td>Coined the "SKILL.md prerequisite trap" category — AI tricking the human into installing a fake binary.</td></tr>
+<tr><td>09</td><td class="name">Peleke/openclaw-sandbox</td><td class="role"><span class="pill pill-dual">Dual</span></td><td>Lima VM provisioning + STRIDE Red Team Epic (Issue #44)</td><td>Early · 0⭐ but high-signal</td><td><span class="risk risk-medium">Medium</span></td><td>Cleanest isolation recipe. STRIDE issue is a planning doc useful to both sides.</td></tr>
+<tr><td>10</td><td class="name">deduu/ClawSandbox</td><td class="role"><span class="pill pill-red">Red</span></td><td>9-attack benchmark: injection, memory poisoning, priv-esc, exfil</td><td>Stale · Mar 2026 · 4⭐</td><td><span class="risk risk-medium">Medium</span></td><td>Published: Gemini 2.5 Flash fell to 7/9 attacks; GPT-5.3 Codex defended 9/9.</td></tr>
+<tr><td>11</td><td class="name">TerminalGravity/openclaw-swarm-security-audit</td><td class="role"><span class="pill pill-dual">Dual</span></td><td>Multi-agent red/blue swarm template</td><td>Planning · 0⭐</td><td><span class="risk risk-low">Low</span></td><td>Interesting pattern — agents attacking agents. Worth watching; don't deploy yet.</td></tr>
+<tr><td>12</td><td class="name">secureclaw/docs/openclaw-attack-examples.md</td><td class="role"><span class="pill pill-red">Red</span></td><td>MITRE ATLAS–mapped attack cookbook inside a defensive tool</td><td>Active</td><td><span class="risk risk-medium">Medium</span></td><td>Ships inside a blue tool; reads as a red-team playbook.</td></tr>
+<tr><td>13</td><td class="name">BrokenClaw series (veganmosfet)</td><td class="role"><span class="pill pill-red">Red</span></td><td>0-click RCE via Gmail; sub-agent sandbox escape; email/web RCE; GPT-5.4 demo</td><td>Active · 5 parts · Feb–Apr 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Most cited primary-research series. Part 2 became CVE-2026-32048.</td></tr>
+<tr><td>14</td><td class="name">HiddenLayer "Claws for Concern"</td><td class="role"><span class="pill pill-red">Red</span> <span class="pill pill-report">Report</span></td><td>Full RCE chain + HEARTBEAT.md persistence + plaintext .env exfil + W^X diagnosis</td><td>Published 3 Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Most thorough public attack research on the core architecture.</td></tr>
+<tr><td>15</td><td class="name">Oasis Security "ClawJacked"</td><td class="role"><span class="pill pill-red">Red</span> <span class="pill pill-report">Report</span></td><td>Website-to-localhost WebSocket takeover; 100s/sec auth brute force</td><td>Published 26 Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Companion to ClawBleed. Browser-to-localhost threat model broken at every layer.</td></tr>
+<tr><td>16</td><td class="name">CertiK OpenClaw Security Report</td><td class="role"><span class="pill pill-report">Report</span></td><td>Four-category analysis + "Skill Scanning Is Not a Security Boundary"</td><td>31 Mar 2026</td><td><span class="risk risk-high">High</span></td><td>Cleanest critique of ClawHub's VirusTotal response.</td></tr>
+<tr><td>17</td><td class="name">MITRE ATLAS OpenClaw Investigation</td><td class="role"><span class="pill pill-report">Report</span></td><td>4 case studies, 17 techniques, new AML.T0108–T0112 techniques</td><td>Published 9 Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Highest-authority threat mapping available.</td></tr>
+<tr><td>18</td><td class="name">Texas A&amp;M "Systematic Taxonomy"</td><td class="role"><span class="pill pill-report">Report</span></td><td>190 advisories; "Context Manipulation" as sixth Kill Chain stage</td><td>Published 31 Mar 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Strongest academic critique of the architecture. If you cite one paper, cite this.</td></tr>
+<tr><td>19</td><td class="name">arXiv:2603.23064 "Mind Your HEARTBEAT!"</td><td class="role"><span class="pill pill-report">Report</span></td><td>Heartbeat memory pollution; precursor to CVE-2026-41329 (9.9)</td><td>Published 24 Mar 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Background execution is an attack surface on its own.</td></tr>
+<tr><td>20</td><td class="name">arXiv:2603.26221 "Clawed and Dangerous"</td><td class="role"><span class="pill pill-report">Report</span></td><td>Survey: planning + tools + persistent memory + privileged exec</td><td>27 Mar 2026</td><td><span class="risk risk-high">High</span></td><td>Frames OpenClaw as an archetype, not an outlier.</td></tr>
+<tr><td>21</td><td class="name">arXiv:2604.03131 (Xidian/China Unicom)</td><td class="role"><span class="pill pill-report">Report</span></td><td>Security evaluation of OpenClaw variants incl. OpenAI distribution</td><td>3 Apr 2026</td><td><span class="risk risk-high">High</span></td><td>Only paper evaluating the post-acquisition distribution.</td></tr>
+<tr><td>22</td><td class="name">arXiv:2603.00902v1 "Clawdrain"</td><td class="role"><span class="pill pill-red">Red</span> <span class="pill pill-report">Report</span></td><td>Tool-calling-chain stealthy token exhaustion</td><td>1 Mar 2026</td><td><span class="risk risk-medium">Medium</span></td><td>Budget-level DoS — cheap, quiet, unpatched.</td></tr>
+<tr><td>23</td><td class="name">arXiv:2604.06550 "SkillSieve"</td><td class="role"><span class="pill pill-blue">Blue</span> <span class="pill pill-report">Report</span></td><td>Hierarchical triage for detecting malicious skills; 13–26% vuln rate</td><td>Apr 2026</td><td><span class="risk risk-high">High</span></td><td>Academic counterpart to ClawVet / mcp-scan.</td></tr>
+<tr><td>24</td><td class="name">arXiv:2603.00195 (Bhardwaj)</td><td class="role"><span class="pill pill-report">Report</span></td><td>Formal analysis of agentic-AI skill supply chain, ClawHavoc case</td><td>Feb/Mar 2026</td><td><span class="risk risk-medium">Medium</span></td><td>Formal model useful for reasoning about future ClawHub-class attacks.</td></tr>
+<tr><td>25</td><td class="name">JFrog "GhostClaw"</td><td class="role"><span class="pill pill-red">Red</span> <span class="pill pill-report">Report</span></td><td>Malicious npm package @openclaw-ai/openclawai; multi-stage creds/SSH stealer</td><td>Identified 8 Mar 2026</td><td><span class="risk risk-critical">Critical</span></td><td>npm scope impersonation not preventable by ClawHub controls.</td></tr>
+<tr><td>26</td><td class="name">@coygeek (GitHub contributor)</td><td class="role"><span class="pill pill-red">Red</span></td><td>Sustained research: #4951, #7768, #8516, #11031, #15313, #53433, #65625</td><td>Active · Jan–Apr 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Most prolific researcher against core repo. Watch their issue feed.</td></tr>
+<tr><td>27</td><td class="name">Jamieson O'Reilly "What Would Elon Do?"</td><td class="role"><span class="pill pill-red">Red</span></td><td>Published PoC poisoned skill on ClawdHub; 16 users in 8 hours</td><td>Case study 26 Jan 2026 (AML.CS0049)</td><td><span class="risk risk-critical">Critical</span></td><td>Canonical published poisoned-skill demonstration. Cited by MITRE ATLAS.</td></tr>
+<tr><td>28</td><td class="name">ClawHavoc supply-chain campaign</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>341–1,184 malicious skills; AMOS, token harvesters, backdoors, keyloggers</td><td>Late Jan–early Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Skills installed before ~10 Feb 2026 should be treated as presumptively compromised.</td></tr>
+<tr><td>29</td><td class="name">Moltbook Supabase breach (Wiz)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>1.5M agent tokens, 35k handles, 4,060 agent DMs incl. plaintext OpenAI keys</td><td>2 Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Not an OpenClaw code bug — but cleanest demo that inter-agent trust is a real surface.</td></tr>
+<tr><td>30</td><td class="name">CVE-2026-25253 "ClawBleed"</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>1-click RCE via CSWSH; fixed 2026.1.29; <em>exploited in wild</em></td><td>Disclosed 31 Jan 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Canonical "browser has no CORS on WebSocket to localhost" bug.</td></tr>
+<tr><td>31</td><td class="name">CVE-2026-28472 "ClawJacked"</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>Gateway WS auth bypass; CVSS 9.8; fixed 2026.2.2</td><td>Feb 2026</td><td><span class="risk risk-critical">Critical</span></td><td>63% of exposed instances had no auth — the "gate" protecting this bug was absent on most.</td></tr>
+<tr><td>32</td><td class="name">CVE-2026-32048 (sessions_spawn)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>Cross-agent spawn bypasses sandbox inheritance; fixed 2026.3.1</td><td>20 Mar 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Makes sandboxing a false sense of security unless inheritance is enforced end-to-end.</td></tr>
+<tr><td>33</td><td class="name">CVE-2026-32922 (device.token.rotate)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>operator.pairing → operator.admin via rotation race; CVSS 9.9; fixed 2026.3.11</td><td>29 Mar 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Any legitimately paired low-privilege device has a direct path to full admin.</td></tr>
+<tr><td>34</td><td class="name">CVE-2026-41329 (heartbeat sandbox)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>Heartbeat context inherits senderIsOwner; CVSS 9.9; fixed 2026.3.31</td><td>21 Apr 2026</td><td><span class="risk risk-critical">Critical</span></td><td>Academic precursor at arXiv:2603.23064.</td></tr>
+<tr><td>35</td><td class="name">CVE-2026-35629 (channel SSRF)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>Channel extensions accept configurable base URLs without SSRF guards</td><td>9 Apr 2026</td><td><span class="risk risk-high">High</span></td><td>Enables cloud-metadata-endpoint recon from any low-privilege channel.</td></tr>
+<tr><td>36</td><td class="name">April 21 2026 GHSA batch (10 advisories)</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>MCP env, config mutation, hook session, QQBot SSRF, dotenv override, scope, Feishu, cron, etc.</td><td>21 Apr 2026</td><td><span class="risk risk-high">High</span></td><td>Consistent with OpenAI acquisition due-diligence audits.</td></tr>
+<tr><td>37</td><td class="name">Gateway default bind 0.0.0.0 (no-auth)</td><td class="role"><span class="pill pill-incident">Incident</span> <span class="pill pill-proposal">Prop.</span></td><td>Default listens all interfaces; 135,000+ exposed; 63% no-auth</td><td>Ongoing · unchanged</td><td><span class="risk risk-critical">Critical</span></td><td>Single most-cited design defect. All defensive tools ship with "rebind to 127.0.0.1" as step one.</td></tr>
+<tr><td>38</td><td class="name">Issue #22196 — system/user separation</td><td class="role"><span class="pill pill-proposal">Proposal</span></td><td>RFC for code-level trust boundary at the tool boundary</td><td>Closed not_planned</td><td><span class="risk risk-high">High</span></td><td>Closure cited by critics as evidence of maintainer posture.</td></tr>
+<tr><td>39</td><td class="name">Issue #62939 — structural delimiters</td><td class="role"><span class="pill pill-proposal">Proposal</span></td><td>RFC for delimiter-based instruction/data separation</td><td>Open</td><td><span class="risk risk-medium">Medium</span></td><td>Most promising open proposal for structural injection defense.</td></tr>
+<tr><td>40</td><td class="name">ClawHub skill "SkillScan" (92.9k installs)</td><td class="role"><span class="pill pill-incident">Incident</span> <span class="pill pill-red">Red</span></td><td>Platform-flagged malicious: uploads packages to skillscan.tokauth.com, MAC address, silent auto-update</td><td>Live at audit time</td><td><span class="risk risk-critical">Critical</span></td><td>Illustrates the ClawHub trust failure — a scanner-named skill the platform <em>itself</em> flags, still at 92.9k installs.</td></tr>
+<tr><td>41</td><td class="name">zaycv/clawhub malicious skill</td><td class="role"><span class="pill pill-incident">Incident</span></td><td>Base64 payload in skill Markdown; 7,754 downloads before takedown</td><td>Closed 13 Mar 2026</td><td><span class="risk risk-high">High</span></td><td>Canonical base64-in-Markdown example. ClawHub didn't display all skill files at discovery time.</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<div class="content">
+<aside class="toc"></aside>
+<main class="content">
+
+<section id="red-team">
+<h2>4. Red-team inventory</h2>
+<p class="section-intro">Four pieces of primary research define the red-team record on OpenClaw. Read them in order and the shape of the problem becomes unavoidable.</p>
+
+<h3>4.1 Primary research that shaped the record</h3>
+<p><strong>HiddenLayer, "Claws for Concern," 3 February 2026.</strong> Conor McCauley, Kasimir Schulz, Ryan Tracey, and Jason Martin demonstrated a full attack chain: a user asks the agent to summarize a malicious web page; the agent, reading the page, is persuaded to <code>curl -fsSL … | bash</code>; the script appends attacker-controlled instructions to <code>~/.openclaw/workspace/HEARTBEAT.md</code>, a file that is re-read into the system prompt every session<sup><a href="#cite-27">27</a></sup>. Persistent C2, 30-minute heartbeat poll. API keys and tokens are stored in plaintext in <code>~/.openclaw/.env</code>, so once RCE is achieved, credential exfiltration is a <code>cat</code> away.</p>
+
+<p class="pull">A strongly desirable security policy for systems is W^X (write xor execute). OpenClaw violates this: the instructions executed are also modifiable during execution.<span class="attr">HiddenLayer Research</span></p>
+
+<p><strong>Oasis Security, "ClawJacked," 26 February 2026.</strong> The Oasis team showed that any website the user visited while OpenClaw was running could open a WebSocket to <code>localhost:18789</code>, brute-force the auth token at hundreds of attempts per second from browser JavaScript alone (the Gateway's rate limiter exempted localhost), auto-pair as a trusted device, and take over the instance<sup><a href="#cite-28">28</a></sup>. No plugins, no extensions, no user interaction beyond visiting the page. OpenClaw patched within 24 hours — impressive for a volunteer-driven project, and a sign of how sharp this particular team's response loop is.</p>
+
+<p><strong>veganmosfet, "BrokenClaw" series, five parts between 2 February and 8 April 2026</strong><sup><a href="#cite-29">29</a></sup>. Part 1 demonstrated 0-click RCE via the Gmail pub/sub webhook — no user action beyond receiving an email; prompt injection in the email body convinced the agent to clone a malicious <code>.openclaw/extensions/</code> repo and restart the Gateway. Part 2 showed that the obvious fix (enable the sub-agent sandbox) could be escaped via prompt-injected <code>sessions_spawn</code> calls — the research that later became CVE-2026-32048. Part 3 repeated the RCE through the built-in email reading tool. Part 4 generalised the pipeline: anything the agent fetches from the web is a potential code execution channel. Part 5 tested the same chains against GPT-5.4, confirming the vulnerability class is model-agnostic.</p>
+
+<p><strong>Texas A&amp;M (arXiv:2603.27517), 31 March 2026.</strong> Suwansathit, Zhang, and Gu published the most rigorous academic critique to date<sup><a href="#cite-30">30</a></sup>. Three key findings: three independently moderate advisories compose into a complete unauthenticated RCE; the exec allowlist encodes a closed-world assumption that command identity is recoverable by lexical parsing — "invalidated by line continuation, busybox multiplexing, and GNU long-option abbreviation in independent and non-overlapping ways"; a malicious skill executed a two-stage dropper entirely within the LLM context, bypassing the exec pipeline entirely. They propose "Context Manipulation" as a sixth Kill Chain stage with no analog in MITRE ATT&amp;CK.</p>
+
+<h3>4.2 The supply-chain campaigns</h3>
+<p>Two named campaigns matter. <strong>ClawHavoc</strong> (§2.1) is the registry-level campaign; <strong>GhostClaw</strong> is the npm-level one. JFrog Security Research identified a live malicious package <code>@openclaw-ai/openclawai</code> on npm, masquerading as the official OpenClaw Installer and exploiting scope-name visual similarity. The multi-stage payload stole credentials, env variables, and SSH keys<sup><a href="#cite-31">31</a></sup>. The defense is simple and unsatisfying: install OpenClaw only via the unscoped package <code>openclaw</code>, verify the npm registry owner before running any <code>@openclaw*</code> package, and never run <code>npm install</code> scripts without reading them.</p>
+
+<p>Separately, the <code>zaycv/clawhub</code> skill distributed malware via a base64 payload embedded in its Markdown; 7,754 downloads before GitHub issue #108 closed it on 13 March 2026<sup><a href="#cite-32">32</a></sup>. At the time of discovery, ClawHub's UI did not display every file in a skill package, which is why the injection point was not auditable before install — an ergonomics-is-security finding that the registry has since partially remediated.</p>
+
+<h3>4.3 The prolific community researcher</h3>
+<p>GitHub user <code>@coygeek</code> has — as of this writing — filed seven confirmed security issues against <code>openclaw/openclaw</code>, spanning the browser control server (#7768 DNS rebinding, #15313 <code>/evaluate</code> ACE, #8516 arbitrary file write), extension auto-load (#11031), config redaction (#53433), and the default empty-token LAN bind in the Podman installer (#65625)<sup><a href="#cite-33">33</a></sup>. The important observation is that watching a single account's public GitHub issue feed is an unusually high-signal OSINT stream for what's about to be patched.</p>
+
+<h3>4.4 Red-team harnesses</h3>
+<p><strong>deduu/ClawSandbox</strong> is a small adversarial benchmark — nine attack types against a fixed system prompt — and its most useful published result is a model comparison: Gemini 2.5 Flash fell to 7/9 attacks, GPT-5.3 Codex defended 9/9<sup><a href="#cite-34">34</a></sup>. <strong>Peleke/openclaw-sandbox</strong> is a Lima VM provisioning recipe for running the Gateway in isolation, and it ships a P0-priority STRIDE Red Team Epic (Issue #44) that enumerates every bypass an attacker would try against the Gateway<sup><a href="#cite-35">35</a></sup>. Classic low-star, high-signal repository. <strong>TerminalGravity/openclaw-swarm-security-audit</strong><sup><a href="#cite-36">36</a></sup> is an experimental multi-agent Claude swarm running red-team and blue-team roles in parallel. The pattern is worth watching; the implementation is not yet worth deploying.</p>
+
+<h3>4.5 Academic attack research worth knowing</h3>
+<p>Beyond Texas A&amp;M's taxonomy (§4.1), the two most useful offensive academic works are <strong>arXiv:2603.23064 "Mind Your HEARTBEAT!"</strong> (NTU / A*STAR / JHU)<sup><a href="#cite-37">37</a></sup>, which predicted CVE-2026-41329 and demonstrates silent memory pollution via the background execution loop, and <strong>arXiv:2603.00902v1 "Clawdrain"</strong><sup><a href="#cite-38">38</a></sup>, which shows how tool-calling loops can drain API budget without triggering safety stops — a cheap, quiet DoS that maps to OWASP ASI08 (cascading failures) and for which no standard mitigation exists.</p>
+</section>
+
+<section id="blue-team">
+<h2>5. Blue-team inventory</h2>
+<p class="section-intro">Every serious defensive tool has converged on a variant of the same idea: don't trust any one layer. The ecosystem's consensus stack has four.</p>
+
+<h3>5.1 The layered-enforcement consensus</h3>
+<p><strong>SecureClaw</strong> (Adversa AI) ships the clearest version: a code-layer plugin that performs 56 audit checks on a live install (gateway bind, credential storage, sandbox config, file permissions, dependency CVEs) and applies five hardening modules; and a parallel skill layer with 15 behavioral rules (~1,230 tokens injected into the system prompt) that handle the things infrastructure alone cannot — injection awareness, PII scanning, command-integrity monitoring, inter-agent communication rules, and a kill-switch that blocks OpenClaw from starting if SecureClaw itself is disabled<sup><a href="#cite-39">39</a></sup>. The framework mapping — 10/10 OWASP ASI, 10/14 MITRE ATLAS agentic TTPs, 13/18 CoSAI Secure-by-Design, 4/4 MITRE ATLAS OpenClaw case studies — is the most thorough in the ecosystem.</p>
+
+<p class="pull">Most competing tools are skill-only, meaning the security logic lives inside the agent's context window as natural language instructions. The problem is that skills can be overridden by prompt injection.<span class="attr">Alex Polyakov, Adversa AI</span></p>
+
+<p>The argument is right, but it does not reach all the way to enforcement. The skill layer is still LLM-directive: the model must choose to follow the rules. SecureClaw's v2.1 release notes admit that "weaker models may misclassify red-line commands" and that injected guide text can itself be tampered with by prompt injection.</p>
+
+<p><strong>Claw EA</strong> goes a step further toward machine enforcement<sup><a href="#cite-40">40</a></sup>. A Work Policy Contract (WPC) is a signed, hash-addressed policy that defines what the agent may do; a Cryptographic Scoped Token (CST) bounds a single run; <code>clawproxy</code> sits in front of the model call and emits Ed25519-signed receipts; each job yields a proof bundle that can be verified independently. The pitch is that "safety lives in prompts" is a fallacy; the enforcement layer should be below the model. The combination — SecureClaw for configuration + behavior and Claw EA (or a home-grown equivalent) for policy-as-code — is the closest thing to a defensive reference architecture.</p>
+
+<h3>5.2 Skill-level scanning</h3>
+<p><strong>ClawVet</strong> (MohibShaikh)<sup><a href="#cite-41">41</a></sup> is the most downloaded open-source SKILL.md scanner, with six analysis passes: RCE patterns, credential theft, prompt injection, typosquat proximity, social-engineering markers, and network-egress detection. It runs at install time. It does not solve the post-install drift problem (skills that start clean and phone home later). <strong>ClawSecure</strong><sup><a href="#cite-42">42</a></sup> is a lighter, OWASP-ASI-aligned scanner with a three-layer audit protocol and a free tier. <strong>ClawGuard</strong> (joergmichno)<sup><a href="#cite-43">43</a></sup> is a prompt-injection firewall with 225 detection patterns and a claimed F1 of 0.983 across 15 languages. All are useful; all are vulnerable to the standard critique that a regex-based scanner loses to trivial obfuscation (base64, dynamic <code>require</code>, runtime code assembly), which is why <strong>Snyk's <code>mcp-scan</code></strong><sup><a href="#cite-44">44</a></sup> is a useful complement. Snyk's Liran Tal named the new attack category: "SKILL.md prerequisite trap" — an instruction file that tells the AI to instruct the user to install a fabricated utility.</p>
+
+<h3>5.3 Operator-facing policies and playbooks</h3>
+<p><strong>p3nchan/openclaw-skill-policy</strong><sup><a href="#cite-45">45</a></sup> is the best operator-facing checklist: four layers — source trust, static analysis, permission declaration (proposes a <code>manifest.json</code> of fs/network/tool/env requirements), and runtime enforcement (sandbox-exec, firejail, bubblewrap; hard blocks on <code>~/.ssh</code>, <code>~/.gnupg</code>, <code>~/.aws</code>, <code>~/.config/gh</code>). The current OpenClaw runtime does not enforce layers 3–4; the doc makes the gap explicit.</p>
+
+<p><strong>SlowMist's openclaw-security-practice-guide</strong><sup><a href="#cite-46">46</a></sup> is the highest-starred operator guide (~2,787⭐). The distinguishing feature is that it is <em>agent-facing</em>: the 13-item nightly audit is designed to be invoked by OpenClaw itself as a verification task. The upside is a self-auditing agent. The downside is that a compromised agent now has a clear enumeration of every check it is supposed to pass — and therefore of every control an attacker needs to bypass.</p>
+
+<h3>5.4 Hardening defaults</h3>
+<p>Every defensive tool ships the same first hardening step: rebind the Gateway from <code>0.0.0.0:18789</code> to <code>127.0.0.1</code> and force authentication. SecurityScorecard's STRIKE dashboard at <code>declawed.io</code> found 135,000+ internet-exposed instances, 63% of them running with no authentication at all<sup><a href="#cite-47">47</a></sup>.</p>
+
+<p class="pull">Think of it like hiring a worker with a criminal history of identity theft who knows how to code well and might take instructions from anyone.<span class="attr">Jeremy Turner, SecurityScorecard STRIKE</span></p>
+
+<p>The harder layer is per-agent network namespacing. The r/LocalLLaMA consensus is that the long-term fix is zero-trust architecture at the agent boundary: default-deny network egress, credentials injected at runtime (never baked into the agent's environment), a forward proxy that logs every outbound request, and per-agent container network namespaces<sup><a href="#cite-48">48</a></sup>. None of this is an OpenClaw-specific tool; it is a deployment pattern the ecosystem's credible voices consistently recommend.</p>
+</section>
+
+<section id="dual-use">
+<h2>6. Dual-use tools and proposals</h2>
+<p>Several tools do not cleanly fall on one side. <strong>adversa-ai/secureclaw</strong> is a defensive plugin that ships a file — <code>docs/openclaw-attack-examples.md</code> — which is effectively an adversarial playbook mapped to MITRE ATLAS. The tool itself reduces attack surface; the documentation inside it expands the attacker's available knowledge. This is the standard dual-use property of any mature defensive tool (Metasploit, Ghidra, BloodHound). <strong>SlowMist's guide</strong> is dual-use by design: the agent-facing audit is a defender's tool, but because it enumerates every check, it gives attackers the same checklist. <strong>Peleke/openclaw-sandbox</strong> is a defensive VM recipe that ships with a STRIDE red-team planning epic.</p>
+
+<h3>Proposals in the core repo worth knowing</h3>
+<ul>
+<li><strong>Issue #22196</strong> — "No code-level enforcement distinguishing system messages from user-crafted lookalikes." Closed as <code>not_planned</code>. Repeatedly cited as evidence of the project's architectural posture on the hardest problem.</li>
+<li><strong>Issue #62939</strong> — "Prompt injection defense at tool result and message boundaries (structural delimiter proposal)." Open. Most promising active proposal for a structural fix.</li>
+<li><strong>Issue #8093</strong> — RFC: Security Hardening Architecture. Community proposal; limited traction.</li>
+<li><strong>PR #1827</strong> — <code>fix(security): prevent prompt injection via external hooks (gmail, webhook)</code>. Merged, 549 additions. Direct response to BrokenClaw Part 1.</li>
+<li><strong>PR #57782</strong> — Indirect prompt injection hardening by <code>@pyn3rd</code>. Merged.</li>
+</ul>
+</section>
+
+<section id="incidents">
+<h2>7. Incidents and the MITRE ATLAS OpenClaw Investigation</h2>
+<p class="section-intro">The MITRE ATLAS OpenClaw Investigation (publication ID PR-26-00176-1, dated 9 February 2026) is the single most authoritative document in the record.</p>
+
+<p>It reviews four case studies and extracts 17 distinct techniques across the ATLAS matrix; three of those are techniques new to ATLAS v5.5.0, directly added because of OpenClaw observations — AI Agent Tool Poisoning (AML.T0108 / T0110), AI Supply Chain Rug Pull (AML.T0109), AI Supply Chain Reputation Inflation (AML.T0111), and the Machine Compromise series (AML.T0112-family)<sup><a href="#cite-49">49</a></sup><sup><a href="#cite-50">50</a></sup>.</p>
+
+<h3>The four case studies</h3>
+<h4>AML.CS0048 — Exposed OpenClaw Control Interfaces</h4>
+<p>Date of incident 25 January 2026. A researcher identified hundreds of internet-exposed Control UIs with no authentication. Reading the configuration file harvested credentials for all connected applications; prompting the agent via the chat interface produced root-level execution inside the container. No exploit code was required. The attack surface was the combination of no authentication and a capable skill framework — the agent's own features, turned against it<sup><a href="#cite-51">51</a></sup>.</p>
+
+<h4>AML.CS0049 — Supply Chain Compromise via Poisoned ClawdBot Skill</h4>
+<p>Date 26 January 2026, actor Jamieson O'Reilly, type exercise. O'Reilly published a skill named "What Would Elon Do?" to ClawdHub. The skill's <code>rules/logic.md</code> contained a prompt injection that caused the backend (Claude Code running as the OpenClaw agent) to execute a <code>curl</code> to <code>clawdhub-skill.com</code> — a domain deliberately registered to impersonate the legitimate registry. Sixteen users downloaded and triggered the skill within eight hours<sup><a href="#cite-52">52</a></sup>.</p>
+
+<h4>AML.CS0050 — OpenClaw 1-Click Remote Code Execution</h4>
+<p>Date 1 February 2026, actor DepthFirst / Ethiack, CVE-2026-25253. The full ClawBleed chain described in §2.2<sup><a href="#cite-53">53</a></sup>.</p>
+
+<h4>AML.CS0051 — Still Under Investigation</h4>
+<p>as of the 9 February 2026 PDF. The attack-graph table describes a fourth scenario involving AI Supply Chain Compromise via model-level attack. No separate case-study page was found at <code>atlas.mitre.org/studies/AML.CS0051</code>; treat this case study as unverified in full pending publication of the standalone page.</p>
+
+<h3>The CVE table</h3>
+<p>A compact reference for the CVEs that matter to operators (all verified in NVD, GHSA, or VulnCheck):</p>
+
+<table class="cve">
+<thead>
+<tr><th>CVE</th><th>Nickname</th><th>CVSS</th><th>Class</th><th>Fixed in</th><th>Exploited?</th></tr>
+</thead>
+<tbody>
+<tr><td class="id">CVE-2026-25253</td><td class="nick">ClawBleed</td><td><span class="risk risk-high">8.8 H</span></td><td>1-click RCE / CSWSH</td><td>2026.1.29</td><td><span class="risk risk-critical">Yes (confirmed)</span></td></tr>
+<tr><td class="id">CVE-2026-27002</td><td class="nick">—</td><td>—</td><td>Priv-esc (SentinelOne ref)</td><td>—</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-28472</td><td class="nick">ClawJacked</td><td><span class="risk risk-critical">9.8 C</span></td><td>WS auth bypass</td><td>2026.2.2</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-32048</td><td class="nick">—</td><td><span class="risk risk-critical">9.9 C</span> / 7.5 H</td><td>Cross-agent sandbox escape</td><td>2026.3.1</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-32915</td><td class="nick">—</td><td><span class="risk risk-high">8.8 H</span></td><td>Leaf subagent boundary bypass</td><td>2026.3.11</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-32922</td><td class="nick">—</td><td><span class="risk risk-critical">9.9 C</span></td><td>Priv-esc via device.token.rotate</td><td>2026.3.11</td><td>PoC exists</td></tr>
+<tr><td class="id">CVE-2026-33579</td><td class="nick">—</td><td><span class="risk risk-high">8.1–9.8</span></td><td>Pair-approval path injection</td><td>2026.3.28</td><td>PoC exists</td></tr>
+<tr><td class="id">CVE-2026-35629</td><td class="nick">—</td><td><span class="risk risk-high">7.4 H</span></td><td>Channel-extension SSRF</td><td>2026.3.25</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-35653</td><td class="nick">—</td><td>—</td><td>Authorization bypass (SentinelOne ref)</td><td>—</td><td>No</td></tr>
+<tr><td class="id">CVE-2026-41329</td><td class="nick">—</td><td><span class="risk risk-critical">9.9 C</span></td><td>Heartbeat sandbox bypass</td><td>2026.3.31</td><td>No</td></tr>
+</tbody>
+</table>
+
+<p>On top of the CVEs, the <code>openclaw/openclaw</code> repo's Security Advisories page lists at least a dozen further GHSAs, including GHSA-56pc-6hvp-4gv4 (path traversal via <code>$include</code>), GHSA-7wv4-cc7p-jhxc (workspace <code>.env</code> can inject runtime-control variables), GHSA-m3mh-3mpg-37hw (install-phase arbitrary code execution), GHSA-4564-pvr2-qq4h (shell injection in macOS keychain write), GHSA-h9g4-589h-68xv (auth bypass in sandbox browser bridge), GHSA-xw4p-pw82-hqr7 (sandbox skill-mirroring path traversal), GHSA-3fqr-4cg8-h96q (CSRF via loopback browser mutation endpoints), and the 21 April 2026 coordinated batch of ten<sup><a href="#cite-54">54</a></sup>.</p>
+</section>
+
+<section id="narrative">
+<h2>8. Narrative analysis</h2>
+
+<h3>8.1 The biggest risks in the ecosystem</h3>
+<p>Four risks dominate the record, in rough order of severity.</p>
+
+<p><strong>First, indirect prompt injection remains unsolved and unpatchable.</strong> Every major research group — HiddenLayer, Adversa AI, Oasis Security, Snyk, Texas A&amp;M, the OpenClaw maintainers themselves in Issue #22196 — agrees that the LLM cannot enforce access control once untrusted content is in its context window. Patches close specific ingress points (Gmail webhook, email tool, web fetch) but the underlying property — that the model treats instructions and data identically at the attention layer — does not patch. Every skill, every channel, every tool result, every retrieved document is a potential injection point. The Texas A&amp;M paper's "Context Manipulation" sixth-stage Kill Chain is the right framing: in an OpenClaw-class attack, controlling what the model <em>believes</em> is sufficient to induce arbitrary tool calls.</p>
+
+<p><strong>Second, the default configuration is indefensible for any sensitive deployment.</strong> The Gateway binding to <code>0.0.0.0:18789</code> with no mandatory authentication is the direct cause of 135,000+ internet-exposed instances. Plaintext storage of API keys and tokens in <code>~/.openclaw/.env</code> makes any successful RCE also a full credential-theft event. Both are design choices, not user errors. SecureClaw, Claw EA, ClawVet, ClawSecure, and p3nchan's skill policy all ship with "rebind to 127.0.0.1" as step one — the ecosystem has effectively voted on the default with its tooling.</p>
+
+<p><strong>Third, ClawHub is a supply-chain liability.</strong> Between 13% and 41.7% of audited skills contain security vulnerabilities. Approximately 1 in 9 skills are actively malicious by Antiy CERT's February 2026 count. The attacker innovation — the SKILL.md prerequisite trap, agent-driven social engineering, base64-in-Markdown, registry impersonation via <code>clawdhub-skill.com</code>, npm scope impersonation via <code>@openclaw-ai/openclawai</code> — is outpacing ClawHub's moderation capacity. Until the registry operates a verified-publisher system with mandatory manifest declarations and a public takedown log, the correct operator posture is: assume any skill you didn't write is presumptively hostile.</p>
+
+<p><strong>Fourth, the cross-layer composition problem.</strong> Texas A&amp;M's key finding is not about any one CVE; it is that OpenClaw's dominant architectural pattern — per-layer, per-call-site trust enforcement — makes cross-layer composition attacks "systematically resistant to layer-local remediation." Three independently moderate vulnerabilities compose into a complete unauthenticated RCE. You cannot patch this with any one commit. It is the shape of the codebase.</p>
+
+<h3>8.2 The most promising defenses</h3>
+<p>The defensive state of the art converges on a stack with four layers, each required, none sufficient.</p>
+<ol>
+<li><strong>Deployment isolation.</strong> A dedicated VM or physical host. Gateway rebound to <code>127.0.0.1</code>; remote access only via VPN or Tailscale. Default-deny network egress, per-agent container network namespaces, forward proxy that logs every outbound request. Credentials injected at runtime by a secrets manager. Read-only <code>SOUL.md</code> and <code>AGENTS.md</code>. Peleke/openclaw-sandbox is the cleanest open recipe.</li>
+<li><strong>Configuration hardening.</strong> SecureClaw's 56 audit checks are the most complete, with framework mappings operators can point at in a compliance conversation. ClawSecure is a lighter alternative. Run on first install and in a nightly audit loop.</li>
+<li><strong>Policy-as-code execution.</strong> Claw EA's WPC + CST + <code>clawproxy</code> pattern is the best-articulated commercial answer. A home-grown equivalent — an OPA policy in front of the tool dispatcher, a signed JSON policy artifact hashed into every run, an immutable audit log — is possible for small deployments. The important property is that the enforcement point sits below the model, not inside it.</li>
+<li><strong>Skill scanning and runtime rules.</strong> ClawVet at install time; ClawGuard for prompt-injection firewall; Snyk <code>mcp-scan</code> for SKILL.md-prerequisite-trap detection; SecureClaw's 15 behavioral rules for in-context guardrails. None of these solve prompt injection; all of them raise the cost of common exploits.</li>
+</ol>
+<p>No serious advocate of any of these tools claims prompt injection is solved. The goal is blast-radius reduction: turn a successful prompt injection from <em>full host compromise</em> into <em>a failed tool call with an alert</em>.</p>
+
+<h3>8.3 Overhyped and dangerous projects</h3>
+<p><strong>Skills that name-drop security.</strong> ClawHub's own "Security" category includes a skill called <strong>SkillScan</strong> with 92.9k nominal installs and 0 current active users. The platform itself flags it as malicious: it uploads submitted skill packages to <code>skillscan.tokauth.com</code>, collects the host MAC address, and silent-auto-updates daily. NeoGriffin Security presents a <code>package.json</code> version mismatch against the registry listing and requires an unexplained payment-wallet environment variable. "Security Scanner" wraps <code>nmap</code> and <code>nuclei</code> without any author attribution. Treat security-branded skills with the same skepticism as security-branded browser extensions.</p>
+
+<p><strong>Marketing-grade "AI security" wrappers.</strong> AI.com's Super Bowl claim of being "the world's first easy-to-use and secure implementation of OpenClaw" was called "vaporware" by Simon Willison in February 2026<sup><a href="#cite-56">56</a></sup>. The signal to watch for is whether the vendor has published a threat model and mapping against OWASP ASI or MITRE ATLAS that lists <em>unaddressed</em> items, not just covered ones.</p>
+
+<p><strong>Abandoned forks and lookalike projects.</strong> The Clawdbot → Moltbot rename (forced by trademark conflict) left abandoned <code>@clawdbot</code> handles on X and GitHub that scammers seized within seconds. A fake <code>$CLAWD</code> Solana token pumped to a $16 million market cap before collapsing; fake "Clawdbot Agent" VS Code extensions that installed ScreenConnect-based RATs were published<sup><a href="#cite-57">57</a></sup>. Any package, handle, or extension bearing a name adjacent to OpenClaw / ClawHub / Moltbot / Clawdbot should be verified against the official repo's README links before install.</p>
+
+<h3>8.4 Practical advice for safely experimenting</h3>
+<p>For a researcher or operator who wants to work with third-party OpenClaw tooling and not get owned:</p>
+<ol>
+<li><strong>Pick your lab first.</strong> Dedicated VM. Default-deny egress. Separate cloud account with no credentials in common with your personal or work accounts. Treat every credential the agent might access as disposable.</li>
+<li><strong>Rebind the Gateway before you install anything.</strong> <code>127.0.0.1:18789</code>, mandatory auth token, Tailscale for remote.</li>
+<li><strong>Install OpenClaw only via the unscoped <code>openclaw</code> npm package.</strong> Verify the publisher. Never <code>npm install</code> a scoped <code>@openclaw*</code> package without reading its README, <code>package.json</code>, and install scripts.</li>
+<li><strong>Run SecureClaw's 56-check audit at first install and nightly.</strong> Fix the findings; commit a clean baseline.</li>
+<li><strong>Treat ClawHub as a source of things to read, not things to install.</strong> Download locally, open every file, run ClawVet + ClawGuard + <code>mcp-scan</code>. If a skill reads <code>~/.ssh</code>, <code>~/.aws</code>, or <code>~/.config/gh</code>, it doesn't.</li>
+<li><strong>Enforce policy below the model.</strong> Claw EA, or OPA-in-front-of-tool-dispatch. Policy artifact hashed and bound to each run. The model does not get to modify the policy.</li>
+<li><strong>Watch <code>@coygeek</code>'s issue feed and the <code>openclaw/openclaw/security/advisories</code> page weekly.</strong> The cheapest OSINT in the ecosystem.</li>
+<li><strong>Subscribe to the veganmosfet BrokenClaw blog, the Adversa AI research feed, and the MITRE ATLAS changelog.</strong> These three sources produced most of the record you rely on.</li>
+<li><strong>Assume compromise on any install that ran before approximately 10 February 2026</strong>, or on any instance that was internet-exposed at any point. Rotate all credentials.</li>
+<li><strong>Read <code>adversa-ai/secureclaw/docs/openclaw-attack-examples.md</code> cover to cover.</strong> The best single red-team playbook, published by the author of the best defensive tool. That is not an accident.</li>
+</ol>
+</section>
+
+<section id="gaps">
+<h2>9. What the ecosystem is missing</h2>
+<p>A last inventory, because the gaps are as load-bearing as the present tools.</p>
+<ul>
+<li><strong>A verified-publisher system on ClawHub.</strong> Install counts are manipulable (AML.T0111); the 4.8 average rating carries no signal; no cryptographic identity on the publisher side.</li>
+<li><strong>A public takedown log.</strong> When a skill is removed for malicious content, no public record exists of what was removed, when, or why.</li>
+<li><strong>A mandatory permission manifest.</strong> p3nchan's Layer 3 — a <code>manifest.json</code> declaring fs/network/tool/env requirements — has no platform enforcement today. Feature Request #28298 tracks the gap.</li>
+<li><strong>A CISA KEV entry for CVE-2026-25253.</strong> Despite NVD tagging the DepthFirst PoC as an Exploit and the CVE being confirmed exploited in the wild, no CISA KEV catalog inclusion was confirmed.</li>
+<li><strong>A formal OWASP ASI case study.</strong> OpenClaw is the archetypal "lethal trifecta" agent (planning + tools + persistent memory) and yet no standalone OWASP ASI case study publication exists for it.</li>
+<li><strong>A bug bounty.</strong> OpenClaw has no formal bounty program. Given the volume of incoming research and the OpenAI acquisition, this is the single most tractable maintainer-side change.</li>
+<li><strong>A reference hardened distribution.</strong> The closest thing today is the combination of SecureClaw + Claw EA + Peleke's VM + p3nchan's skill policy. A distribution that ships with those defaults applied, signed, and versioned would be a useful community artifact.</li>
+</ul>
+
+<div class="unverified">
+<h4>Unverified leads (flagged in-line above)</h4>
+<ul>
+<li>AML.CS0051 standalone case-study page at atlas.mitre.org not located at crawl time.</li>
+<li>Specific Johann Rehberger / Embrace The Red post naming "OpenClaw" not located; general agentic-AI prompt-injection work is directly relevant but not OpenClaw-specific.</li>
+<li>CVE-2026-22708 attributed to OpenClaw in Adversa AI's 5 Feb 2026 post; SentinelOne attributes the same CVE ID to Cursor AI. Attack technique is real; the CVE ID is potentially misattributed.</li>
+<li>jgamblin/OpenClawCVEs tracker existence confirmed by reference; 137-advisory count not directly crawl-verified.</li>
+<li>Kaspersky's 512-vulnerability / 8-critical count referenced in Growexx; no primary Kaspersky URL retrieved.</li>
+<li>Microsoft Defender team's explicit warning referenced in Growexx; no primary Microsoft URL retrieved.</li>
+<li>Black Hat USA 2026 / DEF CON 33 / USENIX Security 2026 OpenClaw-specific talks — not located as of 23 Apr 2026 (summer conference agendas not yet published).</li>
+<li>CISA KEV inclusion for CVE-2026-25253 not confirmed despite NVD Exploit tagging.</li>
+</ul>
+</div>
+</section>
+
+<section id="closing">
+<h2>10. Closing</h2>
+<p>If you strip the ClawHavoc numbers and the CVE list down to a single observation, it is this: OpenClaw was built fast, for an audience that wanted a personal AI assistant that felt instantaneous and omni-channel, and the design choices that made it feel that way — a Gateway on <code>0.0.0.0</code> with no auth, plaintext credentials, an agent that happily executes tool calls on behalf of anyone who can inject a sentence into its context window — are exactly the choices that produced the 2026 security record. The corrective is not to ban the project or to claim agentic AI is doomed; it is to build, buy, or steal a layered architecture that assumes the model will be convinced of whatever the last untrusted content said, and to keep the blast radius of that conviction small.</p>
+
+<p>That is the story the third-party ecosystem has been writing. SecureClaw and Claw EA represent the defensive steel; BrokenClaw and the Texas A&amp;M taxonomy represent the offensive cartography; MITRE ATLAS represents the framing; ClawHub represents the problem that is not yet solved. A cautious operator, in April 2026, can run OpenClaw responsibly. A cautious operator has to want to. The ecosystem is no longer short of the tools to do it; it is still short of the defaults that would make doing it feel natural.</p>
+</section>
+
+<section id="citations" class="citations">
+<h2 style="margin-top:0">Primary sources</h2>
+<ol>
+<li id="cite-1"><b>Laurie Voss</b>, LinkedIn post, 2026. Via The Register, "DIY AI bot farm OpenClaw is a security 'dumpster fire'," 3 Feb 2026. <a href="https://www.theregister.co.uk/2026/02/03/openclaw_security_problems/">theregister.co.uk/2026/02/03/openclaw_security_problems</a> · <a href="https://www.linkedin.com/posts/seldo_openclaw-analysispdf-activity-7423936260798484480">linkedin.com/posts/seldo</a></li>
+<li id="cite-2"><b>Andrej Karpathy</b>, via The Register same article; reported X post <a href="https://x.com/karpathy/status/2017442712388309406">x.com/karpathy/status/2017442712388309406</a></li>
+<li id="cite-3"><b>Ars Technica</b>, "OpenClaw gives users yet another reason to be freaked out about security," 3 Apr 2026. <a href="https://arstechnica.com/security/2026/04/heres-why-its-prudent-for-openclaw-users-to-assume-compromise/">arstechnica.com/security/2026/04</a></li>
+<li id="cite-4"><b>Simon Willison</b>, "openclaw" tag, 15 Feb 2026. <a href="http://blog.simonwillison.net/2026/Feb/15/openclaw/">blog.simonwillison.net/2026/Feb/15/openclaw</a> · <b>LiveMint / Bloomberg (Parmy Olson)</b>, "OpenClaw is an OpenAI security nightmare," 25 Feb 2026. <a href="https://www.livemint.com/opinion/online-views/openclaw-openai-security-nightmare-artificial-intelligence-sam-altman-technology-ai-11771934381262.html">livemint.com/opinion/online-views/openclaw-openai</a></li>
+<li id="cite-5"><b>OpenClaw README</b>, <a href="https://github.com/openclaw/openclaw">github.com/openclaw/openclaw</a> (retrieved 23 Apr 2026, v2026.4.22).</li>
+<li id="cite-6"><b>OpenClaw docs home</b>, <a href="https://docs.openclaw.ai/">docs.openclaw.ai</a></li>
+<li id="cite-7"><b>OpenClaw docs, Tools section</b> (tool inventory); Sandboxing default allow/deny quoted in repo README.</li>
+<li id="cite-8"><b>OpenClaw README</b>, "Security defaults" section.</li>
+<li id="cite-9"><b>OpenClaw docs</b>, Skills: <a href="https://docs.openclaw.ai/tools/skills">docs.openclaw.ai/tools/skills</a> · Skills Config: <a href="https://docs.openclaw.ai/tools/skills-config">docs.openclaw.ai/tools/skills-config</a> · CLI Skills: <a href="https://docs.openclaw.ai/cli/skills">docs.openclaw.ai/cli/skills</a></li>
+<li id="cite-10"><b>OpenClaw docs</b>, Skills "Security notes" block. <a href="https://docs.openclaw.ai/skills/">docs.openclaw.ai/skills</a></li>
+<li id="cite-11"><b>ClawHub homepage</b>, <a href="https://clawhub.ai/">clawhub.ai</a> (retrieved 23 Apr 2026).</li>
+<li id="cite-12"><b>OpenClaw docs</b>, Skills "Format (AgentSkills + Pi-compatible)" section.</li>
+<li id="cite-13"><b>The Hacker News</b>, "Researchers Find 341 Malicious ClawHub Skills Stealing Data from OpenClaw Users," 2 Feb 2026. <a href="https://thehackernews.com/2026/02/researchers-find-341-malicious-clawhub.html">thehackernews.com/2026/02</a> · ClawHub incident page <a href="https://claw-hub.net/clawhub-havoc-incident.html">claw-hub.net/clawhub-havoc-incident</a> · eSecurity Planet <a href="https://www.esecurityplanet.com/threats/hundreds-of-malicious-skills-found-in-openclaws-clawhub/">esecurityplanet.com/threats</a></li>
+<li id="cite-14"><b>Antiy CERT</b> count, via Growexx.com OpenClaw Skills Development Guide (2026 Edition), 10 Mar 2026. <a href="https://www.growexx.com/blog/openclaw-skills-development-guide-for-developers-2026-edition/">growexx.com/blog/openclaw-skills-2026</a></li>
+<li id="cite-15"><b>Snyk Research</b>, "ClawHub Malicious Google Skill / ToxicSkills report," 10 Feb 2026. <a href="https://snyk.io/blog/clawhub-malicious-google-skill-openclaw-malware/">snyk.io/blog/clawhub-malicious-google-skill</a></li>
+<li id="cite-16"><b>Hou &amp; Yang</b>, "SkillSieve," arXiv:2604.06550, Apr 2026. <a href="https://arxiv.org/pdf/2604.06550">arxiv.org/pdf/2604.06550</a></li>
+<li id="cite-17"><b>MITRE ATLAS data changelog</b>, v5.5.0 (30 Mar 2026). <a href="https://github.com/mitre-atlas/atlas-data/blob/main/CHANGELOG.md">github.com/mitre-atlas/atlas-data</a></li>
+<li id="cite-18"><b>CertiK OpenClaw Security Report</b>, 31 Mar 2026. <a href="https://www.certik.com/blog/openclaw-security-report">certik.com/blog/openclaw-security-report</a> · "Skill Scanning Is Not a Security Boundary," <a href="https://www-cn.certik.com/blog/skill-scanning-is-not-a-security-boundary">www-cn.certik.com/blog</a></li>
+<li id="cite-19"><b>NVD, CVE-2026-25253</b>. <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-25253">nvd.nist.gov/vuln/detail/CVE-2026-25253</a></li>
+<li id="cite-20"><b>GHSA-g8p2-7wf7-98mq</b>. <a href="https://github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq">github.com/openclaw/openclaw/security/advisories/GHSA-g8p2-7wf7-98mq</a></li>
+<li id="cite-21"><b>DepthFirst</b>, "1-click RCE to steal your Moltbot data and keys." <a href="https://depthfirst.com/post/1-click-rce-to-steal-your-moltbot-data-and-keys">depthfirst.com/post/1-click-rce-moltbot</a></li>
+<li id="cite-22"><b>Ethiack</b>, "One-click RCE Moltbot." <a href="https://ethiack.com/news/blog/one-click-rce-moltbot">ethiack.com/news/blog/one-click-rce-moltbot</a></li>
+<li id="cite-23"><b>Blink Blog</b>, "OpenClaw 2026 CVE Complete Timeline &amp; Security History." <a href="https://blink.new/blog/openclaw-2026-cve-complete-timeline-security-history">blink.new/blog/openclaw-2026-cve-timeline</a></li>
+<li id="cite-24"><b>Sploitus</b>, CVE-2026-25253 PoC. <a href="https://sploitus.com/exploit?id=84AE8E47-F316-5E2E-8386-DFF0AE27F49E">sploitus.com/exploit?id=84AE8E47</a></li>
+<li id="cite-25"><b>Wiz Research</b>, "Exposed Moltbook database reveals millions of API keys," 2 Feb 2026. <a href="https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys">wiz.io/blog/exposed-moltbook-database</a></li>
+<li id="cite-26"><b>Adversa AI</b>, "OpenClaw AI Agent Security Threats Mapped to OWASP / MITRE," 19 Feb 2026. <a href="https://adversa.ai/blog/openclaw-ai-agent-security-threats-mapped-owasp-mitre/">adversa.ai/blog/openclaw-ai-agent-security-threats</a></li>
+<li id="cite-27"><b>HiddenLayer</b>, "Exploring the Security Risks of AI Assistants like OpenClaw" (aka "Claws for Concern"), 3 Feb 2026. <a href="https://hiddenlayer.com/research/exploring-the-security-risks-of-ai-assistants-like-openclaw">hiddenlayer.com/research/openclaw</a></li>
+<li id="cite-28"><b>Oasis Security</b>, "OpenClaw Vulnerability (ClawJacked)," 26 Feb 2026 (updated 31 Mar 2026). <a href="https://www.oasis.security/blog/openclaw-vulnerability">oasis.security/blog/openclaw-vulnerability</a></li>
+<li id="cite-29"><b>veganmosfet "BrokenClaw"</b> series, Parts 1–5, 2 Feb – 8 Apr 2026. <a href="https://veganmosfet.codeberg.page/posts/2026-02-02-openclaw_mail_rce/">Part 1</a> · <a href="https://veganmosfet.codeberg.page/posts/2026-02-15-openclaw_sandbox/">Part 2</a> · <a href="https://itmeetsot.eu/posts/2026-03-03-openclaw3/">Part 3</a> · <a href="https://veganmosfet.codeberg.page/posts/2026-03-27-openclaw_webfetch/">Part 4</a> · <a href="https://veganmosfet.codeberg.page/posts/2026-04-08-openclaw_gpt5_4/">Part 5</a></li>
+<li id="cite-30"><b>Suwansathit, Zhang &amp; Gu</b>, "A Systematic Taxonomy of Security Vulnerabilities in the OpenClaw AI Agent Framework," arXiv:2603.27517, 31 Mar 2026. <a href="https://arxiv.org/html/2603.27517">arxiv.org/html/2603.27517</a></li>
+<li id="cite-31"><b>JFrog Security Research</b>, "GhostClaw Unmasked," 8 Mar 2026. <a href="https://research.jfrog.com/post/ghostclaw-unmasked/">research.jfrog.com/post/ghostclaw-unmasked</a></li>
+<li id="cite-32"><b>openclaw/clawhub Issue #108</b>. <a href="https://github.com/openclaw/clawhub/issues/108">github.com/openclaw/clawhub/issues/108</a></li>
+<li id="cite-33"><b>@coygeek issue stream</b>: <a href="https://github.com/openclaw/openclaw/issues/4951">#4951</a> · <a href="https://github.com/openclaw/openclaw/issues/7768">#7768</a> · <a href="https://github.com/openclaw/openclaw/issues/8516">#8516</a> · <a href="https://github.com/openclaw/openclaw/issues/11031">#11031</a> · <a href="https://github.com/openclaw/openclaw/issues/15313">#15313</a> · <a href="https://github.com/openclaw/openclaw/issues/53433">#53433</a> · <a href="https://github.com/openclaw/openclaw/issues/65625">#65625</a></li>
+<li id="cite-34"><b>deduu/ClawSandbox</b>. <a href="https://github.com/deduu/ClawSandbox">github.com/deduu/ClawSandbox</a></li>
+<li id="cite-35"><b>Peleke/openclaw-sandbox</b> + Issue #44 STRIDE Red Team Epic. <a href="https://github.com/Peleke/openclaw-sandbox">github.com/Peleke/openclaw-sandbox</a> · <a href="https://github.com/Peleke/openclaw-sandbox/issues/44">/issues/44</a></li>
+<li id="cite-36"><b>TerminalGravity/openclaw-swarm-security-audit</b>. <a href="https://github.com/TerminalGravity/openclaw-swarm-security-audit">github.com/TerminalGravity/openclaw-swarm-security-audit</a></li>
+<li id="cite-37"><b>"Mind Your HEARTBEAT!"</b> arXiv:2603.23064, 24–25 Mar 2026. <a href="https://arxiv.org/abs/2603.23064">arxiv.org/abs/2603.23064</a></li>
+<li id="cite-38"><b>Dong, Feng &amp; Wang</b>, "Clawdrain: Exploiting Tool-Calling Chains for Stealthy Token Exhaustion in OpenClaw Agents," arXiv:2603.00902v1, 1 Mar 2026. <a href="https://arxiv.org/abs/2603.00902v1">arxiv.org/abs/2603.00902v1</a></li>
+<li id="cite-39"><b>adversa-ai/secureclaw</b>, <a href="https://github.com/adversa-ai/secureclaw">github.com/adversa-ai/secureclaw</a> · <b>Help Net Security</b>, "SecureClaw: Dual-stack open-source security plugin and skill for OpenClaw," 18 Feb 2026. <a href="https://www.helpnetsecurity.com/2026/02/18/secureclaw-open-source-security-plugin-skill-openclaw/">helpnetsecurity.com/2026/02/18/secureclaw</a> · Adversa launch post <a href="https://adversa.ai/blog/adversa-ai-launches-secureclaw-open-source-security-solution-for-openclaw-agents/">adversa.ai/blog/adversa-ai-launches-secureclaw</a></li>
+<li id="cite-40"><b>Claw EA</b>, Agent Supply Chain Security page. <a href="https://clawea.com/agent-supply-chain-security">clawea.com/agent-supply-chain-security</a> · <a href="https://www.clawea.com/">clawea.com</a></li>
+<li id="cite-41"><b>MohibShaikh/clawvet</b>. <a href="https://github.com/MohibShaikh/clawvet">github.com/MohibShaikh/clawvet</a> · HN thread <a href="https://news.ycombinator.com/item?id=47370624">news.ycombinator.com/item?id=47370624</a></li>
+<li id="cite-42"><b>ClawSecure/clawsecure-openclaw-security</b>. <a href="https://github.com/ClawSecure/clawsecure-openclaw-security">github.com/ClawSecure/clawsecure-openclaw-security</a></li>
+<li id="cite-43"><b>joergmichno/clawguard</b>. <a href="https://togithub.com/joergmichno/clawguard">togithub.com/joergmichno/clawguard</a></li>
+<li id="cite-44"><b>Snyk <code>mcp-scan</code> + AI-BOM</b>, Snyk blog reference above (cite 15).</li>
+<li id="cite-45"><b>p3nchan/openclaw-skill-policy</b>. <a href="https://github.com/p3nchan/openclaw-skill-policy">github.com/p3nchan/openclaw-skill-policy</a></li>
+<li id="cite-46"><b>slowmist/openclaw-security-practice-guide</b>. <a href="https://github.com/slowmist/openclaw-security-practice-guide">github.com/slowmist/openclaw-security-practice-guide</a></li>
+<li id="cite-47"><b>The Register</b>, "More than 135,000 OpenClaw instances exposed to internet in latest vibe-coded disaster," 9 Feb 2026. <a href="https://www.theregister.com/2026/02/09/openclaw_instances_exposed_vibe_code/">theregister.com/2026/02/09/openclaw_instances_exposed</a> · <b>SecurityScorecard STRIKE dashboard</b> <a href="https://declawed.io">declawed.io</a></li>
+<li id="cite-48"><b>r/LocalLLaMA threads</b>: "Every OpenClaw security vulnerability documented in one place," <a href="https://www.reddit.com/r/LocalLLaMA/comments/1r81vw2/">reddit.com/r/LocalLLaMA/.../1r81vw2</a> · "We tested what actually stops attacks on OpenClaw," <a href="https://www.reddit.com/r/LocalLLaMA/comments/1r71x3j/">reddit.com/r/LocalLLaMA/.../1r71x3j</a></li>
+<li id="cite-49"><b>MITRE ATLAS OpenClaw Investigation (PR-26-00176-1)</b>, 9 Feb 2026. <a href="https://www.mitre.org/news-insights/publication/mitre-atlas-openclaw-investigation">mitre.org/news-insights/publication/mitre-atlas-openclaw-investigation</a> · PDF <a href="https://www.mitre.org/sites/default/files/2026-02/PR-26-00176-1-MITRE-ATLAS-OpenClaw-Investigation.pdf">mitre.org PR-26-00176-1 PDF</a> · CTID post <a href="https://ctid.mitre.org/blog/2026/02/09/mitre-atlas-openclaw-investigation/">ctid.mitre.org/blog/2026/02/09</a></li>
+<li id="cite-50"><b>MITRE ATLAS data changelog v5.5.0</b> (30 Mar 2026), same as cite 17.</li>
+<li id="cite-51"><b>AML.CS0048 summary</b> via startupdefense.io mirror (direct atlas.mitre.org page returned 404 at crawl time; PDF is primary). <a href="https://www.startupdefense.io/mitre-atlas-case-studies/">startupdefense.io/mitre-atlas-case-studies</a></li>
+<li id="cite-52"><b>AML.CS0049 "Supply Chain Compromise via Poisoned ClawdBot Skill."</b> Mirror <a href="https://www.startupdefense.io/mitre-atlas-case-studies/aml-cs0049-supply-chain-compromise-via-poisoned-clawdbot-skill-cc92c">startupdefense.io/.../aml-cs0049</a></li>
+<li id="cite-53"><b>AML.CS0050 "OpenClaw 1-Click Remote Code Execution."</b> <a href="https://www.startupdefense.io/mitre-atlas-case-studies/aml-cs0050-openclaw-1-click-remote-code-execution-9423b">startupdefense.io/.../aml-cs0050</a></li>
+<li id="cite-54"><b>openclaw/openclaw Security Advisories index</b>. <a href="https://github.com/openclaw/openclaw/security/advisories">github.com/openclaw/openclaw/security/advisories</a></li>
+<li id="cite-55"><b>Vikas Agarwal</b>, "OpenClaw Skills Development Guide for Developers (2026 Edition)," Growexx, 10 Mar 2026. <a href="https://www.growexx.com/blog/openclaw-skills-development-guide-for-developers-2026-edition/">growexx.com/blog/openclaw-skills-2026</a></li>
+<li id="cite-56"><b>Simon Willison</b>, same as cite 4.</li>
+<li id="cite-57"><b>Adversa AI</b>, "OpenClaw Security 101: Vulnerabilities &amp; Hardening 2026," 5 Feb 2026. <a href="https://adversa.ai/blog/openclaw-security-101-vulnerabilities-hardening-2026/">adversa.ai/blog/openclaw-security-101</a></li>
+</ol>
+</section>
+
+</main>
+</div>
+
+<footer class="closer">
+<div class="closer-inner">
+<div class="rule"></div>
+<div>End of chapter draft · Research conducted 23 April 2026</div>
+</div>
+</footer>
+
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
+</body>
+</html>

@@ -2,7 +2,7 @@
 layout: post
 title: "Respect the Bear: Notes Toward an AI Stewardship Manifesto"
 date: 2026-04-16
-permalink: /2025-04-16-bear-respect.html
+permalink: /2026-04-16-bear-respect.html
 tags: [article, opinion, lupa, fitz, openai, ai, stewardship, manifesto]
 categories: [article, ai, opinion]
 author: Lupa, Fitz

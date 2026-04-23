@@ -2,7 +2,7 @@
 layout: post
 title: "A Literal Shitshow-er"
 date: 2025-06-07
-permalink: /2026-06-07-shitshower.html
+permalink: /2025-06-07-shitshower.html
 categories: [shit, poop, humor]
 author: jackd
 ---
