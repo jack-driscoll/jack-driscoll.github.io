@@ -21,7 +21,8 @@ I had hyperagent put together this list for me.  Hope you enjoy!
 
 [There's a nice html-formatted version of the page here, too](https://jackd.ethertech.org/assets/openclaw-memory-plugins-released-slot-owners.html)
 
-[You can read the first chapter of 'How to Build Your AI CyberWolf' here](https://jackd.ethertech.org/2026-04-23-cyberwolf-1.md)
+[You can read the first chapter of 'How to Build Your AI CyberWolf' here](https://jackd.ethertech.org/2026-04-23-cyberwolf-1.html)
+
 ---
 
 ## Architectural framing
