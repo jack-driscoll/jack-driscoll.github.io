@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenClaw memory plugins — released slot owners</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #1a1a1a;
+  background: #faf8f3;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 4.5rem 6% 6rem;
+}
+
+/* Header */
+header {
+  margin-bottom: 4rem;
+  border-bottom: 1px solid #e5e1d3;
+  padding-bottom: 3rem;
+}
+.eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8a7d5c;
+  margin-bottom: 1.5rem;
+}
+h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+  color: #0d0d0d;
+}
+.dek {
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 2vw, 1.45rem);
+  font-weight: 400;
+  color: #4a4640;
+  max-width: 750px;
+  line-height: 1.4;
+}
+.meta {
+  margin-top: 2.25rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.78rem;
+  color: #6a6458;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.meta strong { color: #1a1a1a; font-weight: 600; }
+
+/* Sections */
+section { margin-bottom: 4rem; }
+h2 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  margin-bottom: 1.5rem;
+  color: #0d0d0d;
+}
+p { margin-bottom: 1rem; max-width: 75ch; }
+
+/* Inline code */
+code, .mono {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85em;
+  background: #efeadd;
+  padding: 0.12em 0.4em;
+  border-radius: 2px;
+  color: #3a3530;
+}
+
+/* Scope callout */
+.scope {
+  background: #fff;
+  border: 1px solid #e5e1d3;
+  border-left: 4px solid #b55d3b;
+  padding: 2rem 2.25rem;
+  margin: 2rem 0 0;
+  border-radius: 2px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+}
+.scope h3 {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #b55d3b;
+  margin-bottom: 1.25rem;
+}
+.scope ul { list-style: none; padding-left: 0; }
+.scope li {
+  padding: 0.75rem 0;
+  padding-left: 1.75rem;
+  position: relative;
+  border-bottom: 1px dashed #e5e1d3;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+.scope li:last-child { border-bottom: none; }
+.scope li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  top: 0.75rem;
+  color: #b55d3b;
+  font-weight: 700;
+  font-family: 'JetBrains Mono', monospace;
+}
+.scope li strong { color: #0d0d0d; font-weight: 600; }
+
+/* Table */
+.table-wrap {
+  overflow-x: auto;
+  background: #fff;
+  border: 1px solid #e5e1d3;
+  border-radius: 3px;
+  margin: 2rem 0;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+  -webkit-overflow-scrolling: touch;
+}
+table {
+  width: 100%;
+  min-width: 1100px;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+th, td {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  vertical-align: top;
+  border-bottom: 1px solid #ebe8dc;
+}
+th {
+  background: #f5f1e4;
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a3530;
+  white-space: nowrap;
+  border-bottom: 2px solid #d4cfb8;
+  position: sticky;
+  top: 0;
+}
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover { background: #faf7ed; }
+
+.plugin-name {
+  font-weight: 600;
+  color: #0d0d0d;
+  min-width: 170px;
+  max-width: 200px;
+}
+.plugin-name .pkg {
+  display: block;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 400;
+  color: #7a7360;
+  margin-top: 0.4rem;
+  word-break: break-all;
+  line-height: 1.3;
+}
+
+td.risks { min-width: 320px; max-width: 380px; }
+td.store { min-width: 200px; }
+td.slot { min-width: 180px; }
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-radius: 2px;
+  white-space: nowrap;
+  text-transform: uppercase;
+}
+.badge-released { background: #e1ecd6; color: #3d6f2b; }
+.badge-beta { background: #fbe7c5; color: #8a5400; }
+.badge-default { background: #dae5ef; color: #2c5f82; }
+.badge-caution { background: #f5d9d0; color: #92381a; }
+
+.yes { color: #3d6f2b; font-weight: 600; }
+.no { color: #a63030; font-weight: 600; }
+.partial { color: #8a5400; font-weight: 600; }
+
+/* Synthesis buckets */
+.buckets {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+  margin: 2rem 0;
+}
+@media (min-width: 960px) {
+  .buckets { grid-template-columns: repeat(3, 1fr); }
+}
+.bucket {
+  background: #fff;
+  border: 1px solid #e5e1d3;
+  padding: 2rem;
+  border-radius: 3px;
+  border-top: 4px solid;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+.bucket.usable { border-top-color: #3d6f2b; }
+.bucket.unstable { border-top-color: #c48a23; }
+.bucket.vapor { border-top-color: #a63030; }
+.bucket .label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+.bucket.usable .label { color: #3d6f2b; }
+.bucket.unstable .label { color: #c48a23; }
+.bucket.vapor .label { color: #a63030; }
+.bucket h3 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  color: #0d0d0d;
+  letter-spacing: -0.01em;
+}
+.bucket p {
+  font-size: 0.94rem;
+  color: #2d2d2d;
+  line-height: 1.55;
+}
+.bucket p + p { margin-top: 0.85rem; }
+.bucket code {
+  font-size: 0.82em;
+  background: #f5f1e4;
+}
+
+/* Caveat */
+.caveat {
+  margin: 3rem 0 0;
+  padding: 1.75rem 2rem;
+  background: #f5f1e4;
+  border-left: 3px solid #8a7d5c;
+  border-radius: 2px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: #3a3530;
+  line-height: 1.55;
+  max-width: 80ch;
+}
+.caveat strong {
+  font-style: normal;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  color: #0d0d0d;
+  font-size: 0.82rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+footer {
+  margin-top: 6rem;
+  padding-top: 2rem;
+  border-top: 1px solid #e5e1d3;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.72rem;
+  color: #8a7d5c;
+  text-align: center;
+  letter-spacing: 0.04em;
+}
+
+@media (max-width: 720px) {
+  .container { padding: 3rem 5% 4rem; }
+  header { margin-bottom: 3rem; padding-bottom: 2rem; }
+  .meta { gap: 1rem; font-size: 0.72rem; }
+  section { margin-bottom: 3rem; }
+  .scope { padding: 1.5rem 1.5rem; }
+  .bucket { padding: 1.5rem; }
+}
+</style>
+<style>
+.ha-img-placeholder{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:6px;background:#f4f4f5;border:1px dashed #d4d4d8;border-radius:8px;color:#71717a;font-size:12px;font-family:system-ui,sans-serif;min-height:80px;padding:16px;box-sizing:border-box;animation:ha-img-pulse 1.5s ease-in-out infinite}
+.ha-img-placeholder.ha-failed{animation:none;opacity:.7}
+@keyframes ha-img-pulse{0%,100%{opacity:1}50%{opacity:.5}}
+@media(prefers-color-scheme:dark){.ha-img-placeholder{background:#27272a;border-color:#3f3f46;color:#a1a1aa}}
+</style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="eyebrow">OpenClaw Ecosystem · Research Report</div>
+      <h1>Memory plugins that<br>actually own the slot</h1>
+      <p class="dek">A field survey of released <code>kind:&nbsp;"memory"</code> plugins for OpenClaw — what ships today, what's still beta, and what's mostly a GitHub thread.</p>
+      <div class="meta">
+        <span><strong>Date</strong> &nbsp;April 22, 2026</span>
+        <span><strong>Scope</strong> &nbsp;Released slot owners only</span>
+        <span><strong>Excluded</strong> &nbsp;Skills · Proposals · Sidecars</span>
+      </div>
+    </header>
+
+    <section>
+      <h2>Architectural framing</h2>
+      <p>OpenClaw exposes exactly <strong>one</strong> exclusive memory slot: <code>plugins.slots.memory = "&lt;plugin-id&gt;"</code>. A plugin has to declare <code>kind: "memory"</code> to own it, and only one at a time can. The bundled default is <code>memory-core</code> — SQLite plus FTS5 plus <code>sqlite-vec</code>. Everything else in the ecosystem falls into one of three buckets, and only the first is in scope here.</p>
+
+      <div class="scope">
+        <h3>Scope ruling</h3>
+        <ul>
+          <li><strong>In scope — slot owners.</strong> Plugins that declare <code>kind: "memory"</code> and replace <code>memory-core</code> when activated via <code>plugins.slots.memory</code>.</li>
+          <li><strong>Out of scope — companions, sidecars, other slots.</strong> <code>memory-wiki</code> (bundled companion, lives beside the slot owner); <strong>QMD</strong> (a sidecar binary used as a backend by <code>memory-core</code> when you set <code>memory.backend: "qmd"</code>, not a slot plugin); <strong>Lossless Claw</strong> (owns the <code>contextEngine</code> slot, not the memory slot); <strong>Hindsight</strong> (runs as a LaunchAgent, entirely outside the plugin system).</li>
+          <li><strong>Out of scope — proposals and rejected PRs.</strong> Issue #60572 Multi-Slot Memory Architecture · Issue #14049 native Qdrant · Issue #15093 native pgvector · Issue #19028 native MongoDB · Issue #7021 native PowerMem (the community plugin ships separately) · PR #8795 first-party <code>memory-redis</code> (closed by maintainer — "make it a third-party plugin").</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <h2>Released slot owners — side by side</h2>
+      <p>Ten plugins, each of which declares <code>kind: "memory"</code> and ships today. Every cell is grounded in project docs, npm metadata, or GitHub issue threads; no hands-on testing was performed. Horizontal scroll if the table overflows.</p>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Plugin</th>
+              <th>Status</th>
+              <th>Slot relationship</th>
+              <th>Embeddings / Store</th>
+              <th>Bugs &amp; maturity risks</th>
+              <th>Self&#8209;host</th>
+              <th>Maintained</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td class="plugin-name">memory-core <span class="pkg">bundled with openclaw/openclaw</span></td>
+              <td><span class="badge badge-default">Default</span></td>
+              <td class="slot">Owns slot by default</td>
+              <td class="store">OpenAI <code>text-embedding-3-small</code> default; auto-detects OpenAI, Gemini, Voyage, Mistral keys. SQLite + FTS5 + sqlite-vec.</td>
+              <td class="risks">Reddit roundup rates the default Markdown path C-tier — token bloat as files grow, hit-or-miss recall on long histories. Silent pre-compaction memory-flush and optional "dreaming" consolidation included. Mature; zero external deps.</td>
+              <td><span class="yes">Yes</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">first-party</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">memory-lancedb <span class="pkg">@noncelogic/memory-lancedb</span></td>
+              <td><span class="badge badge-released">Released</span></td>
+              <td class="slot">Replaces <code>memory-core</code></td>
+              <td class="store">OpenAI or Gemini embeddings; LanceDB (local columnar).</td>
+              <td class="risks">Bug #7273 — <code>openclaw status</code> reported "unavailable" for non-core memory plugins (fixed on main). LanceDB native binaries can fail on macOS ARM. Single-tool <code>memory_recall</code> vs core's two-tool flow. LanceDB's own benchmark: ~76% accuracy vs core's 52%, faster average latency.</td>
+              <td><span class="yes">Yes</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">small team (3)</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">memory-lancedb-pro <span class="pkg">CortexReach/memory-lancedb-pro</span></td>
+              <td><span class="badge badge-beta">Beta · v1.1.0-b10</span></td>
+              <td class="slot">Replaces <code>memory-core</code></td>
+              <td class="store">OpenAI-compatible, Jina, and others; LanceDB vector store + Jina cross-encoder reranker; hybrid vector + BM25 fusion.</td>
+              <td class="risks">Still beta. Issue #61936: dreaming doesn't fire when an external slot owner is active (fixed on main via PR #65411). LLM-driven "smart extraction" burns tokens; LanceDB's blog reports ~80% accuracy but ~14.3s average latency — nearly 2× <code>memory-lancedb</code>. Six-category Weibull decay model is ambitious and hard to tune.</td>
+              <td><span class="yes">Yes</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">very active</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">openclaw-honcho <span class="pkg">@honcho-ai/openclaw-honcho</span></td>
+              <td><span class="badge badge-released">Released · v1.2.2</span></td>
+              <td class="slot">Replaces <code>memory-core</code> and <code>memory-lancedb</code>; non-destructively migrates legacy <code>MEMORY.md</code></td>
+              <td class="store">Managed Honcho service (hosted or self-hosted); semantic search over "conclusions" extracted from conversations; dual-peer model (user + agent).</td>
+              <td class="risks">"Tools, not files" — migrating away from <code>MEMORY.md</code> can feel like a one-way door. Managed tier sends conversation text to Honcho's API. Users in Issue #60572 cite Honcho as "integration rated 3/10 due to slot exclusivity" — using it costs you <code>memory-core</code>'s dreaming.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">blank API key + custom baseUrl</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">Plastic Labs</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">openclaw-mem0 <span class="pkg">@mem0/openclaw-mem0</span></td>
+              <td><span class="badge badge-released">Released · v1.0.3</span></td>
+              <td class="slot">Replaces <code>memory-core</code> (must explicitly set <code>plugins.slots.memory</code>)</td>
+              <td class="store"><strong>Platform:</strong> Mem0 Cloud manages everything. <strong>OSS:</strong> OpenAI embeddings default; swappable vector store (<code>memory</code>, <code>qdrant</code>, <code>chroma</code>, etc.), swappable LLM.</td>
+              <td class="risks">Common footgun — installing without setting the slot leaves the plugin inactive; docs clarified in PR #4546. Platform mode sends conversations to Mem0 Cloud (Reddit rates B-tier on privacy/cost). OSS default in-memory vector store is non-persistent unless swapped. Requires OpenClaw ≥ 2026.4.15.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">OSS mode + Ollama/LM Studio</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">mem0ai org</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">cognee-openclaw <span class="pkg">@cognee/cognee-openclaw</span></td>
+              <td><span class="badge badge-released">Released · v2026.2.4+</span></td>
+              <td class="slot">Replaces <code>memory-core</code> by default; <code>--hybrid</code> keeps both active</td>
+              <td class="store">Graph-first: builds a knowledge graph of entities/relationships over memory Markdown. 14 search types incl. <code>GRAPH_COMPLETION</code>, <code>CYPHER</code>. OpenAI embeddings for vector layer.</td>
+              <td class="risks">Cognee Cloud <strong>does not yet support updating existing data</strong> — delete/re-add required. <code>autoMemify</code> (post-cognify graph enrichment) is expensive. Dedicated state files needed to handle deletions. Blog claims ~93% retrieval accuracy vs ~60% for vanilla RAG — vendor-reported.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">Docker cognee/cognee</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">Cognee team</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">memory-powermem <span class="pkg">ob-labs/openclaw-extension-powermem</span></td>
+              <td><span class="badge badge-released">Released · v0.3.0</span></td>
+              <td class="slot">Replaces <code>memory-core</code></td>
+              <td class="store">PowerMem handles embedding + storage. SQLite via CLI mode (default); OceanBase for heavier deployments. Hybrid retrieval (dense + full-text + graph) with Ebbinghaus forgetting curve.</td>
+              <td class="risks">Thin project: 24 stars, 5 forks, 2 contributors. Requires a separate Python install (<code>pip install powermem</code>) alongside OpenClaw — two processes to coordinate. Reddit report: "in new version can't run aggressive mode." Config is fiddly (CLI vs HTTP, absolute paths needed in some cases).</td>
+              <td><span class="yes">Yes</span></td>
+              <td><span class="partial">Active but thin</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">2 contributors</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">openclaw-redis-agent-memory <span class="pkg">redis-developer/openclaw-redis-agent-memory</span></td>
+              <td><span class="badge badge-released">Released · v0.2.0</span></td>
+              <td class="slot">Replaces <code>memory-core</code></td>
+              <td class="store">External Redis Agent Memory Server (Docker). Server runs Redis Stack + RediSearch for vector search; OpenAI for embeddings. Multi-tenancy via <code>namespace</code> + optional <code>userId</code>.</td>
+              <td class="risks">Two-service footprint: plugin + Redis server. <code>extractionStrategy</code> options (<code>discrete</code>/<code>summary</code>/<code>preferences</code>/<code>custom</code>) underdocumented. Version <code>0.2</code> signals immaturity. Much smaller community than the LanceDB / Mem0 options — no user roundups found yet.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">Docker</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">Redis dev org</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">openclaw-memory-qdrant <span class="pkg">openclawdir listing</span></td>
+              <td><span class="badge badge-caution">Released · experimental</span></td>
+              <td class="slot">Replaces <code>memory-core</code></td>
+              <td class="store">Qdrant in <strong>in-memory mode</strong>. Local embeddings via Transformers.js <code>Xenova/all-MiniLM-L6-v2</code> — zero-config, zero API keys.</td>
+              <td class="risks"><strong>Major caveat documented in the plugin itself:</strong> data exists only during process runtime. Restart the gateway and memories are gone — "future versions will support persistent storage." This alone disqualifies it for most real use.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">fully local</span></td>
+              <td><span class="partial">Unclear</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">sparse release signal</span></td>
+            </tr>
+
+            <tr>
+              <td class="plugin-name">Remnic <span class="pkg">@remnic/plugin-openclaw</span></td>
+              <td><span class="badge badge-released">Released · v9.3.24</span></td>
+              <td class="slot">Thin adapter over standalone Remnic core; embedded or delegate mode. Replaces <code>memory-core</code> when slotted.</td>
+              <td class="store">OpenAI or fully local (Ollama, LM Studio) for extraction. Hybrid search BM25 + vector + reranking <em>via QMD</em>. Storage: plain Markdown on disk.</td>
+              <td class="risks">Recently renamed from "Engram"; some registry entries still redirect. The cross-host ambition (Claude Code, Codex CLI, Hermes all share one store) is the selling point but also a larger surface area for breakage. Documented "gateway model source" mode adds another failure axis.</td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">@remnic/server + local LLMs</span></td>
+              <td><span class="yes">Yes</span><br><span class="mono" style="font-size:0.72rem;color:#6a6458;background:none;padding:0">frequent releases</span></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section>
+      <h2>Synthesis</h2>
+
+      <div class="buckets">
+
+        <div class="bucket usable">
+          <span class="label">Bucket 1</span>
+          <h3>Usable today</h3>
+          <p><code>memory-core</code> + LanceDB is the sensible default pair. If you don't want to think about memory, stay on <code>memory-core</code>. If you notice your agent forgetting on long sessions, drop in <strong>@noncelogic/memory-lancedb</strong> — the most-battle-tested slot replacement, Reddit's S-tier pick when paired with Lossless Claw on the <code>contextEngine</code> slot, and LanceDB's own benchmark puts it at +24 percentage points of accuracy over core.</p>
+          <p><strong>@honcho-ai/openclaw-honcho</strong> also lives here if you specifically want cross-session <em>user modeling</em> over raw fact recall — first-party, self-hostable, actively maintained by Plastic Labs. <strong>@mem0/openclaw-mem0</strong> too, specifically in OSS mode with a persistent vector store configured.</p>
+        </div>
+
+        <div class="bucket unstable">
+          <span class="label">Bucket 2</span>
+          <h3>Promising but unstable</h3>
+          <p><strong>CortexReach/memory-lancedb-pro</strong> is the most interesting upgrade path — hybrid retrieval, cross-encoder rerank, smart extraction, Weibull-decay forgetting — but it's still <code>v1.1.0-beta.x</code>, 2–3× slower than plain <code>memory-lancedb</code>, and its dreaming-coexistence bug (#61936) only just got fixed on main. Try it on a staging agent, not a primary.</p>
+          <p><strong>@cognee/cognee-openclaw</strong> is compelling for multi-agent shared memory or relational recall, but the Cognee Cloud "can't update existing data" limit plus graph-cognify cost makes it a heavier commitment. <strong>Remnic</strong> is moving fast (v9.3.24 in ~6 weeks) but you're signing up to track a project still defining its boundaries.</p>
+        </div>
+
+        <div class="bucket vapor">
+          <span class="label">Bucket 3</span>
+          <h3>Mostly vapor or discussion</h3>
+          <p>Native Qdrant, native pgvector, native MongoDB, first-party <code>memory-redis</code>, and the Multi-Slot Memory Architecture RFC — all are open issues or closed PRs. Plenty of thread enthusiasm; no shipped code. The first-party <code>memory-redis</code> PR was explicitly closed with "please make this a third-party plugin."</p>
+          <p><strong>ob-labs/memory-powermem</strong> and <strong>redis-developer/openclaw-redis-agent-memory</strong> are technically released but thin — sub-v1, single-digit contributors, no community usage signals of the LanceDB / Honcho / Mem0 / Cognee tier. Released but not yet trustworthy for production. <strong>openclaw-memory-qdrant</strong> self-documents its biggest problem: no persistence across restarts. Effectively a demo.</p>
+        </div>
+
+      </div>
+
+      <div class="caveat">
+        <strong>Honest caveat</strong>
+        Only documentation, READMEs, changelogs, and a handful of issue threads were traced — none of this reflects hands-on testing in this author's hands. The ecosystem is moving fast enough (Issue #61936 fixed in a PR merged on main within the last few weeks; Remnic renamed from Engram mid-April) that a claim true today may not be true next week.
+      </div>
+    </section>
+
+    <footer>
+      OpenClaw memory plugin survey · April 22, 2026 · Compiled from project docs, GitHub issues, npm registry metadata, and community discussion
+    </footer>
+  </div>
+<script>
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape' && window.parent !== window) {
+    window.parent.postMessage({ type: 'close-fullscreen' }, '*');
+  }
+});
+</script>
+<!-- broken-img-handler -->
+<script>
+(function(){
+  if(window.__brokenImgHandler)return;
+  window.__brokenImgHandler=true;
+  var MAX=5,DELAYS=[2000,4000,8000,16000,32000];
+  document.addEventListener('error',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    var liveSrc=img.getAttribute('src');
+    var src=img.dataset.haOriginalSrc||liveSrc;
+    if(!src)return;
+    if(img.dataset.haOriginalSrc&&liveSrc&&liveSrc!==img.dataset.haOriginalSrc&&liveSrc.indexOf('_r=')<0){src=liveSrc;img.dataset.haOriginalSrc=src;img.dataset.haRetryCount='0'}
+    else if(!img.dataset.haOriginalSrc){img.dataset.haOriginalSrc=src}
+    var attempt=parseInt(img.dataset.haRetryCount||'0',10);
+    if(img.dataset.haPhId){var old=document.getElementById(img.dataset.haPhId);if(old)old.remove()}
+    var ph=document.createElement('div');
+    ph.className='ha-img-placeholder'+(attempt>=MAX?' ha-failed':'');
+    ph.id='ha-ph-'+Math.random().toString(36).slice(2,9);
+    var w=img.getAttribute('width');var h=img.getAttribute('height');
+    if(w)ph.style.width=w+(isNaN(Number(w))?'':'px');
+    else if(img.style.width)ph.style.width=img.style.width;
+    else if(img.width>1)ph.style.width=img.width+'px';
+    if(h)ph.style.height=h+(isNaN(Number(h))?'':'px');
+    else if(img.style.height)ph.style.height=img.style.height;
+    else if(img.height>1)ph.style.height=img.height+'px';
+    ph.textContent=attempt>=MAX?'Image unavailable':'Loading image\u2026';
+    img.dataset.haPhId=ph.id;
+    if(img.dataset.haOrigDisplay==null)img.dataset.haOrigDisplay=img.style.display||'';
+    img.style.display='none';
+    img.insertAdjacentElement('afterend',ph);
+    if(attempt<MAX){
+      img.dataset.haRetryCount=String(attempt+1);
+      setTimeout(function(){
+        if(!img.isConnected)return;
+        if(img.dataset.haOriginalSrc!==src)return;
+        if(img.complete&&img.naturalWidth>0)return;
+        var curSrc=img.getAttribute('src');
+        if(curSrc&&curSrc.indexOf(src)!==0)return;
+        var fresh=src+(src.indexOf('?')>=0?'&':'?')+'_r='+(attempt+1)+'_'+Date.now();
+        img.src=fresh;
+      },DELAYS[attempt]);
+    }
+  },true);
+  document.addEventListener('load',function(e){
+    var img=e.target;
+    if(!img||img.tagName!=='IMG')return;
+    if(img.dataset.haPhId){
+      var ph=document.getElementById(img.dataset.haPhId);
+      if(ph)ph.remove();
+      delete img.dataset.haPhId;
+      img.style.display=img.dataset.haOrigDisplay||'';
+      delete img.dataset.haOrigDisplay;
+      delete img.dataset.haOriginalSrc;
+      delete img.dataset.haRetryCount;
+    }
+  },true);
+})();
+</script>
+</body>
+</html>

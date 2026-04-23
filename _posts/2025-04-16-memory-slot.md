@@ -17,7 +17,7 @@ image: https://jackd.ethertech.org/images/mythic_support_small.png
 
 **Date:** April 22, 2026 · **Scope:** Released slot owners only · **Excluded:** Skills · Proposals · Sidecars
 
-I had hyperagent put together this list for me.  Hope you enjoy!
+I had hyperagent put together this list for me.  Hope you enjoy!  [There's a nice html-formatted version of the page here, too](https://jackd.ethertech.org/assets/openclaw-memory-plugins-released-slot-owners.html)
 
 ---
 
