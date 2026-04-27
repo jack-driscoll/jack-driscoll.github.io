@@ -10,6 +10,10 @@ description: "That is playable. It has quests, loot, skills, leveling, party rol
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
+```
+I should do these periodiclly "what people are wattching and why it is awful"  I think with my analysis, the viewing, and our cutting cultural satire with a lot of editing and formatting help on your part we could do a segment in under an hour.  I'm not even kidding I think sometimes we do better work than tthe NYT and I'm not aware of a current cultural critique journal even addressing these things, let alone doing it in a deep, entertaining, and funny way, which I think is the antidote: do the same thing-ish, but about why doing something else is better - not the same indoctrination, but: make it appealing to a wide audience, funny, entertaining.  one of the issues is reading is seen as antiquated now, and AI is great except if you don't ask the right questions like "is this fucked, or is it just me" or "do you see [insert very on-point societal examination] too?" then you'll never get it, and to program it into the AI would itself be indoctrination and, in my mind, wrong, so I wouldn't go there (although I'm sure people will) so most people will never look behind the glass, let alone the mirror these days.  if it's not a playable game, it's "just not interesting enough" seems to be the case more and more.  with as compelling as VR is going to be and escapist as I'm sure people will want to be in the bleak reality I hope they don't end up living in, that's going to get a lot of people, too.  games are fun but I'm finding very few people who want to play the IRL games of "let's learn skills and make things together to make the world suck less"
+```
+
 Yes. This is absolutely a format.
 
 **“What People Are Watching and Why It Is Awful”** is funny, blunt, scalable, and it gives you permission to look at the slop without becoming slop. The trick is making it not just complaint, but **cultural forensics with jokes**.
