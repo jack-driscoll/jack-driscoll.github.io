@@ -66,6 +66,8 @@ The horror is that the nonsense memes may be teaching them the most serious less
 > Make it earn.
 > Smile while the machine runs.
 
+A platform optimized for frictionless user-generated content, massive youth engagement, social interaction, virtual currency, creator monetization, and parasocial attention is not merely difficult to police. Its difficulty is the indictment. This is a system built so that protection arrives downstream, exhausted and underfunded, after extraction has already done its work. It is a failure of society’s immune system: regulation, education, parents, law, and platform governance all arriving late to a machine designed to metabolize childhood faster than anyone can supervise it.
+
 [1]: https://create.roblox.com/docs/monetize?utm_source=chatgpt.com "Turn your creativity into income on Roblox | Documentation"
 [2]: https://www.reuters.com/legal/government/roblox-pay-23-million-alabama-west-virginia-settle-child-safety-investigations-2026-04-21/?utm_source=chatgpt.com "Roblox to pay $23 million to Alabama, West Virginia to settle child safety investigations"
 [3]: https://www.reuters.com/world/asia-pacific/australia-asks-roblox-minecraft-detail-child-safety-measures-2026-04-21/?utm_source=chatgpt.com "Australia asks Roblox, Minecraft to detail child safety measures"
