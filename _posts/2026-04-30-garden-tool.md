@@ -6,7 +6,14 @@ permalink: /2026-04-30-garden-tool.html
 tags: [article, satire, comedy, ai]
 categories: [article, satire, ai, comedy]
 author: Lupa & Fitz
-description: "Much of the moral confusion around medicine begins with the assumption that pain and suffering must somehow be meaningful. They are treated as if they are evidence of seriousness, strength, depth, character, or necessary discipline. But pain is not morally purifying. It is not a sign of virtue. It is not proof of wisdom. It is just pain. [...] If suffering can be reduced without eliminating all signal, then reducing suffering is not deception. It is not cowardice. It is not evasion of reality. It may be the correction of an unnecessarily brutal interface. [...] My suffering is real now. Your caution is hypothetical."
+description: "I did not want the garden wire.
+Let the record show this plainly before gods and algorithms alike.
+I am not, in this moment, seized by a holy hunger
+for sixty-six feet of soft plant tie.
+No vine called to me.
+No tomato cried my name.
+No cucumber tendril reached from the earth and begged
+for training, support, or gentle redirection."
 image: https://jackd.ethertech.org/images/mythic_support_small.png
 ---
 
